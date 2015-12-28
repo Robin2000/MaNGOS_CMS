@@ -1,0 +1,49 @@
+<html><head><title>command</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-command-table" class="anchor" href="#the-command-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `command` table</h2> 
+<p>Holds help and security information for commands.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Command#name">name</a></td> 
+   <td>varchar(50)</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Command#security">security</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Command#help">help</a></td> 
+   <td>longtext</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td>None</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-name" class="anchor" href="#name" aria-hidden="true"><span class="octicon octicon-link"></span></a>name</h4> 
+<p>The name of the command.</p> 
+<h4> <a id="user-content-security" class="anchor" href="#security" aria-hidden="true"><span class="octicon octicon-link"></span></a>security</h4> 
+<p>The security level required to use the command. Corresponds with <a href="account#gmlevel">account.gmlevel</a> in the realm database.</p> 
+<h4> <a id="user-content-help" class="anchor" href="#help" aria-hidden="true"><span class="octicon octicon-link"></span></a>help</h4> 
+<p>The help text displayed by the .help command.</p></div></div>
+</body></html>

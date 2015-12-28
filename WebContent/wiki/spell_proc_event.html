@@ -1,0 +1,369 @@
+<html><head><title>spell_proc_event</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-spell_proc_event-table" class="anchor" href="#the-spell_proc_event-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `spell_proc_event` table</h2> 
+<p>This table holds information on what events (or procs) certain spells are activated. All spells in this table must have apply a <span>SPELL</span>_<span>AURA</span>_<span>PROC</span>_<span>TRIGGER</span>_<span>SPELL</span> (42) aura. Any entries in this table will overwrite the existing proc settings in the spell’s <span>DBC</span> entry.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_proc_event#entry">entry</a></td> 
+   <td>smallint(6) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_proc_event#schoolmask">SchoolMask</a></td> 
+   <td>tinyint(4)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_proc_event#category">Category</a></td> 
+   <td>smallint(6)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_proc_event#skillid">SkillID</a></td> 
+   <td>smallint(6)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_proc_event#spellfamilyname">SpellFamilyName</a></td> 
+   <td>smallint(6) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_proc_event#spellfamilymask">SpellFamilyMask</a></td> 
+   <td>bigint(40) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_proc_event#procflags">procFlags</a></td> 
+   <td>int(11) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_proc_event#ppmrate">ppmRate</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-entry" class="anchor" href="#entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry</h4> 
+<p>The spell ID that is capable to proc on an event.</p> 
+<h4> <a id="user-content-schoolmask" class="anchor" href="#schoolmask" aria-hidden="true"><span class="octicon octicon-link"></span></a>SchoolMask</h4> 
+<p>This field contains a bitmask that controls on what types of spell damages the proc can be triggered. For example if an aura procs only when the unit it is casted upon is hit by shadow spells (spell 34914). To combine spell schools, just add the bit values.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>School ID</th> 
+   <th>Bit</th> 
+   <th>Name</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>1</td> 
+   <td>Physical</td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>2</td> 
+   <td>Holy</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>4</td> 
+   <td>Fire</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>8</td> 
+   <td>Nature</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>16</td> 
+   <td>Frost</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td>32</td> 
+   <td>Shadow</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>64</td> 
+   <td>Arcane</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-category" class="anchor" href="#category" aria-hidden="true"><span class="octicon octicon-link"></span></a>Category</h4> 
+<p>This field controls what spell categories can proc the aura’s triggered spell.</p> 
+<h4> <a id="user-content-skillid" class="anchor" href="#skillid" aria-hidden="true"><span class="octicon octicon-link"></span></a>SkillID</h4> 
+<p>This field controls what spells’ skill IDs can proc the triggered spell. For example all talent spells in a tab share a certain skill ID. See SkillLine.dbc</p> 
+<h4> <a id="user-content-spellfamilyname" class="anchor" href="#spellfamilyname" aria-hidden="true"><span class="octicon octicon-link"></span></a>SpellFamilyName</h4> 
+<p>This field controls what family name spells can proc the triggered spell.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Family Name</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>Generic</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>Mage</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Warrior</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td>Warlock</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>Priest</td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>Druid</td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td>Rogue</td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td>Hunter</td> 
+  </tr> 
+  <tr> 
+   <td>10</td> 
+   <td>Paladin</td> 
+  </tr> 
+  <tr> 
+   <td>11</td> 
+   <td>Shaman</td> 
+  </tr> 
+  <tr> 
+   <td>13</td> 
+   <td>Potion</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-spellfamilymask" class="anchor" href="#spellfamilymask" aria-hidden="true"><span class="octicon octicon-link"></span></a>SpellFamilyMask</h4> 
+<p>This field controls what spells’ family flags can proc the triggered spell.</p> 
+<h4> <a id="user-content-procflags" class="anchor" href="#procflags" aria-hidden="true"><span class="octicon octicon-link"></span></a>procFlags</h4> 
+<p>A bitmask controlling what events trigger the spell. To combine possible events, add the proc bits together.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>Proc Name</th> 
+   <th>Bit</th> 
+   <th>Comments</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>NONE</span> </td> 
+   <td>None</td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>HIT</span>_<span>MELEE</span> </td> 
+   <td>On melee hit</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>STRUCK</span>_<span>MELEE</span> </td> 
+   <td>On being hit by melee damage</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>KILL</span>_XP_<span>GIVER</span> </td> 
+   <td>On kill target giving XP or honor</td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>SPECIAL</span>_<span>DROP</span> </td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>DODGE</span> </td> 
+   <td>On dodge melee attack</td> 
+  </tr> 
+  <tr> 
+   <td>32</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>PARRY</span> </td> 
+   <td>On parry melee attack</td> 
+  </tr> 
+  <tr> 
+   <td>64</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>BLOCK</span> </td> 
+   <td>On block attack</td> 
+  </tr> 
+  <tr> 
+   <td>128</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>TOUCH</span> </td> 
+   <td>On being touched (for bombs, probably?)</td> 
+  </tr> 
+  <tr> 
+   <td>256</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>TARGET</span>_<span>LOW</span>_<span>HEALTH</span> </td> 
+   <td>On deal damage to enemy with 20% or less health</td> 
+  </tr> 
+  <tr> 
+   <td>512</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>LOW</span>_<span>HEALTH</span> </td> 
+   <td>On health dropped below 20%</td> 
+  </tr> 
+  <tr> 
+   <td>1024</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>STRUCK</span>_<span>RANGED</span> </td> 
+   <td>On being struck ranged</td> 
+  </tr> 
+  <tr> 
+   <td>2048</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>HIT</span>_<span>SPECIAL</span> </td> 
+   <td>(!)Removed, may be reassigned in future</td> 
+  </tr> 
+  <tr> 
+   <td>4096</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>CRIT</span>_<span>MELEE</span> </td> 
+   <td>On crit melee</td> 
+  </tr> 
+  <tr> 
+   <td>8192</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>STRUCK</span>_<span>CRIT</span>_<span>MELEE</span> </td> 
+   <td>On being critically struck in melee</td> 
+  </tr> 
+  <tr> 
+   <td>16384</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>CAST</span>_<span>SPELL</span> </td> 
+   <td>On spell cast</td> 
+  </tr> 
+  <tr> 
+   <td>32768</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>TAKE</span>_<span>DAMAGE</span> </td> 
+   <td>On damage taken</td> 
+  </tr> 
+  <tr> 
+   <td>65536</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>CRIT</span>_<span>SPELL</span> </td> 
+   <td>On spell critical hit</td> 
+  </tr> 
+  <tr> 
+   <td>131072</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>HIT</span>_<span>SPELL</span> </td> 
+   <td>On spell hit</td> 
+  </tr> 
+  <tr> 
+   <td>262144</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>STRUCK</span>_<span>CRIT</span>_<span>SPELL</span> </td> 
+   <td>On being critically struck by a spell</td> 
+  </tr> 
+  <tr> 
+   <td>524288</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>HIT</span>_<span>RANGED</span> </td> 
+   <td>On getting ranged hit</td> 
+  </tr> 
+  <tr> 
+   <td>1048576</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>STRUCK</span>_<span>SPELL</span> </td> 
+   <td>On being struck by a spell</td> 
+  </tr> 
+  <tr> 
+   <td>2097152</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>TRAP</span> </td> 
+   <td>On trap activation</td> 
+  </tr> 
+  <tr> 
+   <td>4194304</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>CRIT</span>_<span>RANGED</span> </td> 
+   <td>On getting ranged crit</td> 
+  </tr> 
+  <tr> 
+   <td>8388608</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>STRUCK</span>_<span>CRIT</span>_<span>RANGED</span> </td> 
+   <td>On being critically struck by a ranged attack</td> 
+  </tr> 
+  <tr> 
+   <td>16777216</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>RESIST</span>_<span>SPELL</span> </td> 
+   <td>On resist enemy spell</td> 
+  </tr> 
+  <tr> 
+   <td>33554432</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>TARGET</span>_<span>RESISTS</span> </td> 
+   <td>On enemy resisted spell</td> 
+  </tr> 
+  <tr> 
+   <td>67108864</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>TARGET</span>_<span>AVOID</span>_<span>ATTACK</span> </td> 
+   <td>On enemy blocks/dodges/parries</td> 
+  </tr> 
+  <tr> 
+   <td>134217728</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>HEAL</span> </td> 
+   <td>On heal of someone</td> 
+  </tr> 
+  <tr> 
+   <td>268435456</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>CRIT</span>_<span>HEAL</span> </td> 
+   <td>On critical healing effect</td> 
+  </tr> 
+  <tr> 
+   <td>536870912</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>HEALED</span> </td> 
+   <td>On healed by someone</td> 
+  </tr> 
+  <tr> 
+   <td>1073741824</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>TARGET</span>_<span>BLOCK</span> </td> 
+   <td>On enemy blocks</td> 
+  </tr> 
+  <tr> 
+   <td>2147483648</td> 
+   <td> <span>PROC</span>_<span>FLAG</span>_<span>MISS</span> </td> 
+   <td>On miss melee attack</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-ppmrate" class="anchor" href="#ppmrate" aria-hidden="true"><span class="octicon octicon-link"></span></a>ppmRate</h4> 
+<p>This field controls the times per minute that the spell should proc. If zero, then the value is taken from the <span>DBC</span> entry.</p></div></div>
+</body></html>

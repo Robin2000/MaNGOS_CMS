@@ -1,0 +1,313 @@
+<html><head><title>achievement_criteria_requirement</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-achievement_criteria_requirement-table" class="anchor" href="#the-achievement_criteria_requirement-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `achievement_criteria_requirement` table</h2> 
+<p>This table contains what need to be done to complete an achievement criteria.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td>Field</td> 
+   <td>Type</td> 
+   <td>Attributes</td> 
+   <td>Can be null</td> 
+   <td>Default</td> 
+   <td>Comments</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Achievement_criteria_requirement#criteria_id">criteria_id</a></td> 
+   <td>mediumint(8)</td> 
+   <td>signed</td> 
+   <td>NO</td> 
+   <td>None</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Achievement_criteria_requirement#type">type</a></td> 
+   <td>tintint(3)</td> 
+   <td>unsigned</td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Achievement_criteria_requirement#otherfields">value1</a></td> 
+   <td>mediumint(8)</td> 
+   <td>unsigned</td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Achievement_criteria_requirement#otherfields">value2</a></td> 
+   <td>mediumint(8)</td> 
+   <td>unsigned</td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-criteria_id" class="anchor" href="#criteria_id" aria-hidden="true"><span class="octicon octicon-link"></span></a>criteria_id</h4> 
+<p>Column 0 (ID) of achievement_criteria.dbc This <span>DBC</span> contains the achievement_id on 2nd column and will be later extracted to show relations.</p> 
+<h4> <a id="user-content-type" class="anchor" href="#type" aria-hidden="true"><span class="octicon octicon-link"></span></a>type</h4> 
+<p>Describes how to use value1 and value2.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>Type</th> 
+   <th>Name</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td> <span>TYPE</span>_<span>NONE</span> </td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td> <span>TYPE</span>_T_<span>CREATURE</span> </td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td> <span>TYPE</span>_T_<span>PLAYER</span>_<span>CLASS</span>_<span>RACE</span> </td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td> <span>TYPE</span>_T_<span>PLAYER</span>_<span>LESS</span>_<span>HEALTH</span> </td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td> <span>TYPE</span>_T_<span>PLAYER</span>_<span>DEAD</span> </td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td> <span>TYPE</span>_S_<span>AURA</span> </td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td> <span>TYPE</span>_S_<span>AREA</span> </td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td> <span>TYPE</span>_T_<span>AURA</span> </td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td> <span>TYPE</span>_<span>VALUE</span> </td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td> <span>TYPE</span>_T_<span>LEVEL</span> </td> 
+  </tr> 
+  <tr> 
+   <td>10</td> 
+   <td> <span>TYPE</span>_T_<span>GENDER</span> </td> 
+  </tr> 
+  <tr> 
+   <td>11</td> 
+   <td> <span>TYPE</span>_<span>DISABLED</span> </td> 
+  </tr> 
+  <tr> 
+   <td>12</td> 
+   <td> <span>TYPE</span>_<span>MAP</span>_<span>DIFFICULTY</span> </td> 
+  </tr> 
+  <tr> 
+   <td>13</td> 
+   <td> <span>TYPE</span>_<span>MAP</span>_<span>PLAYER</span>_<span>COUNT</span> </td> 
+  </tr> 
+  <tr> 
+   <td>14</td> 
+   <td> <span>TYPE</span>_T_<span>TEAM</span> </td> 
+  </tr> 
+  <tr> 
+   <td>15</td> 
+   <td> <span>TYPE</span>_S_<span>DRUNK</span> </td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td> <span>TYPE</span>_<span>HOLIDAY</span> </td> 
+  </tr> 
+  <tr> 
+   <td>17</td> 
+   <td> <span>TYPE</span>_BG_<span>LOSS</span>_<span>TEAM</span>_<span>SCORE</span> </td> 
+  </tr> 
+  <tr> 
+   <td>18</td> 
+   <td> <span>TYPE</span>_<span>INSTANCE</span>_<span>SCRIPT</span> </td> 
+  </tr> 
+  <tr> 
+   <td>19</td> 
+   <td> <span>TYPE</span>_S_<span>EQUIPED</span>_<span>ITEM</span>_<span>LVL</span> </td> 
+  </tr> 
+  <tr> 
+   <td>20</td> 
+   <td> <span>TYPE</span>_<span>REQUIRE</span>_<span>NTH</span>_<span>BIRTHDAY</span> </td> 
+  </tr> 
+  <tr> 
+   <td>21</td> 
+   <td> <span>TYPE</span>_<span>REQUIRE</span>_<span>KNOWN</span>_<span>TITLE</span> </td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-otherfields" class="anchor" href="#otherfields" aria-hidden="true"><span class="octicon octicon-link"></span></a>OtherFields</h4> 
+<p>Depending on what Type was set, the meaning and use for the following fields varies. <span>TYPE</span>_T are for targets and <span>TYPE</span>_S are for sources</p> 
+<ul> 
+ <li> <strong><span>TYPE</span>_T_<span>CREATURE</span> = 1</strong> 
+  <ul> 
+   <li>value1: Target creature_template.<a href="creature_template#entry">entry</a> </li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li>’’’TYPE_T_<span>PLAYER</span>_<span>CLASS</span>_<span>RACE</span> = 2 ‘’’ 
+  <ul> 
+   <li>value1: Target Player class</li> 
+   <li>value2: Target Player race</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li>’’’TYPE_T_<span>PLAYER</span>_<span>LESS</span>_<span>HEALTH</span> = 3 ‘’’ 
+  <ul> 
+   <li>value1: Target Health percentage</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li>’’’TYPE_T_<span>PLAYER</span>_<span>DEAD</span> = 4 ‘’’ 
+  <ul> 
+   <li>value1: Team value the source player and target dead player must both meet</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li>’’’TYPE_S_<span>AURA</span> = 5 ‘’’ 
+  <ul> 
+   <li>value1: Spell ID</li> 
+   <li>value2: Effect index</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li>’’’TYPE_S_<span>AREA</span> = 6 ‘’’ 
+  <ul> 
+   <li>value1: Area ID from <a href="AreaTable.dbc">AreaTable.dbc</a> </li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li>’’’TYPE_T_<span>AURA</span> = 7 ‘’’ 
+  <ul> 
+   <li>value1: Spell ID</li> 
+   <li>value2: Effect index</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong><span>TYPE</span>_<span>VALUE</span> = 8</strong> 
+  <ul> 
+   <li>value1: Min Value. Value provided with achievement update must be not less that limit</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong><span>TYPE</span>_T_<span>LEVEL</span> = 9</strong> 
+  <ul> 
+   <li>value1: Target Min Level</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong><span>TYPE</span>_T_<span>GENDER</span> = 10</strong> 
+  <ul> 
+   <li>value1: Gender: 0=Male, 1=Female</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li><strong><span>TYPE</span>_<span>DISABLED</span> = 11</strong></li> 
+</ul> 
+<p>Used to prevent achievement criteria to complete if not all requirements are implemented and listed in this table</p> 
+<ul> 
+ <li> <strong><span>TYPE</span>_<span>MAP</span>_<span>DIFFICULTY</span> = 12</strong> 
+  <ul> 
+   <li>value1: Map difficulty:</li> 
+  </ul> </li> 
+</ul> 
+<table> 
+ <tbody>
+  <tr> 
+   <td>Description</td> 
+   <td>Flag</td> 
+  </tr> 
+  <tr> 
+   <td> <span>DUNGEON</span>_<span>DIFFICULTY</span>_<span>NORMAL</span> </td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td> <span>DUNGEON</span>_<span>DIFFICULTY</span>_<span>HEROIC</span> </td> 
+   <td>1</td> 
+  </tr> 
+  <tr> 
+   <td> <span>RAID</span>_<span>DIFFICULTY</span>_10MAN_<span>NORMAL</span> </td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td> <span>RAID</span>_<span>DIFFICULTY</span>_25MAN_<span>NORMAL</span> </td> 
+   <td>1</td> 
+  </tr> 
+  <tr> 
+   <td> <span>RAID</span>_<span>DIFFICULTY</span>_10MAN_<span>HEROIC</span> </td> 
+   <td>2</td> 
+  </tr> 
+  <tr> 
+   <td> <span>RAID</span>_<span>DIFFICULTY</span>_25MAN_<span>HEROIC</span> </td> 
+   <td>3</td> 
+  </tr> 
+ </tbody>
+</table> 
+<ul> 
+ <li> <strong><span>TYPE</span>_<span>MAP</span>_<span>PLAYER</span>_<span>COUNT</span> = 13</strong> 
+  <ul> 
+   <li>value1: Count. For criteria "with less than %u people in the zone"</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong><span>TYPE</span>_T_<span>TEAM</span> = 14</strong> 
+  <ul> 
+   <li>value1: Team: <span>HORDE</span> = 67, <span>ALLIANCE</span> = 469</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong><span>TYPE</span>_S_<span>DRUNK</span> = 15</strong> 
+  <ul> 
+   <li>value1: Druken State. <span>DRUNKEN</span>_<span>SOBER</span> = 0, <span>DRUNKEN</span>_<span>TIPSY</span> = 1, <span>DRUNKEN</span>_<span>DRUNK</span> = 2, <span>DRUNKEN</span>_<span>SMASHED</span> = 3</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong><span>TYPE</span>_<span>HOLIDAY</span> = 16</strong> 
+  <ul> 
+   <li>value1: Holiday ID which must be active from Holiday.dbc and <a href="Game_event#holiday">game_event</a> </li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li>’’’TYPE_BG_<span>LOSS</span>_<span>TEAM</span>_<span>SCORE</span> = 17 ‘’’ 
+  <ul> 
+   <li>value1: min_score</li> 
+   <li>value2: max_score</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li>’’’TYPE_<span>INSTANCE</span>_<span>SCRIPT</span> = 18 ‘’’</li> 
+</ul> 
+<p>Make instance script call for check current criteria requirements fit</p> 
+<ul> 
+ <li>’’’TYPE_S_<span>EQUIPED</span>_<span>ITEM</span>_<span>LVL</span> = 19 ‘’’ 
+  <ul> 
+   <li>value1: item_level</li> 
+   <li>value2: item_quality</li> 
+  </ul> </li> 
+</ul> 
+<p>For equipped item in slot `misc1` to item level and quality</p> 
+<ul> 
+ <li>’’’TYPE_<span>REQUIRE</span>_<span>NTH</span>_<span>BIRTHDAY</span> = 20 ‘’’ 
+  <ul> 
+   <li>value1: nth-birthday</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li>’’’TYPE_<span>CRITERIA</span>_<span>REQUIRE</span>_<span>KNOWN</span>_<span>TITLE</span> = 21 ‘’’ 
+  <ul> 
+   <li>value1: <a href="CharTitles.dbc">title_id</a> </li> 
+  </ul> </li> 
+</ul></div></div>
+</body></html>

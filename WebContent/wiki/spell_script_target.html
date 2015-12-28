@@ -1,0 +1,71 @@
+<html><head><title>spell_script_target</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-spell_script_target-table" class="anchor" href="#the-spell_script_target-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `spell_script_target` table</h2> 
+<p>Used to control SpellEffect with ImpliciteTargetA-B == 7|8|38|40|46|52.</p> 
+<p>These spell effects require a specific target in either alive or dead state (for creatures).</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_script_target#entry">entry</a></td> 
+   <td>int(6) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_script_target#type">type</a></td> 
+   <td>int(8) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_script_target#targetentry">targetEntry</a></td> 
+   <td>int(11) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_script_target#inverseeffectmask">inverseEffectMask</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-entry" class="anchor" href="#entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry</h4> 
+<p>The spell ID. See Spell.dbc</p> 
+<p>When adding a new entry, be sure to check to see if the spell triggers another spell. If it does, don’t forget to check that spell as well to see if it has ImplictTargetA-B = 38 || ImpliciteTargetA-B == 7 and if it does, add an entry in this table for it as well.</p> 
+<p><span>NOTE</span>: The only valide targets for ImpliciteTargetA-B == 7 are creatures(dead or alive).</p> 
+<h4> <a id="user-content-type" class="anchor" href="#type" aria-hidden="true"><span class="octicon octicon-link"></span></a>type</h4> 
+<p>One of these type are available</p> 
+<ul> 
+ <li>0 = Gameobject</li> 
+ <li>1 = Creature</li> 
+ <li>2 = Creature who must be dead (killed by Player or Npc)</li> 
+</ul> 
+<p><span>NOTE</span>: A creature corpse and a creature that <em>looks</em> dead are two different things. One is actually dead and the other is just using an emote to appear dead.</p> 
+<h4> <a id="user-content-targetentry" class="anchor" href="#targetentry" aria-hidden="true"><span class="octicon octicon-link"></span></a>targetEntry</h4> 
+<p>Can be: <a href="creature_template#entry">creature_template.entry</a> or <a href="gameobject_template#entry">gameobject_template.entry</a> depending on the choosen type.</p> 
+<p>This specified entry will be automatically targeted if it is near the unit casting the spell.</p> 
+<h4> <a id="user-content-inverseeffectmask" class="anchor" href="#inverseeffectmask" aria-hidden="true"><span class="octicon octicon-link"></span></a>inverseEffectMask</h4> 
+<p>A mask value defining if the target is only applicable for specifiq effect indexes.<br> This is an inverseMask, so you need to filter effects for which you don’t want the target to be valid.<br> The mask is 1 &lt;&lt; EffectIndex (EffectIndex going from 0 to 2)</p> 
+<p>Example:<br> (Spell, 1, NpcA, 2^0), — NpcA will <span>NOT</span> be chosen for spell-effect 0, so it will be chosen for effects 1 or 2<br> (Spell, 1, NpcB, 2^1|2^2), — NpcB will <span>NOT</span> be chosen for spell-effects 1, 2, so it will be chosen for effect 0.</p> 
+<p>So with this we can define targets for a spell (assuming that the targets for the effects can make use of spell_script_target!) in a way that Effect0 will hit NpcB, and Effect1,2 will hit NpcA</p></div></div>
+</body></html>

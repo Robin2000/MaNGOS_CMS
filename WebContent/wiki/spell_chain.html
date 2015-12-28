@@ -1,0 +1,59 @@
+<html><head><title>spell_chain</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-spell_chain-table" class="anchor" href="#the-spell_chain-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `spell_chain` table</h2> 
+<p>This table defines spell chains. A spell chain is a series of spells which all share the same name and all do the same thing; however, each has a different rank and as the rank increases, so does the spell damage/heal/etc values. This table also controls what spells are replaced by their more powerful later ranks; however, that is also decided by other factors as well (if mana costs for both spells are the same, etc). All fields in this table except rank are spell IDs from Spell.dbc.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_chain#spell_id">spell_id</a></td> 
+   <td>int(5)</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_chain#prev_spell">prev_spell</a></td> 
+   <td>int(5)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_chain#first_spell">first_spell</a></td> 
+   <td>int(5)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_chain#rank">rank</a></td> 
+   <td>tinyint(4)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-spell_id" class="anchor" href="#spell_id" aria-hidden="true"><span class="octicon octicon-link"></span></a>spell_id</h4> 
+<p>The spell ID of the spell we are looking at that is in a chain.</p> 
+<h4> <a id="user-content-prev_spell" class="anchor" href="#prev_spell" aria-hidden="true"><span class="octicon octicon-link"></span></a>prev_spell</h4> 
+<p>The spell that came before the spell in <a href="#spell_id">spell_id</a>. If the spell defined above is the first rank, then this field <span>MUST</span> be 0. If the spell chain is such that new ranks supersede older ranks, then the spell in this field will be unlearned when the spell in <a href="#spell_id">spell_id</a> is learned.</p> 
+<h4> <a id="user-content-first_spell" class="anchor" href="#first_spell" aria-hidden="true"><span class="octicon octicon-link"></span></a>first_spell</h4> 
+<p>The very first spell in the chain. The spell put in this field is usually the Rank 1 spell version in the chain. If the ID used in <a href="#spell_id">spell_id</a> is equal to the ID in this field (meaning that the spell we are looking at is the first one in the chain), then the rank must be either 0 or 1.</p> 
+<h4> <a id="user-content-rank" class="anchor" href="#rank" aria-hidden="true"><span class="octicon octicon-link"></span></a>rank</h4> 
+<p>This field specifies what rank the spell in <a href="#spell_id">spell_id</a> has.</p></div></div>
+</body></html>

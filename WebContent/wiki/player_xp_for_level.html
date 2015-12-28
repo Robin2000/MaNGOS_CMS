@@ -1,0 +1,46 @@
+<html><head><title>player_xp_for_level</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-player_xp_for_level-table" class="anchor" href="#the-player_xp_for_level-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `player_xp_for_level` table</h2> 
+<p>Includes information on how much experience needed for next level. Comes from sniffs.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Attributes</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+   <td><strong>Comment</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Player_xp_for_level#lvl">lvl</a></td> 
+   <td>int(3)</td> 
+   <td>unsigned</td> 
+   <td><span>PRI</span></td> 
+   <td>NO</td> 
+   <td><span>NULL</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Player_xp_for_level#xp_for_next_level">xp_for_next_level</a></td> 
+   <td>int(10)</td> 
+   <td>unsigned</td> 
+   <td></td> 
+   <td>NO</td> 
+   <td><span>NULL</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<p>This table sets the exp point needed to upgrade the player’s level.</p> 
+<h4> <a id="user-content-lvl" class="anchor" href="#lvl" aria-hidden="true"><span class="octicon octicon-link"></span></a>lvl</h4> 
+<p>The player’s level.</p> 
+<h4> <a id="user-content-xp_for_next_level" class="anchor" href="#xp_for_next_level" aria-hidden="true"><span class="octicon octicon-link"></span></a>xp_for_next_level</h4> 
+<p>The experience needed to upgrade from the value in "lvl" field to "lvl" +1.</p></div></div>
+</body></html>

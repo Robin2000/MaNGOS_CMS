@@ -1,481 +1,415 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
-    <title>wiki</title>
-    
-</head>
-		<body>
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">		
-						<h1 class="page-header">https://github.com/cmangos/issues/wiki/mangosdb_struct</h1>
-					<ul>
-						<li><a href="achievement_criteria_requirement">achievement_criteria_requirement</a></li>
-					</ul>
-					<ul>
-						<li><a href="achievement_reward">achievement_reward</a></li>
-					</ul>
-					<ul>
-						<li><a href="areatrigger_involvedrelation">areatrigger_involvedrelation</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="areatrigger_tavern">areatrigger_tavern</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="areatrigger_teleport">areatrigger_teleport</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="battleground_events">battleground_events</a></li>
-					</ul>
-					<ul>
-						<li><a href="battleground_template">battleground_template</a></li>
-					</ul>
-					<ul>
-						<li><a href="battlemaster_entry">battlemaster_entry</a></li>
-					</ul>
-					<ul>
-						<li><a href="command">command</a> (Reloadable) (CMaNGOS)</li>
-					</ul>
-					<ul>
-						<li><a href="conditions">conditions</a></li>
-					</ul>
-					<ul>
-						<li><a href="creature">creature</a></li>
-					</ul>
-					<ul>
-						<li><a href="creature_template_addon">creature_addon</a></li>
-					</ul>
-					<ul>
-						<li><a href="creature_ai_scripts">creature_ai_scripts</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="creature_ai_summons">creature_ai_summons</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="creature_ai_texts">creature_ai_texts</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="creature_battleground">creature_battleground</a></li>
-					</ul>
-					<ul>
-						<li><a href="creature_equip_template">creature_equip_template</a></li>
-					</ul>
-					<ul>
-						<li><a href="creature_involvedrelation">creature_involvedrelation</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="creature_loot_template">creature_loot_template</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="creature_model_info">creature_model_info</a></li>
-					</ul>
-					<ul>
-						<li><a href="creature_model_race">creature_model_race</a></li>
-					</ul>
-					<ul>
-						<li><a href="creature_movement">creature_movement</a></li>
-					</ul>
-					<ul>
-						<li><a href="creature_movement_template">creature_movement_template</a></li>
-					</ul>
-					<ul>
-						<li><a href="creature_onkill_reputation">creature_onkill_reputation</a></li>
-					</ul>
-					<ul>
-						<li><a href="creature_questrelation">creature_questrelation</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="creature_template">Creature_Template</a></li>
-					</ul>
-					<ul>
-						<li><a href="creature_template_addon">creature_template_addon</a></li>
-					</ul>
-					<ul>
-						<li><a href="creature_linking_template">creature_linking_template</a></li>
-					</ul>
-					<ul>
-						<li><a href="creature_template_addon">creature_template_addon</a></li>
-					</ul>
-					<ul>
-						<li><a href="creature_template_classlevelstats">creature_template_classlevelstats</a></li>
-					</ul>
-					<ul>
-						<li><a href="creature_template_spells">creature_template_spells</a></li>
-					</ul>
-					<ul>
-						<li><a href="db_script_string">db_script_string</a></li>
-					</ul>
-					<ul>
-						<li><a href="db_version">db_version</a></li>
-					</ul>
-					<ul>
-						<li><a href="DBScripts">dbscripts_on_creature_death</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="DBScripts">dbscripts_on_creature_movement</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="DBScripts">dbscripts_on_event</a> (Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="DBScripts">dbscripts_on_go_template_use</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="DBScripts">dbscripts_on_go_use</a> (Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="DBScripts">dbscripts_on_gossip</a> (Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="DBScripts">dbscripts_on_quest_end</a> (Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="DBScripts">dbscripts_on_quest_start</a> (Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="DBScripts">dbscripts_on_spell</a> (Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="disenchant_loot_template">disenchant_loot_template</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="exploration_basexp">exploration_basexp</a></li>
-					</ul>
-					<ul>
-						<li><a href="fishing_loot_template">fishing_loot_template</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="game_event">game_event</a></li>
-					</ul>
-					<ul>
-						<li><a href="game_event_creature">game_event_creature</a></li>
-					</ul>
-					<ul>
-						<li><a href="game_event_creature_data">game_event_creature_data</a></li>
-					</ul>
-					<ul>
-						<li><a href="game_event_gameobject">game_event_gameobject</a></li>
-					</ul>
-					<ul>
-						<li><a href="game_event_mail">game_event_mail</a></li>
-					</ul>
-					<ul>
-						<li><a href="game_event_quest">game_event_quest</a></li>
-					</ul>
-					<ul>
-						<li><a href="game_graveyard_zone">game_graveyard_zone</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="game_tele">game_tele</a></li>
-					</ul>
-					<ul>
-						<li><a href="game_weather">game_weather</a></li>
-					</ul>
-					<ul>
-						<li><a href="gameobject">gameobject</a></li>
-					</ul>
-					<ul>
-						<li><a href="gameobject_addon">gameobject_addon</a></li>
-					</ul>
-					<ul>
-						<li><a href="gameobject_battleground">gameobject_battleground</a></li>
-					</ul>
-					<ul>
-						<li><a href="gameobject_involvedrelation">gameobject_involvedrelation</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="gameobject_loot_template">gameobject_loot_template</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="gameobject_questrelation">gameobject_questrelation</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="gameobject_template">gameobject_template</a></li>
-					</ul>
-					<ul>
-						<li><a href="gossip_menu">gossip_menu</a> (Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="gossip_menu_option">gossip_menu_option</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="instance_template">instance_template</a></li>
-					</ul>
-					<ul>
-						<li><a href="item_convert">item_convert</a></li>
-					</ul>
-					<ul>
-						<li><a href="item_enchantment_template">item_enchantment_template</a></li>
-					</ul>
-					<ul>
-						<li><a href="item_expire_convert">item_expire_convert</a>
-							(CMaNGOS) (Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="item_loot_template">item_loot_template</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="item_required_target">item_required_target</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="item_template">item_template</a></li>
-					</ul>
-					<ul>
-						<li><a href="locales_creature">locales_creature</a></li>
-					</ul>
-					<ul>
-						<li><a href="locales_gameobject">locales_gameobject</a></li>
-					</ul>
-					<ul>
-						<li><a href="locales_item">locales_item</a></li>
-					</ul>
-					<ul>
-						<li><a href="locales_npc_text">locales_npc_text</a></li>
-					</ul>
-					<ul>
-						<li><a href="locales_page_text">locales_page_text</a></li>
-					</ul>
-					<ul>
-						<li><a href="locales_quest">locales_quest</a></li>
-					</ul>
-					<ul>
-						<li><a href="mail_level_reward">mail_level_reward</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="mail_loot_template">mail_loot_template</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="mangos_string">mangos_string</a></li>
-					</ul>
-					<ul>
-						<li><a href="milling_loot_template">milling_loot_template</a></li>
-					</ul>
-					<ul>
-						<li><a href="npc_gossip">npc_gossip</a></li>
-					</ul>
-					<ul>
-						<li><a href="npc_spellclick_spells">npc_spellclick_spells</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="npc_text">npc_text</a></li>
-					</ul>
-					<ul>
-						<li><a href="npc_trainer">npc_trainer</a></li>
-					</ul>
-					<ul>
-						<li><a href="npc_trainer_template">npc_trainer_template</a></li>
-					</ul>
-					<ul>
-						<li><a href="npc_vendor">npc_vendor</a></li>
-					</ul>
-					<ul>
-						<li><a href="npc_vendor_template">npc_vendor_template</a></li>
-					</ul>
-					<ul>
-						<li><a href="page_text">page_text</a></li>
-					</ul>
-					<ul>
-						<li><a href="pet_levelstats">pet_levelstats</a></li>
-					</ul>
-					<ul>
-						<li><a href="pet_name_generation">pet_name_generation</a></li>
-					</ul>
-					<ul>
-						<li><a href="pickpocketing_loot_template">pickpocketing_loot_template</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="player_classlevelstats">player_classlevelstats</a>
-							(CMaNGOS)</li>
-					</ul>
-					<ul>
-						<li><a href="player_levelstats">player_levelstats</a> (CMaNGOS)</li>
-					</ul>
-					<ul>
-						<li><a href="player_xp_for_level">player_xp_for_level</a>
-							(CMaNGOS)</li>
-					</ul>
-					<ul>
-						<li><a href="playercreateinfo">playercreateinfo</a> (CMaNGOS)</li>
-					</ul>
-					<ul>
-						<li><a href="playercreateinfo_action">playercreateinfo_action</a>
-							(CMaNGOS)</li>
-					</ul>
-					<ul>
-						<li><a href="playercreateinfo_item">playercreateinfo_item</a>
-							(CMaNGOS)</li>
-					</ul>
-					<ul>
-						<li><a href="playercreateinfo_spell">playercreateinfo_spell</a>
-							(CMaNGOS)</li>
-					</ul>
-					<ul>
-						<li><a href="points_of_interest">points_of_interest</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="pool_creature">pool_creature</a></li>
-					</ul>
-					<ul>
-						<li><a href="pool_creature_template">pool_creature_template</a></li>
-					</ul>
-					<ul>
-						<li><a href="pool_gameobject">pool_gameobject</a></li>
-					</ul>
-					<ul>
-						<li><a href="pool_gameobject_template">pool_gameobject_template</a></li>
-					</ul>
-					<ul>
-						<li><a href="pool_pool">pool_pool</a></li>
-					</ul>
-					<ul>
-						<li><a href="pool_template">pool_template</a></li>
-					</ul>
-					<ul>
-						<li><a href="prospecting_loot_template">prospecting_loot_template</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="quest_poi">quest_poi</a> (Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="quest_poi_points">quest_poi_points</a> (Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="quest_template">quest_template</a> (Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="reference_loot_template">reference_loot_template</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="reputation_reward_rate">reputation_reward_rate</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="reputation_spillover_template">reputation_spillover_template</a></li>
-					</ul>
-					<ul>
-						<li><a href="reserved_name">reserved_name</a> (Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="scripted_areatrigger">scripted_areatrigger</a>
-							(ScriptLibrary)</li>
-					</ul>
-					<ul>
-						<li><a href="scripted_event_id">scripted_event_id</a>
-							(ScriptLibrary)</li>
-					</ul>
-					<ul>
-						<li><a href="skill_discovery_template">skill_discovery_template</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="skill_extra_item_template">skill_extra_item_template</a></li>
-					</ul>
-					<ul>
-						<li><a href="skill_fishing_base_level">skill_fishing_base_level</a></li>
-					</ul>
-					<ul>
-						<li><a href="skinning_loot_template">skinning_loot_template</a></li>
-					</ul>
-					<ul>
-						<li><a href="spell_affect">spell_affect</a> (Reloadable)
-							(CMaNGOS)</li>
-					</ul>
-					<ul>
-						<li><a href="spell_area">spell_area</a> (Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="spell_bonus_data">spell_bonus_data</a> (Reloadable)
-							(CMaNGOS)</li>
-					</ul>
-					<ul>
-						<li><a href="spell_chain">spell_chain</a> (Reloadable) (CMaNGOS)</li>
-					</ul>
-					<ul>
-						<li><a href="spell_check">spell_check</a> (CMaNGOS)</li>
-					</ul>
-					<ul>
-						<li><a href="spell_elixir">spell_elixir</a> (Reloadable)
-							(CMaNGOS)</li>
-					</ul>
-					<ul>
-						<li><a href="spell_learn_spell">spell_learn_spell</a>
-							(Reloadable) (CMaNGOS)</li>
-					</ul>
-					<ul>
-						<li><a href="spell_loot_template">spell_loot_template</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="spell_pet_auras">spell_pet_auras</a></li>
-					</ul>
-					<ul>
-						<li><a href="spell_proc_event">spell_proc_event</a> (Reloadable)
-							(CMaNGOS)</li>
-					</ul>
-					<ul>
-						<li><a href="spell_proc_item_enchant">spell_proc_item_enchant</a>
-							(Reloadable) (CMaNGOS)</li>
-					</ul>
-					<ul>
-						<li><a href="spell_script_target">spell_script_target</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="spell_target_position">spell_target_position</a>
-							(Reloadable)</li>
-					</ul>
-					<ul>
-						<li><a href="spell_template">spell_template</a></li>
-					</ul>
-					<ul>
-						<li><a href="spell_threat">spell_threat</a> (Reloadable)
-							(CMaNGOS)</li>
-					</ul>
-					<ul>
-						<li><a href="transports">transports</a></li>
-					</ul>
-					<ul>
-						<li><a href="vehicle_accessory">vehicle_accessory</a></li>
-					</ul>
-					<ul>
-						<li><a href="world_template">world_template</a></li>
-					</ul>
-                    </div>
-                    <!-- /.col-lg-12 -->
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container-fluid -->
-        </div>
-</body>
-</html>
+<html><head><title>index</title></head><body>
+<div class='row'><div class='col-lg-12'><h3> <a id="user-content-this-is-the-list-of-tables-in-the-regular-mangos-database" class="anchor" href="#this-is-the-list-of-tables-in-the-regular-mangos-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>This is the list of tables in the regular ‘mangos’ database</h3> 
+<p>(Reloadable) – Reloadable in-game with the .reload command.<br> (CMaNGOS) – CMaNGOS table. These tables are either used by MaNGOS internally, or they are maintained by the CMaNGOS team. Either way, the DB teams do not touch them.<br> (ScriptLibrary) – Script library tables. These tables are maintained by script library projects (such as ScriptDev2). The DB teams do not touch them.</p> 
+<ul> 
+ <li><a href="achievement_criteria_requirement">achievement_criteria_requirement</a></li> 
+</ul> 
+<ul> 
+ <li><a href="achievement_reward">achievement_reward</a></li> 
+</ul> 
+<ul> 
+ <li> <a href="areatrigger_involvedrelation">areatrigger_involvedrelation</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="areatrigger_tavern">areatrigger_tavern</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="areatrigger_teleport">areatrigger_teleport</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li><a href="battleground_events">battleground_events</a></li> 
+</ul> 
+<ul> 
+ <li><a href="battleground_template">battleground_template</a></li> 
+</ul> 
+<ul> 
+ <li><a href="battlemaster_entry">battlemaster_entry</a></li> 
+</ul> 
+<ul> 
+ <li> <a href="command">command</a> (Reloadable) (CMaNGOS)</li> 
+</ul> 
+<ul> 
+ <li><a href="conditions">conditions</a></li> 
+</ul> 
+<ul> 
+ <li><a href="creature">creature</a></li> 
+</ul> 
+<ul> 
+ <li><a href="creature_template_addon">creature_addon</a></li> 
+</ul> 
+<ul> 
+ <li> <a href="creature_ai_scripts">creature_ai_scripts</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="creature_ai_summons">creature_ai_summons</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="creature_ai_texts">creature_ai_texts</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li><a href="creature_battleground">creature_battleground</a></li> 
+</ul> 
+<ul> 
+ <li><a href="creature_equip_template">creature_equip_template</a></li> 
+</ul> 
+<ul> 
+ <li> <a href="creature_involvedrelation">creature_involvedrelation</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="creature_loot_template">creature_loot_template</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li><a href="creature_model_info">creature_model_info</a></li> 
+</ul> 
+<ul> 
+ <li><a href="creature_model_race">creature_model_race</a></li> 
+</ul> 
+<ul> 
+ <li><a href="creature_movement">creature_movement</a></li> 
+</ul> 
+<ul> 
+ <li><a href="creature_movement_template">creature_movement_template</a></li> 
+</ul> 
+<ul> 
+ <li><a href="creature_onkill_reputation">creature_onkill_reputation</a></li> 
+</ul> 
+<ul> 
+ <li> <a href="creature_questrelation">creature_questrelation</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li><a href="creature_template">Creature_Template</a></li> 
+</ul> 
+<ul> 
+ <li><a href="creature_template_addon">creature_template_addon</a></li> 
+</ul> 
+<ul> 
+ <li><a href="creature_linking_template">creature_linking_template</a></li> 
+</ul> 
+<ul> 
+ <li><a href="creature_template_addon">creature_template_addon</a></li> 
+</ul> 
+<ul> 
+ <li><a href="creature_template_classlevelstats">creature_template_classlevelstats</a></li> 
+</ul> 
+<ul> 
+ <li><a href="creature_template_spells">creature_template_spells</a></li> 
+</ul> 
+<ul> 
+ <li><a href="db_script_string">db_script_string</a></li> 
+</ul> 
+<ul> 
+ <li><a href="db_version">db_version</a></li> 
+</ul> 
+<ul> 
+ <li> <a href="DBScripts">dbscripts_on_creature_death</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="DBScripts">dbscripts_on_creature_movement</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="DBScripts">dbscripts_on_event</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="DBScripts">dbscripts_on_go_template_use</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="DBScripts">dbscripts_on_go_use</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="DBScripts">dbscripts_on_gossip</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="DBScripts">dbscripts_on_quest_end</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="DBScripts">dbscripts_on_quest_start</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="DBScripts">dbscripts_on_spell</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="disenchant_loot_template">disenchant_loot_template</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li><a href="exploration_basexp">exploration_basexp</a></li> 
+</ul> 
+<ul> 
+ <li> <a href="fishing_loot_template">fishing_loot_template</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li><a href="game_event">game_event</a></li> 
+</ul> 
+<ul> 
+ <li><a href="game_event_creature">game_event_creature</a></li> 
+</ul> 
+<ul> 
+ <li><a href="game_event_creature_data">game_event_creature_data</a></li> 
+</ul> 
+<ul> 
+ <li><a href="game_event_gameobject">game_event_gameobject</a></li> 
+</ul> 
+<ul> 
+ <li><a href="game_event_mail">game_event_mail</a></li> 
+</ul> 
+<ul> 
+ <li><a href="game_event_quest">game_event_quest</a></li> 
+</ul> 
+<ul> 
+ <li> <a href="game_graveyard_zone">game_graveyard_zone</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li><a href="game_tele">game_tele</a></li> 
+</ul> 
+<ul> 
+ <li><a href="game_weather">game_weather</a></li> 
+</ul> 
+<ul> 
+ <li><a href="gameobject">gameobject</a></li> 
+</ul> 
+<ul> 
+ <li><a href="gameobject_addon">gameobject_addon</a></li> 
+</ul> 
+<ul> 
+ <li><a href="gameobject_battleground">gameobject_battleground</a></li> 
+</ul> 
+<ul> 
+ <li> <a href="gameobject_involvedrelation">gameobject_involvedrelation</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="gameobject_loot_template">gameobject_loot_template</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="gameobject_questrelation">gameobject_questrelation</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li><a href="gameobject_template">gameobject_template</a></li> 
+</ul> 
+<ul> 
+ <li> <a href="gossip_menu">gossip_menu</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="gossip_menu_option">gossip_menu_option</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li><a href="instance_template">instance_template</a></li> 
+</ul> 
+<ul> 
+ <li><a href="item_convert">item_convert</a></li> 
+</ul> 
+<ul> 
+ <li><a href="item_enchantment_template">item_enchantment_template</a></li> 
+</ul> 
+<ul> 
+ <li> <a href="item_expire_convert">item_expire_convert</a> (CMaNGOS) (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="item_loot_template">item_loot_template</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="item_required_target">item_required_target</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li><a href="item_template">item_template</a></li> 
+</ul> 
+<ul> 
+ <li><a href="locales_creature">locales_creature</a></li> 
+</ul> 
+<ul> 
+ <li><a href="locales_gameobject">locales_gameobject</a></li> 
+</ul> 
+<ul> 
+ <li><a href="locales_item">locales_item</a></li> 
+</ul> 
+<ul> 
+ <li><a href="locales_npc_text">locales_npc_text</a></li> 
+</ul> 
+<ul> 
+ <li><a href="locales_page_text">locales_page_text</a></li> 
+</ul> 
+<ul> 
+ <li><a href="locales_quest">locales_quest</a></li> 
+</ul> 
+<ul> 
+ <li> <a href="mail_level_reward">mail_level_reward</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="mail_loot_template">mail_loot_template</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li><a href="mangos_string">mangos_string</a></li> 
+</ul> 
+<ul> 
+ <li><a href="milling_loot_template">milling_loot_template</a></li> 
+</ul> 
+<ul> 
+ <li><a href="npc_gossip">npc_gossip</a></li> 
+</ul> 
+<ul> 
+ <li> <a href="npc_spellclick_spells">npc_spellclick_spells</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li><a href="npc_text">npc_text</a></li> 
+</ul> 
+<ul> 
+ <li><a href="npc_trainer">npc_trainer</a></li> 
+</ul> 
+<ul> 
+ <li><a href="npc_trainer_template">npc_trainer_template</a></li> 
+</ul> 
+<ul> 
+ <li><a href="npc_vendor">npc_vendor</a></li> 
+</ul> 
+<ul> 
+ <li><a href="npc_vendor_template">npc_vendor_template</a></li> 
+</ul> 
+<ul> 
+ <li><a href="page_text">page_text</a></li> 
+</ul> 
+<ul> 
+ <li><a href="pet_levelstats">pet_levelstats</a></li> 
+</ul> 
+<ul> 
+ <li><a href="pet_name_generation">pet_name_generation</a></li> 
+</ul> 
+<ul> 
+ <li> <a href="pickpocketing_loot_template">pickpocketing_loot_template</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="player_classlevelstats">player_classlevelstats</a> (CMaNGOS)</li> 
+</ul> 
+<ul> 
+ <li> <a href="player_levelstats">player_levelstats</a> (CMaNGOS)</li> 
+</ul> 
+<ul> 
+ <li> <a href="player_xp_for_level">player_xp_for_level</a> (CMaNGOS)</li> 
+</ul> 
+<ul> 
+ <li> <a href="playercreateinfo">playercreateinfo</a> (CMaNGOS)</li> 
+</ul> 
+<ul> 
+ <li> <a href="playercreateinfo_action">playercreateinfo_action</a> (CMaNGOS)</li> 
+</ul> 
+<ul> 
+ <li> <a href="playercreateinfo_item">playercreateinfo_item</a> (CMaNGOS)</li> 
+</ul> 
+<ul> 
+ <li> <a href="playercreateinfo_spell">playercreateinfo_spell</a> (CMaNGOS)</li> 
+</ul> 
+<ul> 
+ <li> <a href="points_of_interest">points_of_interest</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li><a href="pool_creature">pool_creature</a></li> 
+</ul> 
+<ul> 
+ <li><a href="pool_creature_template">pool_creature_template</a></li> 
+</ul> 
+<ul> 
+ <li><a href="pool_gameobject">pool_gameobject</a></li> 
+</ul> 
+<ul> 
+ <li><a href="pool_gameobject_template">pool_gameobject_template</a></li> 
+</ul> 
+<ul> 
+ <li><a href="pool_pool">pool_pool</a></li> 
+</ul> 
+<ul> 
+ <li><a href="pool_template">pool_template</a></li> 
+</ul> 
+<ul> 
+ <li> <a href="prospecting_loot_template">prospecting_loot_template</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="quest_poi">quest_poi</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="quest_poi_points">quest_poi_points</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="quest_template">quest_template</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="reference_loot_template">reference_loot_template</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="reputation_reward_rate">reputation_reward_rate</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li><a href="reputation_spillover_template">reputation_spillover_template</a></li> 
+</ul> 
+<ul> 
+ <li> <a href="reserved_name">reserved_name</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="scripted_areatrigger">scripted_areatrigger</a> (ScriptLibrary)</li> 
+</ul> 
+<ul> 
+ <li> <a href="scripted_event_id">scripted_event_id</a> (ScriptLibrary)</li> 
+</ul> 
+<ul> 
+ <li> <a href="skill_discovery_template">skill_discovery_template</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li><a href="skill_extra_item_template">skill_extra_item_template</a></li> 
+</ul> 
+<ul> 
+ <li><a href="skill_fishing_base_level">skill_fishing_base_level</a></li> 
+</ul> 
+<ul> 
+ <li><a href="skinning_loot_template">skinning_loot_template</a></li> 
+</ul> 
+<ul> 
+ <li> <a href="spell_affect">spell_affect</a> (Reloadable) (CMaNGOS)</li> 
+</ul> 
+<ul> 
+ <li> <a href="spell_area">spell_area</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="spell_bonus_data">spell_bonus_data</a> (Reloadable) (CMaNGOS)</li> 
+</ul> 
+<ul> 
+ <li> <a href="spell_chain">spell_chain</a> (Reloadable) (CMaNGOS)</li> 
+</ul> 
+<ul> 
+ <li> <a href="spell_check">spell_check</a> (CMaNGOS)</li> 
+</ul> 
+<ul> 
+ <li> <a href="spell_elixir">spell_elixir</a> (Reloadable) (CMaNGOS)</li> 
+</ul> 
+<ul> 
+ <li> <a href="spell_learn_spell">spell_learn_spell</a> (Reloadable) (CMaNGOS)</li> 
+</ul> 
+<ul> 
+ <li> <a href="spell_loot_template">spell_loot_template</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li><a href="spell_pet_auras">spell_pet_auras</a></li> 
+</ul> 
+<ul> 
+ <li> <a href="spell_proc_event">spell_proc_event</a> (Reloadable) (CMaNGOS)</li> 
+</ul> 
+<ul> 
+ <li> <a href="spell_proc_item_enchant">spell_proc_item_enchant</a> (Reloadable) (CMaNGOS)</li> 
+</ul> 
+<ul> 
+ <li> <a href="spell_script_target">spell_script_target</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li> <a href="spell_target_position">spell_target_position</a> (Reloadable)</li> 
+</ul> 
+<ul> 
+ <li><a href="spell_template">spell_template</a></li> 
+</ul> 
+<ul> 
+ <li> <a href="spell_threat">spell_threat</a> (Reloadable) (CMaNGOS)</li> 
+</ul> 
+<ul> 
+ <li><a href="transports">transports</a></li> 
+</ul> 
+<ul> 
+ <li><a href="vehicle_accessory">vehicle_accessory</a></li> 
+</ul> 
+<ul> 
+ <li><a href="world_template">world_template</a></li> 
+</ul></div></div>
+</body></html>

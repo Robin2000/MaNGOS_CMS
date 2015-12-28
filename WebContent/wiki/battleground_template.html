@@ -1,0 +1,148 @@
+<html><head><title>battleground_template</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-battleground_template-table" class="anchor" href="#the-battleground_template-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `battleground_template` table</h2> 
+<p>Contains information about the different battlegrounds, like how many players are needed to start, how many can be inside the same one, and the locations where each side starts.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Battleground_template#id">id</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Battleground_template#minplayersperteam">MinPlayersPerTeam</a></td> 
+   <td>smallint(5) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Battleground_template#maxplayersperteam">MaxPlayersPerTeam</a></td> 
+   <td>smallint(5) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Battleground_template#alliancestartloc">AllianceStartLoc</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Battleground_template#alliancestarto">AllianceStartO</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Battleground_template#hordestartloc">HordeStartLoc</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Battleground_template#hordestarto">HordeStartO</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-id" class="anchor" href="#id" aria-hidden="true"><span class="octicon octicon-link"></span></a>id</h4> 
+<p>The battleground ID. See BattlemasterList.dbc</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Type</th> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>Alterac Valley</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>Warsong Gulch</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>Arathi Basin</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Nagrand Arena</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td>Blade’s Edge Arena</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>Nagrand Arena</td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>Eye of the Storm</td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td>Ruins of Lordaeron</td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td>Strand of the Ancients</td> 
+  </tr> 
+  <tr> 
+   <td>10</td> 
+   <td>Dalaran Sewers</td> 
+  </tr> 
+  <tr> 
+   <td>11</td> 
+   <td>The Ring of Valor</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-minplayersperteam" class="anchor" href="#minplayersperteam" aria-hidden="true"><span class="octicon octicon-link"></span></a>MinPlayersPerTeam</h4> 
+<p>Controls the minimum number of players that need to join the battleground on each faction side for the battleground to start. For the battleground to start, all characters (between min and max player values) must be in the same tier. Tiers are set up in ranges of 10 levels except for level 70. So the first tier is 10-19, the next are 20-29, 30-39, 40-49, 50-59, 60-69, and finally 70. If characters of different tiers all join the queue, they will join their respective tier’s queue and wait for more players of their tier to join the queue. Characters in different tiers can never join the same battleground.</p> 
+<h4> <a id="user-content-maxplayersperteam" class="anchor" href="#maxplayersperteam" aria-hidden="true"><span class="octicon octicon-link"></span></a>MaxPlayersPerTeam</h4> 
+<p>Controls how many players from each team can join the battleground.<br> NOTE2: If left to be 0, mangos will use the default <span>DBC</span> value.</p> 
+<h4> <a id="user-content-minlvl" class="anchor" href="#minlvl" aria-hidden="true"><span class="octicon octicon-link"></span></a>MinLvl</h4> 
+<p>The minimum level that players need to be in order to join the battleground.<br> <span>NOTE</span>: If left to be 0, mangos will use the default <span>DBC</span> value.</p> 
+<h4> <a id="user-content-maxlvl" class="anchor" href="#maxlvl" aria-hidden="true"><span class="octicon octicon-link"></span></a>MaxLvl</h4> 
+<p>The maximum level that players can be to enter the battleground.<br> <span>NOTE</span>: If left to be 0, mangos will use the default <span>DBC</span> value.</p> 
+<h4> <a id="user-content-alliancestartloc" class="anchor" href="#alliancestartloc" aria-hidden="true"><span class="octicon octicon-link"></span></a>AllianceStartLoc</h4> 
+<p>The location where the alliance players get teleported to when the battleground first starts. See <a href="WorldSafeLocs.dbc">WorldSafeLocs.dbc</a></p> 
+<h4> <a id="user-content-alliancestarto" class="anchor" href="#alliancestarto" aria-hidden="true"><span class="octicon octicon-link"></span></a>AllianceStartO</h4> 
+<p>The orientation of the alliance players upon teleport into the battleground. North is 0, south is Pi (3.14159).</p> 
+<h4> <a id="user-content-hordestartloc" class="anchor" href="#hordestartloc" aria-hidden="true"><span class="octicon octicon-link"></span></a>HordeStartLoc</h4> 
+<p>The location where the horde players get teleported to when the battleground first starts. See <a href="WorldSafeLocs.dbc">WorldSafeLocs.dbc</a></p> 
+<h4> <a id="user-content-hordestarto" class="anchor" href="#hordestarto" aria-hidden="true"><span class="octicon octicon-link"></span></a>HordeStartO</h4> 
+<p>The orientation of the horde players upon teleport into the battleground. North is 0, south is Pi (3.14159).</p></div></div>
+</body></html>

@@ -1,0 +1,84 @@
+<html><head><title>creature_model_info</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-creature_model_info-table" class="anchor" href="#the-creature_model_info-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `creature_model_info` table</h2> 
+<p>This table contains all models of mobs, their gender and other information that are model related. This means that when a creature uses another model, this information will change as well.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_model_info#modelid">modelid</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_model_info#bounding_radius">bounding_radius</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_model_info#combat_reach">combat_reach</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_model_info#gender">gender</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>2</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_model_info#modelid_other_gender">modelid_other_gender</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_model_info#modelid_alternative">modelid_alternative</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-modelid" class="anchor" href="#modelid" aria-hidden="true"><span class="octicon octicon-link"></span></a>modelid</h4> 
+<p>Display ID from CreatureDisplayInfo.dbc</p> 
+<h4> <a id="user-content-bounding_radius" class="anchor" href="#bounding_radius" aria-hidden="true"><span class="octicon octicon-link"></span></a>bounding_radius</h4> 
+<p>A field scaled with size.<br> Might or might not have any relation to some radius of a bowl enclosing the creature.<br> Currently badly used in the above suggested way in some cases, which is false in general.</p> 
+<h4> <a id="user-content-combat_reach" class="anchor" href="#combat_reach" aria-hidden="true"><span class="octicon octicon-link"></span></a>combat_reach</h4> 
+<p>This is an additional distance that is added to range of attacks (both melee and spells) to check if an attack can reach the enemy.</p> 
+<h4> <a id="user-content-gender" class="anchor" href="#gender" aria-hidden="true"><span class="octicon octicon-link"></span></a>gender</h4> 
+<p>Gender of the creature</p> 
+<ul> 
+ <li>0: Male</li> 
+ <li>1: Female</li> 
+ <li>2: None</li> 
+</ul> 
+<h4> <a id="user-content-modelid_other_gender" class="anchor" href="#modelid_other_gender" aria-hidden="true"><span class="octicon octicon-link"></span></a>modelid_other_gender</h4> 
+<p>Point to <a href="Creature_model_info#modelid">Creature_model_info.modelid</a>. When the entry is gender male (0) or female (1), this value can point to the display id of the other gender.</p> 
+<h3> <a id="user-content-modelid_alternative" class="anchor" href="#modelid_alternative" aria-hidden="true"><span class="octicon octicon-link"></span></a>modelid_alternative</h3> 
+<p>Alternative to the current model.</p></div></div>
+</body></html>

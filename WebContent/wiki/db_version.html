@@ -1,0 +1,45 @@
+<html><head><title>db_version</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-db_version-table" class="anchor" href="#the-db_version-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `db_version` table</h2> 
+<p>This table contains the version of the DB in use. It is highly recommended to any repacker or any other team that is working on the database to update this field at any change made.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Db_version#version">version</a></td> 
+   <td>varchar(120)</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td><span>NULL</span></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Db_version#creature_ai_version">creature_ai_version</a></td> 
+   <td>varchar(120)</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td><span>NULL</span></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Db_version#cache_id">cache_id</a></td> 
+   <td><acronym title="10"><span>INT</span></acronym></td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-version" class="anchor" href="#version" aria-hidden="true"><span class="octicon octicon-link"></span></a>version</h4> 
+<p>The version of the database that is in use. The contents of this field identifies the database name and version that is in use and is also displayed at mangos startup.</p></div></div>
+</body></html>

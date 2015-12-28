@@ -1,0 +1,94 @@
+<html><head><title>spell_bonus_data</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-spell_bonus_data-table" class="anchor" href="#the-spell_bonus_data-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `spell_bonus_data` table</h2> 
+<p>Table used for storing custom damage/healing bonus coefficients.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Attributes</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+   <td><strong>Comment</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_bonus_data#entry">entry</a></td> 
+   <td>mediumint(8)</td> 
+   <td>unsigned</td> 
+   <td><span>PRI</span></td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_bonus_data#direct_bonus">direct_bonus</a></td> 
+   <td>float</td> 
+   <td>signed</td> 
+   <td></td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_bonus_data#dot_bonus">dot_bonus</a></td> 
+   <td>float</td> 
+   <td>signed</td> 
+   <td></td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_bonus_data#ap_bonus">ap_bonus</a></td> 
+   <td>float</td> 
+   <td>signed</td> 
+   <td></td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_bonus_data#ap_dot_bonus">ap_dot_bonus</a></td> 
+   <td>float</td> 
+   <td>signed</td> 
+   <td></td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_bonus_data#comments">comments</a></td> 
+   <td>varchar(255)</td> 
+   <td>signed</td> 
+   <td></td> 
+   <td><span>YES</span></td> 
+   <td><span>NULL</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-entry" class="anchor" href="#entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry</h4> 
+<p>Spell ID. See <a href="Spell.dbc">Spell.dbc.</a>.</p> 
+<h4> <a id="user-content-direct_bonus" class="anchor" href="#direct_bonus" aria-hidden="true"><span class="octicon octicon-link"></span></a>direct_bonus</h4> 
+<p>Direct spell power damage.<br> If &lt; 0<br> Calculate default spell power coefficient.<br> If = 0<br> Don’t apply any spell power coefficient. (Don’t scale damage with spellpower)<br> If &gt; 0<br> Use this as new spell power coefficient.</p> 
+<h4> <a id="user-content-dot_bonus" class="anchor" href="#dot_bonus" aria-hidden="true"><span class="octicon octicon-link"></span></a>dot_bonus</h4> 
+<p>Spell damage over time.</p> 
+<p>If &lt; 0 Calculate default spell power coefficient. If = 0 Don’t apply any spell power coefficient. (Don’t scale damage with spellpower) If &gt; 0 Use this as new spell power coefficient.</p> 
+<h4> <a id="user-content-ap_bonus" class="anchor" href="#ap_bonus" aria-hidden="true"><span class="octicon octicon-link"></span></a>ap_bonus</h4> 
+<p>Direct Melee/Ranged damage.<br> If &lt; 0<br> Calculate default attack power coefficient.<br> If = 0<br> Don’t apply any attack power coefficient. (Don’t scale damage with attack power)<br> If &gt; 0<br> Use this as new attack power coefficient.</p> 
+<h4> <a id="user-content-ap_dot_bonus" class="anchor" href="#ap_dot_bonus" aria-hidden="true"><span class="octicon octicon-link"></span></a>ap_dot_bonus</h4> 
+<p>Melee/Ranged damage over time.<br> If &lt; 0<br> Calculate default attack power coefficient.<br> If = 0<br> Don’t apply any attack power coefficient. (Don’t scale damage with attack power)<br> If &gt; 0<br> Use this as new attack power coefficient.</p> 
+<h4> <a id="user-content-comments" class="anchor" href="#comments" aria-hidden="true"><span class="octicon octicon-link"></span></a>comments</h4> 
+<p>Comment as why it has such values and name of the spell.</p></div></div>
+</body></html>

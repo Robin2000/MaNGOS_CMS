@@ -1,0 +1,130 @@
+<html><head><title>spell_area</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-spell_area-table" class="anchor" href="#the-spell_area-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `spell_area` table</h2> 
+<p>This table holds information on what spells are applied to npcs/players in some areas.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_area#spell">spell</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_area#area">area</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_area#quest_start">quest_start</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_area#quest_start_active">quest_start_active</a></td> 
+   <td>tinyint(1) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_area#quest_end">quest_end</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_area#condition_id">condition_id</a></td> 
+   <td>mediumint(8)</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_area#aura_spell">aura_spell</a></td> 
+   <td>mediumint(8)</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_area#racemask">racemask</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_area#gender">gender</a></td> 
+   <td>tinyint(1) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>2</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_area#autocast">autocast</a></td> 
+   <td>tinyint(1) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-spell" class="anchor" href="#spell" aria-hidden="true"><span class="octicon octicon-link"></span></a>spell</h4> 
+<p>The spell ID that will be castet. Reference to <a href="Spell.dbc">Spell.dbc.</a>.</p> 
+<h4> <a id="user-content-area" class="anchor" href="#area" aria-hidden="true"><span class="octicon octicon-link"></span></a>area</h4> 
+<p>Reference to <a href="AreaTable.dbc">AreaTable.dbc.</a>. Player must be in this area.</p> 
+<h4> <a id="user-content-quest_start" class="anchor" href="#quest_start" aria-hidden="true"><span class="octicon octicon-link"></span></a>quest_start</h4> 
+<p>Reference to <a href="quest_template">quest_template.</a>. This quest must be available or active and must not be completed. Exact behaviour depends on <a href="spell_area#quest_start_active">quest_start_active</a>.</p> 
+<h4> <a id="user-content-quest_start_active" class="anchor" href="#quest_start_active" aria-hidden="true"><span class="octicon octicon-link"></span></a>quest_start_active</h4> 
+<p>Boolean value. If set to 0 the quest <a href="spell_area#quest_start">quest_start</a> must be available and not activ. If set to 1 the quest <a href="spell_area#quest_start">quest_start</a> must be available or active in players’ log.</p> 
+<h4> <a id="user-content-quest_end" class="anchor" href="#quest_end" aria-hidden="true"><span class="octicon octicon-link"></span></a>quest_end</h4> 
+<p>Reference to <a href="quest_template">quest_template.</a>. This quest must not be completed.</p> 
+<h4> <a id="user-content-condition_id" class="anchor" href="#condition_id" aria-hidden="true"><span class="octicon octicon-link"></span></a>condition_id</h4> 
+<p>Reference to <a href="conditions">conditions.</a>.</p> 
+<h4> <a id="user-content-aura_spell" class="anchor" href="#aura_spell" aria-hidden="true"><span class="octicon octicon-link"></span></a>aura_spell</h4> 
+<p>Reference to <a href="Spell.dbc">Spell.dbc.</a>. Player must have this aura to activate the spell. Negativ values stand for "not has aura" requirement.</p> 
+<h4> <a id="user-content-racemask" class="anchor" href="#racemask" aria-hidden="true"><span class="octicon octicon-link"></span></a>racemask</h4> 
+<p>Only these races are target of the spell.</p> 
+<p><strong>Race</strong></p> 
+<p>These values are 2^ID taken from <a href="CharRaces.dbc">CharRaces.dbc</a></p> 
+<p>Examples</p> 
+<p>0,1791 = All Races</p> 
+<p>(2 + 16 + 32 + 128 + 512) = 690 = only Horde</p> 
+<p>(1 + 4 + 8 + 64 + 1024) = 1101 = only Alliance</p> 
+<h4> <a id="user-content-gender" class="anchor" href="#gender" aria-hidden="true"><span class="octicon octicon-link"></span></a>gender</h4> 
+<p>Only this gender is target of the spell.</p> 
+<ul> 
+ <li>0: Male</li> 
+ <li>1: Female</li> 
+ <li>2: Both</li> 
+</ul> 
+<h4> <a id="user-content-autocast" class="anchor" href="#autocast" aria-hidden="true"><span class="octicon octicon-link"></span></a>autocast</h4> 
+<p>Boolean value.</p></div></div>
+</body></html>

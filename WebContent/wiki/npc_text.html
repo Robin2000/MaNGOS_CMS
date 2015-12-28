@@ -1,0 +1,762 @@
+<html><head><title>npc_text</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-npc_text-table" class="anchor" href="#the-npc_text-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `npc_text` table</h2> 
+<p>This table contains the texts that are used for gossip. More research needs to be done on this table.<br> Text is showed in start of talk window.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#id">ID</a></td> 
+   <td>int(11) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#text0_0">text0_0</a></td> 
+   <td>longtext</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#text0_1">text0_1</a></td> 
+   <td>longtext</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#lang0">lang0</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#prob0">prob0</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em0_0">em0_0</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em0_1">em0_1</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em0_2">em0_2</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em0_3">em0_3</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em0_4">em0_4</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em0_5">em0_5</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#text1_0">text1_0</a></td> 
+   <td>longtext</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#text1_1">text1_1</a></td> 
+   <td>longtext</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#lang1">lang1</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#prob1">prob1</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em1_0">em1_0</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em1_1">em1_1</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em1_2">em1_2</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em1_3">em1_3</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em1_4">em1_4</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em1_5">em1_5</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#text2_0">text2_0</a></td> 
+   <td>longtext</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#text2_1">text2_1</a></td> 
+   <td>longtext</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#lang2">lang2</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#prob2">prob2</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em2_0">em2_0</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em2_1">em2_1</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em2_2">em2_2</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em2_3">em2_3</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em2_4">em2_4</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em2_5">em2_5</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#text3_0">text3_0</a></td> 
+   <td>longtext</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#text3_1">text3_1</a></td> 
+   <td>longtext</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#lang3">lang3</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#prob3">prob3</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em3_0">em3_0</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em3_1">em3_1</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em3_2">em3_2</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em3_3">em3_3</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em3_4">em3_4</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em3_5">em3_5</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#text4_0">text4_0</a></td> 
+   <td>longtext</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#text4_1">text4_1</a></td> 
+   <td>longtext</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#lang4">lang4</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#prob4">prob4</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em4_0">em4_0</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em4_1">em4_1</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em4_2">em4_2</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em4_3">em4_3</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em4_4">em4_4</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em4_5">em4_5</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#text5_0">text5_0</a></td> 
+   <td>longtext</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#text5_1">text5_1</a></td> 
+   <td>longtext</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#lang5">lang5</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#prob5">prob5</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em5_0">em5_0</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em5_1">em5_1</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em5_2">em5_2</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em5_3">em5_3</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em5_4">em5_4</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em5_5">em5_5</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#text6_0">text6_0</a></td> 
+   <td>longtext</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#text6_1">text6_1</a></td> 
+   <td>longtext</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#lang6">lang6</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#prob6">prob6</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em6_0">em6_0</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em6_1">em6_1</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em6_2">em6_2</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em6_3">em6_3</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em6_4">em6_4</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em6_5">em6_5</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#text7_0">text7_0</a></td> 
+   <td>longtext</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#text7_1">text7_1</a></td> 
+   <td>longtext</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#lang7">lang7</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#prob7">prob7</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em7_0">em7_0</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em7_1">em7_1</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em7_2">em7_2</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em7_3">em7_3</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em7_4">em7_4</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_text#em7_5">em7_5</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-id" class="anchor" href="#id" aria-hidden="true"><span class="octicon octicon-link"></span></a>ID</h4> 
+<p>This is the ID of the text entry. This ID comes from <span>WDB</span> cache. (First initialized to database from Blizzard <span>WDB</span> cache)</p> 
+<h4> <a id="user-content-text0_0" class="anchor" href="#text0_0" aria-hidden="true"><span class="octicon octicon-link"></span></a>text0_0</h4> 
+<p>Is this the first choice of locale 0?</p> 
+<h4> <a id="user-content-text0_1" class="anchor" href="#text0_1" aria-hidden="true"><span class="octicon octicon-link"></span></a>text0_1</h4> 
+<p>Second choice?</p> 
+<h4> <a id="user-content-lang0" class="anchor" href="#lang0" aria-hidden="true"><span class="octicon octicon-link"></span></a>lang0</h4> 
+<p>The language of the text in game (post list of possible values)</p> 
+<h4> <a id="user-content-prob0" class="anchor" href="#prob0" aria-hidden="true"><span class="octicon octicon-link"></span></a>prob0</h4> 
+<p>This is the probability that the <span>NPC</span> will say this text</p> 
+<ul> 
+ <li>1 means always.</li> 
+</ul> 
+<h4> <a id="user-content-em0_0" class="anchor" href="#em0_0" aria-hidden="true"><span class="octicon octicon-link"></span></a>em0_0</h4> 
+<p>Emote on greet?</p> 
+<h4> <a id="user-content-em0_1" class="anchor" href="#em0_1" aria-hidden="true"><span class="octicon octicon-link"></span></a>em0_1</h4> 
+<p>Emote on ?</p> 
+<h4> <a id="user-content-em0_2" class="anchor" href="#em0_2" aria-hidden="true"><span class="octicon octicon-link"></span></a>em0_2</h4> 
+<p>Emote on ?</p> 
+<h4> <a id="user-content-em0_3" class="anchor" href="#em0_3" aria-hidden="true"><span class="octicon octicon-link"></span></a>em0_3</h4> 
+<p>Emote on ?</p> 
+<h4> <a id="user-content-em0_4" class="anchor" href="#em0_4" aria-hidden="true"><span class="octicon octicon-link"></span></a>em0_4</h4> 
+<p>Emote on ?</p> 
+<h4> <a id="user-content-em0_5" class="anchor" href="#em0_5" aria-hidden="true"><span class="octicon octicon-link"></span></a>em0_5</h4> 
+<p>Emote on ?</p> 
+<h4> <a id="user-content-text1_0" class="anchor" href="#text1_0" aria-hidden="true"><span class="octicon octicon-link"></span></a>text1_0</h4> 
+<h4> <a id="user-content-text1_1" class="anchor" href="#text1_1" aria-hidden="true"><span class="octicon octicon-link"></span></a>text1_1</h4> 
+<h4> <a id="user-content-lang1" class="anchor" href="#lang1" aria-hidden="true"><span class="octicon octicon-link"></span></a>lang1</h4> 
+<h4> <a id="user-content-prob1" class="anchor" href="#prob1" aria-hidden="true"><span class="octicon octicon-link"></span></a>prob1</h4> 
+<h4> <a id="user-content-em1_0" class="anchor" href="#em1_0" aria-hidden="true"><span class="octicon octicon-link"></span></a>em1_0</h4> 
+<h4> <a id="user-content-em1_1" class="anchor" href="#em1_1" aria-hidden="true"><span class="octicon octicon-link"></span></a>em1_1</h4> 
+<h4> <a id="user-content-em1_2" class="anchor" href="#em1_2" aria-hidden="true"><span class="octicon octicon-link"></span></a>em1_2</h4> 
+<h4> <a id="user-content-em1_3" class="anchor" href="#em1_3" aria-hidden="true"><span class="octicon octicon-link"></span></a>em1_3</h4> 
+<h4> <a id="user-content-em1_4" class="anchor" href="#em1_4" aria-hidden="true"><span class="octicon octicon-link"></span></a>em1_4</h4> 
+<h4> <a id="user-content-em1_5" class="anchor" href="#em1_5" aria-hidden="true"><span class="octicon octicon-link"></span></a>em1_5</h4> 
+<h4> <a id="user-content-text2_0" class="anchor" href="#text2_0" aria-hidden="true"><span class="octicon octicon-link"></span></a>text2_0</h4> 
+<h4> <a id="user-content-text2_1" class="anchor" href="#text2_1" aria-hidden="true"><span class="octicon octicon-link"></span></a>text2_1</h4> 
+<h4> <a id="user-content-lang2" class="anchor" href="#lang2" aria-hidden="true"><span class="octicon octicon-link"></span></a>lang2</h4> 
+<h4> <a id="user-content-prob2" class="anchor" href="#prob2" aria-hidden="true"><span class="octicon octicon-link"></span></a>prob2</h4> 
+<h4> <a id="user-content-em2_0" class="anchor" href="#em2_0" aria-hidden="true"><span class="octicon octicon-link"></span></a>em2_0</h4> 
+<h4> <a id="user-content-em2_1" class="anchor" href="#em2_1" aria-hidden="true"><span class="octicon octicon-link"></span></a>em2_1</h4> 
+<h4> <a id="user-content-em2_2" class="anchor" href="#em2_2" aria-hidden="true"><span class="octicon octicon-link"></span></a>em2_2</h4> 
+<h4> <a id="user-content-em2_3" class="anchor" href="#em2_3" aria-hidden="true"><span class="octicon octicon-link"></span></a>em2_3</h4> 
+<h4> <a id="user-content-em2_4" class="anchor" href="#em2_4" aria-hidden="true"><span class="octicon octicon-link"></span></a>em2_4</h4> 
+<h4> <a id="user-content-em2_5" class="anchor" href="#em2_5" aria-hidden="true"><span class="octicon octicon-link"></span></a>em2_5</h4> 
+<h4> <a id="user-content-text3_0" class="anchor" href="#text3_0" aria-hidden="true"><span class="octicon octicon-link"></span></a>text3_0</h4> 
+<h4> <a id="user-content-text3_1" class="anchor" href="#text3_1" aria-hidden="true"><span class="octicon octicon-link"></span></a>text3_1</h4> 
+<h4> <a id="user-content-lang3" class="anchor" href="#lang3" aria-hidden="true"><span class="octicon octicon-link"></span></a>lang3</h4> 
+<h4> <a id="user-content-prob3" class="anchor" href="#prob3" aria-hidden="true"><span class="octicon octicon-link"></span></a>prob3</h4> 
+<h4> <a id="user-content-em3_0" class="anchor" href="#em3_0" aria-hidden="true"><span class="octicon octicon-link"></span></a>em3_0</h4> 
+<h4> <a id="user-content-em3_1" class="anchor" href="#em3_1" aria-hidden="true"><span class="octicon octicon-link"></span></a>em3_1</h4> 
+<h4> <a id="user-content-em3_2" class="anchor" href="#em3_2" aria-hidden="true"><span class="octicon octicon-link"></span></a>em3_2</h4> 
+<h4> <a id="user-content-em3_3" class="anchor" href="#em3_3" aria-hidden="true"><span class="octicon octicon-link"></span></a>em3_3</h4> 
+<h4> <a id="user-content-em3_4" class="anchor" href="#em3_4" aria-hidden="true"><span class="octicon octicon-link"></span></a>em3_4</h4> 
+<h4> <a id="user-content-em3_5" class="anchor" href="#em3_5" aria-hidden="true"><span class="octicon octicon-link"></span></a>em3_5</h4> 
+<h4> <a id="user-content-text4_0" class="anchor" href="#text4_0" aria-hidden="true"><span class="octicon octicon-link"></span></a>text4_0</h4> 
+<h4> <a id="user-content-text4_1" class="anchor" href="#text4_1" aria-hidden="true"><span class="octicon octicon-link"></span></a>text4_1</h4> 
+<h4> <a id="user-content-lang4" class="anchor" href="#lang4" aria-hidden="true"><span class="octicon octicon-link"></span></a>lang4</h4> 
+<h4> <a id="user-content-prob4" class="anchor" href="#prob4" aria-hidden="true"><span class="octicon octicon-link"></span></a>prob4</h4> 
+<h4> <a id="user-content-em4_0" class="anchor" href="#em4_0" aria-hidden="true"><span class="octicon octicon-link"></span></a>em4_0</h4> 
+<h4> <a id="user-content-em4_1" class="anchor" href="#em4_1" aria-hidden="true"><span class="octicon octicon-link"></span></a>em4_1</h4> 
+<h4> <a id="user-content-em4_2" class="anchor" href="#em4_2" aria-hidden="true"><span class="octicon octicon-link"></span></a>em4_2</h4> 
+<h4> <a id="user-content-em4_3" class="anchor" href="#em4_3" aria-hidden="true"><span class="octicon octicon-link"></span></a>em4_3</h4> 
+<h4> <a id="user-content-em4_4" class="anchor" href="#em4_4" aria-hidden="true"><span class="octicon octicon-link"></span></a>em4_4</h4> 
+<h4> <a id="user-content-em4_5" class="anchor" href="#em4_5" aria-hidden="true"><span class="octicon octicon-link"></span></a>em4_5</h4> 
+<h4> <a id="user-content-text5_0" class="anchor" href="#text5_0" aria-hidden="true"><span class="octicon octicon-link"></span></a>text5_0</h4> 
+<h4> <a id="user-content-text5_1" class="anchor" href="#text5_1" aria-hidden="true"><span class="octicon octicon-link"></span></a>text5_1</h4> 
+<h4> <a id="user-content-lang5" class="anchor" href="#lang5" aria-hidden="true"><span class="octicon octicon-link"></span></a>lang5</h4> 
+<h4> <a id="user-content-prob5" class="anchor" href="#prob5" aria-hidden="true"><span class="octicon octicon-link"></span></a>prob5</h4> 
+<h4> <a id="user-content-em5_0" class="anchor" href="#em5_0" aria-hidden="true"><span class="octicon octicon-link"></span></a>em5_0</h4> 
+<h4> <a id="user-content-em5_1" class="anchor" href="#em5_1" aria-hidden="true"><span class="octicon octicon-link"></span></a>em5_1</h4> 
+<h4> <a id="user-content-em5_2" class="anchor" href="#em5_2" aria-hidden="true"><span class="octicon octicon-link"></span></a>em5_2</h4> 
+<h4> <a id="user-content-em5_3" class="anchor" href="#em5_3" aria-hidden="true"><span class="octicon octicon-link"></span></a>em5_3</h4> 
+<h4> <a id="user-content-em5_4" class="anchor" href="#em5_4" aria-hidden="true"><span class="octicon octicon-link"></span></a>em5_4</h4> 
+<h4> <a id="user-content-em5_5" class="anchor" href="#em5_5" aria-hidden="true"><span class="octicon octicon-link"></span></a>em5_5</h4> 
+<h4> <a id="user-content-text6_0" class="anchor" href="#text6_0" aria-hidden="true"><span class="octicon octicon-link"></span></a>text6_0</h4> 
+<h4> <a id="user-content-text6_1" class="anchor" href="#text6_1" aria-hidden="true"><span class="octicon octicon-link"></span></a>text6_1</h4> 
+<h4> <a id="user-content-lang6" class="anchor" href="#lang6" aria-hidden="true"><span class="octicon octicon-link"></span></a>lang6</h4> 
+<h4> <a id="user-content-prob6" class="anchor" href="#prob6" aria-hidden="true"><span class="octicon octicon-link"></span></a>prob6</h4> 
+<h4> <a id="user-content-em6_0" class="anchor" href="#em6_0" aria-hidden="true"><span class="octicon octicon-link"></span></a>em6_0</h4> 
+<h4> <a id="user-content-em6_1" class="anchor" href="#em6_1" aria-hidden="true"><span class="octicon octicon-link"></span></a>em6_1</h4> 
+<h4> <a id="user-content-em6_2" class="anchor" href="#em6_2" aria-hidden="true"><span class="octicon octicon-link"></span></a>em6_2</h4> 
+<h4> <a id="user-content-em6_3" class="anchor" href="#em6_3" aria-hidden="true"><span class="octicon octicon-link"></span></a>em6_3</h4> 
+<h4> <a id="user-content-em6_4" class="anchor" href="#em6_4" aria-hidden="true"><span class="octicon octicon-link"></span></a>em6_4</h4> 
+<h4> <a id="user-content-em6_5" class="anchor" href="#em6_5" aria-hidden="true"><span class="octicon octicon-link"></span></a>em6_5</h4> 
+<h4> <a id="user-content-text7_0" class="anchor" href="#text7_0" aria-hidden="true"><span class="octicon octicon-link"></span></a>text7_0</h4> 
+<h4> <a id="user-content-text7_1" class="anchor" href="#text7_1" aria-hidden="true"><span class="octicon octicon-link"></span></a>text7_1</h4> 
+<h4> <a id="user-content-lang7" class="anchor" href="#lang7" aria-hidden="true"><span class="octicon octicon-link"></span></a>lang7</h4> 
+<h4> <a id="user-content-prob7" class="anchor" href="#prob7" aria-hidden="true"><span class="octicon octicon-link"></span></a>prob7</h4> 
+<h4> <a id="user-content-em7_0" class="anchor" href="#em7_0" aria-hidden="true"><span class="octicon octicon-link"></span></a>em7_0</h4> 
+<h4> <a id="user-content-em7_1" class="anchor" href="#em7_1" aria-hidden="true"><span class="octicon octicon-link"></span></a>em7_1</h4> 
+<h4> <a id="user-content-em7_2" class="anchor" href="#em7_2" aria-hidden="true"><span class="octicon octicon-link"></span></a>em7_2</h4> 
+<h4> <a id="user-content-em7_3" class="anchor" href="#em7_3" aria-hidden="true"><span class="octicon octicon-link"></span></a>em7_3</h4> 
+<h4> <a id="user-content-em7_4" class="anchor" href="#em7_4" aria-hidden="true"><span class="octicon octicon-link"></span></a>em7_4</h4> 
+<h4> <a id="user-content-em7_5" class="anchor" href="#em7_5" aria-hidden="true"><span class="octicon octicon-link"></span></a>em7_5</h4></div></div>
+</body></html>

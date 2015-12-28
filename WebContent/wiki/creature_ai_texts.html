@@ -1,0 +1,227 @@
+<html><head><title>creature_ai_texts</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="creature_ai_scripts">creature_ai_scripts</a> tables.</p> 
+<h2> <a id="user-content-the-creature_ai_texts-table" class="anchor" href="#the-creature_ai_texts-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `creature_ai_texts` table</h2> 
+<p>This table holds all the texts used within the eventai (<span>ACID</span>) scripts. This table handles the actual text, display type (say/yell/emote) and corresponding sounds or emote (if any).</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td>Field</td> 
+   <td>Type</td> 
+   <td>Attributes</td> 
+   <td>Can be null</td> 
+   <td>Default</td> 
+   <td>Comments</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_ai_texts#entry">entry</a></td> 
+   <td>int(11)</td> 
+   <td>signed</td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td>Text Entry</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_ai_texts#content_default">content_default</a></td> 
+   <td>text</td> 
+   <td></td> 
+   <td><span>YES</span></td> 
+   <td><span>NULL</span></td> 
+   <td>Default Locale Text</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_ai_texts#content_loc">content_loc1</a></td> 
+   <td>text</td> 
+   <td></td> 
+   <td><span>YES</span></td> 
+   <td><span>NULL</span></td> 
+   <td>Locale 1 Text</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_ai_texts#content_loc">content_loc2</a></td> 
+   <td>text</td> 
+   <td></td> 
+   <td><span>YES</span></td> 
+   <td><span>NULL</span></td> 
+   <td>Locale 2 Text</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_ai_texts#content_loc">content_loc3</a></td> 
+   <td>text</td> 
+   <td></td> 
+   <td><span>YES</span></td> 
+   <td><span>NULL</span></td> 
+   <td>Locale 3 Text</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_ai_texts#content_loc">content_loc4</a></td> 
+   <td>text</td> 
+   <td></td> 
+   <td><span>YES</span></td> 
+   <td><span>NULL</span></td> 
+   <td>Locale 4 Text</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_ai_texts#content_loc">content_loc5</a></td> 
+   <td>text</td> 
+   <td></td> 
+   <td><span>YES</span></td> 
+   <td><span>NULL</span></td> 
+   <td>Locale 5 Text</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_ai_texts#content_loc">content_loc6</a></td> 
+   <td>text</td> 
+   <td></td> 
+   <td><span>YES</span></td> 
+   <td><span>NULL</span></td> 
+   <td>Locale 6 Text</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_ai_texts#content_loc">content_loc7</a></td> 
+   <td>text</td> 
+   <td></td> 
+   <td><span>YES</span></td> 
+   <td><span>NULL</span></td> 
+   <td>Locale 7 Text</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_ai_texts#content_loc">content_loc8</a></td> 
+   <td>text</td> 
+   <td></td> 
+   <td><span>YES</span></td> 
+   <td><span>NULL</span></td> 
+   <td>Locale 8 Text</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_ai_texts#sound">sound</a></td> 
+   <td>int(11)</td> 
+   <td>unsigned</td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td>Sound Id</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_ai_texts#type">type</a></td> 
+   <td>int(11)</td> 
+   <td>unsigned</td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td>Text Type</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_ai_texts#language">language</a></td> 
+   <td>int(11)</td> 
+   <td>unsigned</td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td>Text Language</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_ai_texts#emote">emote</a></td> 
+   <td>int(11)</td> 
+   <td>unsigned</td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td>Emote Id</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_ai_texts#comment">comment</a></td> 
+   <td>text</td> 
+   <td></td> 
+   <td><span>YES</span></td> 
+   <td><span>NULL</span></td> 
+   <td>Comment</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-entry" class="anchor" href="#entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry</h4> 
+<p>This is the entry of the text. It corresponds to a script using Action 1 (<span>ACTION</span>_T_<span>SAY</span>) in the <a href="Event_AI">eventai_scripts</a> table. This number is always negative.</p> 
+<h4> <a id="user-content-content_default" class="anchor" href="#content_default" aria-hidden="true"><span class="octicon octicon-link"></span></a>content_default</h4> 
+<p>This is the actual text presented in the default language (English).</p> 
+<h4> <a id="user-content-content_loc" class="anchor" href="#content_loc" aria-hidden="true"><span class="octicon octicon-link"></span></a>content_loc</h4> 
+<p>This is the actual text presented in the Localization #(1-8) Clients</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <td>Value</td> 
+   <td>Localization</td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>Korean</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>French</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>German</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Chinese</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td>Taiwanese</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>Spanish</td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>Spanish Mexico</td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td>Russian</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-sound" class="anchor" href="#sound" aria-hidden="true"><span class="octicon octicon-link"></span></a>sound</h4> 
+<p>This is the sound Id that will play with along with the corresponding text. All sounds are from sounds.dbc.</p> 
+<h4> <a id="user-content-type" class="anchor" href="#type" aria-hidden="true"><span class="octicon octicon-link"></span></a>type</h4> 
+<p>This is the method the text is displayed.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <td>Value</td> 
+   <td>Type</td> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>Say</td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>Yell</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>Text Emote</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>Boss Emote</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Whisper</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td>Boss Whisper</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-language" class="anchor" href="#language" aria-hidden="true"><span class="octicon octicon-link"></span></a>language</h4> 
+<p>This is the ingame language of the text. Languages are from <a href="Languages.dbc">Languages.dbc.</a>.</p> 
+<h4> <a id="user-content-emote" class="anchor" href="#emote" aria-hidden="true"><span class="octicon octicon-link"></span></a>emote</h4> 
+<p>This is the emote that the creature performs along with the corresponding text.</p> 
+<h4> <a id="user-content-comment" class="anchor" href="#comment" aria-hidden="true"><span class="octicon octicon-link"></span></a>comment</h4> 
+<p>This field allows you to label a text entry.</p></div></div>
+</body></html>

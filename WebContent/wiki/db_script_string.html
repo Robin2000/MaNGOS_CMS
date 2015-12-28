@@ -1,0 +1,235 @@
+<html><head><title>db_script_string</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-db_script_string-table" class="anchor" href="#the-db_script_string-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `db_script_string` table</h2> 
+<p>Holds texts for scripts.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Db_script_string#entry">entry</a></td> 
+   <td>int(11) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Db_script_string#content_default">content_default</a></td> 
+   <td>text</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Db_script_string#content_loc">content_loc1</a></td> 
+   <td>text</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td><span>NULL</span></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Db_script_string#content_loc">content_loc2</a></td> 
+   <td>text</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td><span>NULL</span></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Db_script_string#content_loc">content_loc3</a></td> 
+   <td>text</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td><span>NULL</span></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Db_script_string#content_loc">content_loc4</a></td> 
+   <td>text</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td><span>NULL</span></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Db_script_string#content_loc">content_loc5</a></td> 
+   <td>text</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td><span>NULL</span></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Db_script_string#content_loc">content_loc6</a></td> 
+   <td>text</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td><span>NULL</span></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Db_script_string#content_loc">content_loc7</a></td> 
+   <td>text</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td><span>NULL</span></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Db_script_string#content_loc">content_loc8</a></td> 
+   <td>text</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td><span>NULL</span></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Db_script_string#sound">sound</a></td> 
+   <td>mediumint</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Db_script_string#type">type</a></td> 
+   <td>tinyint</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Db_script_string#language">language</a></td> 
+   <td>tinyint</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Db_script_string#emote">emote</a></td> 
+   <td>smallint</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Db_script_string#comment">comment</a></td> 
+   <td>text</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td><span>NULL</span></td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-entry" class="anchor" href="#entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry</h4> 
+<p>The ID to identify the text. Referenced by <a href="event_scripts#dataint">event_scripts</a>, <a href="gameobject_scripts#dataint">gameobject_scripts</a>, <a href="quest_start_scripts#dataint">quest_start_scripts</a>, <a href="quest_end_scripts#dataint">quest_end_scripts</a>, <a href="spell_scripts#dataint">spell_scripts</a> and <a href="creature_movement#text">creature_movement</a>.</p> 
+<p>Entries must be between 2000000000 and 2000010000.</p> 
+<h4> <a id="user-content-content_default" class="anchor" href="#content_default" aria-hidden="true"><span class="octicon octicon-link"></span></a>content_default</h4> 
+<p>The text for default language. <span>UDB</span> provides english, see e.g. GMDB"1":http://sourceforge.net/projects/gm-db/|<span>GMDB</span> for german support.</p> 
+<h4> <a id="user-content-content_loc" class="anchor" href="#content_loc" aria-hidden="true"><span class="octicon octicon-link"></span></a>content_loc</h4> 
+<p>The translation in another language depending on the locale ID of that language.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>locale ID</strong></td> 
+   <td><strong>language</strong></td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>Korean (koKR)</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>French (frFR)</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>German (deDE)</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Chinese (zhCN)</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td>Taiwan (zhTW)</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>Spanish (esES) / Mexico (esMX)</td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>Russian (ruRU)</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-sound" class="anchor" href="#sound" aria-hidden="true"><span class="octicon octicon-link"></span></a>sound</h4> 
+<p><a href="SoundEntries.dbc#Content">Sound ID</a>.</p> 
+<h4> <a id="user-content-type" class="anchor" href="#type" aria-hidden="true"><span class="octicon octicon-link"></span></a>type</h4> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Description</strong></td> 
+   <td><strong>Details</strong></td> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>CHAT_TYPE_SAY</td> 
+   <td>‘white’ text</td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>CHAT_TYPE_YELL</td> 
+   <td>‘red’ text</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>CHAT_TYPE_TEXT_EMOTE</td> 
+   <td>‘brown’ small emote-text</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>CHAT_TYPE_BOSS_EMOTE</td> 
+   <td>‘big yellow’ emote-text displayed in the center of the screen</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>CHAT_TYPE_WHISPER</td> 
+   <td> whisper, needs a target</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td>CHAT_TYPE_BOSS_WHISPER</td> 
+   <td>whipser, needs a target</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>CHAT_TYPE_ZONE_YELL</td> 
+   <td>‘red’ text, displayed to everyone in the zone</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-language" class="anchor" href="#language" aria-hidden="true"><span class="octicon octicon-link"></span></a>language</h4> 
+<p><a href="Languages.dbc#Content">Language ID</a>.</p> 
+<h4> <a id="user-content-emote" class="anchor" href="#emote" aria-hidden="true"><span class="octicon octicon-link"></span></a>emote</h4> 
+<p>Emote ID to play.</p> 
+<h4> <a id="user-content-comment" class="anchor" href="#comment" aria-hidden="true"><span class="octicon octicon-link"></span></a>comment</h4> 
+<p>Description.</p></div></div>
+</body></html>

@@ -1,0 +1,47 @@
+<html><head><title>npc_gossip</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-npc_gossip-table" class="anchor" href="#the-npc_gossip-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `npc_gossip` table</h2> 
+<hr> 
+<p><strong><span>THIS</span> <span>TABLE</span> IS <span>OUTDATED</span>. DO <span>NOT</span> <span>USE</span></strong><br> <strong>It should have been removed around 2009, but for some bad reasons it wasn’t..</strong></p> 
+<p>Use table <a href="gossip_menu">gossip_menu</a> instead.</p> 
+<hr> 
+<p>This table is the link between NPCs and gossip text. When you click on an <span>NPC</span> that says something more than just "Greetings ", this is the table that links that <span>NPC</span> to the text.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_gossip#npc_guid">npc_guid</a></td> 
+   <td>int(11) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_gossip#textid">textid</a></td> 
+   <td>int(11) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-npc_guid" class="anchor" href="#npc_guid" aria-hidden="true"><span class="octicon octicon-link"></span></a>npc_guid</h4> 
+<p>You place the <span>GUID</span> from <a href="creature#guid">creature.guid</a> in this field for the <span>NPC</span> that you want to have gossip.</p> 
+<h4> <a id="user-content-textid" class="anchor" href="#textid" aria-hidden="true"><span class="octicon octicon-link"></span></a>textid</h4> 
+<p>This is the ID from <a href="npc_text#ID">npc_text.ID</a> of the text that you want the <span>NPC</span> to say.</p> 
+<p>Now, to get your <span>NPC</span> to actually say something, you need to update <a href="creature_template#npcflag">creature_template.npcflag</a> with the gossip flag, which is 1.</p></div></div>
+</body></html>

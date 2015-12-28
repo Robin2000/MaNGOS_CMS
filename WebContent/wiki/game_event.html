@@ -1,0 +1,79 @@
+<html><head><title>game_event</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-game_event-table" class="anchor" href="#the-game_event-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `game_event` table</h2> 
+<p>This table is contains definitions for all game events that are activated or deactivated automatically by the Game Event System in the core.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_event#entry">entry</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_event#start_time">start_time</a></td> 
+   <td>timestamp</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0000-00-00 00:00:00</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_event#end_time">end_time</a></td> 
+   <td>timestamp</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0000-00-00 00:00:00</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_event#occurence">occurence</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>5184000</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_event#length">length</a></td> 
+   <td>bigint(20) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>2592000</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_event#description">description</a></td> 
+   <td>varchar(255)</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td>None</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-entry" class="anchor" href="#entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry</h4> 
+<p>Entry of the event. Keep it as low as possible and prevent making holes in the list. Higher the max id is, the more memory will be used to store the event data.</p> 
+<h4> <a id="user-content-start_time" class="anchor" href="#start_time" aria-hidden="true"><span class="octicon octicon-link"></span></a>start_time</h4> 
+<p>Absolute start date of the event. The event will start occurring only if the local time at the server is after the one set here.</p> 
+<h4> <a id="user-content-end_time" class="anchor" href="#end_time" aria-hidden="true"><span class="octicon octicon-link"></span></a>end_time</h4> 
+<p>Absolute end date of the event. The event will stop occurring if the local time at the server is after the one set here.</p> 
+<h4> <a id="user-content-occurence" class="anchor" href="#occurence" aria-hidden="true"><span class="octicon octicon-link"></span></a>occurence</h4> 
+<p>Number of minutes between 2 occurrences of the event. (2880 = 2 days, 1440 = 1 day, etc)</p> 
+<h4> <a id="user-content-length" class="anchor" href="#length" aria-hidden="true"><span class="octicon octicon-link"></span></a>length</h4> 
+<p>Number of minutes the event will last after the start of the occurrence. (2880 = 2 days, 1440 = 1 day, etc) This value must be lower than occurrence one or the event will never stop.</p> 
+<h4> <a id="user-content-description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>description</h4> 
+<p>String containing the name of the event displayed in console each time it starts or stops.</p></div></div>
+</body></html>

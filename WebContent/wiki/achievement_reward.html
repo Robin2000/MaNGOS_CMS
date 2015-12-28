@@ -1,0 +1,97 @@
+<html><head><title>achievement_reward</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-achievement_reward-table" class="anchor" href="#the-achievement_reward-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `achievement_reward` table</h2> 
+<p>This table contains the rewards for achievements added with Wrath of the Lichking.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td>Field</td> 
+   <td>Type</td> 
+   <td>Attributes</td> 
+   <td>Can be null</td> 
+   <td>Default</td> 
+   <td>Comments</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Achievement_reward#entry">entry</a></td> 
+   <td>mediumint(8)</td> 
+   <td>unsigned</td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td>Identifier</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Achievement_reward#gender">gender</a></td> 
+   <td><acronym title="3"><span>TINYINT</span></acronym></td> 
+   <td>unsigned</td> 
+   <td><span>YES</span></td> 
+   <td>2</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Achievement_reward#title">title_A</a></td> 
+   <td>mediumint(8)</td> 
+   <td>unsigned</td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Achievement_reward#title">title_H</a></td> 
+   <td>mediumint(8)</td> 
+   <td>unsigned</td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Achievement_reward#item">item</a></td> 
+   <td>mediumint(8)</td> 
+   <td>unsigned</td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Achievement_reward#sender">sender</a></td> 
+   <td>mediumint(8)</td> 
+   <td>unsigned</td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Achievement_reward#subject">subject</a></td> 
+   <td>varchar(255)</td> 
+   <td></td> 
+   <td><span>YES</span></td> 
+   <td><span>NULL</span></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Achievement_reward#text">text</a></td> 
+   <td>text</td> 
+   <td></td> 
+   <td><span>YES</span></td> 
+   <td><span>NULL</span></td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-entry" class="anchor" href="#entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry</h4> 
+<p>This is the achievement identifier from <a href="Achievements.dbc">Achievements.dbc</a></p> 
+<h4> <a id="user-content-gender" class="anchor" href="#gender" aria-hidden="true"><span class="octicon octicon-link"></span></a>gender</h4> 
+<p>Indicates characters of which gender may gain that reward. <span>MALE</span> = 0 <span>FEMALE</span> = 1 <span>BOTH</span> = 2</p> 
+<h4> <a id="user-content-title" class="anchor" href="#title" aria-hidden="true"><span class="octicon octicon-link"></span></a>title</h4> 
+<p>This is the reference to <a href="CharTitles.dbc">CharTitles.dbc.</a>. Player has the right to wear the title as name affix.</p> 
+<h4> <a id="user-content-item" class="anchor" href="#item" aria-hidden="true"><span class="octicon octicon-link"></span></a>item</h4> 
+<p>The item you get by mail for the achievement. Reference to <a href="item_template#entry">item_template</a>.</p> 
+<h4> <a id="user-content-sender" class="anchor" href="#sender" aria-hidden="true"><span class="octicon octicon-link"></span></a>sender</h4> 
+<p>You recieve mail from this sender. Reference to <a href="creature_template#entry">creature_template</a></p> 
+<h4> <a id="user-content-subject" class="anchor" href="#subject" aria-hidden="true"><span class="octicon octicon-link"></span></a>subject</h4> 
+<p>The mail subject. Just plain text up to 255 chars.</p> 
+<h4> <a id="user-content-text" class="anchor" href="#text" aria-hidden="true"><span class="octicon octicon-link"></span></a>text</h4> 
+<p>The mail text.</p></div></div>
+</body></html>

@@ -1,0 +1,79 @@
+<html><head><title>npc_trainer_template</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-npc_trainer_template-table" class="anchor" href="#the-npc_trainer_template-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `npc_trainer_(template)` table</h2> 
+<p>This table holds all the information on training NPCs. All spells listed in the table are learning spells. This means that the main effect of the spells listed here is to teach spells to the target (which is the player in this case). Any other spell that is not a learning spell will be ignored and an error message will be shown in the console window. Learning spells usually have the same name as their actual spell counterparts and are listed as Uncategorized in Wowhead.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_trainer_template#entry">entry</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_trainer_template#spell">spell</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_trainer_template#spellcost">spellcost</a></td> 
+   <td>int(11)</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_trainer_template#reqskill">reqskill</a></td> 
+   <td>int(10) unsigned</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_trainer_template#reqskillvalue">reqskillvalue</a></td> 
+   <td>int(10) unsigned</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_trainer_template#reqlevel">reqlevel</a></td> 
+   <td>int(10) unsigned</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-entry" class="anchor" href="#entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry</h4> 
+<p>The template ID of the creature. See <a href="creature_template#entry">creature_template.entry</a>. In case of npc_trainer_template its the id of a list of to-lean-spells. Used in <a href="creature_template#trainer_id">creature_template.trainer_id</a>.</p> 
+<h4> <a id="user-content-spell" class="anchor" href="#spell" aria-hidden="true"><span class="octicon octicon-link"></span></a>spell</h4> 
+<p>The learning spell ID.</p> 
+<h4> <a id="user-content-spellcost" class="anchor" href="#spellcost" aria-hidden="true"><span class="octicon octicon-link"></span></a>spellcost</h4> 
+<p>The cost that the player needs to pay in order to learn the spell.</p> 
+<h4> <a id="user-content-reqskill" class="anchor" href="#reqskill" aria-hidden="true"><span class="octicon octicon-link"></span></a>reqskill</h4> 
+<p>The required skill the player needs to have in order to be able to learn the spell. See ID in SkillLine.dbc</p> 
+<h4> <a id="user-content-reqskillvalue" class="anchor" href="#reqskillvalue" aria-hidden="true"><span class="octicon octicon-link"></span></a>reqskillvalue</h4> 
+<p>The proficiency in the skill from <a href="#reqskill">reqskill</a> that the player needs to meet in order to learn the spell.</p> 
+<h4> <a id="user-content-reqlevel" class="anchor" href="#reqlevel" aria-hidden="true"><span class="octicon octicon-link"></span></a>reqlevel</h4> 
+<p>The level the player needs to be in order to learn the spell.</p></div></div>
+</body></html>

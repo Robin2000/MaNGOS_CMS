@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@include   file="/page/inc.jsp"%>
 <!DOCTYPE html>
 <html lang="zh">
 
@@ -10,7 +11,7 @@
     <meta name="description" content="MaNGOS CMS">
     <meta name="author" content="435217451@qq.com">
 
-    <title>MaNGOS Content Manager System</title>
+    <title>MaNGOS CMS - <sitemesh:write property='title' /></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,6 +32,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+	<sitemesh:write property='head' />
 </head>
 
 <body>
@@ -290,7 +292,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                            <a href="<%=basePath%>/page/tables.jsp"><i class="fa fa-table fa-fw"></i> Tables</a>
                         </li>
                         <li>
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
@@ -361,6 +363,11 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                         <li>
+                            <a href="<%=basePath%>/wiki/index"><i class="fa fa-th-list fa-fw"></i> DB Struct Wiki<span class="fa arrow"></span></a>
+                            
+                            <!-- /.nav-second-level -->
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -368,10 +375,21 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-        <!-- Page Content -->
- 		<sitemesh:write property='body' />
+ 		<!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header"><sitemesh:write property='title' /></h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            
+            <sitemesh:write property='body' />
+            
+        </div>
         <!-- /#page-wrapper -->
-
+        
     </div>
     <!-- /#wrapper -->
 

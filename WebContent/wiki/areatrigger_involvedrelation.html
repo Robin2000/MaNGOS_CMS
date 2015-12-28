@@ -1,0 +1,40 @@
+<html><head><title>areatrigger_involvedrelation</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-areatrigger_involvedrelation-table" class="anchor" href="#the-areatrigger_involvedrelation-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `areatrigger_involvedrelation` table</h2> 
+<p>Enable a trigger to finish one condition of a quest (explore)</p> 
+<p>If there is a record in the table for this a quest, then the quest will not be completed until the player activates this areatriger. The quest is not necessarily finished after that, but that one condition of the quest is satisfied. If the only condition of the quest is to explore an area, then the quest will be complete.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td>Field</td> 
+   <td>Type</td> 
+   <td>Attributes</td> 
+   <td>Can be null</td> 
+   <td>Default</td> 
+   <td>Comments</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Areatrigger_involvedrelation#id">id</a></td> 
+   <td>int(11)</td> 
+   <td>unsigned</td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td>Identifier</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Areatrigger_involvedrelation#quest">quest</a></td> 
+   <td>int(11)</td> 
+   <td>unsigned</td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td>Quest Identifier</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-id" class="anchor" href="#id" aria-hidden="true"><span class="octicon octicon-link"></span></a>id</h4> 
+<p>This is the trigger identifier from <a href="AreaTrigger.dbc">AreaTrigger.dbc</a></p> 
+<h4> <a id="user-content-quest" class="anchor" href="#quest" aria-hidden="true"><span class="octicon octicon-link"></span></a>quest</h4> 
+<p>Quest’s identifier (see <a href="quest_template#entry">quest_template.entry</a>)</p></div></div>
+</body></html>

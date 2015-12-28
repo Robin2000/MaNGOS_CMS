@@ -1,0 +1,58 @@
+<html><head><title>creature_ai_summons</title></head><body>
+<div class='row'><div class='col-lg-12'><h3> <a id="user-content-event-ai-tables" class="anchor" href="#event-ai-tables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Event AI Tables</h3> 
+<p><a href="creature_ai_scripts">creature_ai_scripts</a></p> 
+<p><a href="creature_ai_summons">creature_ai_summons</a></p> 
+<p><a href="creature_ai_texts">creature_ai_texts</a></p> 
+<h2> <a id="user-content-summoning-table-introduction" class="anchor" href="#summoning-table-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summoning Table Introduction</h2> 
+<p>This table is used to provide <span>NPC</span> support for an event using action <strong><em>32 = <span>ACTION</span>_T_<span>SUMMON</span></em></strong> as one of its Actions. <em>To quote from the <a href="Event_AI"><em>Event_AI</em></a> page:</em></p> 
+<ul> 
+ <li> <strong>32 = <span>ACTION</span>_T_<span>SUMMON</span></strong>: Summons a creature using the data specified in the separate summons table. 
+  <ul> 
+   <li>Parameter 1: The creature template ID to be summoned. The value here needs to be a valid creature template ID.</li> 
+   <li>Parameter 2: The target type defining who the summoned creature will attack. The value in this field needs to be a valid target type as specified in the reference tables below. <span>NOTE</span>: Using target type 0 will cause the summoned creature to not attack anyone.</li> 
+   <li>Parameter 3: The summon ID from the eventai_summons table controlling the position (and spawntime) where the summoned mob should be spawned at.</li> 
+  </ul> </li> 
+</ul> 
+<p>As we see from Parameter 3, this table will be controlling the arrival point of the <span>NPC</span>. If you wish for the <span>NPC</span> to spawn at the same point as the <span>NPC</span> spawning it, use <strong>Action 12</strong> instead of 32.</p> 
+<h3> <a id="user-content-explaining-the-fields-of-the-table" class="anchor" href="#explaining-the-fields-of-the-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>Explaining the Fields of the Table</h3> 
+<h4> <a id="user-content-id" class="anchor" href="#id" aria-hidden="true"><span class="octicon octicon-link"></span></a>id</h4> 
+<p>This arbitrary value will be matched by the third parameter in the <strong>32 = <span>ACTION</span>_T_<span>SUMMON</span></strong> Event Type. It does not need to be in solid descending order.</p> 
+<p>Tip: Be sure to start your first custom input at least 1,000 digits ahead of the latest entry when you first start editing this table. I.e. in a newly installed database that you plan on working with for the long term, if the last id value here is 9, start at 5000, not at 10. If your database gets an update, if you had started at 10, those values could be overwritten.</p> 
+<h4> <a id="user-content-position_x" class="anchor" href="#position_x" aria-hidden="true"><span class="octicon octicon-link"></span></a>position_x</h4> 
+<p>The <strong><em>X</em></strong> position of the <span>NPC</span> to be spawned. (Note that this will obviously take place on the same map that you and the <span>NPC</span> are on, so no Map number will be necessary here.)</p> 
+<h4> <a id="user-content-position_y" class="anchor" href="#position_y" aria-hidden="true"><span class="octicon octicon-link"></span></a>position_y</h4> 
+<p>The <strong><em>Y</em></strong> position of the <span>NPC</span> to be spawned.</p> 
+<h4> <a id="user-content-position_z" class="anchor" href="#position_z" aria-hidden="true"><span class="octicon octicon-link"></span></a>position_z</h4> 
+<p>The <strong><em>Y</em></strong> (height) position of the <span>NPC</span> to be spawned.</p> 
+<h4> <a id="user-content-orientation" class="anchor" href="#orientation" aria-hidden="true"><span class="octicon octicon-link"></span></a>orientation</h4> 
+<p>The orientation of the <span>NPC</span> when it appears. It can be any value, (experiment as necessary) but here are some values already known:</p> 
+<p>This value is measured in <a href="http://en.wikipedia.org/wiki/Radian">radians</a>.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>Value</th> 
+   <th>Direction</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>North</td> 
+  </tr> 
+  <tr> 
+   <td>1.57</td> 
+   <td>East</td> 
+  </tr> 
+  <tr> 
+   <td>3.14</td> 
+   <td>South</td> 
+  </tr> 
+  <tr> 
+   <td>-1.57</td> 
+   <td>West</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-spawntimesecs" class="anchor" href="#spawntimesecs" aria-hidden="true"><span class="octicon octicon-link"></span></a>spawntimesecs</h4> 
+<p>(Requires an elaboration and confirmation) – Most likely the time for the <span>NPC</span> to disappear once it has been summoned, in MILIseconds.</p> 
+<h4> <a id="user-content-comment" class="anchor" href="#comment" aria-hidden="true"><span class="octicon octicon-link"></span></a>comment</h4> 
+<p>The arbitrary string of text that you deposit into the table to describe the actions of this particular record in the table. The comment has no bearing on the table’s effects other than your own ability to recognize what each record is doing.</p></div></div>
+</body></html>

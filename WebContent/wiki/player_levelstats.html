@@ -1,0 +1,99 @@
+<html><head><title>player_levelstats</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-player_levelstats-table" class="anchor" href="#the-player_levelstats-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `player_levelstats` table</h2> 
+<p>This table holds information on what stats are gained by characters when they level up. Each race-class combination has different level stats. All of the values in this table signify only the base stats of the race-class combination at a specific level.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Player_levelstats#race">race</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Player_levelstats#class">class</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Player_levelstats#level">level</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Player_levelstats#str">str</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Player_levelstats#agi">agi</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Player_levelstats#sta">sta</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Player_levelstats#inte">inte</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Player_levelstats#spi">spi</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-race" class="anchor" href="#race" aria-hidden="true"><span class="octicon octicon-link"></span></a>race</h4> 
+<p>The character race. This field along with <a href="#class">class</a> defines what stats to be applied on the character.</p> 
+<h4> <a id="user-content-class" class="anchor" href="#class" aria-hidden="true"><span class="octicon octicon-link"></span></a>class</h4> 
+<p>The character class. This field along with <a href="#race">race</a> defines what stats to be applied on the character.</p> 
+<h4> <a id="user-content-level" class="anchor" href="#level" aria-hidden="true"><span class="octicon octicon-link"></span></a>level</h4> 
+<p>The level at which the stats should be applied.</p> 
+<h4> <a id="user-content-str" class="anchor" href="#str" aria-hidden="true"><span class="octicon octicon-link"></span></a>str</h4> 
+<p>The base strength of the character.</p> 
+<h4> <a id="user-content-agi" class="anchor" href="#agi" aria-hidden="true"><span class="octicon octicon-link"></span></a>agi</h4> 
+<p>The base agility of the character.</p> 
+<h4> <a id="user-content-sta" class="anchor" href="#sta" aria-hidden="true"><span class="octicon octicon-link"></span></a>sta</h4> 
+<p>The base stamina of the character.</p> 
+<h4> <a id="user-content-inte" class="anchor" href="#inte" aria-hidden="true"><span class="octicon octicon-link"></span></a>inte</h4> 
+<p>The base intellect of the character.</p> 
+<h4> <a id="user-content-spi" class="anchor" href="#spi" aria-hidden="true"><span class="octicon octicon-link"></span></a>spi</h4> 
+<p>The base spirit of the character.</p></div></div>
+</body></html>

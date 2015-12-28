@@ -1,0 +1,165 @@
+<html><head><title>areatrigger_teleport</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-areatrigger_teleport-table" class="anchor" href="#the-areatrigger_teleport-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `areatrigger_teleport` table</h2> 
+<p>Contains all the teleport triggers definition. This table is used to complete .dbc file information.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Areatrigger_teleport#id">id</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Areatrigger_teleport#name">name</a></td> 
+   <td>text</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Areatrigger_teleport#required_level">required_level</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Areatrigger_teleport#required_item">required_item</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Areatrigger_teleport#required_item">required_item2</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Areatrigger_teleport#heroic_key">heroic_key</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Areatrigger_teleport#heroic_key">heroic_key2</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Areatrigger_teleport#required_quest_done">required_quest_done</a></td> 
+   <td>int(11) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Areatrigger_teleport#required_quest_done_heroic">required_quest_done_heroic</a></td> 
+   <td>int(11) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Areatrigger_teleport#required_failed_text">required_failed_text</a></td> 
+   <td>text</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Areatrigger_teleport#target_map">target_map</a></td> 
+   <td>smallint(5) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Areatrigger_teleport#target_position_x">target_position_x</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Areatrigger_teleport#target_position_y">target_position_y</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Areatrigger_teleport#target_position_z">target_position_z</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Areatrigger_teleport#target_orientation">target_orientation</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-id" class="anchor" href="#id" aria-hidden="true"><span class="octicon octicon-link"></span></a>id</h4> 
+<p>This is the trigger identifier, it must match with the one from AreaTrigger.dbc</p> 
+<h4> <a id="user-content-name" class="anchor" href="#name" aria-hidden="true"><span class="octicon octicon-link"></span></a>name</h4> 
+<p>Name of the trigger. This can be an arbitrary name, and is for descriptive purposes only.</p> 
+<h4> <a id="user-content-required_level" class="anchor" href="#required_level" aria-hidden="true"><span class="octicon octicon-link"></span></a>required_level</h4> 
+<p>Level necessary to activate this trigger</p> 
+<h4> <a id="user-content-required_item" class="anchor" href="#required_item" aria-hidden="true"><span class="octicon octicon-link"></span></a>required_item</h4> 
+<p>The necessary item(s) to activate this trigger (see <a href="item_template#entry">item_template.entry</a>)</p> 
+<h4> <a id="user-content-heroic_key" class="anchor" href="#heroic_key" aria-hidden="true"><span class="octicon octicon-link"></span></a>heroic_key</h4> 
+<p>The key that unlocks heroic version for a trigger leading to an instatiable map with heroic mode support. If two are specified, you only need one to activate heroic mode.</p> 
+<h4> <a id="user-content-required_quest_done" class="anchor" href="#required_quest_done" aria-hidden="true"><span class="octicon octicon-link"></span></a>required_quest_done</h4> 
+<p>Required quest done as attunement to use the trigger (see <a href="quest_template#entry">quest_template.entry</a>).</p> 
+<h4> <a id="user-content-required_quest_done_heroic" class="anchor" href="#required_quest_done_heroic" aria-hidden="true"><span class="octicon octicon-link"></span></a>required_quest_done_heroic</h4> 
+<p>Required Heroic quest done as attunement to use the trigger (see <a href="quest_template#entry">quest_template.entry</a>).</p> 
+<h4> <a id="user-content-required_failed_text" class="anchor" href="#required_failed_text" aria-hidden="true"><span class="octicon octicon-link"></span></a>required_failed_text</h4> 
+<p>Failed text shown to players who do have not done the attunement quest yet.</p> 
+<h4> <a id="user-content-target_map" class="anchor" href="#target_map" aria-hidden="true"><span class="octicon octicon-link"></span></a>target_map</h4> 
+<p>Target map of the trigger (See <a href="Map.dbc">Map.dbc</a>)</p> 
+<h4> <a id="user-content-target_position_x" class="anchor" href="#target_position_x" aria-hidden="true"><span class="octicon octicon-link"></span></a>target_position_x</h4> 
+<p>X coordinate for the target destination of the trigger</p> 
+<h4> <a id="user-content-target_position_y" class="anchor" href="#target_position_y" aria-hidden="true"><span class="octicon octicon-link"></span></a>target_position_y</h4> 
+<p>Y coordinate for the target destination of the trigger</p> 
+<h4> <a id="user-content-target_position_z" class="anchor" href="#target_position_z" aria-hidden="true"><span class="octicon octicon-link"></span></a>target_position_z</h4> 
+<p>Z coordinate for the target destination of the trigger</p> 
+<h4> <a id="user-content-target_orientation" class="anchor" href="#target_orientation" aria-hidden="true"><span class="octicon octicon-link"></span></a>target_orientation</h4> 
+<p>Orientation the player will get when appearing at this location</p></div></div>
+</body></html>

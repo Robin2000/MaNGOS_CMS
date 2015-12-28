@@ -1,0 +1,145 @@
+<html><head><title>locales_creature</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-locales_creature-table" class="anchor" href="#the-locales_creature-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `locales_creature` table</h2> 
+<p>This table is used to provide to localized clients with localized string for creatures.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Locales_creature#entry">entry</a></td> 
+   <td>int(11) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Locales_creature#name_locx">name_loc1</a></td> 
+   <td>varchar(100)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Locales_creature#name_locx">name_loc2</a></td> 
+   <td>varchar(100)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Locales_creature#name_locx">name_loc3</a></td> 
+   <td>varchar(100)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Locales_creature#name_locx">name_loc4</a></td> 
+   <td>varchar(100)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Locales_creature#name_locx">name_loc5</a></td> 
+   <td>varchar(100)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Locales_creature#name_locx">name_loc6</a></td> 
+   <td>varchar(100)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Locales_creature#name_locx">name_loc7</a></td> 
+   <td>varchar(100)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Locales_creature#subname_locx">subname_loc1</a></td> 
+   <td>varchar(100)</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td>None</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Locales_creature#subname_locx">subname_loc2</a></td> 
+   <td>varchar(100)</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td>None</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Locales_creature#subname_locx">subname_loc3</a></td> 
+   <td>varchar(100)</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td>None</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Locales_creature#subname_locx">subname_loc4</a></td> 
+   <td>varchar(100)</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td>None</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Locales_creature#subname_locx">subname_loc5</a></td> 
+   <td>varchar(100)</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td>None</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Locales_creature#subname_locx">subname_loc6</a></td> 
+   <td>varchar(100)</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td>None</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Locales_creature#subname_locx">subname_loc7</a></td> 
+   <td>varchar(100)</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td>None</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-entry" class="anchor" href="#entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry</h4> 
+<p>This entry must be the same as <a href="creature_template#entry">creature_template.entry</a> and then the row will be used to provide localization support for this creature record.</p> 
+<h4> <a id="user-content-name_locx" class="anchor" href="#name_locx" aria-hidden="true"><span class="octicon octicon-link"></span></a>name_locX</h4> 
+<p>Translated content for <a href="creature_template#name">creature_template.name</a> field for language X. See <a href="localization_lang">localization languages</a> list to know which value to use for X.</p> 
+<h4> <a id="user-content-subname_locx" class="anchor" href="#subname_locx" aria-hidden="true"><span class="octicon octicon-link"></span></a>subname_locX</h4> 
+<p>Translated content for <a href="creature_template#subname">creature_template.subname</a> field for language X. See <a href="localization_lang">localization languages</a> list to know which value to use for X.</p></div></div>
+</body></html>

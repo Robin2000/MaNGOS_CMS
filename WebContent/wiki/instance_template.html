@@ -1,0 +1,129 @@
+<html><head><title>instance_template</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-instance_template-table" class="anchor" href="#the-instance_template-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `instance_template` table</h2> 
+<p>This table has all the templates for every instance. When a group enters an instance, a new copy of that instance is made from the values in these fields.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Instance_template#map">map</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Instance_template#parent">parent</a></td> 
+   <td>int(11) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Instance_template#levelmin">levelMin</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Instance_template#levelmax">levelMax</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Instance_template#maxplayers">maxPlayers</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Instance_template#reset_delay">reset_delay</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Instance_template#startlocx">startLocX</a></td> 
+   <td>float</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td>None</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Instance_template#startlocy">startLocY</a></td> 
+   <td>float</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td>None</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Instance_template#startlocz">startLocZ</a></td> 
+   <td>float</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td>None</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Instance_template#startloco">startLocO</a></td> 
+   <td>float</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td>None</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Instance_template#script">script</a></td> 
+   <td>varchar(255)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-map" class="anchor" href="#map" aria-hidden="true"><span class="octicon octicon-link"></span></a>map</h4> 
+<p>The map ID of the instance. See Map.dbc</p> 
+<h4> <a id="user-content-parent" class="anchor" href="#parent" aria-hidden="true"><span class="octicon octicon-link"></span></a>parent</h4> 
+<p>If the instance is a subinstance of another instance, this field has the parent instance’s map ID.</p> 
+<h4> <a id="user-content-levelmin" class="anchor" href="#levelmin" aria-hidden="true"><span class="octicon octicon-link"></span></a>levelMin</h4> 
+<p>The minimum level required to enter the instance.</p> 
+<h4> <a id="user-content-levelmax" class="anchor" href="#levelmax" aria-hidden="true"><span class="octicon octicon-link"></span></a>levelMax</h4> 
+<p>The maximum level required to be able to be summoned by the meeting stone for this instance.</p> 
+<h4> <a id="user-content-maxplayers" class="anchor" href="#maxplayers" aria-hidden="true"><span class="octicon octicon-link"></span></a>maxPlayers</h4> 
+<p>The maximum number of players that can enter as a group/raid in the instance.</p> 
+<h4> <a id="user-content-reset_delay" class="anchor" href="#reset_delay" aria-hidden="true"><span class="octicon octicon-link"></span></a>reset_delay</h4> 
+<p>The number of days between each global reset for the map. If zero, the value is taken from <span>DBC</span> files. The resulting value is multiplied by the Rate.InstanceResetTime config.</p> 
+<h4> <a id="user-content-startlocx" class="anchor" href="#startlocx" aria-hidden="true"><span class="octicon octicon-link"></span></a>startLocX</h4> 
+<p>Defines the starting X location where players will be ported (if different from default).</p> 
+<h4> <a id="user-content-startlocy" class="anchor" href="#startlocy" aria-hidden="true"><span class="octicon octicon-link"></span></a>startLocY</h4> 
+<p>Defines the starting Y location where players will be ported (if different from default).</p> 
+<h4> <a id="user-content-startlocz" class="anchor" href="#startlocz" aria-hidden="true"><span class="octicon octicon-link"></span></a>startLocZ</h4> 
+<p>Defines the starting Z location where players will be ported (if different from default).</p> 
+<h4> <a id="user-content-startloco" class="anchor" href="#startloco" aria-hidden="true"><span class="octicon octicon-link"></span></a>startLocO</h4> 
+<p>Defines the starting orientation that players will face. (if different from default).</p> 
+<h4> <a id="user-content-script" class="anchor" href="#script" aria-hidden="true"><span class="octicon octicon-link"></span></a>script</h4> 
+<p>The name of the instance script that the instance will use and apply (if any).</p></div></div>
+</body></html>

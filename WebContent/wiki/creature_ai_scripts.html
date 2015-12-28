@@ -1,0 +1,1279 @@
+<html><head><title>creature_ai_scripts</title></head><body>
+<div class='row'><div class='col-lg-12'><h3> <a id="user-content-event-ai-tables" class="anchor" href="#event-ai-tables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Event AI Tables</h3> 
+<p><a href="creature_ai_scripts">Creature_ai_scripts</a></p> 
+<p><a href="creature_ai_summons">creature_ai_summons</a></p> 
+<p><a href="creature_ai_texts">creature_ai_texts</a></p> 
+<h2> <a id="user-content-event-ai-documentation" class="anchor" href="#event-ai-documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Event AI Documentation</h2> 
+<p>The Manual-like and most-recent documentation for EventAI can be found in <a href="https://github.com/cmangos/mangos-wotlk/blob/master/doc/EventAI.txt">doc/EventAI.txt</a></p> 
+<p>Also you will find resources at <a href="http://www.scriptdev2.com">SD2’s forums</a></p> 
+<h2> <a id="user-content-event-ai-guide" class="anchor" href="#event-ai-guide" aria-hidden="true"><span class="octicon octicon-link"></span></a>Event AI Guide</h2> 
+<p><strong><span><span>NOTICE</span>: This guide will assume that you have ScriptDev2 Rev 220+ successfully and completely installed. It is in no way designed to help in the installation procedures of ScriptDev2.</span></strong></p> 
+<p><strong>SD2 Revision when this guide was last updated: 838 (could be incomplete)</strong></p> 
+<p>Now on to the fun stuff…</p> 
+<p>Starting with revision 220, ScriptDev2 has implemented a DB-based scripting design that allows the use of a database (MySQL only right now) to specify the actions that a creature script will do. The script is called eventAI and will be so called throughout the rest of this guide. A basic eventAI script works with and requires only two pieces of information: <u>What to do</u> and <u>When to do it</u>. The first piece of information (the What) will be referred to as the action. Currently, a single eventAI script entry can have up to three actions. The second piece of information (the When) will be referred to as the event. Anyone that wants to create entries for the eventAI script needs to answer the two questions above. Throughout the script’s lifecycle, it will continually perform the actions given when a defined event happens. Some events will only occur once while others can be timed so that they occur at a specified interval.</p> 
+<p>Now that the basic idea of the script has been explained, let’s get down to the fun details. For convenience, reference tables will be provided at the end of this article that will contain short descriptions for fast lookup. Here will be included longer and more thorough descriptions. We shall first start out with what events are currently defined by the eventAI script. An event can use up to three different parameters and these parameters control different things depending on the event. If a parameter isn’t specifically named for the event, it will not be used for that event.</p> 
+<p>One more thing: event AI can support phases. A "phase" is just a way to group certain events + actions together so that the creature will perform certain actions based on what event it is currently on. The way the phase system works in event AI is that for every event added, it needs to be specified under which phases the event <span>SHOULD</span> <span>NOT</span> occur. This is a bit confusing at first, so let’s look at it more closely. A creature can have more than one phase, up to a max of 32 different phases (with the first one being phase 0, and last one being phase 31). How the phase selection field works is that it contains a 32bit number. Each bit in the number represents a possible phase, with the bit in the least significant position signifying phase 0 and the most significant bit signifying phase 31. The default value of zero in this field has no bits set and since the field controls when the event should <span>NOT</span> trigger, it would then mean that the event will always be triggered independent of the current phase the creature is in. Therefore, if you want to specify what phases the event should occur in, you need to add up all of the corresponding bits for all the other phases where the event shouldn’t trigger in (confusing…yes).</p> 
+<p>For example, let’s say that a certain creature using event AI will have a max of four phases. We are then dealing with a 4 bit number in this field. Let’s further say that that certain creature has an event that will only trigger in its phase 2 (a timed spell cast for instance). Then the field should contain all of the phases the event SHOULDN’T be triggered in…then out of the four bits, we leave the <strong>third</strong> bit alone (off) and turn on all of the other bits so we get 1011 which is equal to 11, so we put in 11 as the inverse phase mask for the event entry. As another example, let’s say that the same creature previously mentioned has another event that is only triggered in the phase 0 and phase 3. This would mean that we need to ignore phase 1 and 2, so our bitmask would be 0110 which is equal to 6 so we put in 6 for this event’s inverse phase mask field. Please note that both examples were tailored for a creature with four and only four phases. If you decide to add more phases later on, you will have to redefine all of the nonzero bitmasks for all of the mob’s events.</p> 
+<p>Every event also has a chance field that controls the chance of that event actually occurring. Using a value of 0 in this field will make the event never occur. Values are from 0 to 100.</p> 
+<h3> <a id="user-content-event-explanations" class="anchor" href="#event-explanations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Event Explanations</h3> 
+<hr> 
+<ul> 
+ <li> <strong>0 = <span>EVENT</span>_T_<span>TIMER</span></strong>: <span>COMBAT</span> <span>ONLY</span>! – Expires first between (Param1) and (Param2) and then between every (Param3) and (Param4). 
+  <ul> 
+   <li>Parameter 1: InitialMin</li> 
+   <li>Parameter 2: InitialMax</li> 
+   <li>Parameter 3: RepeatMin</li> 
+   <li>Parameter 4: RepeatMax</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>1 = <span>EVENT</span>_T_<span>TIMER</span>_<span>OOC</span></strong>: <span>OUT</span> OF <span>COMBAT</span> – Expires first between (Param1) and (Param2) and then between every (Param3) and (Param4). 
+  <ul> 
+   <li>Parameter 1: InitialMin</li> 
+   <li>Parameter 2: InitialMax</li> 
+   <li>Parameter 3: RepeatMin</li> 
+   <li>Parameter 4: RepeatMax</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>2 = <span>EVENT</span>_T_HP</strong>: Expires when HP is between (Param1) and (Param2). Will repeat every (Param3) and (Param4). 
+  <ul> 
+   <li>Parameter 1: HPMax%</li> 
+   <li>Parameter 2: HPMin%</li> 
+   <li>Parameter 3: RepeatMin</li> 
+   <li>Parameter 4: RepeatMax</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>3 = <span>EVENT</span>_T_<span>MANA</span></strong>: Expires once Mana% is between (Param1) and (Param2). Will repeat every (Param3) and (Param4). 
+  <ul> 
+   <li>Parameter 1: ManaMax%</li> 
+   <li>Parameter 2: ManaMin%</li> 
+   <li>Parameter 3: RepeatMin</li> 
+   <li>Parameter 4: RepeatMax</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>4 = <span>EVENT</span>_T_<span>AGGRO</span></strong>: Expires upon initial aggro (does not repeat).</li> 
+</ul> 
+<ul> 
+ <li> <strong>5 = <span>EVENT</span>_T_<span>KILL</span></strong>: Expires upon killing a player. Will repeat every (Param1) and (Param2). 
+  <ul> 
+   <li>Parameter 1: RepeatMin</li> 
+   <li>Parameter 2: RepeatMax</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>6 = <span>EVENT</span>_T_<span>DEATH</span></strong>: Expires upon Death.</li> 
+</ul> 
+<ul> 
+ <li> <strong>7 = <span>EVENT</span>_T_<span>EVADE</span></strong>: Expires upon creature EnterEvadeMode().</li> 
+</ul> 
+<ul> 
+ <li> <strong>8 = <span>EVENT</span>_T_<span>SPELLHIT</span></strong>: Expires upon Spell hit. If (param1) is set will only expire on that spell. If (param2) will only expire on spells of that school. Will repeat every (Param3) and (Param4) . 
+  <ul> 
+   <li>Parameter 1: SpellID</li> 
+   <li>Parameter 2: School</li> 
+   <li>Parameter 3: RepeatMin</li> 
+   <li>Parameter 4: RepeatMax</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>9 = <span>EVENT</span>_T_<span>RANGE</span></strong>: Expires when the highest threat target distance is greater than (Param1) and less than (Param2). Will repeat every (Param3) and (Param4) . 
+  <ul> 
+   <li>Parameter 1: MinDist</li> 
+   <li>Parameter 2: MaxDist</li> 
+   <li>Parameter 3: RepeatMin</li> 
+   <li>Parameter 4: RepeatMax</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>10 = <span>EVENT</span>_T_<span>OOC</span>_<span>LOS</span></strong>: Expires when a Player moves within visible distance to creature. Does not expire for Hostile Players if (Param1) is not 0. Does not expire for Friendly Players if (Param2) is not 0. Will repeat every (Param3) and (Param4) . Does not expire for creatures or pet or when the creature is in combat. 
+  <ul> 
+   <li>Parameter 1: NoHostile</li> 
+   <li>Parameter 2: NoFriendly</li> 
+   <li>Parameter 3: RepeatMin</li> 
+   <li>Parameter 4: RepeatMax</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>11 = <span>EVENT</span>_T_<span>SPAWNED</span></strong>: Expires at initial spawn and at creature respawn (useful for setting ranged movement type)</li> 
+</ul> 
+<ul> 
+ <li> <strong>12 = <span>EVENT</span>_T_<span>TARGET</span>_HP</strong>: Expires when Current Target’s HP is between (Param1) and (Param2). Will repeat every (Param3) and (Param4) . 
+  <ul> 
+   <li>Parameter 1: HPMax%</li> 
+   <li>Parameter 2: HPMin%</li> 
+   <li>Parameter 3: RepeatMin</li> 
+   <li>Parameter 4: RepeatMax</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>13 = <span>EVENT</span>_T_<span>TARGET</span>_<span>CASTING</span></strong>: Expires when the player is casting a spell. Will repeat every (Param1) and (Param2) . 
+  <ul> 
+   <li>Parameter 1: RepeatMin</li> 
+   <li>Parameter 2: RepeatMax</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>14 = <span>EVENT</span>_T_<span>FRIENDLY</span>_HP</strong>: Expires when a friendly unit in radius(param2) has at least (param1) hp missing. Will repeat every (Param3) and (Param4) . 
+  <ul> 
+   <li>Parameter 1: HPDeficit</li> 
+   <li>Parameter 2: Radius</li> 
+   <li>Parameter 3: RepeatMin</li> 
+   <li>Parameter 4: RepeatMax</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>15 = <span>EVENT</span>_T_<span>FRIENDLY</span>_IS_CC</strong>: Expires when a friendly unit is Crowd controlled within the given radius (param2). Will repeat every (Param3) and (Param4) . 
+  <ul> 
+   <li>Parameter 1: DispelType</li> 
+   <li>Parameter 2: Radius</li> 
+   <li>Parameter 3: RepeatMin</li> 
+   <li>Parameter 4: RepeatMax</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>16 = <span>EVENT</span>_T_<span>MISSING</span>_<span>BUFF</span></strong>: Expires when a friendly unit is missing aura’s given by spell (param1) within radius (param2). Will repeat every (Param3) and (Param4) . 
+  <ul> 
+   <li>Parameter 1: SpellId</li> 
+   <li>Parameter 2: Radius</li> 
+   <li>Parameter 3: RepeatMin</li> 
+   <li>Parameter 4: RepeatMax</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>17 = <span>EVENT</span>_T_<span>SUMMONED</span>_<span>UNIT</span></strong>: Expires after creature with entry(Param1) is spawned or for all spawns if param1 = 0. Will repeat every (Param2) and (Param3) . 
+  <ul> 
+   <li>Parameter 1: CreatureId</li> 
+   <li>Parameter 2: RepeatMin</li> 
+   <li>Parameter 3: RepeatMax</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>18 = <span>EVENT</span>_T_<span>TARGET</span>_<span>MANA</span></strong>: 
+  <ul> 
+   <li>Parameter 1: ManaMax%</li> 
+   <li>Parameter 2: ManaMin%</li> 
+   <li>Parameter 3: RepeatMin</li> 
+   <li>Parameter 4: RepeatMax</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>21 = <span>EVENT</span>_T_<span>REACHED</span>_<span>HOME</span></strong>: Expires when creature reach it’s home(spawn) location after Evade.</li> 
+</ul> 
+<ul> 
+ <li> <strong>22 = <span>EVENT</span>_T_<span>RECEIVE</span>_<span>EMOTE</span></strong>: Expires when creature receive emote with text emote id(enum TextEmotes). Condition can be defined. If set, then most conditions has additional value (see table enum ConditionType below.) 
+  <ul> 
+   <li>Parameter 1: EmoteId</li> 
+   <li>Parameter 2: Condition</li> 
+   <li>Parameter 3: CondValue1</li> 
+   <li>Parameter 4: CondValue2</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>23 = <span>EVENT</span>_T_<span>BUFFED</span></strong>: Expires when creature have spell (Param1) auras applied stack greater or equal provided in Param2 amount. Will repeat every (Param3) and (Param4). 
+  <ul> 
+   <li>Parameter 1: SpellId</li> 
+   <li>Parameter 2: AmmountInStack</li> 
+   <li>Parameter 3: RepeatMin</li> 
+   <li>Parameter 4: RepeatMax</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>24 = <span>EVENT</span>_T_<span>TARGET</span>_<span>BUFFED</span></strong>: Expires when target unit have spell (Param1) auras applied stack greater or equal provided in Param2 amount. Will repeat every (Param3) and (Param4). 
+  <ul> 
+   <li>Parameter 1: SpellId</li> 
+   <li>Parameter 2: AmmountInStack</li> 
+   <li>Parameter 3: RepeatMin</li> 
+   <li>Parameter 4: RepeatMax</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>25 = <span>EVENT</span>_T_<span>SUMMONED</span>_<span>JUST</span>_<span>DIED</span></strong>: Expires after creature with entry(Param1) is die or for all spawns if param1 = 0. Will repeat every (Param2) and (Param3) . 
+  <ul> 
+   <li>Parameter 1: CreatureId</li> 
+   <li>Parameter 2: RepeatMin</li> 
+   <li>Parameter 3: RepeatMax</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>26 = <span>EVENT</span>_T_<span>SUMMONED</span>_<span>JUST</span>_<span>DESPAWN</span></strong>: Expires before creature with entry(Param1) is despawned or for all spawns if param1 = 0. Will repeat every (Param2) and (Param3) . 
+  <ul> 
+   <li>Parameter 1: CreatureId</li> 
+   <li>Parameter 2: RepeatMin</li> 
+   <li>Parameter 3: RepeatMax</li> 
+  </ul> </li> 
+</ul> 
+<p>Now that all of the supported events have been listed and described, we shall now move on to the actions that can be performed. Each event can take up to three actions. The actions will all be performed when the event is triggered and they will be performed in the order that they have been defined. This means that, for a certain event, action 1 will be performed first, followed by action 2, then lastly by action 3. Just like event definitions, each action can use up to three different parameters but not all actions will use all three parameters. If a parameter isn’t mentioned for an action, then that action does not need that parameter.</p> 
+<p>Before we start to list and explain the different actions that can be taken, we must first look at how the eventAI targeting system works. Due to technical reasons in how targetting is handled, the eventAI script cannot target anything or anyone that is not in its threat list or is not the scripted creature itself. It also can’t currently target anyone specific in its threat list except by their position in the threat list. However, even then it can only target specifically the current victim, the second unit in its threat list, and the last unit in its threat list. It can also target units in its threat list at random and has two options for that: anyone in its threat list at random, or anyone in its threat list excluding the unit with the most threat. Aside from all of those external targets, the script can always target itself. More information on the target types can be found in the reference tables at the end of this guide.</p> 
+<p>One last note before we start looking at individual actions is about the texts. The eventAI script has support for localized text entries. Therefore, you can define what the mob will say in more than one language all in another table and the script will show the corresponding localized text to the corresponding client (english text to enUS/enGB clients, german text to deDE clients, etc). All of the localized text entries will have a unique text ID assigned to them and it is that text ID that will be used by any actions that require textual input.</p> 
+<h3> <a id="user-content-action-explanations" class="anchor" href="#action-explanations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Action Explanations</h3> 
+<hr> 
+<ul> 
+ <li> <strong>0 = <span>ACTION</span>_T_<span>NONE</span></strong>: Does nothing!</li> 
+</ul> 
+<ul> 
+ <li> <strong>1 = <span>ACTION</span>_T_<span>SAY</span></strong>: Displays the -TextId as defined. In case -TextId2 and optionally -TextId3, the output will be randomized. Type text are defined in the <a href="eventai_texts">eventai_texts</a> table (say, yell, whisper, etc) along with other options for the text. All values are required to be negative. 
+  <ul> 
+   <li>Parameter 1: The entry of the text that the <span>NPC</span> should use from <a href="eventai_texts">eventai_texts</a> table. Optionally a entry from other tables can be used (such as <a href="custom_texts).Entry">custom_texts</a> are required to be negative and exist in a *_texts-table. The type text to be displayed are defined in the texts-table itself (Say, Yell, Whisper, Emote Text, Boss Whisper, Boss Emote)Other options are also to be defined in the texts-table, such as a sound to be heard with the text and the language used in output (common, dwarvish, etc).In case this entry has a localized version of the text, the localized text will be displayed in client that support this locale.</li> 
+   <li>Parameter 2: Optional. TextId can be defined in addition. The same apply to this as explained above, however eventAI will randomize between the two.</li> 
+   <li>Parameter 3: Optional, if Parameter 2 exist. In this case, eventAI will randomize between three.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>2 = <span>ACTION</span>_T_<span>YELL</span></strong>: <span>UNUSED</span> </li> 
+</ul> 
+<ul> 
+ <li> <strong>3 = <span>ACTION</span>_T_<span>TEXTEMOTE</span></strong>: <span>UNUSED</span> </li> 
+</ul> 
+<ul> 
+ <li> <strong>4 = <span>ACTION</span>_T_<span>SOUND</span></strong>: When activated, the creature will play the specified sound. 
+  <ul> 
+   <li>Parameter 1: The sound ID to be played. Sound IDs are contained in the <span>DBC</span> files.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>5 = <span>ACTION</span>_T_<span>EMOTE</span></strong>: When activated, the creature will perform a visual emote. Unlike a text emote, a visual emote is one where the creature will actually move or perform a gesture. 
+  <ul> 
+   <li>Parameter 1: The emote ID that the creature should perform. Emote IDs are also contained in the <span>DBC</span> but they can be found in the mangos source as well.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>6 = <span>ACTION</span>_T_<span>RANDOM</span>_<span>SAY</span></strong>: <span>UNUSED</span> </li> 
+</ul> 
+<ul> 
+ <li> <strong>7 = <span>ACTION</span>_T_<span>RANDOM</span>_<span>YELL</span></strong>: <span>UNUSED</span> </li> 
+</ul> 
+<ul> 
+ <li> <strong>8 = <span>ACTION</span>_T_<span>RANDOM</span>_<span>TEXTEMOTE</span></strong>: <span>UNUSED</span> </li> 
+</ul> 
+<ul> 
+ <li> <strong>9 = <span>ACTION</span>_T_<span>RANDOM</span>_<span>SOUND</span></strong>: Similar to the <span>ACTION</span>_T_<span>SOUND</span> action, when this action is activated, it will choose at random a sound to play. This action needs all three parameters to be filled and it will pick a random entry from the three. <span>NOTE</span>: (1) 
+  <ul> 
+   <li>Parameter 1: The sound ID to be played as choice one.</li> 
+   <li>Parameter 2: The sound ID to be played as choice two.</li> 
+   <li>Parameter 3: The sound ID to be played as choice three.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>10 = <span>ACTION</span>_T_<span>RANDOM</span>_<span>EMOTE</span></strong>: Similar to the <span>ACTION</span>_T_<span>EMOTE</span> action, when this action is activated, it will choose at random an emote ID to emote visually. This action needs all three parameters to be filled and it will pick a random entry from the three. <span>NOTE</span>: (1) 
+  <ul> 
+   <li>Parameter 1: The emote ID that the creature should perform as choice one.</li> 
+   <li>Parameter 2: The emote ID that the creature should perform as choice two.</li> 
+   <li>Parameter 3: The emote ID that the creature should perform as choice three.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>11 = <span>ACTION</span>_T_<span>CAST</span></strong>: When activated, the creature will cast a spell specified by a spell ID on a target specified by the target type. 
+  <ul> 
+   <li>Parameter 1: The spell ID to use for the cast. The value used in this field needs to be a valid spell ID.</li> 
+   <li>Parameter 2: The target type defining who the creature should cast on. The value in this field needs to be a valid target type as specified in the reference tables below.</li> 
+   <li>Parameter 3: See <a href="creature_ai_scripts#cast-flags">spell flags</a>. If it is 1, then the spell cast will interrupt any spells that are already in the progress of being casted; otherwise if the creature is already casting a spell and this field is 0, then this action will be skipped.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>12 = <span>ACTION</span>_T_<span>SUMMON</span></strong>: When activated, the creature will summon another creature at the same spot as itself that will attack the specified target. 
+  <ul> 
+   <li>Parameter 1: The creature template ID to be summoned. The value here needs to be a valid creature template ID.</li> 
+   <li>Parameter 2: The target type defining who the summoned creature will attack. The value in this field needs to be a valid target type as specified in the reference tables below. <span>NOTE</span>: Using target type 0 will cause the summoned creature to not attack anyone.</li> 
+   <li>Parameter 3: The duration until the summoned creature should be unsummoned. The value in this field is in milliseconds or 0. If zero, then the creature will not be unsummoned until it leaves combat, but only works with t_type !=0.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>13 = <span>ACTION</span>_T_<span>THREAT</span>_<span>SINGLE</span>_<span>PCT</span></strong>: When activated, this action will modify the threat of a target in the creature’s threat list by the specified percent. 
+  <ul> 
+   <li>Parameter 1: Threat percent that should be modified. The value in this field can range from -100 to +100. If it is negative, threat will be taken away and if positive, threat will be added.</li> 
+   <li>Parameter 2: The target type defining on whom the threat change should occur. The value in this field needs to be a valid target type as specified in the reference tables below.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>14 = <span>ACTION</span>_T_<span>THREAT</span>_<span>ALL</span>_<span>PCT</span></strong>: When activated, this action will modify the threat for everyone in the creature’s threat list by the specified percent. 
+  <ul> 
+   <li>Parameter 1: The percent that should be used in modifying everyone’s threat in the creature’s threat list. The value here can range from -100 to +100. <span>NOTE</span>: Using -100 will cause the creature to reset everyone’s threat to 0 so that everyone has the same amount of threat. It does <span>NOT</span> make any changes as to who is in the threat list.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>15 = <span>ACTION</span>_T_<span>QUEST</span>_<span>EVENT</span></strong>: When activated, this action will satisfy the external completion requirement for the quest for the specified target defined by the target type. This action can only be used with player targets so it must be ensured that the target type will point to a player. 
+  <ul> 
+   <li>Parameter 1: The quest template ID. The value here must be a valid quest template ID. Furthermore, the quest should have SpecialFlags | 2 as it would need to be completed by an external event which is the activation of this action.</li> 
+   <li>Parameter 2: The target type defining whom the quest should be completed for. The value in this field needs to be a valid target type as specified in the reference tables below.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>16 = <span>ACTION</span>_T_<span>CASTCREATUREGO</span></strong>: When activated, this action will call CastedCreatureOrGO() function for the player. It can be used to give quest credit for casting a spell on the creature. 
+  <ul> 
+   <li>Parameter 1: The quest template ID. The value here must be a valid quest template ID.</li> 
+   <li>Parameter 2: The spell ID to use to simulate the cast. The value used in this field needs to be a valid spell ID.</li> 
+   <li>Parameter 3: The target type defining whom the quest credit should be given to. The value in this field needs to be a valid target type as specified in the reference tables below.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>17 = <span>ACTION</span>_T_<span>SET</span>_<span>UNIT</span>_<span>FIELD</span></strong>: When activated, this action can change the target’s unit field values. More information on the field value indeces can be found at <a href="character">character data</a> data. 
+  <ul> 
+   <li>Parameter 1: The index of the field number to be changed. Use <a href="character">character data</a> data for a list of indeces and what they control. Note that a creature shares the same indeces with a player except for the <span>PLAYER</span>_* ones.</li> 
+   <li>Parameter 2: The new value to be put in the field.</li> 
+   <li>Parameter 3: The target type defining for whom the unit field should be changed. The value in this field needs to be a valid target type as specified in the reference tables below.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>18 = <span>ACTION</span>_T_<span>SET</span>_<span>UNIT</span>_<span>FLAG</span></strong>: When activated, this action changes the target’s <a href="https://github.com/cmangos/issues/wiki/Creature_template#unitflags">flags</a> by adding (turning on) more flags. For example, this action can make the creature unattackable/unselectable if the right flags are used. 
+  <ul> 
+   <li>Parameter 1: The flag(s) to be set. Multiple flags can be set by using bitwise-OR on them (adding them together).</li> 
+   <li>Parameter 2: The target type defining for whom the flags should be changed. The value in this field needs to be a valid target type as specified in the reference tables below.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>19 = <span>ACTION</span>_T_<span>REMOVE</span>_<span>UNIT</span>_<span>FLAG</span></strong>: When activated, this action changes the target’s flags by removing (turning off) flags. For example, this action can make the creature normal after it was unattackable/unselectable if the right flags are used. 
+  <ul> 
+   <li>Parameter 1: The flag(s) to be removed. Multiple flags can be set by using bitwise-OR on them (adding them together).</li> 
+   <li>Parameter 2: The target type defining for whom the flags should be changed. The value in this field needs to be a valid target type as specified in the reference tables below.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>20 = <span>ACTION</span>_T_<span>AUTO</span>_<span>ATTACK</span></strong>: This action controls whether or not the creature should stop or start the auto melee attack. 
+  <ul> 
+   <li>Parameter 1: If zero, then the creature will stop its melee attacks. If non-zero, then the creature will either continue its melee attacks (the action would then have no effect) or it will start its melee attacks on the target with the top threat if its melee attacks were previously stopped.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>21 = <span>ACTION</span>_T_<span>COMBAT</span>_<span>MOVEMENT</span></strong>: This action controls whether or not the creature will always move towards its target. 
+  <ul> 
+   <li>Parameter 1: If zero, then the creature will stop moving towards its victim (if its victim gets out of melee range) and will be stationary. If non-zero, then the creature will either continue to follow its victim (the action would have no effect) or it will start to follow the target with the top threat if its movement was disabled before.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>22 = <span>ACTION</span>_T_<span>SET</span>_<span>PHASE</span></strong>: When activated, this action sets the creature’s event to the specified value. 
+  <ul> 
+   <li>Parameter 1: The new phase to set the creature in. This number must be an integer between 0 and 31 inclusive.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>23 = <span>ACTION</span>_T_<span>INC</span>_<span>PHASE</span></strong>: When activated, this action will increase (or decrease) the current creature’s phase. 
+  <ul> 
+   <li>Parameter 1: The number of phases to increase or decrease. Use negative values to decrease the current phase. After increasing or decreasing the phase by this action, the current phase must not be lower than 0 or exceed 31.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>24 = <span>ACTION</span>_T_<span>EVADE</span></strong>: When activated, the creature will immediately exit out of combat, clear its threat list, and move back to its spawn point. Basically, this action will reset the whole encounter.</li> 
+</ul> 
+<ul> 
+ <li> <strong>25 = <span>ACTION</span>_T_<span>FLEE</span></strong>: When activated, the creature will try to flee from combat. Currently this is done by it casting a fear-like spell on itself called "Run Away".</li> 
+</ul> 
+<ul> 
+ <li> <strong>26 = <span>ACTION</span>_T_<span>QUEST</span>_<span>EVENT</span>_<span>ALL</span></strong>: This action does the same thing as the <span>ACTION</span>_T_<span>QUEST</span>_<span>EVENT</span> does but it does it for all players in the creature’s threat list. Note that if a player is not in its threat list for whatever reason, he/she won’t get the quest completed. 
+  <ul> 
+   <li>Parameter 1: The quest ID to finish for everyone.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>27 = <span>ACTION</span>_T_<span>CASTCREATUREGO</span>_<span>ALL</span></strong>: This action does the same thing as the <span>ACTION</span>_T_<span>CASTCREATUREGO</span> does but it does it for all players in the creature’s threat list. Note that if a player is not in its threat list for whatever reason, he/she won’t receive the cast emulation. 
+  <ul> 
+   <li>Parameter 1: The quest template ID.</li> 
+   <li>Parameter 2: The spell ID used to simulate the cast.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>28 = <span>ACTION</span>_T_<span>REMOVEAURASFROMSPELL</span></strong>: This action will remove all auras from a specific spell from the target. 
+  <ul> 
+   <li>Parameter 1: The target type defining for whom the unit field should be changed. The value in this field needs to be a valid target type as specified in the reference tables below.</li> 
+   <li>Parameter 2: The spell ID whose auras will be removed.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>29 = <span>ACTION</span>_T_<span>RANGED</span>_<span>MOVEMENT</span></strong>: This action changes the movement type generator to ranged type using the specified values for angle and distance. Note that specifying zero angle and distance will make it just melee instead. 
+  <ul> 
+   <li>Parameter 1: The distance the mob should keep between it and its target.</li> 
+   <li>Parameter 2: The angle the mob should use.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>30 = <span>ACTION</span>_T_<span>RANDOM</span>_<span>PHASE</span></strong>: Randomly sets the phase to one from the three parameter choices. <span>NOTE</span>: (1) 
+  <ul> 
+   <li>Parameter 1: A possible random phase choice.</li> 
+   <li>Parameter 2: A possible random phase choice.</li> 
+   <li>Parameter 3: A possible random phase choice.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>31 = <span>ACTION</span>_T_<span>RANDOM</span>_<span>PHASE</span>_<span>RANGE</span></strong>: Randomly sets the phase between a range of phases controlled by the parameters. 
+  <ul> 
+   <li>Parameter 1: The minimum of the phase range.</li> 
+   <li>Parameter 2: The maximum of the phase range. The number here must be greater than the one in parameter 1.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>32 = <span>ACTION</span>_T_<span>SUMMON</span></strong>: Summons a creature using the data specified in the separate <a href="creature_ai_summons">summons</a> table. 
+  <ul> 
+   <li>Parameter 1: The creature template ID to be summoned. The value here needs to be a valid creature template ID.</li> 
+   <li>Parameter 2: The target type defining who the summoned creature will attack. The value in this field needs to be a valid target type as specified in the reference tables below. <span>NOTE</span>: Using target type 0 will cause the summoned creature to not attack anyone.</li> 
+   <li>Parameter 3: The summon ID from the eventai_summons table controlling the position (and spawntime) where the summoned mob should be spawned at.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>33 = <span>ACTION</span>_T_<span>KILLED</span>_<span>MONSTER</span></strong>: When activated, this action will call KilledMonster() function for the player. It can be used to give creature credit for killing a creature (note that it can be <span>ANY</span> creature including certain quest specific triggers). In general if the quest is set to be accompished on different creatures (e.g. "Credit" templates). 
+  <ul> 
+   <li>Parameter 1: The creature template ID. The value here must be a valid creature template ID.</li> 
+   <li>Parameter 2: The target type defining whom the quest kill count should be given to. The value in this field needs to be a valid target type as specified in the reference tables below.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>34 = <span>ACTION</span>_T_<span>SET</span>_<span>INST</span>_<span>DATA</span></strong>: Sets data for the instance. Note that this will only work when the creature is inside an instantiable zone that has a valid script (ScriptedInstance) assigned. 
+  <ul> 
+   <li>Parameter 1: The field to change in the instance script. Again, this field needs to be a valid field that has been already defined in the instance’s script.</li> 
+   <li>Parameter 2: The value to put at that field index. The number here must be a valid 32 bit number.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>35 = <span>ACTION</span>_T_<span>SET</span>_<span>INST</span>_DATA64</strong>: Sets <span>GUID</span> (64 bits) data for the instance based on the target. Note that this will only work when the creature is inside an instantiable zone that has a valid script (ScriptedInstance) assigned. 
+  <ul> 
+   <li>Parameter 1: The field to change in the instance script. Again, this field needs to be a valid field that has been already defined in the instance’s script.</li> 
+   <li>Parameter 2: The target type to use to get the <span>GUID</span> that will be stored at the field index. The value in this field needs to be a valid target type as specified in the reference tables below.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>36 = <span>ACTION</span>_T_<span>UPDATE</span>_<span>TEMPLATE</span></strong>: This function temporarily changes creature entry to new entry, display is changed, loot is changed, but AI is not changed. At respawn creature will be reverted to original entry. 
+  <ul> 
+   <li>Parameter 1: The creature template ID. The value here must be a valid creature template ID.</li> 
+   <li>Parameter 2: Use model_id from team : Alliance(0) or Horde (1).</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>37 = <span>ACTION</span>_T_<span>DIE</span></strong>: Kills the creature</li> 
+</ul> 
+<ul> 
+ <li> <strong>38 = <span>ACTION</span>_T_<span>ZONE</span>_<span>COMBAT</span>_<span>PULSE</span></strong>: Places all players within the instance into combat with the creature. Only works in combat and only works inside of instances.</li> 
+</ul> 
+<ul> 
+ <li> <strong>39 = <span>ACTION</span>_T_<span>CALL</span>_<span>FOR</span>_<span>HELP</span></strong>: Call any friendly creatures (if its not in combat/etc) in radius attack creature target. 
+  <ul> 
+   <li>Parameter 1: Radius from creature.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>40 = <span>ACTION</span>_T_<span>SET</span>_<span>SHEATH</span></strong>: Let set sheath state for creature (0-no weapon show (not used mostly by creatures), 1-melee weapon show, 2-ranged weapon show) 
+  <ul> 
+   <li>Parameter 1: Sheath state of the creature.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>41 = <span>ACTION</span>_T_<span>FORCE</span>_<span>DESPAWN</span></strong>: Despawns the creature. 
+  <ul> 
+   <li>Parameter 1: Despawn delay.</li> 
+  </ul> </li> 
+</ul> 
+<p>(1) = Use -1 to specify that if this param is picked to do nothing. Random is constant between actions within an event. So if you have a random Yell and a random Sound they will match up (ex: param2 with param2)</p> 
+<h3> <a id="user-content-reference-tables" class="anchor" href="#reference-tables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reference Tables</h3> 
+<hr> 
+<p>All of the events, actions, and target types are summarized in tabular format for convenience purposes and fast lookup. NU = Not Used; * – optional</p> 
+<h4> <a id="user-content-events" class="anchor" href="#events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Events</h4> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Name</th> 
+   <th>Param 1</th> 
+   <th>Param 2</th> 
+   <th>Param 3</th> 
+   <th>Param 4</th> 
+   <th>Description</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td> <span>EVENT</span>_T_<span>TIMER</span> </td> 
+   <td>InitialMin</td> 
+   <td>InitialMax</td> 
+   <td>RepeatMin</td> 
+   <td>RepeatMax</td> 
+   <td> <span>COMBAT</span> <span>ONLY</span> – Expires first between (Param1) and (Param2) and then between every (Param3) and (Param4).</td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td> <span>EVENT</span>_T_<span>TIMER</span>_<span>OOC</span> </td> 
+   <td>InitialMin</td> 
+   <td>InitialMax</td> 
+   <td>RepeatMin</td> 
+   <td>RepeatMax</td> 
+   <td> <span>OUT</span> OF <span>COMBAT</span> – Expires first between (Param1) and (Param2) and then between every (Param3) and (Param4).</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td> <span>EVENT</span>_T_HP</td> 
+   <td>HPMax%</td> 
+   <td>HPMin%</td> 
+   <td>RepeatMin</td> 
+   <td>RepeatMax</td> 
+   <td>Expires when HP is between (Param1) and (Param2). Will repeat every (Param3) and (Param4).</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td> <span>EVENT</span>_T_<span>MANA</span> </td> 
+   <td>ManaMax%</td> 
+   <td>ManaMin%</td> 
+   <td>RepeatMin</td> 
+   <td>RepeatMax</td> 
+   <td>Expires once Mana% is between (Param1) and (Param2). Will repeat every (Param3) and (Param4).</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td> <span>EVENT</span>_T_<span>AGGRO</span> </td> 
+   <td>n/a</td> 
+   <td>n/a</td> 
+   <td>n/a</td> 
+   <td>n/a</td> 
+   <td>Expires upon initial aggro (does not repeat).</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td> <span>EVENT</span>_T_<span>KILL</span> </td> 
+   <td>RepeatMin</td> 
+   <td>RepeatMax</td> 
+   <td>n/a</td> 
+   <td>n/a</td> 
+   <td>Expires upon killing a player. Will repeat every (Param1) and (Param2).</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td> <span>EVENT</span>_T_<span>DEATH</span> </td> 
+   <td>n/a</td> 
+   <td>n/a</td> 
+   <td>n/a</td> 
+   <td>n/a</td> 
+   <td>Expires upon Death.</td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td> <span>EVENT</span>_T_<span>EVADE</span> </td> 
+   <td>n/a</td> 
+   <td>n/a</td> 
+   <td>n/a</td> 
+   <td>n/a</td> 
+   <td>Expires upon creature EnterEvadeMode().</td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td> <span>EVENT</span>_T_<span>SPELLHIT</span> </td> 
+   <td>SpellID</td> 
+   <td>School</td> 
+   <td>RepeatMin</td> 
+   <td>RepeatMax</td> 
+   <td>Expires upon Spell hit. If (param1) is set will only expire on that spell. If (param2) will only expire on spells of that school. Will repeat every (Param3) and (Param4) .</td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td> <span>EVENT</span>_T_<span>RANGE</span> </td> 
+   <td>MinDist</td> 
+   <td>MaxDist</td> 
+   <td>RepeatMin</td> 
+   <td>RepeatMax</td> 
+   <td>Expires when the highest threat target distance is greater than (Param1) and less than (Param2). Will repeat every (Param3) and (Param4) .</td> 
+  </tr> 
+  <tr> 
+   <td>10</td> 
+   <td> <span>EVENT</span>_T_<span>OOC</span>_<span>LOS</span> </td> 
+   <td>NoHostile</td> 
+   <td>NoFriendly</td> 
+   <td>RepeatMin</td> 
+   <td>RepeatMax</td> 
+   <td>Expires when a Player moves within visible distance to creature. Does not expire for Hostile Players if (Param1) is not 0. Does not expire for Friendly Players if (Param2) is not 0. Will repeat every (Param3) and (Param4) . Does not expire for creatures or pet or when the creature is in combat.</td> 
+  </tr> 
+  <tr> 
+   <td>11</td> 
+   <td> <span>EVENT</span>_T_<span>SPAWNED</span> </td> 
+   <td>n/a</td> 
+   <td>n/a</td> 
+   <td>n/a</td> 
+   <td>n/a</td> 
+   <td>Expires at initial spawn and at creature respawn (useful for setting ranged movement type)</td> 
+  </tr> 
+  <tr> 
+   <td>12</td> 
+   <td> <span>EVENT</span>_T_<span>TARGET</span>_HP</td> 
+   <td>HPMax%</td> 
+   <td>HPMin%</td> 
+   <td>RepeatMin</td> 
+   <td>RepeatMax</td> 
+   <td>Expires when Current Target’s HP is between (Param1) and (Param2). Will repeat every (Param3) and (Param4) .</td> 
+  </tr> 
+  <tr> 
+   <td>13</td> 
+   <td> <span>EVENT</span>_T_<span>TARGET</span>_<span>CASTING</span> </td> 
+   <td>RepeatMin</td> 
+   <td>RepeatMax</td> 
+   <td>n/a</td> 
+   <td>n/a</td> 
+   <td>Expires when the player is casting a spell. Will repeat every (Param1) and (Param2) .</td> 
+  </tr> 
+  <tr> 
+   <td>14</td> 
+   <td> <span>EVENT</span>_T_<span>FRIENDLY</span>_HP</td> 
+   <td>HPDeficit</td> 
+   <td>Radius</td> 
+   <td>RepeatMin</td> 
+   <td>RepeatMax</td> 
+   <td>Expires when a friendly unit in radius(param2) has at least (param1) hp missing. Will repeat every (Param3) and (Param4) .</td> 
+  </tr> 
+  <tr> 
+   <td>15</td> 
+   <td> <span>EVENT</span>_T_<span>FRIENDLY</span>_IS_CC</td> 
+   <td>DispelType</td> 
+   <td>Radius</td> 
+   <td>RepeatMin</td> 
+   <td>RepeatMax</td> 
+   <td>Expires when a friendly unit is Crowd controlled within the given radius (param2). Will repeat every (Param3) and (Param4) .</td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td> <span>EVENT</span>_T_<span>MISSING</span>_<span>BUFF</span> </td> 
+   <td>SpellId</td> 
+   <td>Radius</td> 
+   <td>RepeatMin</td> 
+   <td>RepeatMax</td> 
+   <td>Expires when a friendly unit is missing aura’s given by spell (param1) within radius (param2). Will repeat every (Param3) and (Param4) .</td> 
+  </tr> 
+  <tr> 
+   <td>17</td> 
+   <td> <span>EVENT</span>_T_<span>SUMMONED</span>_<span>UNIT</span> </td> 
+   <td>CreatureId</td> 
+   <td>RepeatMin</td> 
+   <td>RepeatMax</td> 
+   <td>n/a</td> 
+   <td>Expires after creature with entry(Param1) is spawned or for all spawns if param1 = 0. Will repeat every (Param2) and (Param3) .</td> 
+  </tr> 
+  <tr> 
+   <td>18</td> 
+   <td> <span>EVENT</span>_T_<span>TARGET</span>_<span>MANA</span> </td> 
+   <td>ManaMax%</td> 
+   <td>ManaMin%</td> 
+   <td>RepeatMin</td> 
+   <td>RepeatMax</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>21</td> 
+   <td> <span>EVENT</span>_T_<span>REACHED</span>_<span>HOME</span> </td> 
+   <td>n/a</td> 
+   <td>n/a</td> 
+   <td>n/a</td> 
+   <td>n/a</td> 
+   <td>Expires when creature reach it’s home(spawn) location after Evade.</td> 
+  </tr> 
+  <tr> 
+   <td>22</td> 
+   <td> <span>EVENT</span>_T_<span>RECEIVE</span>_<span>EMOTE</span> </td> 
+   <td>EmoteId</td> 
+   <td>Condition]]</td> 
+   <td>CondValue1</td> 
+   <td>CondValue2</td> 
+   <td>Expires when creature receive emote with text emote id(enum TextEmotes). Condition can be defined. If set, then most conditions has additional value (see enum ConditionType)</td> 
+  </tr> 
+  <tr> 
+   <td>23</td> 
+   <td> <span>EVENT</span>_T_<span>BUFFED</span> </td> 
+   <td>SpellId</td> 
+   <td>AmmountInStack</td> 
+   <td>RepeatMin</td> 
+   <td>RepeatMax</td> 
+   <td>Expires when creature have spell (Param1) auras applied stack greater or equal provided in Param2 amount. Will repeat every (Param3) and (Param4).</td> 
+  </tr> 
+  <tr> 
+   <td>24</td> 
+   <td> <span>EVENT</span>_T_<span>TARGET</span>_<span>BUFFED</span> </td> 
+   <td>SpellId</td> 
+   <td>AmmountInStack</td> 
+   <td>RepeatMin</td> 
+   <td>RepeatMax</td> 
+   <td>Expires when target unit have spell (Param1) auras applied stack greater or equal provided in Param2 amount. Will repeat every (Param3) and (Param4).</td> 
+  </tr> 
+  <tr> 
+   <td>25</td> 
+   <td> <span>EVENT</span>_T_<span>SUMMONED</span>_<span>JUST</span>_<span>DIED</span> </td> 
+   <td>CreatureId</td> 
+   <td>RepeatMin</td> 
+   <td>RepeatMax</td> 
+   <td>n/a</td> 
+   <td>Expires after creature with entry = (Param1) is die (Param1 = 0 means all spawns). Will repeat every (Param2) and (Param3).</td> 
+  </tr> 
+  <tr> 
+   <td>26</td> 
+   <td> <span>EVENT</span>_T_<span>SUMMONED</span>_<span>JUST</span>_<span>DESPAWN</span> </td> 
+   <td>CreatureId</td> 
+   <td>RepeatMin</td> 
+   <td>RepeatMax</td> 
+   <td>n/a</td> 
+   <td>Expires before creature with entry = (Param1) is despawn (Param1 = 0 means all spawns). Will repeat every (Param2) and (Param3).</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-actions" class="anchor" href="#actions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Actions</h4> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Name</th> 
+   <th>Param 1</th> 
+   <th>Param 2</th> 
+   <th>Param 3</th> 
+   <th>Description</th> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td> <span>ACTION</span>_T_<span>SAY</span> </td> 
+   <td>-TextId1,</td> 
+   <td>-TextId2,</td> 
+   <td>-TextId3</td> 
+   <td>Displays the -TextId as defined. In case -TextId2 and optionally -TextId3, the output will be randomized. Type text are defined in the text table itself(say, yell, whisper, etc) along with other options for the text. All values are required to be negative.</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td> <span>ACTION</span>_T_<span>YELL</span> </td> 
+   <td><span>UNUSED</span></td> 
+   <td><span>UNUSED</span></td> 
+   <td><span>UNUSED</span></td> 
+   <td><span>UNUSED</span></td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td> <span>ACTION</span>_T_<span>TEXTEMOTE</span> </td> 
+   <td><span>UNUSED</span></td> 
+   <td><span>UNUSED</span></td> 
+   <td><span>UNUSED</span></td> 
+   <td><span>UNUSED</span></td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td> <span>ACTION</span>_T_<span>SOUND</span> </td> 
+   <td>Sound ID</td> 
+   <td>NU</td> 
+   <td>NU</td> 
+   <td>Creature plays sound</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td> <span>ACTION</span>_T_<span>EMOTE</span> </td> 
+   <td>Emote ID</td> 
+   <td>NU</td> 
+   <td>NU</td> 
+   <td>Creature does visual emote</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td> <span>ACTION</span>_T_<span>RANDOM</span>_<span>SAY</span> </td> 
+   <td><span>UNUSED</span></td> 
+   <td><span>UNUSED</span></td> 
+   <td><span>UNUSED</span></td> 
+   <td><span>UNUSED</span></td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td> <span>ACTION</span>_T_<span>RANDOM</span>_<span>YELL</span> </td> 
+   <td><span>UNUSED</span></td> 
+   <td><span>UNUSED</span></td> 
+   <td><span>UNUSED</span></td> 
+   <td><span>UNUSED</span></td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td> <span>ACTION</span>_T_<span>RANDOM</span>_<span>TEXTEMOTE</span> </td> 
+   <td><span>UNUSED</span></td> 
+   <td><span>UNUSED</span></td> 
+   <td><span>UNUSED</span></td> 
+   <td><span>UNUSED</span></td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td> <span>ACTION</span>_T_<span>RANDOM</span>_<span>SOUND</span> </td> 
+   <td>Sound ID 1</td> 
+   <td>Sound ID 2</td> 
+   <td>Sound ID 3</td> 
+   <td>Picks a sound ID at random and plays it; -1 = action skipped if chosen</td> 
+  </tr> 
+  <tr> 
+   <td>10</td> 
+   <td> <span>ACTION</span>_T_<span>RANDOM</span>_<span>EMOTE</span> </td> 
+   <td>Emote ID 1</td> 
+   <td>Emote ID 2</td> 
+   <td>Emote ID 3</td> 
+   <td>Picks an emote ID at random and does visual emote; -1 = action skipped if chosen</td> 
+  </tr> 
+  <tr> 
+   <td>11</td> 
+   <td> <span>ACTION</span>_T_<span>CAST</span> </td> 
+   <td>Spell ID</td> 
+   <td>T-Type]]</td> 
+   <td>Cast Flag</td> 
+   <td>Casts spell on a target with specified cast flags (see table below).</td> 
+  </tr> 
+  <tr> 
+   <td>12</td> 
+   <td> <span>ACTION</span>_T_<span>SUMMON</span> </td> 
+   <td>Creature ID</td> 
+   <td>T-Type]]</td> 
+   <td>Duration*</td> 
+   <td>Summons a creature at itself for a given duration (infinite if zero, only with t_type != 0) that will attack a target.</td> 
+  </tr> 
+  <tr> 
+   <td>13</td> 
+   <td> <span>ACTION</span>_T_<span>THREAT</span>_<span>SINGLE</span>_<span>PCT</span> </td> 
+   <td>Threat %</td> 
+   <td>T-Type]]</td> 
+   <td>NU</td> 
+   <td>Modifies the target’s threat by a percent</td> 
+  </tr> 
+  <tr> 
+   <td>14</td> 
+   <td> <span>ACTION</span>_T_<span>THREAT</span>_<span>ALL</span>_<span>PCT</span> </td> 
+   <td>Threat %</td> 
+   <td>NU</td> 
+   <td>NU</td> 
+   <td>Modifies everyone’s threat by a percent</td> 
+  </tr> 
+  <tr> 
+   <td>15</td> 
+   <td> <span>ACTION</span>_T_<span>QUEST</span>_<span>EVENT</span> </td> 
+   <td>Quest ID</td> 
+   <td>T-Type]]</td> 
+   <td>NU</td> 
+   <td>Satisfies external script objective for a quest for the target (must be a player)</td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td> <span>ACTION</span>_T_<span>CASTCREATUREGO</span> </td> 
+   <td>Quest ID</td> 
+   <td>Spell ID</td> 
+   <td>T-Type]]</td> 
+   <td>Emulates spell cast on the creature for the target (must be a player)</td> 
+  </tr> 
+  <tr> 
+   <td>17</td> 
+   <td> <span>ACTION</span>_T_<span>SET</span>_<span>UNIT</span>_<span>FIELD</span> </td> 
+   <td>index ]]</td> 
+   <td>Value</td> 
+   <td>T-Type]]</td> 
+   <td>Sets unit field at the index to the value given for the target</td> 
+  </tr> 
+  <tr> 
+   <td>18</td> 
+   <td> <span>ACTION</span>_T_<span>SET</span>_<span>UNIT</span>_<span>FLAG</span> </td> 
+   <td>Flag(s)</td> 
+   <td>T-Type]]</td> 
+   <td>NU</td> 
+   <td>Sets flag(s) on the target</td> 
+  </tr> 
+  <tr> 
+   <td>19</td> 
+   <td> <span>ACTION</span>_T_<span>REMOVE</span>_<span>UNIT</span>_<span>FLAG</span> </td> 
+   <td>Flag(s)</td> 
+   <td>T-Type]]</td> 
+   <td>NU</td> 
+   <td>Removes flag(s) from the target</td> 
+  </tr> 
+  <tr> 
+   <td>20</td> 
+   <td> <span>ACTION</span>_T_<span>AUTO</span>_<span>ATTACK</span> </td> 
+   <td>Boolean</td> 
+   <td>NU</td> 
+   <td>NU</td> 
+   <td>If 0, stops auto melee; else continues/starts it</td> 
+  </tr> 
+  <tr> 
+   <td>21</td> 
+   <td> <span>ACTION</span>_T_<span>COMBAT</span>_<span>MOVEMENT</span> </td> 
+   <td>Boolean</td> 
+   <td>NU</td> 
+   <td>NU</td> 
+   <td>If 0, stops combat movement; else continues/starts it</td> 
+  </tr> 
+  <tr> 
+   <td>22</td> 
+   <td> <span>ACTION</span>_T_<span>SET</span>_<span>PHASE</span> </td> 
+   <td>Phase #</td> 
+   <td>NU</td> 
+   <td>NU</td> 
+   <td>Sets current phase to number given</td> 
+  </tr> 
+  <tr> 
+   <td>23</td> 
+   <td> <span>ACTION</span>_T_<span>INC</span>_<span>PHASE</span> </td> 
+   <td>Number</td> 
+   <td>NU</td> 
+   <td>NU</td> 
+   <td>Increments (or decrements) the phase by given number.</td> 
+  </tr> 
+  <tr> 
+   <td>24</td> 
+   <td> <span>ACTION</span>_T_<span>EVADE</span> </td> 
+   <td>NU</td> 
+   <td>NU</td> 
+   <td>NU</td> 
+   <td>Force creature reset. Exit combat + lose threat</td> 
+  </tr> 
+  <tr> 
+   <td>25</td> 
+   <td> <span>ACTION</span>_T_<span>FLEE</span> </td> 
+   <td>NU</td> 
+   <td>NU</td> 
+   <td>NU</td> 
+   <td>Force creature to flee from combat</td> 
+  </tr> 
+  <tr> 
+   <td>26</td> 
+   <td> <span>ACTION</span>_T_<span>QUEST</span>_<span>EVENT</span>_<span>ALL</span> </td> 
+   <td>Quest ID</td> 
+   <td>NU</td> 
+   <td>NU</td> 
+   <td>Satisfies external objective for a quest for all players in threat list</td> 
+  </tr> 
+  <tr> 
+   <td>27</td> 
+   <td> <span>ACTION</span>_T_<span>CASTCREATUREGO</span>_<span>ALL</span> </td> 
+   <td>Quest ID</td> 
+   <td>Spell ID</td> 
+   <td>NU</td> 
+   <td>Emulates spell cast on creature for all players in threat list</td> 
+  </tr> 
+  <tr> 
+   <td>28</td> 
+   <td> <span>ACTION</span>_T_<span>REMOVEAURASFROMSPELL</span> </td> 
+   <td>T-Type]]</td> 
+   <td>Spell ID</td> 
+   <td>NU</td> 
+   <td>Removes all auras from a spell ID from the target.</td> 
+  </tr> 
+  <tr> 
+   <td>29</td> 
+   <td> <span>ACTION</span>_T_<span>RANGED</span>_<span>MOVEMENT</span> </td> 
+   <td>Distance</td> 
+   <td>Angle</td> 
+   <td>NU</td> 
+   <td>Uses ranged movement generator keeping the creature at a distance.</td> 
+  </tr> 
+  <tr> 
+   <td>30</td> 
+   <td> <span>ACTION</span>_T_<span>RANDOM</span>_<span>PHASE</span> </td> 
+   <td>Phase 1</td> 
+   <td>Phase 2</td> 
+   <td>Phase 3</td> 
+   <td>Randomly chooses a phase from the list of three phases.</td> 
+  </tr> 
+  <tr> 
+   <td>31</td> 
+   <td> <span>ACTION</span>_T_<span>RANDOM</span>_<span>PHASE</span>_<span>RANGE</span> </td> 
+   <td>Min Phase</td> 
+   <td>Max Phase</td> 
+   <td>NU</td> 
+   <td>Chooses a random phase in the range specified.</td> 
+  </tr> 
+  <tr> 
+   <td>32</td> 
+   <td> <span>ACTION</span>_T_<span>SUMMON</span> </td> 
+   <td>Creature ID</td> 
+   <td>T-Type]]</td> 
+   <td>Summon ID</td> 
+   <td>Summons a creature at the coords specified for the given summon id that will attack a target.</td> 
+  </tr> 
+  <tr> 
+   <td>33</td> 
+   <td> <span>ACTION</span>_T_<span>KILLED</span>_<span>MONSTER</span> </td> 
+   <td>Creature ID</td> 
+   <td>T-Type]]</td> 
+   <td>NU</td> 
+   <td>Simulates a kill for a mob of ID given for the player from the target type.</td> 
+  </tr> 
+  <tr> 
+   <td>34</td> 
+   <td> <span>ACTION</span>_T_<span>SET</span>_<span>INST</span>_<span>DATA</span> </td> 
+   <td>Field]]</td> 
+   <td>Value</td> 
+   <td>NU</td> 
+   <td>Sets new value for the field given in the instance script.</td> 
+  </tr> 
+  <tr> 
+   <td>35</td> 
+   <td> <span>ACTION</span>_T_<span>SET</span>_<span>INST</span>_DATA64</td> 
+   <td>Field]]</td> 
+   <td>T-Type]]</td> 
+   <td>NU</td> 
+   <td>Stores target’s <span>GUID</span> at the field given in the instance script.</td> 
+  </tr> 
+  <tr> 
+   <td>36</td> 
+   <td> <span>ACTION</span>_T_<span>UPDATE</span>_<span>TEMPLATE</span> </td> 
+   <td>Entry</td> 
+   <td>Fraction</td> 
+   <td>NU</td> 
+   <td>Temporarily changes creature entry to new entry.</td> 
+  </tr> 
+  <tr> 
+   <td>37</td> 
+   <td> <span>ACTION</span>_T_<span>DIE</span> </td> 
+   <td>NU</td> 
+   <td>NU</td> 
+   <td>NU</td> 
+   <td>Kills the creature.</td> 
+  </tr> 
+  <tr> 
+   <td>38</td> 
+   <td> <span>ACTION</span>_T_<span>ZONE</span>_<span>COMBAT</span>_<span>PULSE</span> </td> 
+   <td>NU</td> 
+   <td>NU</td> 
+   <td>NU</td> 
+   <td>Places all players within the instance into combat with the creature. Only works in combat and only works inside of instances.</td> 
+  </tr> 
+  <tr> 
+   <td>39</td> 
+   <td> <span>ACTION</span>_T_<span>CALL</span>_<span>FOR</span>_<span>HELP</span> </td> 
+   <td>Radius</td> 
+   <td>NU</td> 
+   <td>NU</td> 
+   <td>Call any friendly creatures (if its not in combat/etc) in radius attack creature target.</td> 
+  </tr> 
+  <tr> 
+   <td>40</td> 
+   <td> <span>ACTION</span>_T_<span>SET</span>_<span>SHEATH</span> </td> 
+   <td>Sheath</td> 
+   <td>NU</td> 
+   <td>NU</td> 
+   <td>Let set sheath state for creature (0-no weapon show (not used mostly by creatures), 1-melee weapon show, 2-ranged weapon show)</td> 
+  </tr> 
+  <tr> 
+   <td>41</td> 
+   <td> <span>ACTION</span>_T_<span>FORCE</span>_<span>DESPAWN</span> </td> 
+   <td>delay</td> 
+   <td>NU</td> 
+   <td>NU</td> 
+   <td>Despawns the creature, If 0 despawn instant, other despawn after delay (in ms)</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-target-types" class="anchor" href="#target-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Target Types</h4> 
+<p>(T-Type)</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Name</th> 
+   <th>Description</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td> <span>TARGET</span>_T_<span>SELF</span> </td> 
+   <td>Targets itself</td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td> <span>TARGET</span>_T_<span>HOSTILE</span> </td> 
+   <td>Targets the current victim (usually the one with the most threat)</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td> <span>TARGET</span>_T_<span>HOSTILE</span>_<span>SECOND</span>_<span>AGGRO</span> </td> 
+   <td>Targets the unit with the second most threat in the threat list</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td> <span>TARGET</span>_T_<span>HOSTILE</span>_<span>LAST</span>_<span>AGGRO</span> </td> 
+   <td>Targets the unit with the least threat in the threat list</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td> <span>TARGET</span>_T_<span>HOSTILE</span>_<span>RANDOM</span> </td> 
+   <td>Targets a random unit from the threat list</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td> <span>TARGET</span>_T_<span>HOSTILE</span>_<span>RANDOM</span>_<span>NOT</span>_<span>TOP</span> </td> 
+   <td>Targets a random unit from the threat list excluding the one with the most threat</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td> <span>TARGET</span>_T_<span>ACTION</span>_<span>INVOKER</span> </td> 
+   <td>Targets the unit that caused the event; only for certain events only.</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-cast-flags" class="anchor" href="#cast-flags" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cast Flags</h4> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>Bit / Value</th> 
+   <th>Name</th> 
+   <th>Description</th> 
+  </tr> 
+  <tr> 
+   <td>0 / 1</td> 
+   <td> <span>CAST</span>_<span>INTURRUPT</span>_<span>PREVIOUS</span> </td> 
+   <td>Interrupts any previous spell casting.</td> 
+  </tr> 
+  <tr> 
+   <td>1 / 2</td> 
+   <td> <span>CAST</span>_<span>TRIGGERED</span> </td> 
+   <td>Forces the cast to be instant and ignores any mana/reagents requirements.</td> 
+  </tr> 
+  <tr> 
+   <td>2 / 4</td> 
+   <td> <span>CAST</span>_<span>FORCE</span>_<span>CAST</span> </td> 
+   <td>Forces spell to cast even if the target is possibly out of range or the creature is possibly out of mana</td> 
+  </tr> 
+  <tr> 
+   <td>3 / 8</td> 
+   <td> <span>CAST</span>_NO_<span>MELEE</span>_IF_<span>OOM</span> </td> 
+   <td>Prevents creature from entering melee if out of mana or out of range</td> 
+  </tr> 
+  <tr> 
+   <td>4 / 16</td> 
+   <td> <span>CAST</span>_<span>FORCE</span>_<span>TARGET</span>_<span>SELF</span> </td> 
+   <td>Forces the target to cast this spell on itself</td> 
+  </tr> 
+  <tr> 
+   <td>5 / 32</td> 
+   <td> <span>CAST</span>_<span>AURA</span>_<span>NOT</span>_<span>PRESENT</span> </td> 
+   <td>Only casts the spell on the target if the target does not have the aura from that spell on itself already.</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-condition-type" class="anchor" href="#condition-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Condition Type</h4> 
+<p>(For Event_type 22)</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>Condition</th> 
+   <th>Value 1</th> 
+   <th>Value 2*</th> 
+   <th>Description</th> 
+  </tr> 
+  <tr> 
+   <td>0 None</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>Nothing.</td> 
+  </tr> 
+  <tr> 
+   <td>1 Aura</td> 
+   <td>SpellID</td> 
+   <td>"effindex"</td> 
+   <td>If the SpellID’s aura is on you.</td> 
+  </tr> 
+  <tr> 
+   <td>2 Item</td> 
+   <td>ItemID</td> 
+   <td>Amount</td> 
+   <td>If you have the item in your inventory.</td> 
+  </tr> 
+  <tr> 
+   <td>3 Item Equipped</td> 
+   <td>ItemId</td> 
+   <td>Amount</td> 
+   <td>If you have the item equipped on your character.</td> 
+  </tr> 
+  <tr> 
+   <td>4 Zone ID</td> 
+   <td>ZoneID</td> 
+   <td>0</td> 
+   <td>Taken from AreaTable.dbc.</td> 
+  </tr> 
+  <tr> 
+   <td>5 Reputation</td> 
+   <td>FactionID</td> 
+   <td>Minimum Rank</td> 
+   <td>Taken from FactionTemplate.dbc. Exalted is 42000.</td> 
+  </tr> 
+  <tr> 
+   <td>6 Team</td> 
+   <td>Team#</td> 
+   <td>0</td> 
+   <td>In "Team#" use 469 if alliance, 67 if Horde.</td> 
+  </tr> 
+  <tr> 
+   <td>7 Skill</td> 
+   <td>SkillID</td> 
+   <td>Min Amount</td> 
+   <td>Values taken from SkillLine.dbc.</td> 
+  </tr> 
+  <tr> 
+   <td>8 Quest Rewarded</td> 
+   <td>QuestID</td> 
+   <td>0</td> 
+   <td>If you have already completed that QuestID.</td> 
+  </tr> 
+  <tr> 
+   <td>9 Quest Taken</td> 
+   <td>QuestID</td> 
+   <td>0</td> 
+   <td>If you are currently on that QuestID.</td> 
+  </tr> 
+  <tr> 
+   <td>12 Active Event</td> 
+   <td>EventID</td> 
+   <td>0</td> 
+   <td>This is <strong>not</strong> from your database. This value is from the <span>DBC</span> file enum HolidayIds.</td> 
+  </tr> 
+ </tbody>
+</table> 
+<p>* – If the value is listed as 0, then leave it as 0.</p> 
+<h4> <a id="user-content-event-flags" class="anchor" href="#event-flags" aria-hidden="true"><span class="octicon octicon-link"></span></a>Event Flags</h4> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>Bit / Value</th> 
+   <th>Name</th> 
+   <th>Description</th> 
+  </tr> 
+  <tr> 
+   <td>0 / 1</td> 
+   <td> <span>EFLAG</span>_<span>REPEATABLE</span> </td> 
+   <td>Event repeats (Does not repeat if this flag is not set)</td> 
+  </tr> 
+  <tr> 
+   <td>1/2</td> 
+   <td> <span>EFLAG</span>_<span>NORMAL</span> </td> 
+   <td>Event only occurs in Normal instance difficulty</td> 
+  </tr> 
+  <tr> 
+   <td>2/4</td> 
+   <td> <span>EFLAG</span>_<span>HEROIC</span> </td> 
+   <td>Event only occurs in Heroic instance difficulty</td> 
+  </tr> 
+  <tr> 
+   <td>5/32</td> 
+   <td> <span>EFLAG</span>_<span>RANDOM</span> </td> 
+   <td>Random use action1, 2, or 3</td> 
+  </tr> 
+  <tr> 
+   <td>7 / 128</td> 
+   <td> <span>EFLAG</span>_<span>DEBUG</span>_<span>ONLY</span> </td> 
+   <td>Not yet impletmented!</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-instance_data_flags" class="anchor" href="#instance_data_flags" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instance_Data_Flags</h4> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>Value</th> 
+   <th>Type</th> 
+   <th>Description</th> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>aggro</td> 
+   <td>Creature SetInCombat</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>evade</td> 
+   <td>Creature remove from Combat</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>death</td> 
+   <td>Creature just die</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>special</td> 
+   <td>Need for more as one enemy in a fight (like 4 horseman)</td> 
+  </tr> 
+ </tbody>
+</table></div></div>
+</body></html>

@@ -1,0 +1,39 @@
+<html><head><title>spell_threat</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-spell_threat-table" class="anchor" href="#the-spell_threat-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `spell_threat` table</h2> 
+<p>This table holds threat values on all spells that should either give or take away threat.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_threat#entry">entry</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_threat#threat">Threat</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-entry" class="anchor" href="#entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry</h4> 
+<p>The spell ID. See Spell.dbc</p> 
+<h4> <a id="user-content-threat" class="anchor" href="#threat" aria-hidden="true"><span class="octicon octicon-link"></span></a>Threat</h4> 
+<p>The threat value that this spells should add to the caster (or take away if it is negative).</p></div></div>
+</body></html>

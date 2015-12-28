@@ -1,0 +1,149 @@
+<html><head><title>game_weather</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-game_weather-table" class="anchor" href="#the-game_weather-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `game_weather` table</h2> 
+<p>This table holds the percentages for weather changes in various zones. Not all zones can have their weather changed. For any given zone the percentage of all weather types for each season should total, and not exceed 100%.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_weather#zone">zone</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_weather#spring_rain_chance">spring_rain_chance</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>25</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_weather#spring_snow_chance">spring_snow_chance</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>25</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_weather#spring_storm_chance">spring_storm_chance</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>25</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_weather#summer_rain_chance">summer_rain_chance</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>25</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_weather#summer_snow_chance">summer_snow_chance</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>25</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_weather#summer_storm_chance">summer_storm_chance</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>25</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_weather#fall_rain_chance">fall_rain_chance</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>25</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_weather#fall_snow_chance">fall_snow_chance</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>25</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_weather#fall_storm_chance">fall_storm_chance</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>25</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_weather#winter_rain_chance">winter_rain_chance</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>25</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_weather#winter_snow_chance">winter_snow_chance</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>25</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_weather#winter_storm_chance">winter_storm_chance</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>25</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-zone" class="anchor" href="#zone" aria-hidden="true"><span class="octicon octicon-link"></span></a>zone</h4> 
+<p>This field contains the zone id from <a href="AreaTable.dbc">AreaTable.dbc</a> that you wish to change the weather for.</p> 
+<h4> <a id="user-content-spring_rain_chance" class="anchor" href="#spring_rain_chance" aria-hidden="true"><span class="octicon octicon-link"></span></a>spring_rain_chance</h4> 
+<p>Percentage chance for rain in the Spring</p> 
+<h4> <a id="user-content-spring_snow_chance" class="anchor" href="#spring_snow_chance" aria-hidden="true"><span class="octicon octicon-link"></span></a>spring_snow_chance</h4> 
+<p>Percentage chance for snow in the Spring</p> 
+<h4> <a id="user-content-spring_storm_chance" class="anchor" href="#spring_storm_chance" aria-hidden="true"><span class="octicon octicon-link"></span></a>spring_storm_chance</h4> 
+<p>Percentage chance for a sand storm in the Spring</p> 
+<h4> <a id="user-content-summer_rain_chance" class="anchor" href="#summer_rain_chance" aria-hidden="true"><span class="octicon octicon-link"></span></a>summer_rain_chance</h4> 
+<p>Percentage chance for rain in the Summer</p> 
+<h4> <a id="user-content-summer_snow_chance" class="anchor" href="#summer_snow_chance" aria-hidden="true"><span class="octicon octicon-link"></span></a>summer_snow_chance</h4> 
+<p>Percentage chance for snow in the Summer</p> 
+<h4> <a id="user-content-summer_storm_chance" class="anchor" href="#summer_storm_chance" aria-hidden="true"><span class="octicon octicon-link"></span></a>summer_storm_chance</h4> 
+<p>Percentage chance for a sand storm in the Summer</p> 
+<h4> <a id="user-content-fall_rain_chance" class="anchor" href="#fall_rain_chance" aria-hidden="true"><span class="octicon octicon-link"></span></a>fall_rain_chance</h4> 
+<p>Percentage chance for rain in the Fall</p> 
+<h4> <a id="user-content-fall_snow_chance" class="anchor" href="#fall_snow_chance" aria-hidden="true"><span class="octicon octicon-link"></span></a>fall_snow_chance</h4> 
+<p>Percentage chance for snow in the Fall</p> 
+<h4> <a id="user-content-fall_storm_chance" class="anchor" href="#fall_storm_chance" aria-hidden="true"><span class="octicon octicon-link"></span></a>fall_storm_chance</h4> 
+<p>Percentage chance for a sand storm in the Fall</p> 
+<h4> <a id="user-content-winter_rain_chance" class="anchor" href="#winter_rain_chance" aria-hidden="true"><span class="octicon octicon-link"></span></a>winter_rain_chance</h4> 
+<p>Percentage chance for rain in the Winter</p> 
+<h4> <a id="user-content-winter_snow_chance" class="anchor" href="#winter_snow_chance" aria-hidden="true"><span class="octicon octicon-link"></span></a>winter_snow_chance</h4> 
+<p>Percentage chance for snow in the Winter</p> 
+<h4> <a id="user-content-winter_storm_chance" class="anchor" href="#winter_storm_chance" aria-hidden="true"><span class="octicon octicon-link"></span></a>winter_storm_chance</h4> 
+<p>Percentage chance for a sand storm in the Winter</p></div></div>
+</body></html>

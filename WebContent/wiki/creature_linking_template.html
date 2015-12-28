@@ -1,0 +1,148 @@
+<html><head><title>creature_linking_template</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-creature_linking_template-table" class="anchor" href="#the-creature_linking_template-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `Creature_linking_template` table</h2> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Name</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_linking_template#entry">entry</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_linking_template#map">map</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_linking_template#master_entry">master_entry</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_linking_template#flag">flag</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_linking_template#search_range">search_range</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-entry" class="anchor" href="#entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry</h4> 
+<p><a href="creature_template#entry">creature_template.entry</a> of the slave mob that is linked</p> 
+<h4> <a id="user-content-map" class="anchor" href="#map" aria-hidden="true"><span class="octicon octicon-link"></span></a>map</h4> 
+<p>Id of map of the mobs</p> 
+<h4> <a id="user-content-master_entry" class="anchor" href="#master_entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>master_entry</h4> 
+<p>master to trigger events</p> 
+<h4> <a id="user-content-flag" class="anchor" href="#flag" aria-hidden="true"><span class="octicon octicon-link"></span></a>flag</h4> 
+<p>flag – describing what should happen when</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>Flag</th> 
+   <th>Name</th> 
+   <th>Comment</th> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td> <span>FLAG</span>_<span>AGGRO</span>_ON_<span>AGGRO</span> </td> 
+   <td>the "slave" aggroes when the "master" aggroes</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td> <span>FLAG</span>_TO_<span>AGGRO</span>_ON_<span>AGGRO</span> </td> 
+   <td>the master aggroes when the slave aggroes</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td> <span>FLAG</span>_<span>RESPAWN</span>_ON_<span>EVADE</span> </td> 
+   <td>the slave respawns when the master evades</td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td> <span>FLAG</span>_TO_<span>RESPAWN</span>_ON_<span>EVADE</span> </td> 
+   <td>the master respawns when the slave evades</td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td> <span>FLAG</span>_<span>DESPAWN</span>_ON_<span>DEATH</span> </td> 
+   <td>the slave despawns when the master dies</td> 
+  </tr> 
+  <tr> 
+   <td>32</td> 
+   <td> <span>FLAG</span>_<span>SELFKILL</span>_ON_<span>DEATH</span> </td> 
+   <td>the slave goes suicide when the master dies</td> 
+  </tr> 
+  <tr> 
+   <td>64</td> 
+   <td> <span>FLAG</span>_<span>RESPAWN</span>_ON_<span>DEATH</span> </td> 
+   <td>the slave respawn when the master dies</td> 
+  </tr> 
+  <tr> 
+   <td>128</td> 
+   <td> <span>FLAG</span>_<span>RESPAWN</span>_ON_<span>RESPAWN</span> </td> 
+   <td>the slave respawns on master respawn</td> 
+  </tr> 
+  <tr> 
+   <td>256</td> 
+   <td> <span>FLAG</span>_<span>DESPAWN</span>_ON_<span>RESPAWN</span> </td> 
+   <td>the slave despawns on master respawn (<span>TODO</span>: check for slave != master)</td> 
+  </tr> 
+  <tr> 
+   <td>512</td> 
+   <td> <span>FLAG</span>_<span>FOLLOW</span> </td> 
+   <td>the slave follows the master, very basic, see <span>TODO</span> notes in commit, or post below</td> 
+  </tr> 
+  <tr> 
+   <td>1024</td> 
+   <td> <span>FLAG</span>_<span>CANT</span>_<span>SPAWN</span>_IF_<span>BOSS</span>_<span>DEAD</span> </td> 
+   <td>the slave cannot respawn while boss is dead</td> 
+  </tr> 
+  <tr> 
+   <td>2048</td> 
+   <td> <span>FLAG</span>_<span>CANT</span>_<span>SPAWN</span>_IF_<span>BOSS</span>_<span>ALIVE</span> </td> 
+   <td>the slave cannot respawn while boss is alive</td> 
+  </tr> 
+  <tr> 
+   <td>4096</td> 
+   <td> <span>FLAG</span>_<span>DESPAWN</span>_ON_<span>EVADE</span> </td> 
+   <td>the slave despawn after the master evade</td> 
+  </tr> 
+  <tr> 
+   <td>8192</td> 
+   <td> <span>FLAG</span>_<span>DESPAWN</span>_ON_<span>DESPAWN</span> </td> 
+   <td>the slave despawn after the master despawns</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-search_range" class="anchor" href="#search_range" aria-hidden="true"><span class="octicon octicon-link"></span></a>search_range</h4> 
+<p>IF given != 0 only mobs with spawn-dist &lt;= search_range around the master_entry will be linked to the master. Use this to model group behaviour.</p> 
+<p>IF = 0 all mobs on the map are linked to the master.</p></div></div>
+</body></html>

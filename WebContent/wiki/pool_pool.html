@@ -1,0 +1,71 @@
+<html><head><title>pool_pool</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-pool_pool-table" class="anchor" href="#the-pool_pool-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `pool_pool` table</h2> 
+<p>This is the pool of pools table. You can create a pool with a chance of a range of pools in that pool being activated.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Attributes</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+   <td><strong>Comment</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pool_pool#pool_id">pool_id</a></td> 
+   <td>mediumint(8)</td> 
+   <td>unsigned</td> 
+   <td><span>PRI</span></td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pool_pool#mother_pool">mother_pool</a></td> 
+   <td>mediumint(8)</td> 
+   <td>unsigned</td> 
+   <td></td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pool_pool#chance">chance</a></td> 
+   <td>float</td> 
+   <td>signed</td> 
+   <td></td> 
+   <td>NO</td> 
+   <td>0</td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pool_pool#description">description</a></td> 
+   <td>varchar(255)</td> 
+   <td>signed</td> 
+   <td></td> 
+   <td><span>YES</span></td> 
+   <td><span>NULL</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-pool_id" class="anchor" href="#pool_id" aria-hidden="true"><span class="octicon octicon-link"></span></a>pool_id</h4> 
+<p>The <a href="pool_template#entry">ID</a> of the <a href="pool_template">pool_template</a> that you want to include in this "pool of pools" as a child pool.</p> 
+<h4> <a id="user-content-mother_pool" class="anchor" href="#mother_pool" aria-hidden="true"><span class="octicon octicon-link"></span></a>mother_pool</h4> 
+<p>The <a href="pool_template#entry">ID</a> of the <a href="pool_template">pool_template</a> that defines this "pool of pools".</p> 
+<h4> <a id="user-content-chance" class="anchor" href="#chance" aria-hidden="true"><span class="octicon octicon-link"></span></a>chance</h4> 
+<p>The explicit percentage chance that this child pool will be spawned.</p> 
+<p>If the mother pool spawns just one child pool (<a href="pool_template#max_limit">max_limit</a> = 1 in the respective mother pool’s <a href="pool_template">pool_template</a>), the core selects the child pool to be spawned in a two-step process: First, only the explicitly-chanced (chance &gt; 0) child pools of the mother pool are rolled. If this roll does not produce any child pool, all the child pools without explicit chance (chance = 0) are rolled with equal chance. If the mother pool spawns more than one child pool, the chance is ignored and all the child pools in the mother pool are rolled in one step with equal chance.</p> 
+<p>In case the mother pool spawns just one child pool and all the child pools have a nonzero chance, the sum of the chances for all the child pools must equal to 100, otherwise the mother pool won’t function correctly.</p> 
+<h4> <a id="user-content-description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>description</h4> 
+<p>A text field to describe what this pool of pools is for.</p></div></div>
+</body></html>

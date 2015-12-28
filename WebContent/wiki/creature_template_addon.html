@@ -1,0 +1,456 @@
+<html><head><title>creature_template_addon</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-creature_template_addon-tables" class="anchor" href="#the-creature_template_addon-tables" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `creature_(template)_addon` tables</h2> 
+<p>The creature_addon and creature_template_addon tables define different things that are applied on creatures when they are loaded. These "different things" can be for example to have the creature be mounted, to have it emote something, to have it display an aura effect, etc. Through the use of the fields in this table, many things can be changed about the outward visual appearance of the creature. The creature_template_addon table affects all creatures with that creature template ID while the creature_addon table affects individually spawned creatures (so that two creatures using the same template can look different).</p> 
+<p><span>NOTE</span>: A creature_addon record will override a creature_template_addon record should they overlap on the same creature.</p> 
+<p><span>NOTICE</span>: The data for this table is largely incomplete and is mostly just a regurgitation of what the client receives from the server. This article is a <span>WIP</span> as to what all the possible values are.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_template_addon#entry/guid">entry/guid</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_template_addon#mount">mount</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_template_addon#bytes1">bytes1</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_template_addon#b2_0_sheath">b2_0_sheath</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_template_addon#b2_1_pvp_state">b2_1_pvp_state</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_template_addon#emote">emote</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_template_addon#moveflags">moveflags</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_template_addon#auras">auras</a></td> 
+   <td>text</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-entryguid" class="anchor" href="#entryguid" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry/guid</h4> 
+<p>For creature_template_addon, this field signifies the creature template ID. It will affect all spawned creatures using that template ID. For creature_addon, this field signifies a unique creature guid. It will affect just that creature whose <span>GUID</span> matches the one specified here.</p> 
+<h4> <a id="user-content-mount" class="anchor" href="#mount" aria-hidden="true"><span class="octicon octicon-link"></span></a>mount</h4> 
+<p>The model ID of the mount to be used to make the creature appear mounted. The value here overrides the value for the creature’s unit field <span>UNIT</span>_<span>FIELD</span>_<span>MOUNTDISPLAYID</span>. List of known values and what their visual effects on the creature</p> 
+<h4> <a id="user-content-bytes1" class="anchor" href="#bytes1" aria-hidden="true"><span class="octicon octicon-link"></span></a>bytes1</h4> 
+<p>UNIT_BYTE1_FLAG_ALWAYS_STAND = 0×01,<br> UNIT_BYTE1_FLAG_UNK_2 = 0×02, // Creature that can fly and are not on the ground appear to have this flag. If they are on the ground, flag is not present.<br> UNIT_BYTE1_FLAG_UNTRACKABLE = 0×04,<br> UNIT_BYTE1_UNK = 0×1 // Makes <span>NPC</span> Kneel<br> UNIT_BYTE1_UNK = 0×3 // Makes <span>NPC</span> Laydown<br> UNIT_BYTE1_FLAG_ALL = 0xFF</p> 
+<h4> <a id="user-content-b2_0_sheath" class="anchor" href="#b2_0_sheath" aria-hidden="true"><span class="octicon octicon-link"></span></a>b2_0_sheath</h4> 
+<p>SheathState.<br> 0 = All Weapons Sheathed by Default<br> 1 = Melee Weapon <span>NOT</span> Sheathed by Default (Melee Weapon In Hand)<br> 2 = Ranged Weapon <span>NOT</span> Sheathed by Default (Ranged Weapon In Hand)</p> 
+<h4> <a id="user-content-b2_1_pvp_state" class="anchor" href="#b2_1_pvp_state" aria-hidden="true"><span class="octicon octicon-link"></span></a>b2_1_pvp_state</h4> 
+<p>UnitPVPStateFlags</p> 
+<p>UNIT_BYTE2_FLAG_PVP = 0×01,<br> UNIT_BYTE2_FLAG_UNK1 = 0×02,<br> UNIT_BYTE2_FLAG_FFA_PVP = 0×04,<br> UNIT_BYTE2_FLAG_SANCTUARY = 0×08,<br> UNIT_BYTE2_FLAG_UNK4 = 0×10,<br> UNIT_BYTE2_FLAG_UNK5 = 0×20,<br> UNIT_BYTE2_FLAG_UNK6 = 0×40,<br> UNIT_BYTE2_FLAG_UNK7 = 0×80</p> 
+<h4> <a id="user-content-emote" class="anchor" href="#emote" aria-hidden="true"><span class="octicon octicon-link"></span></a>emote</h4> 
+<p>Emote ID that the creature should continually perform.</p> 
+<p><span>COMPLETE</span> <span>LIST</span> OF <span>EMOTES</span> <span>CAN</span> BE <span>FOUND</span> IN: Emotes.dbc<br> (They Are Different Between Client Versions)</p> 
+<h4> <a id="user-content-moveflags" class="anchor" href="#moveflags" aria-hidden="true"><span class="octicon octicon-link"></span></a>moveflags</h4> 
+<p>Flags controlling how the creature will behave animation-wise while moving. <span>This table is 100% wrong as of 3.1. It is still here for a period of time for reference and to convert values in DB.</span></p> 
+<p>See the proper table under this one</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>Bit</th> 
+   <th>Name</th> 
+   <th>Comment</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>NONE</span> </td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>FORWARD</span> </td> 
+   <td>instantly teleport creature, then creature move forward animation but no real movement</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>BACKWARD</span> </td> 
+   <td>instantly teleport creature, then creature move back animation but no real movement</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>STRAFE</span>_<span>LEFT</span> </td> 
+   <td>instantly teleport creature, then creature move left animation but no real movement</td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>STRAFE</span>_<span>RIGHT</span> </td> 
+   <td>instantly teleport creature, then creature move right animation but no real movement</td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>LEFT</span> </td> 
+   <td>creature spin left animation</td> 
+  </tr> 
+  <tr> 
+   <td>32</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>RIGHT</span> </td> 
+   <td>then creature spin right animation</td> 
+  </tr> 
+  <tr> 
+   <td>64</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>PITCH</span>_UP</td> 
+   <td>no effect on creature</td> 
+  </tr> 
+  <tr> 
+   <td>128</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>PITCH</span>_<span>DOWN</span> </td> 
+   <td>no effect on creature</td> 
+  </tr> 
+  <tr> 
+   <td>256</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>RUN</span>_<span>MODE</span> </td> 
+   <td>If flag set then player runs</td> 
+  </tr> 
+  <tr> 
+   <td>512</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>ONTRANSPORT</span> </td> 
+   <td>causes creatures to fly while moving (not include standing)</td> 
+  </tr> 
+  <tr> 
+   <td>1024</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>HOVERING</span> </td> 
+   <td>hovering animation at stand (not include moving)</td> 
+  </tr> 
+  <tr> 
+   <td>2048</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>FLY</span>_UNK1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>4096</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>JUMPING</span> </td> 
+   <td>Jump animation</td> 
+  </tr> 
+  <tr> 
+   <td>8192</td> 
+   <td> <span>MOVEMENTFLAG</span>_UNK1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>16384</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>FALLING</span> </td> 
+   <td>Falling</td> 
+  </tr> 
+  <tr> 
+   <td>32768</td> 
+   <td> <span>MOVEMENTFLAG</span>_UNK2</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>65536</td> 
+   <td> <span>MOVEMENTFLAG</span>_UNK3</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>131072</td> 
+   <td> <span>MOVEMENTFLAG</span>_UNK4</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>262144</td> 
+   <td> <span>MOVEMENTFLAG</span>_UNK5</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>524288</td> 
+   <td> <span>MOVEMENTFLAG</span>_UNK6</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>1048576</td> 
+   <td> <span>MOVEMENTFLAG</span>_UNK7</td> 
+   <td>Causes creature to instantly appear at new position</td> 
+  </tr> 
+  <tr> 
+   <td>2097152</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>SWIMMING</span> </td> 
+   <td>appears with fly flag also (causes creatures to fall to ground at stand state)</td> 
+  </tr> 
+  <tr> 
+   <td>4194304</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>FLY</span>_UP</td> 
+   <td>no effect on creature</td> 
+  </tr> 
+  <tr> 
+   <td>8388608</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>CAN</span>_<span>FLY</span> </td> 
+   <td>no effect on creature</td> 
+  </tr> 
+  <tr> 
+   <td>16777216</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>FLYING</span> </td> 
+   <td>no effect on creature</td> 
+  </tr> 
+  <tr> 
+   <td>33554432</td> 
+   <td> <span>MOVEMENTFLAG</span>_UNK8</td> 
+   <td>Creature flying (not hover at stop moving)</td> 
+  </tr> 
+  <tr> 
+   <td>67108864</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>SPLINE</span> </td> 
+   <td>probably wrong name (no effect on creature)</td> 
+  </tr> 
+  <tr> 
+   <td>134217728</td> 
+   <td> <span>MOVEMENTFLAG</span>_SPLINE2</td> 
+   <td>no effect on creature</td> 
+  </tr> 
+  <tr> 
+   <td>268435456</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>WATERWALKING</span> </td> 
+   <td>also prevent creature from falling under water</td> 
+  </tr> 
+  <tr> 
+   <td>536870912</td> 
+   <td> <span>MOVEMENTFLAG</span>_<span>SAFE</span>_<span>FALL</span> </td> 
+   <td>active rogue safe fall spell (passive) (no effect on creature)</td> 
+  </tr> 
+  <tr> 
+   <td>1073741824</td> 
+   <td> <span>MOVEMENTFLAG</span>_UNK9</td> 
+   <td>Causes creature to hover at stand state (not include moving)</td> 
+  </tr> 
+  <tr> 
+   <td>2147483648</td> 
+   <td> <span>MOVEMENTFLAG</span>_UNK10</td> 
+   <td>Causes creature to roll to strange angle</td> 
+  </tr> 
+ </tbody>
+</table> 
+<p><span>Proper table as of 3.1</span></p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>Bit</th> 
+   <th>Name</th> 
+   <th>Comment</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_<span>NONE</span> </td> 
+   <td>InhabitType]] and <a href="creature_template#MovementType">MovementType</a> </td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_<span>FORWARD</span> </td> 
+   <td>Instantly teleport creature, then creature move forward animation but no real movement</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_<span>BACKWARD</span> </td> 
+   <td>Instantly teleport creature, then creature move back animation but no real movement</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_<span>STRAFE</span>_<span>LEFT</span> </td> 
+   <td>Instantly teleport creature, then creature move left animation but no real movement</td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_<span>STRAFE</span>_<span>RIGHT</span> </td> 
+   <td>Instantly teleport creature, then creature move right animation but no real movement</td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_<span>LEFT</span> </td> 
+   <td>Creature spin left animation</td> 
+  </tr> 
+  <tr> 
+   <td>32</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_<span>RIGHT</span> </td> 
+   <td>Then creature spin right animation</td> 
+  </tr> 
+  <tr> 
+   <td>64</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_<span>PITCH</span>_UP</td> 
+   <td>Seams to have no effect</td> 
+  </tr> 
+  <tr> 
+   <td>128</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_<span>PITCH</span>_<span>DOWN</span> </td> 
+   <td>Seams to have no effect</td> 
+  </tr> 
+  <tr> 
+   <td>256</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_<span>TELEPORT</span> </td> 
+   <td>Makes creature teleport instead of walking</td> 
+  </tr> 
+  <tr> 
+   <td>512</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_TELEPORT2</td> 
+   <td>Makes creature a better Fly Animation (2.4.3)</td> 
+  </tr> 
+  <tr> 
+   <td>1024</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_<span>LEVITATING</span> </td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>2048</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_UNK1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>4096</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_<span>WALK</span> </td> 
+   <td>Makes creature walk</td> 
+  </tr> 
+  <tr> 
+   <td>8192</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_<span>SPLINE</span> </td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>16384</td> 
+   <td>No name in core</td> 
+   <td>Makes creature run</td> 
+  </tr> 
+  <tr> 
+   <td>32768</td> 
+   <td>No name in core</td> 
+   <td>Makes creature run</td> 
+  </tr> 
+  <tr> 
+   <td>65536</td> 
+   <td>No name in core</td> 
+   <td>Makes creature run</td> 
+  </tr> 
+  <tr> 
+   <td>131072</td> 
+   <td>No name in core</td> 
+   <td>Makes creature run</td> 
+  </tr> 
+  <tr> 
+   <td>262144</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_SPLINE2</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>524288</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_UNK2</td> 
+   <td>Used for flying mobs</td> 
+  </tr> 
+  <tr> 
+   <td>1048576</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_UNK3</td> 
+   <td>Used for flying mobs</td> 
+  </tr> 
+  <tr> 
+   <td>2097152</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_UNK4</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>4194304</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_UNK5</td> 
+   <td>Run in place, then teleport to final point</td> 
+  </tr> 
+  <tr> 
+   <td>8388608</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_UNK6</td> 
+   <td>Teleport</td> 
+  </tr> 
+  <tr> 
+   <td>16777216</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_UNK7</td> 
+   <td>Run</td> 
+  </tr> 
+  <tr> 
+   <td>33554432</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_<span>FLY</span> </td> 
+   <td>Swimming / Flying</td> 
+  </tr> 
+  <tr> 
+   <td>67108864</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_UNK9</td> 
+   <td>Run</td> 
+  </tr> 
+  <tr> 
+   <td>134217728</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_UNK10</td> 
+   <td>Run</td> 
+  </tr> 
+  <tr> 
+   <td>268435456</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_UNK11</td> 
+   <td>Run</td> 
+  </tr> 
+  <tr> 
+   <td>536870912</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_UNK12</td> 
+   <td>Run</td> 
+  </tr> 
+  <tr> 
+   <td>1073741824</td> 
+   <td> <span>MONSTER</span>_<span>MOVE</span>_UNK13</td> 
+   <td>Levitating</td> 
+  </tr> 
+ </tbody>
+</table> 
+<p>Note: <span>MONSTER</span>_<span>MOVE</span>_<span>SPLINE</span>_<span>FLY</span> = <span>MONSTER</span>_<span>MOVE</span>_<span>WALK</span> + <span>MONSTER</span>_<span>MOVE</span>_<span>SPLINE</span> and makes creature fly by points. Note2: Copy from Mangos</p> 
+<h4> <a id="user-content-auras" class="anchor" href="#auras" aria-hidden="true"><span class="octicon octicon-link"></span></a>auras</h4> 
+<p>This field controls any auras to be applied on the creature (both in effect and visually). The syntax for for an individual aura entry is " ". An aura is defined not just by the spell that applies it but also by the individual spell affect that applies it. Therefore, the effect index must be specified along with the spell ID. Each spell can have a maximum of three spell effects, so the effect index can only be 0, 1, or 2. To apply multiple auras, you can add more aura entries, separating each entry by a space. Remember that if a spell applies multiple auras, you need to specify an aura entry for each effect index if you want to apply more than one aura from the same spell.</p> 
+<p><span><span>NOTE</span>: Currently (Rev 5067) auras defined in creature_template_addon are not being properly added. Only add auras for creatures in creature_addon.</span></p> 
+<p>List of useful aura entries:</p> 
+<ul> 
+ <li>‘16380 0’ – Makes the creature invisible.</li> 
+ <li>‘18950 0 18950 1’ – Makes the creature detect other invisible units (players or creatures).</li> 
+ <li>‘37613’ – Casting teleport forever.</li> 
+</ul></div></div>
+</body></html>

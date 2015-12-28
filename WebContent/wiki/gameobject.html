@@ -1,0 +1,212 @@
+<html><head><title>gameobject</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-gameobject-table" class="anchor" href="#the-gameobject-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `gameobject` table</h2> 
+<p>This table holds the individual object data on each spawned game object in the world. This data along with the object’s template data is read and used to instantiate the objects in the world.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gameobject#guid">guid</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>None</td> 
+   <td>auto_increment</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gameobject#id">id</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gameobject#map">map</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gameobject#spawnmask">spawnMask</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gameobject#phasemask">phaseMask</a></td> 
+   <td>smallint(5) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gameobject#position_x">position_x</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gameobject#position_y">position_y</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gameobject#position_z">position_z</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gameobject#orientation">orientation</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gameobject#rotation0">rotation0</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gameobject#rotation1">rotation1</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gameobject#rotation2">rotation2</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gameobject#rotation3">rotation3</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gameobject#spawntimesecs">spawntimesecs</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gameobject#animprogress">animprogress</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gameobject#state">state</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>1</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-guid" class="anchor" href="#guid" aria-hidden="true"><span class="octicon octicon-link"></span></a>guid</h4> 
+<p>The global unique identifier for the game object. This field must be unique among all game objects.</p> 
+<h4> <a id="user-content-id" class="anchor" href="#id" aria-hidden="true"><span class="octicon octicon-link"></span></a>id</h4> 
+<p>The template ID of the gameobject. See <a href="gameobject_template#entry">gameobject_template.entry</a></p> 
+<h4> <a id="user-content-map" class="anchor" href="#map" aria-hidden="true"><span class="octicon octicon-link"></span></a>map</h4> 
+<p>The map ID where this object is spawned. See <a href="Map.dbc">Map.dbc</a></p> 
+<h4> <a id="user-content-spawnmask" class="anchor" href="#spawnmask" aria-hidden="true"><span class="octicon octicon-link"></span></a>spawnMask</h4> 
+<p>Controls under which difficulties the object is spawned. Combine value to get wished case.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>Value</th> 
+   <th>Comment</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>Not spawned</td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>Spawned only in normal versions of maps (includes maps without additional difficulty modes)</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>Spawned only in difficulty = 1 versions of maps (mostly heroic)</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Spawned only in difficulty = 2 versions of maps</td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td>Spawned only in difficulty = 3 versions of maps</td> 
+  </tr> 
+  <tr> 
+   <td>15</td> 
+   <td>Spawned in all versions of maps</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-phasemask" class="anchor" href="#phasemask" aria-hidden="true"><span class="octicon octicon-link"></span></a>phaseMask</h4> 
+<p>Controls what phase gameobject is at. 1=default phase. Phase masks are got from Aura 261 effect ( (Aura #261) (4) ) = phasemask = 4.</p> 
+<h4> <a id="user-content-position_x" class="anchor" href="#position_x" aria-hidden="true"><span class="octicon octicon-link"></span></a>position_x</h4> 
+<p>The X position.</p> 
+<h4> <a id="user-content-position_y" class="anchor" href="#position_y" aria-hidden="true"><span class="octicon octicon-link"></span></a>position_y</h4> 
+<p>The Y position.</p> 
+<h4> <a id="user-content-position_z" class="anchor" href="#position_z" aria-hidden="true"><span class="octicon octicon-link"></span></a>position_z</h4> 
+<p>The Z position.</p> 
+<h4> <a id="user-content-orientation" class="anchor" href="#orientation" aria-hidden="true"><span class="octicon octicon-link"></span></a>orientation</h4> 
+<p>The orientation. (North = 0, South = 3.14159)</p> 
+<h4> <a id="user-content-rotation0" class="anchor" href="#rotation0" aria-hidden="true"><span class="octicon octicon-link"></span></a>rotation0</h4> 
+<h4> <a id="user-content-rotation1" class="anchor" href="#rotation1" aria-hidden="true"><span class="octicon octicon-link"></span></a>rotation1</h4> 
+<h4> <a id="user-content-rotation2" class="anchor" href="#rotation2" aria-hidden="true"><span class="octicon octicon-link"></span></a>rotation2</h4> 
+<h4> <a id="user-content-rotation3" class="anchor" href="#rotation3" aria-hidden="true"><span class="octicon octicon-link"></span></a>rotation3</h4> 
+<h4> <a id="user-content-spawntimesecs" class="anchor" href="#spawntimesecs" aria-hidden="true"><span class="octicon octicon-link"></span></a>spawntimesecs</h4> 
+<p>Time in seconds for this object to respawn.</p> 
+<p>Using a negative value will result in the object starting out by being "despawned" until a script will spawn it. It will then despawn after the amount of time specified here has passed.</p> 
+<h4> <a id="user-content-animprogress" class="anchor" href="#animprogress" aria-hidden="true"><span class="octicon octicon-link"></span></a>animprogress</h4> 
+<p>Not really known what this is used for at this time. However, always set it to 100 for chests.</p> 
+<h4> <a id="user-content-state" class="anchor" href="#state" aria-hidden="true"><span class="octicon octicon-link"></span></a>state</h4> 
+<p>Only for chests.</p> 
+<ul> 
+ <li>1 = closed</li> 
+ <li>0 = open</li> 
+</ul></div></div>
+</body></html>

@@ -1,0 +1,92 @@
+<html><head><title>game_event_creature_data</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-game_event_creature_data-table" class="anchor" href="#the-game_event_creature_data-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `game_event_creature_data` table</h2> 
+<p>Contains all creature instances that need to change display id and/or equipment during defined game events.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_event_creature_data#guid">guid</a></td> 
+   <td>int(11) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_event_creature_data#id">entry_id</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_event_creature_data#modelid">modelid</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_event_creature_data#equipment_id">equipment_id</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_event_creature_data#spell_start">spell_start</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_event_creature_data#spell_end">spell_end</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_event_creature_data#event">event</a></td> 
+   <td>mediumint(9) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-guid" class="anchor" href="#guid" aria-hidden="true"><span class="octicon octicon-link"></span></a>guid</h4> 
+<p>Guid of the creature participating in the event (<a href="creature#guid">creature.guid</a>)</p> 
+<h4> <a id="user-content-entry_id" class="anchor" href="#entry_id" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry_id</h4> 
+<p>Creature_template entry to change the <span>GUID</span> to during the event</p> 
+<h4> <a id="user-content-modelid" class="anchor" href="#modelid" aria-hidden="true"><span class="octicon octicon-link"></span></a>modelid</h4> 
+<p>New model to be used while the event is active (Refers to <a href="creature_model_info#modelid">creature_model_info.modelid</a>) Use 0 if only the <a href="#equipment_id">equipment</a> is to be changed during event.</p> 
+<h4> <a id="user-content-equipment_id" class="anchor" href="#equipment_id" aria-hidden="true"><span class="octicon octicon-link"></span></a>equipment_id</h4> 
+<p>New equipment to be used during the event (Refers to <a href="creature_equip_template#entry">creature_equip_template.entry</a>)) Use 0 if only the <a href="#modelid">model</a> is to be changed during event.</p> 
+<h4> <a id="user-content-spell_start" class="anchor" href="#spell_start" aria-hidden="true"><span class="octicon octicon-link"></span></a>spell_start</h4> 
+<p>Spell for <span>NPC</span> to cast when game event starts</p> 
+<h4> <a id="user-content-spell_end" class="anchor" href="#spell_end" aria-hidden="true"><span class="octicon octicon-link"></span></a>spell_end</h4> 
+<p>Spell for <span>NPC</span> to cast when game event ends</p> 
+<h4> <a id="user-content-event" class="anchor" href="#event" aria-hidden="true"><span class="octicon octicon-link"></span></a>event</h4> 
+<p>Entry of the event (<a href="game_event#entry">game_event.entry</a>)</p> 
+<ul> 
+ <li>In this table, event entry can only be positive</li> 
+</ul></div></div>
+</body></html>

@@ -1,0 +1,49 @@
+<html><head><title>page_text</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-page_text-table" class="anchor" href="#the-page_text-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `page_text` table</h2> 
+<p>This table holds the text for letter items or any items that when moused-over turn the cursor into a magnifying glass and on right-click will open up a window where you can read the contents of the letter.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Page_text#entry">entry</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Page_text#text">text</a></td> 
+   <td>longtext</td> 
+   <td><span>YES</span></td> 
+   <td></td> 
+   <td>None</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Page_text#next_page">next_page</a></td> 
+   <td>int(11) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-entry" class="anchor" href="#entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry</h4> 
+<p>The ID of the text in the page. This number is unique to every text entry.</p> 
+<h4> <a id="user-content-text" class="anchor" href="#text" aria-hidden="true"><span class="octicon octicon-link"></span></a>text</h4> 
+<p>The actual text. The message in this field will be shown as the text on a page.</p> 
+<h4> <a id="user-content-next_page" class="anchor" href="#next_page" aria-hidden="true"><span class="octicon octicon-link"></span></a>next_page</h4> 
+<p>The ID of the next page’s text <a href="#entry">entry</a>.</p></div></div>
+</body></html>

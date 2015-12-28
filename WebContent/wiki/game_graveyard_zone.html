@@ -1,0 +1,54 @@
+<html><head><title>game_graveyard_zone</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-game_graveyard_zone-table" class="anchor" href="#the-game_graveyard_zone-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `game_graveyard_zone` table</h2> 
+<p>Contains informations about zones connected to world’s graveyards.</p> 
+<p>This table set if character die in zone ghost_zone and graveyard with id accept his team (<span>HORDE</span> or <span>ALIANCE</span> or both) and this is nearest graveyard then character’s ghost will be teleported to graveyard id.</p> 
+<p>For a list of all existing graveyard zones and their respective IDs, check out <a href="WorldSafeLocs.dbc">WorldSafeLocs.dbc</a></p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_graveyard_zone#id">id</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_graveyard_zone#ghost_zone">ghost_zone</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_graveyard_zone#faction">faction</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-id" class="anchor" href="#id" aria-hidden="true"><span class="octicon octicon-link"></span></a>id</h4> 
+<p>Graveyard’s ID. See <a href="WorldSafeLocs.dbc">WorldSafeLocs.dbc</a></p> 
+<h4> <a id="user-content-ghost_zone" class="anchor" href="#ghost_zone" aria-hidden="true"><span class="octicon octicon-link"></span></a>ghost_zone</h4> 
+<p>Zone’s Id of ghost position before teleportation to graveyard. See <a href="AreaTable.dbc">AreaTable.dbc</a></p> 
+<h4> <a id="user-content-faction" class="anchor" href="#faction" aria-hidden="true"><span class="octicon octicon-link"></span></a>faction</h4> 
+<p>Graveyard’s team.</p> 
+<p>0 – Any team’s accepted</p> 
+<p>469 – <span>ALLIANCE</span> team accepted only</p> 
+<p>67 – <span>HORDE</span> team accepted only</p></div></div>
+</body></html>

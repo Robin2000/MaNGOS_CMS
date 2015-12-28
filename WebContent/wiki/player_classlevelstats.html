@@ -1,0 +1,62 @@
+<html><head><title>player_classlevelstats</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-player_classlevelstats-table" class="anchor" href="#the-player_classlevelstats-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `player_classlevelstats` table</h2> 
+<p>This table holds information on the base health and mana of characters when they level up. Each class has different level stats. All of the values in this table signify only the base health and mana of the class at a specific level.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Player_classlevelstats#class">class</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Player_classlevelstats#level">level</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Player_classlevelstats#basehp">basehp</a></td> 
+   <td>smallint(5) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Player_classlevelstats#basemana">basemana</a></td> 
+   <td>smallint(5) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-class" class="anchor" href="#class" aria-hidden="true"><span class="octicon octicon-link"></span></a>class</h4> 
+<p>The character class.</p> 
+<h4> <a id="user-content-level" class="anchor" href="#level" aria-hidden="true"><span class="octicon octicon-link"></span></a>level</h4> 
+<p>The level at which the stats should be applied.</p> 
+<h4> <a id="user-content-basehp" class="anchor" href="#basehp" aria-hidden="true"><span class="octicon octicon-link"></span></a>basehp</h4> 
+<p>The base health of the character (before stamina bonuses).</p> 
+<h4> <a id="user-content-basemana" class="anchor" href="#basemana" aria-hidden="true"><span class="octicon octicon-link"></span></a>basemana</h4> 
+<p>The base mana of the character (before intellect bonuses).</p></div></div>
+</body></html>

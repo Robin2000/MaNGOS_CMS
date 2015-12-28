@@ -1,0 +1,69 @@
+<html><head><title>npc_vendor_template</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-npc_vendor_template-table" class="anchor" href="#the-npc_vendor_template-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `npc_vendor_(template)` table</h2> 
+<p>This table holds the vendor data for all NPCs that sell items. The gold price for each item is in its item template as <a href="item_template#BuyPrice">BuyPrice</a>.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_vendor_template#entry">entry</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_vendor_template#item">item</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_vendor_template#maxcount">maxcount</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_vendor_template#incrtime">incrtime</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Npc_vendor_template#extendedcost">ExtendedCost</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-entry" class="anchor" href="#entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry</h4> 
+<p>The ID of the creature. See <a href="creature_template#entry">creature_template.entry</a>. In case of npc_vendor_template its the id of a vending_list. Used in <a href="creature_template#vendor_id">creature_template.vendor_id</a></p> 
+<h4> <a id="user-content-item" class="anchor" href="#item" aria-hidden="true"><span class="octicon octicon-link"></span></a>item</h4> 
+<p>The item ID. See <a href="item_template#entry">item_template.entry</a></p> 
+<h4> <a id="user-content-maxcount" class="anchor" href="#maxcount" aria-hidden="true"><span class="octicon octicon-link"></span></a>maxcount</h4> 
+<p>The maximum number of copies of the item the vendor has available to be sold. If 0, then it is an unlimited number of copies.</p> 
+<h4> <a id="user-content-incrtime" class="anchor" href="#incrtime" aria-hidden="true"><span class="octicon octicon-link"></span></a>incrtime</h4> 
+<p>Combined with <a href="#maxcount">maxcount</a>, this field tells how often (in seconds) the vendor list is refreshed and the limited item copies are restocked. For limited item copies, every refresh, the quantity is increased by <a href="item_template#BuyCount">item_template.BuyCount</a></p> 
+<h4> <a id="user-content-extendedcost" class="anchor" href="#extendedcost" aria-hidden="true"><span class="octicon octicon-link"></span></a>ExtendedCost</h4> 
+<p>The value here corresponds to the ID in ItemExtendedCost.dbc and that ID controls the item’s non monetary price, be it honor points, arena points, different types of badges or any combination of the above.</p></div></div>
+</body></html>

@@ -1,0 +1,2877 @@
+<html><head><title>item_template</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-item_template-table" class="anchor" href="#the-item_template-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `item_template` table</h2> 
+<p>Holds information on every item that exists in the game. All items are created from their template stored in this table.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#entry">entry</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#class">class</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#subclass">subclass</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#unk0">unk0</a></td> 
+   <td>int(10)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>-1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#name">name</a></td> 
+   <td>varchar(255)</td> 
+   <td>NO</td> 
+   <td><span>MUL</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#displayid">displayid</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#quality">Quality</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#flags">Flags</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#buycount">BuyCount</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#buyprice">BuyPrice</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#sellprice">SellPrice</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#inventorytype">InventoryType</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#allowableclass">AllowableClass</a></td> 
+   <td>mediumint(9)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>-1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#allowablerace">AllowableRace</a></td> 
+   <td>mediumint(9)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>-1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#itemlevel">ItemLevel</a></td> 
+   <td>int(11) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#requiredlevel">RequiredLevel</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#requiredskill">RequiredSkill</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#requiredskillrank">RequiredSkillRank</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#requiredspell">requiredspell</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#requiredhonorrank">requiredhonorrank</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#requiredcityrank">RequiredCityRank</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#requiredreputationfaction">RequiredReputationFaction</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#requiredreputationrank">RequiredReputationRank</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#maxcount">maxcount</a></td> 
+   <td>smallint(5) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stackable">stackable</a></td> 
+   <td>smallint(5) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#containerslots">ContainerSlots</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#statscount">StatsCount</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_type">stat_type1</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_value">stat_value1</a></td> 
+   <td>smallint(6)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_type">stat_type2</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_value">stat_value2</a></td> 
+   <td>smallint(6)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_type">stat_type3</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_value">stat_value3</a></td> 
+   <td>smallint(6)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_type">stat_type4</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_value">stat_value4</a></td> 
+   <td>smallint(6)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_type">stat_type5</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_value">stat_value5</a></td> 
+   <td>smallint(6)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_type">stat_type6</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_value">stat_value6</a></td> 
+   <td>smallint(6)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_type">stat_type7</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_value">stat_value7</a></td> 
+   <td>smallint(6)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_type">stat_type8</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_value">stat_value8</a></td> 
+   <td>smallint(6)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_type">stat_type9</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_value">stat_value9</a></td> 
+   <td>smallint(6)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_type">stat_type10</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#stat_value">stat_value10</a></td> 
+   <td>smallint(6)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#scalingstatdistribution">ScalingStatDistribution</a></td> 
+   <td>smallint(6)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#scalingstatvalue">ScalingStatValue</a></td> 
+   <td>smallint(6)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#dmg_min">dmg_min1</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#dmg_max">dmg_max1</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#dmg_type">dmg_type1</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#dmg_min">dmg_min2</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#dmg_max">dmg_max2</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#dmg_type">dmg_type2</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#dmg_min">dmg_min3</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#dmg_max">dmg_max3</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#dmg_type">dmg_type3</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#dmg_min">dmg_min4</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#dmg_max">dmg_max4</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#dmg_type">dmg_type4</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#dmg_min">dmg_min5</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#dmg_max">dmg_max5</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#dmg_type">dmg_type5</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#armor">armor</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#holy_res">holy_res</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#fire_res">fire_res</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#nature_res">nature_res</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#frost_res">frost_res</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#shadow_res">shadow_res</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#arcane_res">arcane_res</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#delay">delay</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>1000</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#ammo_type">ammo_type</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#rangedmodrange">RangedModRange</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellid">spellid_1</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spelltrigger">spelltrigger_1</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcharges">spellcharges_1</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellppmrate">spellppmRate_1</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcooldown">spellcooldown_1</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>-1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcategory">spellcategory_1</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcategorycooldown">spellcategorycooldown_1</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>-1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellid">spellid_2</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spelltrigger">spelltrigger_2</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcharges">spellcharges_2</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellppmrate">spellppmRate_2</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcooldown">spellcooldown_2</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>-1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcategory">spellcategory_2</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcategorycooldown">spellcategorycooldown_2</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>-1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellid">spellid_3</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spelltrigger">spelltrigger_3</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcharges">spellcharges_3</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellppmrate">spellppmRate_3</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcooldown">spellcooldown_3</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>-1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcategory">spellcategory_3</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcategorycooldown">spellcategorycooldown_3</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>-1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellid">spellid_4</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spelltrigger">spelltrigger_4</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcharges">spellcharges_4</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellppmrate">spellppmRate_4</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcooldown">spellcooldown_4</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>-1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcategory">spellcategory_4</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcategorycooldown">spellcategorycooldown_4</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>-1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellid">spellid_5</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spelltrigger">spelltrigger_5</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcharges">spellcharges_5</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellppmrate">spellppmRate_5</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcooldown">spellcooldown_5</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>-1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcategory">spellcategory_5</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#spellcategorycooldown">spellcategorycooldown_5</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>-1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#bonding">bonding</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#description">description</a></td> 
+   <td>varchar(255)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#pagetext">PageText</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#languageid">LanguageID</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#pagematerial">PageMaterial</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#startquest">startquest</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#lockid">lockid</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#material">Material</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#sheath">sheath</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#randomproperty">RandomProperty</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#randomsuffix">RandomSuffix</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#block">block</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#itemset">itemset</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#maxdurability">MaxDurability</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#area">area</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#map">Map</a></td> 
+   <td>int(10)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#bagfamily">BagFamily</a></td> 
+   <td>int(10)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#totemcategory">TotemCategory</a></td> 
+   <td>int(10)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#socketcolor">socketColor_1</a></td> 
+   <td>int(10)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#socketcontent">socketContent_1</a></td> 
+   <td>int(10)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#socketcolor">socketColor_2</a></td> 
+   <td>int(10)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#socketcontent">socketContent_2</a></td> 
+   <td>int(10)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#socketcolor">socketColor_3</a></td> 
+   <td>int(10)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#socketcontent">socketContent_3</a></td> 
+   <td>int(10)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#socketbonus">socketBonus</a></td> 
+   <td>int(10)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#gemproperties">GemProperties</a></td> 
+   <td>int(10)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#requireddisenchantskill">RequiredDisenchantSkill</a></td> 
+   <td>int(10)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>-1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#armordamagemodifier">ArmorDamageModifier</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#itemlimitcategory">ItemLimitCategory</a></td> 
+   <td>smallint(6)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#scriptname">ScriptName</a></td> 
+   <td>varchar(100)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#disenchantid">DisenchantID</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#foodtype">FoodType</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#minmoneyloot">minMoneyLoot</a></td> 
+   <td>int(11) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#maxmoneyloot">maxMoneyLoot</a></td> 
+   <td>int(11) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#duration">Duration</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_template#extraflags">ExtraFlags</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-entry" class="anchor" href="#entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry</h4> 
+<p>The ID of the item. This ID is unique between all templates.</p> 
+<h4> <a id="user-content-class" class="anchor" href="#class" aria-hidden="true"><span class="octicon octicon-link"></span></a>class</h4> 
+<p>The class of the item:</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Name</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>Consumable</td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>Container</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>Weapon</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>Gem</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Armor</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td>Reagent</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>Projectile</td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>Trade Goods</td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td>Generic(<span>OBSOLETE</span>)</td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td>Recipe</td> 
+  </tr> 
+  <tr> 
+   <td>10</td> 
+   <td>Money(<span>OBSOLETE</span>)</td> 
+  </tr> 
+  <tr> 
+   <td>11</td> 
+   <td>Quiver</td> 
+  </tr> 
+  <tr> 
+   <td>12</td> 
+   <td>Quest</td> 
+  </tr> 
+  <tr> 
+   <td>13</td> 
+   <td>Key</td> 
+  </tr> 
+  <tr> 
+   <td>14</td> 
+   <td>Permanent(<span>OBSOLETE</span>)</td> 
+  </tr> 
+  <tr> 
+   <td>15</td> 
+   <td>Miscellaneous</td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td>Glyph</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-subclass" class="anchor" href="#subclass" aria-hidden="true"><span class="octicon octicon-link"></span></a>subclass</h4> 
+<p>The subclass of the item. The following table lists all available subclass and class combinations and the subclass name.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>Class ID</th> 
+   <th>Subclass ID</th> 
+   <th>Subclass Name</th> 
+   <th>Comments</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>Consumable</td> 
+   <td>Usability in combat is decided by the spell assigned.</td> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>1</td> 
+   <td>Potion</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>2</td> 
+   <td>Elixir</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>3</td> 
+   <td>Flask</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>4</td> 
+   <td>Scroll</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>5</td> 
+   <td>Food &amp; Drink</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>6</td> 
+   <td>Item Enhancement</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>7</td> 
+   <td>Bandage</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>8</td> 
+   <td>Other</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>0</td> 
+   <td>Bag</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>1</td> 
+   <td>Soul Bag</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>2</td> 
+   <td>Herb Bag</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>3</td> 
+   <td>Enchanting Bag</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>4</td> 
+   <td>Engineering Bag</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>5</td> 
+   <td>Gem Bag</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>6</td> 
+   <td>Mining Bag</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>7</td> 
+   <td>Leatherworking Bag</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>0</td> 
+   <td>Axe</td> 
+   <td>One handed</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>1</td> 
+   <td>Axe</td> 
+   <td>Two handed</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>2</td> 
+   <td>Bow</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>3</td> 
+   <td>Gun</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>4</td> 
+   <td>Mace</td> 
+   <td>One handed</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>5</td> 
+   <td>Mace</td> 
+   <td>Two handed</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>6</td> 
+   <td>Polearm</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>7</td> 
+   <td>Sword</td> 
+   <td>One handed</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>8</td> 
+   <td>Sword</td> 
+   <td>Two handed</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>9</td> 
+   <td>Obsolete</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>10</td> 
+   <td>Staff</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>11</td> 
+   <td>Exotic</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>12</td> 
+   <td>Exotic</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>13</td> 
+   <td>Fist Weapon</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>14</td> 
+   <td>Miscellaneous</td> 
+   <td>(Blacksmith Hammer, Mining Pick, etc.)</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>15</td> 
+   <td>Dagger</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>16</td> 
+   <td>Thrown</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>17</td> 
+   <td>Spear</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>18</td> 
+   <td>Crossbow</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>19</td> 
+   <td>Wand</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>20</td> 
+   <td>Fishing Pole</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>0</td> 
+   <td>Red</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>1</td> 
+   <td>Blue</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>2</td> 
+   <td>Yellow</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>3</td> 
+   <td>Purple</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>4</td> 
+   <td>Green</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>5</td> 
+   <td>Orange</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>6</td> 
+   <td>Meta</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>7</td> 
+   <td>Simple</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>8</td> 
+   <td>Prismatic</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>0</td> 
+   <td>Miscellaneous</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>1</td> 
+   <td>Cloth</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>2</td> 
+   <td>Leather</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>3</td> 
+   <td>Mail</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>4</td> 
+   <td>Plate</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>5</td> 
+   <td>Buckler(<span>OBSOLETE</span>)</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>6</td> 
+   <td>Shield</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>7</td> 
+   <td>Libram</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>8</td> 
+   <td>Idol</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>9</td> 
+   <td>Totem</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td>0</td> 
+   <td>Reagent</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>0</td> 
+   <td>Wand(<span>OBSOLETE</span>)</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>1</td> 
+   <td>Bolt(<span>OBSOLETE</span>)</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>2</td> 
+   <td>Arrow</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>3</td> 
+   <td>Bullet</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>4</td> 
+   <td>Thrown(<span>OBSOLETE</span>)</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>0</td> 
+   <td>Trade Goods</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>1</td> 
+   <td>Parts</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>2</td> 
+   <td>Explosives</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>3</td> 
+   <td>Devices</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>4</td> 
+   <td>Jewelcrafting</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>5</td> 
+   <td>Cloth</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>6</td> 
+   <td>Leather</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>7</td> 
+   <td>Metal &amp; Stone</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>8</td> 
+   <td>Meat</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>9</td> 
+   <td>Herb</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>10</td> 
+   <td>Elemental</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>11</td> 
+   <td>Other</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>12</td> 
+   <td>Enchanting</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td>0</td> 
+   <td>Generic(<span>OBSOLETE</span>)</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td>0</td> 
+   <td>Book</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td>1</td> 
+   <td>Leatherworking</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td>2</td> 
+   <td>Tailoring</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td>3</td> 
+   <td>Engineering</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td>4</td> 
+   <td>Blacksmithing</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td>5</td> 
+   <td>Cooking</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td>6</td> 
+   <td>Alchemy</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td>7</td> 
+   <td>First Aid</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td>8</td> 
+   <td>Enchanting</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td>9</td> 
+   <td>Fishing</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td>10</td> 
+   <td>Jewelcrafting</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>10</td> 
+   <td>0</td> 
+   <td>Money(<span>OBSOLETE</span>)</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>11</td> 
+   <td>0</td> 
+   <td>Quiver(<span>OBSOLETE</span>)</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>11</td> 
+   <td>1</td> 
+   <td>Quiver(<span>OBSOLETE</span>)</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>11</td> 
+   <td>2</td> 
+   <td>Quiver</td> 
+   <td>Can hold arrows</td> 
+  </tr> 
+  <tr> 
+   <td>11</td> 
+   <td>3</td> 
+   <td>Ammo Pouch</td> 
+   <td>Can hold bullets</td> 
+  </tr> 
+  <tr> 
+   <td>12</td> 
+   <td>0</td> 
+   <td>Quest</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>13</td> 
+   <td>0</td> 
+   <td>Key</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>13</td> 
+   <td>1</td> 
+   <td>Lockpick</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>14</td> 
+   <td>0</td> 
+   <td>Permanent</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>15</td> 
+   <td>0</td> 
+   <td>Junk</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>15</td> 
+   <td>1</td> 
+   <td>Reagent</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>15</td> 
+   <td>2</td> 
+   <td>Pet</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>15</td> 
+   <td>3</td> 
+   <td>Holiday</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>15</td> 
+   <td>4</td> 
+   <td>Other</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>15</td> 
+   <td>5</td> 
+   <td>Mount</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td>1</td> 
+   <td>Warrior</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td>2</td> 
+   <td>Paladin</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td>3</td> 
+   <td>Hunter</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td>4</td> 
+   <td>Rogue</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td>5</td> 
+   <td>Priest</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td>6</td> 
+   <td>Death Knight</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td>7</td> 
+   <td>Shaman</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td>8</td> 
+   <td>Mage</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td>9</td> 
+   <td>Warlock</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td>11</td> 
+   <td>Druid</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-unk0" class="anchor" href="#unk0" aria-hidden="true"><span class="octicon octicon-link"></span></a>unk0</h4> 
+<h4> <a id="user-content-name" class="anchor" href="#name" aria-hidden="true"><span class="octicon octicon-link"></span></a>name</h4> 
+<p>The item’s name that will be displayed.</p> 
+<h4> <a id="user-content-displayid" class="anchor" href="#displayid" aria-hidden="true"><span class="octicon octicon-link"></span></a>displayid</h4> 
+<p>The model ID of the item. Each model has its own icon assigned so this field controls both the model appearance and the icon.</p> 
+<h4> <a id="user-content-quality" class="anchor" href="#quality" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quality</h4> 
+<p>The quality of the item:</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Color</th> 
+   <th>Quality</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>Grey</td> 
+   <td>Poor</td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>White</td> 
+   <td>Common</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>Green</td> 
+   <td>Uncommon</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>Blue</td> 
+   <td>Rare</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Purple</td> 
+   <td>Epic</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td>Orange</td> 
+   <td>Legendary</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>Red</td> 
+   <td>Artifact</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-flags" class="anchor" href="#flags" aria-hidden="true"><span class="octicon octicon-link"></span></a>Flags</h4> 
+<p>Bitmask field that contains flags that the item has on it. As all other such fields, just add the flags together to combine them. Possible flags are listed below.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>Flag</th> 
+   <th>Comments</th> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>Soulbound</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>Conjured</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Lootable (can be opened by right-click)</td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td>Wrapped</td> 
+  </tr> 
+  <tr> 
+   <td>32</td> 
+   <td>Totem</td> 
+  </tr> 
+  <tr> 
+   <td>64</td> 
+   <td>Activatable with right-click</td> 
+  </tr> 
+  <tr> 
+   <td>256</td> 
+   <td>Wrapper</td> 
+  </tr> 
+  <tr> 
+   <td>1024</td> 
+   <td>Gifts</td> 
+  </tr> 
+  <tr> 
+   <td>2048</td> 
+   <td>Item is party loot and can be looted by all</td> 
+  </tr> 
+  <tr> 
+   <td>8192</td> 
+   <td>Charter (Arena or Guild)</td> 
+  </tr> 
+  <tr> 
+   <td>32768</td> 
+   <td>PvP reward item</td> 
+  </tr> 
+  <tr> 
+   <td>524288</td> 
+   <td>Unique equipped (player can only have one equipped at the same time)</td> 
+  </tr> 
+  <tr> 
+   <td>4194304</td> 
+   <td>Throwable (for tooltip ingame)</td> 
+  </tr> 
+  <tr> 
+   <td>8388608</td> 
+   <td>Special Use</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-buycount" class="anchor" href="#buycount" aria-hidden="true"><span class="octicon octicon-link"></span></a>BuyCount</h4> 
+<p>The size of the item stack when sold by vendors. Also if a vendor has limited copies of this item available, everytime the vendor list is refreshed (See <a href="npc_vendor#incrtime">npc_vendor.incrtime</a>), the number of copies increases by this number.</p> 
+<h4> <a id="user-content-buyprice" class="anchor" href="#buyprice" aria-hidden="true"><span class="octicon octicon-link"></span></a>BuyPrice</h4> 
+<p>The price required to pay to buy this item from a vendor, in copper.</p> 
+<h4> <a id="user-content-sellprice" class="anchor" href="#sellprice" aria-hidden="true"><span class="octicon octicon-link"></span></a>SellPrice</h4> 
+<p>The price that the vendor will pay you for the item when you sell it and if it is possible to be sold, in copper. Put in 0 if the item cannot be sold to a vendor.</p> 
+<h4> <a id="user-content-inventorytype" class="anchor" href="#inventorytype" aria-hidden="true"><span class="octicon octicon-link"></span></a>InventoryType</h4> 
+<p>In what slot the item can be equipped.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Slot Name</th> 
+   <th>ID</th> 
+   <th>Slot Name</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>Non equipable</td> 
+   <td>15</td> 
+   <td>Ranged</td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>Head</td> 
+   <td>16</td> 
+   <td>Back</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>Neck</td> 
+   <td>17</td> 
+   <td>Two-Hand</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>Shoulder</td> 
+   <td>18</td> 
+   <td>Bag</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Shirt</td> 
+   <td>19</td> 
+   <td>Tabard</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td>Chest</td> 
+   <td>20</td> 
+   <td>Robe</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>Waist</td> 
+   <td>21</td> 
+   <td>Main hand</td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>Legs</td> 
+   <td>22</td> 
+   <td>Off hand</td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td>Feet</td> 
+   <td>23</td> 
+   <td>Holdable (Tome)</td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td>Wrists</td> 
+   <td>24</td> 
+   <td>Ammo</td> 
+  </tr> 
+  <tr> 
+   <td>10</td> 
+   <td>Hands</td> 
+   <td>25</td> 
+   <td>Thrown</td> 
+  </tr> 
+  <tr> 
+   <td>11</td> 
+   <td>Finger</td> 
+   <td>26</td> 
+   <td>Ranged right</td> 
+  </tr> 
+  <tr> 
+   <td>12</td> 
+   <td>Trinket</td> 
+   <td>27</td> 
+   <td>Quiver</td> 
+  </tr> 
+  <tr> 
+   <td>13</td> 
+   <td>Weapon</td> 
+   <td>28</td> 
+   <td>Relic</td> 
+  </tr> 
+  <tr> 
+   <td>14</td> 
+   <td>Shield</td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-allowableclass" class="anchor" href="#allowableclass" aria-hidden="true"><span class="octicon octicon-link"></span></a>AllowableClass</h4> 
+<p>Bitmask controlling which classes can use this item. Add ids together to combine class possibilities. Use -1 if all classes can use it.</p> 
+<h4> <a id="user-content-allowablerace" class="anchor" href="#allowablerace" aria-hidden="true"><span class="octicon octicon-link"></span></a>AllowableRace</h4> 
+<p>Bitmask controlling which races can use this item. Add ids together to combine race possibilities. Use -1 for all races.</p> 
+<h4> <a id="user-content-itemlevel" class="anchor" href="#itemlevel" aria-hidden="true"><span class="octicon octicon-link"></span></a>ItemLevel</h4> 
+<p>Base item level.</p> 
+<h4> <a id="user-content-requiredlevel" class="anchor" href="#requiredlevel" aria-hidden="true"><span class="octicon octicon-link"></span></a>RequiredLevel</h4> 
+<p>Required level the player has to be to use this item.</p> 
+<h4> <a id="user-content-requiredskill" class="anchor" href="#requiredskill" aria-hidden="true"><span class="octicon octicon-link"></span></a>RequiredSkill</h4> 
+<p>The skill required to use this item. See SkillLine.dbc</p> 
+<h4> <a id="user-content-requiredskillrank" class="anchor" href="#requiredskillrank" aria-hidden="true"><span class="octicon octicon-link"></span></a>RequiredSkillRank</h4> 
+<p>The required skill rank the player needs to have to use this item.</p> 
+<h4> <a id="user-content-requiredspell" class="anchor" href="#requiredspell" aria-hidden="true"><span class="octicon octicon-link"></span></a>requiredspell</h4> 
+<p>The required spell that the player needs to have to use this item.</p> 
+<h4> <a id="user-content-requiredhonorrank" class="anchor" href="#requiredhonorrank" aria-hidden="true"><span class="octicon octicon-link"></span></a>requiredhonorrank</h4> 
+<p>The honor rank the player needs to have to use this item.</p> 
+<h4> <a id="user-content-requiredcityrank" class="anchor" href="#requiredcityrank" aria-hidden="true"><span class="octicon octicon-link"></span></a>RequiredCityRank</h4> 
+<h4> <a id="user-content-requiredreputationfaction" class="anchor" href="#requiredreputationfaction" aria-hidden="true"><span class="octicon octicon-link"></span></a>RequiredReputationFaction</h4> 
+<p>The faction template ID (from <a href="Faction.dbc">Faction.dbc</a>) of the faction that the player has to have a certain ranking with.</p> 
+<h4> <a id="user-content-requiredreputationrank" class="anchor" href="#requiredreputationrank" aria-hidden="true"><span class="octicon octicon-link"></span></a>RequiredReputationRank</h4> 
+<p>The rank the player has to have with the faction from <a href="#RequiredReputationFaction">RequiredReputationFaction</a>.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Rank</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>Hated</td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>Hostile</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>Unfriendly</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>Neutral</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Friendly</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td>Honored</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>Revered</td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>Exalted</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-maxcount" class="anchor" href="#maxcount" aria-hidden="true"><span class="octicon octicon-link"></span></a>maxcount</h4> 
+<p>Maximum number of copies of this item a player can have. Use 0 for infinite.</p> 
+<h4> <a id="user-content-stackable" class="anchor" href="#stackable" aria-hidden="true"><span class="octicon octicon-link"></span></a>stackable</h4> 
+<p>The number of copies of this item that can be stacked in the same slot.</p> 
+<h4> <a id="user-content-containerslots" class="anchor" href="#containerslots" aria-hidden="true"><span class="octicon octicon-link"></span></a>ContainerSlots</h4> 
+<p>If the item is a bag, this field controls the number of slots the bag has.</p> 
+<h4> <a id="user-content-statscount" class="anchor" href="#statscount" aria-hidden="true"><span class="octicon octicon-link"></span></a>StatsCount</h4> 
+<p>The number of stats used for this item. Only the first n stats are used.</p> 
+<h4> <a id="user-content-stat_type" class="anchor" href="#stat_type" aria-hidden="true"><span class="octicon octicon-link"></span></a>stat_type</h4> 
+<p>The type of stat to modify.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Stat Type</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>MANA</span> </td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>HEALTH</span> </td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>AGILITY</span> </td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>STRENGTH</span> </td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>INTELLECT</span> </td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>SPIRIT</span> </td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>STAMINA</span> </td> 
+  </tr> 
+  <tr> 
+   <td>12</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>DEFENSE</span>_<span>SKILL</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>13</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>DODGE</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>14</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>PARRY</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>15</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>BLOCK</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>HIT</span>_<span>MELEE</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>17</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>HIT</span>_<span>RANGED</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>18</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>HIT</span>_<span>SPELL</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>19</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>CRIT</span>_<span>MELEE</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>20</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>CRIT</span>_<span>RANGED</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>21</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>CRIT</span>_<span>SPELL</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>22</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>HIT</span>_<span>TAKEN</span>_<span>MELEE</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>23</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>HIT</span>_<span>TAKEN</span>_<span>RANGED</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>24</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>HIT</span>_<span>TAKEN</span>_<span>SPELL</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>25</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>CRIT</span>_<span>TAKEN</span>_<span>MELEE</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>26</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>CRIT</span>_<span>TAKEN</span>_<span>RANGED</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>27</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>CRIT</span>_<span>TAKEN</span>_<span>SPELL</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>28</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>HASTE</span>_<span>MELEE</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>29</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>HASTE</span>_<span>RANGED</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>30</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>HASTE</span>_<span>SPELL</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>31</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>HIT</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>32</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>CRIT</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>33</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>HIT</span>_<span>TAKEN</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>34</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>CRIT</span>_<span>TAKEN</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>35</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>RESILIENCE</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>36</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>HASTE</span>_<span>RATING</span> </td> 
+  </tr> 
+  <tr> 
+   <td>37</td> 
+   <td> <span>ITEM</span>_<span>MOD</span>_<span>EXPERTISE</span>_<span>RATING</span> </td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-stat_value" class="anchor" href="#stat_value" aria-hidden="true"><span class="octicon octicon-link"></span></a>stat_value</h4> 
+<p>The value to change the stat type to.</p> 
+<h4> <a id="user-content-dmg_min" class="anchor" href="#dmg_min" aria-hidden="true"><span class="octicon octicon-link"></span></a>dmg_min</h4> 
+<p>The minimum damage of the item.</p> 
+<h4> <a id="user-content-dmg_max" class="anchor" href="#dmg_max" aria-hidden="true"><span class="octicon octicon-link"></span></a>dmg_max</h4> 
+<p>The maximum damage of the item.</p> 
+<h4> <a id="user-content-dmg_type" class="anchor" href="#dmg_type" aria-hidden="true"><span class="octicon octicon-link"></span></a>dmg_type</h4> 
+<p>The damage type that the item uses.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Damage Type</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>Physical</td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>Holy</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>Fire</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>Nature</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Frost</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td>Shadow</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>Arcane</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-armor" class="anchor" href="#armor" aria-hidden="true"><span class="octicon octicon-link"></span></a>armor</h4> 
+<p>The armor value of the item.</p> 
+<h4> <a id="user-content-holy_res" class="anchor" href="#holy_res" aria-hidden="true"><span class="octicon octicon-link"></span></a>holy_res</h4> 
+<p>Holy resistance.</p> 
+<h4> <a id="user-content-fire_res" class="anchor" href="#fire_res" aria-hidden="true"><span class="octicon octicon-link"></span></a>fire_res</h4> 
+<p>Fire resistance.</p> 
+<h4> <a id="user-content-nature_res" class="anchor" href="#nature_res" aria-hidden="true"><span class="octicon octicon-link"></span></a>nature_res</h4> 
+<p>Nature resistance.</p> 
+<h4> <a id="user-content-frost_res" class="anchor" href="#frost_res" aria-hidden="true"><span class="octicon octicon-link"></span></a>frost_res</h4> 
+<p>Frost resistance.</p> 
+<h4> <a id="user-content-shadow_res" class="anchor" href="#shadow_res" aria-hidden="true"><span class="octicon octicon-link"></span></a>shadow_res</h4> 
+<p>Shadow resistance.</p> 
+<h4> <a id="user-content-arcane_res" class="anchor" href="#arcane_res" aria-hidden="true"><span class="octicon octicon-link"></span></a>arcane_res</h4> 
+<p>Arcane resistance.</p> 
+<h4> <a id="user-content-delay" class="anchor" href="#delay" aria-hidden="true"><span class="octicon octicon-link"></span></a>delay</h4> 
+<p>The time in milliseconds between successive hits.</p> 
+<h4> <a id="user-content-ammo_type" class="anchor" href="#ammo_type" aria-hidden="true"><span class="octicon octicon-link"></span></a>ammo_type</h4> 
+<p>The type of ammunition the item uses. Arrows = 2; Bullets = 3</p> 
+<h4> <a id="user-content-rangedmodrange" class="anchor" href="#rangedmodrange" aria-hidden="true"><span class="octicon octicon-link"></span></a>RangedModRange</h4> 
+<h4> <a id="user-content-spellid" class="anchor" href="#spellid" aria-hidden="true"><span class="octicon octicon-link"></span></a>spellid</h4> 
+<p>The spell ID of the spell that the item can cast or trigger.</p> 
+<h4> <a id="user-content-spelltrigger" class="anchor" href="#spelltrigger" aria-hidden="true"><span class="octicon octicon-link"></span></a>spelltrigger</h4> 
+<p>The type of trigger for the spell.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Trigger Type</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>Use</td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>On Equip</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>Chance on Hit</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Soulstone</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td>Use with no delay</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>Learn spell if spellid_1 = 55884</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-spellcharges" class="anchor" href="#spellcharges" aria-hidden="true"><span class="octicon octicon-link"></span></a>spellcharges</h4> 
+<p>The number of times that the item can cast the spell. If 0, then infinite charges are possible. If negative, then after the number of charges is depleted, the item is deleted as well. If positive, then the item is not deleted after all the charges are spent.</p> 
+<h4> <a id="user-content-spellppmrate" class="anchor" href="#spellppmrate" aria-hidden="true"><span class="octicon octicon-link"></span></a>spellppmRate</h4> 
+<p>The proc per minute rate controlling how often the spell is triggered (if <a href="#spelltrigger">#spelltrigger</a> == 2).</p> 
+<h4> <a id="user-content-spellcooldown" class="anchor" href="#spellcooldown" aria-hidden="true"><span class="octicon octicon-link"></span></a>spellcooldown</h4> 
+<p>The cooldown in milliseconds for the specific spell controlling how often the spell can be used. Use -1 to use the default spell cooldown.</p> 
+<h4> <a id="user-content-spellcategory" class="anchor" href="#spellcategory" aria-hidden="true"><span class="octicon octicon-link"></span></a>spellcategory</h4> 
+<p>The category that the spell is in.</p> 
+<h4> <a id="user-content-spellcategorycooldown" class="anchor" href="#spellcategorycooldown" aria-hidden="true"><span class="octicon octicon-link"></span></a>spellcategorycooldown</h4> 
+<p>The cooldown time in milliseconds that is applied to all other spells in the category that the triggered spell is also in. Use -1 to use the default spell cooldown.</p> 
+<h4> <a id="user-content-bonding" class="anchor" href="#bonding" aria-hidden="true"><span class="octicon octicon-link"></span></a>bonding</h4> 
+<p>The bonding for the item.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Bonding Type</th> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>Binds when picked up</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>Binds when equipped</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>Binds when used</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Quest item</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>description</h4> 
+<p>The description that appears in orange letters at the bottom of the item tooltip.</p> 
+<h4> <a id="user-content-pagetext" class="anchor" href="#pagetext" aria-hidden="true"><span class="octicon octicon-link"></span></a>PageText</h4> 
+<p>The ID referring to the text that the item will show (if it is a book or a letter, etc). The item will have a magnifying glass cursor in the game and will show the text when right-clicked. See <a href="page_text#entry">page_text.entry</a></p> 
+<h4> <a id="user-content-languageid" class="anchor" href="#languageid" aria-hidden="true"><span class="octicon octicon-link"></span></a>LanguageID</h4> 
+<p>The language that the item text is written in.</p> 
+<h4> <a id="user-content-pagematerial" class="anchor" href="#pagematerial" aria-hidden="true"><span class="octicon octicon-link"></span></a>PageMaterial</h4> 
+<p>The background texture that appears in the page text window.</p> 
+<h4> <a id="user-content-startquest" class="anchor" href="#startquest" aria-hidden="true"><span class="octicon octicon-link"></span></a>startquest</h4> 
+<p>The ID of the quest that this item will start if right-clicked. See <a href="quest_template#entry">quest_template.entry</a></p> 
+<h4> <a id="user-content-lockid" class="anchor" href="#lockid" aria-hidden="true"><span class="octicon octicon-link"></span></a>lockid</h4> 
+<p>The lock entry ID that this item (which serves as a key) is tied to. This field is used in key-door mechanics. See Lock.dbc</p> 
+<h4> <a id="user-content-material" class="anchor" href="#material" aria-hidden="true"><span class="octicon octicon-link"></span></a>Material</h4> 
+<p>The material that the item is made of. The value here affects the sound that the item makes when moved. Use -1 for consumable items like food, reagents, etc.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Material</th> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>Metal</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>Wood</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>Liquid</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Jewelry</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td>Chain</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>Plate</td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>Cloth</td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td>Leather</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-sheath" class="anchor" href="#sheath" aria-hidden="true"><span class="octicon octicon-link"></span></a>sheath</h4> 
+<p>Controls how the item is put away on the character (pressing the ‘Z’ hotkey).</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Type</th> 
+   <th>Position</th> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>Two Handed Weapon</td> 
+   <td>Diagonally accross the back pointing down</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>Staff</td> 
+   <td>Diagonally accross the back poiting up</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>One Handed</td> 
+   <td>To the side</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Shield</td> 
+   <td>On the back in the middle</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td>Enchanter’s Rod</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>Off hand</td> 
+   <td>On the other side of One Handed</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-randomproperty" class="anchor" href="#randomproperty" aria-hidden="true"><span class="octicon octicon-link"></span></a>RandomProperty</h4> 
+<p>The number in this field points to <a href="item_enchantment_template#entry">item_enchantment_template.entry</a> and ties in an item’s chance at having a random property attached to it when it shows up for the first time. This field and the <a href="#RandomSuffix">RandomSuffix</a> field <span>CANNOT</span> both have non-zero values. Either one is filled, or the other. Also, the primary source for the number in this field are WDBs.</p> 
+<h4> <a id="user-content-randomsuffix" class="anchor" href="#randomsuffix" aria-hidden="true"><span class="octicon octicon-link"></span></a>RandomSuffix</h4> 
+<p>The number in this field points to <a href="item_enchantment_template#entry">item_enchantment_template.entry</a> and ties in an item’s chance at having a random suffix attached to it when it shows up for the first time. This field and the <a href="#RandomProperty">RandomProperty</a> field <span>CANNOT</span> both have non-zero values. Either one is filled, or the other. Also, the primary source for the number in this field are WDBs.</p> 
+<h4> <a id="user-content-block" class="anchor" href="#block" aria-hidden="true"><span class="octicon octicon-link"></span></a>block</h4> 
+<p>If the item is a shield, the block chance of the shield.</p> 
+<h4> <a id="user-content-itemset" class="anchor" href="#itemset" aria-hidden="true"><span class="octicon octicon-link"></span></a>itemset</h4> 
+<p>The ID of the item set that this item belongs to. To save you some time, you <span>CAN</span> <span>NOT</span> make up new item sets. Item sets are defined in ItemSet.dbc</p> 
+<h4> <a id="user-content-maxdurability" class="anchor" href="#maxdurability" aria-hidden="true"><span class="octicon octicon-link"></span></a>MaxDurability</h4> 
+<p>The maximum durability of this item.</p> 
+<h4> <a id="user-content-area" class="anchor" href="#area" aria-hidden="true"><span class="octicon octicon-link"></span></a>area</h4> 
+<p>The zone ID that this item can be used in.</p> 
+<h4> <a id="user-content-map" class="anchor" href="#map" aria-hidden="true"><span class="octicon octicon-link"></span></a>Map</h4> 
+<p>The map ID that this item can be used in.</p> 
+<h4> <a id="user-content-bagfamily" class="anchor" href="#bagfamily" aria-hidden="true"><span class="octicon octicon-link"></span></a>BagFamily</h4> 
+<p>If the item is a bag, this field is a bitmask controlling what types of items can be put in this bag. You can combine different types by adding up the bit numbers.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Bag Family Mask</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>None</td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>Arrows</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>Bullets</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Soul Shards</td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td>Leatherworking Supplies</td> 
+  </tr> 
+  <tr> 
+   <td>32</td> 
+   <td>Herbs</td> 
+  </tr> 
+  <tr> 
+   <td>64</td> 
+   <td>Enchanting Supplies</td> 
+  </tr> 
+  <tr> 
+   <td>128</td> 
+   <td>Engineering Supplies</td> 
+  </tr> 
+  <tr> 
+   <td>256</td> 
+   <td>Keys</td> 
+  </tr> 
+  <tr> 
+   <td>512</td> 
+   <td>Gems</td> 
+  </tr> 
+  <tr> 
+   <td>1024</td> 
+   <td>Mining Supplies</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-totemcategory" class="anchor" href="#totemcategory" aria-hidden="true"><span class="octicon octicon-link"></span></a>TotemCategory</h4> 
+<p>Corresponds to the ID in TotemCategory.dbc.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Category Name</th> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>TC_<span>SKINNING</span>_<span>SKIFE</span> </td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>TC_<span>EARTH</span>_<span>TOTEM</span> </td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>TC_<span>AIR</span>_<span>TOTEM</span> </td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>TC_<span>FIRE</span>_<span>TOTEM</span> </td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td>TC_<span>WATER</span>_<span>TOTEM</span> </td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>TC_<span>COPPER</span>_<span>ROD</span> </td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>TC_<span>SILVER</span>_<span>ROD</span> </td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td>TC_<span>GOLDEN</span>_<span>ROD</span> </td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td>TC_<span>TRUESILVER</span>_<span>ROD</span> </td> 
+  </tr> 
+  <tr> 
+   <td>10</td> 
+   <td>TC_<span>ARCANITE</span>_<span>ROD</span> </td> 
+  </tr> 
+  <tr> 
+   <td>11</td> 
+   <td>TC_<span>MINING</span>_<span>PICK</span> </td> 
+  </tr> 
+  <tr> 
+   <td>12</td> 
+   <td>TC_<span>PHILOSOPHERS</span>_<span>STONE</span> </td> 
+  </tr> 
+  <tr> 
+   <td>13</td> 
+   <td>TC_<span>BLACKSMITH</span>_<span>HAMMER</span> </td> 
+  </tr> 
+  <tr> 
+   <td>14</td> 
+   <td>TC_<span>ARCLIGHT</span>_<span>SPANNER</span> </td> 
+  </tr> 
+  <tr> 
+   <td>15</td> 
+   <td>TC_ <span>GYROMATIC</span>_MA</td> 
+  </tr> 
+  <tr> 
+   <td>21</td> 
+   <td>TC_<span>MASTER</span>_<span>TOTEM</span> </td> 
+  </tr> 
+  <tr> 
+   <td>41</td> 
+   <td>TC_<span>FEL</span>_<span>IRON</span>_<span>ROD</span> </td> 
+  </tr> 
+  <tr> 
+   <td>62</td> 
+   <td>TC_<span>ADAMANTITE</span>_<span>ROD</span> </td> 
+  </tr> 
+  <tr> 
+   <td>63</td> 
+   <td>TC_<span>ETERNIUM</span>_<span>ROD</span> </td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-socketcolor" class="anchor" href="#socketcolor" aria-hidden="true"><span class="octicon octicon-link"></span></a>socketColor</h4> 
+<p>The color of the socket that can be placed in this item.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Color</th> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>Meta</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>Red</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Yellow</td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td>Blue</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-socketcontent" class="anchor" href="#socketcontent" aria-hidden="true"><span class="octicon octicon-link"></span></a>socketContent</h4> 
+<h4> <a id="user-content-socketbonus" class="anchor" href="#socketbonus" aria-hidden="true"><span class="octicon octicon-link"></span></a>socketBonus</h4> 
+<h4> <a id="user-content-gemproperties" class="anchor" href="#gemproperties" aria-hidden="true"><span class="octicon octicon-link"></span></a>GemProperties</h4> 
+<p>The value here corresponds to the ID in GemProperties.dbc.</p> 
+<h4> <a id="user-content-requireddisenchantskill" class="anchor" href="#requireddisenchantskill" aria-hidden="true"><span class="octicon octicon-link"></span></a>RequiredDisenchantSkill</h4> 
+<p>The required proficiency in disenchanting that the player needs to have to be able to disenchant this item.</p> 
+<h4> <a id="user-content-armordamagemodifier" class="anchor" href="#armordamagemodifier" aria-hidden="true"><span class="octicon octicon-link"></span></a>ArmorDamageModifier</h4> 
+<h4> <a id="user-content-itemlimitcategory" class="anchor" href="#itemlimitcategory" aria-hidden="true"><span class="octicon octicon-link"></span></a>ItemLimitCategory</h4> 
+<h4> <a id="user-content-scriptname" class="anchor" href="#scriptname" aria-hidden="true"><span class="octicon octicon-link"></span></a>ScriptName</h4> 
+<p>The name of the script that the item should use. There is no ‘internalitemhandler’ or ‘internalitemhanler’ script so mangos will ignore any such values in this field.</p> 
+<h4> <a id="user-content-disenchantid" class="anchor" href="#disenchantid" aria-hidden="true"><span class="octicon octicon-link"></span></a>DisenchantID</h4> 
+<p>The disenchant loot template ID. See <a href="loot_template#entry">disenchant_loot_template.entry</a></p> 
+<h4> <a id="user-content-foodtype" class="anchor" href="#foodtype" aria-hidden="true"><span class="octicon octicon-link"></span></a>FoodType</h4> 
+<p>If this item is a food type item, this field defines what type of food it is for hunters who want to feed their pets. It controls in what diet this food item falls in.</p> 
+<p><span>NOTE</span>: Raw meat and fish is not the same as regular meat and fish. It seems that the last two types of diets include grey "poor" types of food that players have no use for but some pets seem to be able to eat. Also, those food types appeared in <span>TBC</span> so most likely only <span>TBC</span> pets will have those types of diets.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Type</th> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>Meat</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>Fish</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>Cheese</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Bread</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td>Fungus</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>Fruit</td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>Raw Meat</td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td>Raw Fish</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-minmoneyloot" class="anchor" href="#minmoneyloot" aria-hidden="true"><span class="octicon octicon-link"></span></a>minMoneyLoot</h4> 
+<p>If the item is a container that can contain money, then this field defines the minimum coinage held in this container, in copper.</p> 
+<h4> <a id="user-content-maxmoneyloot" class="anchor" href="#maxmoneyloot" aria-hidden="true"><span class="octicon octicon-link"></span></a>maxMoneyLoot</h4> 
+<p>If the item is a container that can contain money, then this field defines the maximum coinage held in this container, in copper.</p> 
+<h4> <a id="user-content-duration" class="anchor" href="#duration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Duration</h4> 
+<p>The duration of the item in seconds. If positive, it is the duration measured in ingame time. If you need realtime duration then ExtraFlags = 2</p> 
+<h4> <a id="user-content-extraflags" class="anchor" href="#extraflags" aria-hidden="true"><span class="octicon octicon-link"></span></a>ExtraFlags</h4> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Type</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>None</td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>None Consumable</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>Raltime Duration</td> 
+  </tr> 
+ </tbody>
+</table></div></div>
+</body></html>

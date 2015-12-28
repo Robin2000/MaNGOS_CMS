@@ -1,0 +1,160 @@
+<html><head><title>creature_onkill_reputation</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-creature_onkill_reputation-table" class="anchor" href="#the-creature_onkill_reputation-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `creature_onkill_reputation` table</h2> 
+<p>This table controls the reputation given by creatures when killed by other players.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_onkill_reputation#creature_id">creature_id</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td>Creature Identifier</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_onkill_reputation#rewonkillrepfaction">RewOnKillRepFaction1</a></td> 
+   <td>smallint(6)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_onkill_reputation#rewonkillrepfaction">RewOnKillRepFaction2</a></td> 
+   <td>smallint(6)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_onkill_reputation#maxstanding">MaxStanding1</a></td> 
+   <td>tinyint(4)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_onkill_reputation#isteamaward">IsTeamAward1</a></td> 
+   <td>tinyint(4)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_onkill_reputation#rewonkillrepvalue">RewOnKillRepValue1</a></td> 
+   <td>mediumint(9)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_onkill_reputation#maxstanding">MaxStanding2</a></td> 
+   <td>tinyint(4)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_onkill_reputation#isteamaward">IsTeamAward2</a></td> 
+   <td>tinyint(4)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_onkill_reputation#rewonkillrepvalue">RewOnKillRepValue2</a></td> 
+   <td>mediumint(9)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Creature_onkill_reputation#teamdependent">TeamDependent</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-creature_id" class="anchor" href="#creature_id" aria-hidden="true"><span class="octicon octicon-link"></span></a>creature_id</h4> 
+<p>The template ID of the creature. See <a href="creature_template#entry">creature_template.entry</a></p> 
+<h4> <a id="user-content-rewonkillrepfaction" class="anchor" href="#rewonkillrepfaction" aria-hidden="true"><span class="octicon octicon-link"></span></a>RewOnKillRepFaction</h4> 
+<p>The faction ID of the faction that the player will gain or lose points in. See <a href="Faction.dbc">Faction.dbc</a></p> 
+<h4> <a id="user-content-maxstanding" class="anchor" href="#maxstanding" aria-hidden="true"><span class="octicon octicon-link"></span></a>MaxStanding</h4> 
+<p>The maximum standing that the creature will award reputation until. If the player achieves standing higher than this, the creature will not award any reputation.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>ID</th> 
+   <th>Rank</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td>Hated</td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td>Hostile</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td>Unfriendly</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td>Neutral</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td>Friendly</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td>Honored</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td>Revered</td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td>Exalted</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-isteamaward" class="anchor" href="#isteamaward" aria-hidden="true"><span class="octicon octicon-link"></span></a>IsTeamAward</h4> 
+<p>Boolean 0 or 1 that controls if the player receives the reputation not only to the faction but also the faction team.</p> 
+<ul> 
+ <li>0: Player receives reputation only for the faction</li> 
+ <li>1: Player receives reputation both for the faction and the faction’s team</li> 
+</ul> 
+<p><span>NOTE</span>: The reputation value that the player gains for the team (if the field is 1) is half of the value specified in <a href="#RewOnKillRepValue">RewOnKillRepValue</a></p> 
+<h4> <a id="user-content-rewonkillrepvalue" class="anchor" href="#rewonkillrepvalue" aria-hidden="true"><span class="octicon octicon-link"></span></a>RewOnKillRepValue</h4> 
+<p>The reputation value that the player gains (or loses if it’s negative) by killing the creature.</p> 
+<h4> <a id="user-content-teamdependent" class="anchor" href="#teamdependent" aria-hidden="true"><span class="octicon octicon-link"></span></a>TeamDependent</h4> 
+<p>Boolean 0 or 1.</p> 
+<ul> 
+ <li>0: The creature will give reputation to the any player from both fields (RewOnKillRepFaction1 and RewOnKillRepFaction2) if both fields are non-zero.</li> 
+ <li>1: The creature will award alliance players the reputation from RewOnKillRepFaction1 and will award horde players the reputation from RewOnKillRepFaction2</li> 
+</ul></div></div>
+</body></html>

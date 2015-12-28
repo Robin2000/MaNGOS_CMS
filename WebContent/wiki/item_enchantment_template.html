@@ -1,0 +1,51 @@
+<html><head><title>item_enchantment_template</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-item_enchantment_template-table" class="anchor" href="#the-item_enchantment_template-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `item_enchantment_template` table</h2> 
+<p>This table holds enchantment chance information for items that should have either a random property or a random suffix attached to them.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_enchantment_template#entry">entry</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_enchantment_template#ench">ench</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Item_enchantment_template#chance">chance</a></td> 
+   <td>float unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-entry" class="anchor" href="#entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry</h4> 
+<p>This field ties in with <span>EITHER</span> <a href="item_template#RandomProperty">RandomProperty</a> OR <a href="item_template#RandomSuffix">RandomSuffix</a> fields in the item_template table. An item cannot have both of those fields set at non-zero values.</p> 
+<p><span>NOTE</span>: For 4.3.4 Core Use Negative Values To Specify a Random Suffix Entry and a Positive Value for a Random Properties Value</p> 
+<p>This is to prevent overlapping values since in 4.3.4 Official Data we do have about 12 overlapping Random Property and Random Suffix entries.</p> 
+<h4> <a id="user-content-ench" class="anchor" href="#ench" aria-hidden="true"><span class="octicon octicon-link"></span></a>ench</h4> 
+<p>The enchantment to apply on the item. If the entry for the current row is used in <a href="item_template#RandomProperty">RandomProperty</a>, then this field points to the ID in ItemRandomProperties.dbc. If the entry is used in <a href="item_template#RandomSuffix">RandomSuffix</a>, then this field points to the ID in ItemRandomSuffix.dbc.</p> 
+<h4> <a id="user-content-chance" class="anchor" href="#chance" aria-hidden="true"><span class="octicon octicon-link"></span></a>chance</h4> 
+<p>The chance for a random property or suffix to be applied to the item. For each entry in this table, the combined chances of all properties/suffixes need to equal 100 otherwise the item may not get a random enchantment on it.</p></div></div>
+</body></html>

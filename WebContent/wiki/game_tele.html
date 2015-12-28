@@ -1,0 +1,89 @@
+<html><head><title>game_tele</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-game_tele-table" class="anchor" href="#the-game_tele-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `game_tele` table</h2> 
+<p>This table contains a list of teleport locations that can be used with the .tele command in-game. Entries in this table can be added/deleted manually or with the .addtele/.deltele commands.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_tele#id">id</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>None</td> 
+   <td>auto_increment</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_tele#position_x">position_x</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_tele#position_y">position_y</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_tele#position_z">position_z</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_tele#orientation">orientation</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_tele#map">map</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Game_tele#name">name</a></td> 
+   <td>varchar(100)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-id" class="anchor" href="#id" aria-hidden="true"><span class="octicon octicon-link"></span></a>id</h4> 
+<p>The ID of the teleport location. This number is unique to every location added.</p> 
+<h4> <a id="user-content-position_x" class="anchor" href="#position_x" aria-hidden="true"><span class="octicon octicon-link"></span></a>position_x</h4> 
+<p>The X position where the location exists.</p> 
+<h4> <a id="user-content-position_y" class="anchor" href="#position_y" aria-hidden="true"><span class="octicon octicon-link"></span></a>position_y</h4> 
+<p>The Y position where the location exists.</p> 
+<h4> <a id="user-content-position_z" class="anchor" href="#position_z" aria-hidden="true"><span class="octicon octicon-link"></span></a>position_z</h4> 
+<p>The Z position where the location exists.</p> 
+<h4> <a id="user-content-orientation" class="anchor" href="#orientation" aria-hidden="true"><span class="octicon octicon-link"></span></a>orientation</h4> 
+<p>The orientation to face after teleport. (North = 0, South = 3.14159)</p> 
+<h4> <a id="user-content-map" class="anchor" href="#map" aria-hidden="true"><span class="octicon octicon-link"></span></a>map</h4> 
+<p>The map ID of the location. See <a href="Map.dbc">Map.dbc</a></p> 
+<h4> <a id="user-content-name" class="anchor" href="#name" aria-hidden="true"><span class="octicon octicon-link"></span></a>name</h4> 
+<p>The name given to the location. The name must not have a space as this will be read in from the .tele command.</p></div></div>
+</body></html>

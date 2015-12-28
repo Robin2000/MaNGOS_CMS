@@ -1,0 +1,63 @@
+<html><head><title>pet_name_generation</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-pet_name_generation-table" class="anchor" href="#the-pet_name_generation-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `pet_name_generation` table</h2> 
+<p>This table holds pieces of names (first and last half) that are use for pet name generation.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pet_name_generation#id">id</a></td> 
+   <td>int(11) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td><span>NULL</span></td> 
+   <td>auto_increment</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pet_name_generation#word">word</a></td> 
+   <td>tinytext</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pet_name_generation#entry">entry</a></td> 
+   <td>int(11) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pet_name_generation#half">half</a></td> 
+   <td>int(11)</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-id" class="anchor" href="#id" aria-hidden="true"><span class="octicon octicon-link"></span></a>id</h4> 
+<p>The ID of the entry. This is an auto increment field and this is an arbitrary number. When adding entries it is best to just let the database pick the next available ID number.</p> 
+<h4> <a id="user-content-word" class="anchor" href="#word" aria-hidden="true"><span class="octicon octicon-link"></span></a>word</h4> 
+<p>The name part for this entry.</p> 
+<h4> <a id="user-content-entry" class="anchor" href="#entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry</h4> 
+<p>The entry from <a href="creature_template#entry">creature_template.entry</a> for the creature that you want this part of the name to be generated for.</p> 
+<h4> <a id="user-content-half" class="anchor" href="#half" aria-hidden="true"><span class="octicon octicon-link"></span></a>half</h4> 
+<p>This determines whether this is the first or last half of the name for this entry.</p> 
+<ul> 
+ <li>0 First half</li> 
+ <li>1 Last half</li> 
+</ul></div></div>
+</body></html>

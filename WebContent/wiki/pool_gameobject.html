@@ -1,0 +1,49 @@
+<html><head><title>pool_gameobject</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-pool_gameobject-table" class="anchor" href="#the-pool_gameobject-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `pool_gameobject` table</h2> 
+<p>Contains all pool instances that participate to any game event.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pool_gameobject#guid">guid</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pool_gameobject#pool_entry">pool_entry</a></td> 
+   <td>mediumint(8) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pool_gameobject#chance">chance</a></td> 
+   <td>float unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-guid" class="anchor" href="#guid" aria-hidden="true"><span class="octicon octicon-link"></span></a>guid</h4> 
+<p>Gameobject’s <span>GUID</span>. A reference to <a href="Gameobject#guid">Gameobject</a>.</p> 
+<h4> <a id="user-content-pool_entry" class="anchor" href="#pool_entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>pool_entry</h4> 
+<p>Pool’s ID. See <a href="pool_template">pool_template</a></p> 
+<h4> <a id="user-content-chance" class="anchor" href="#chance" aria-hidden="true"><span class="octicon octicon-link"></span></a>chance</h4> 
+<p>Chance the gameobject will be spawned in the pool.</p></div></div>
+</body></html>

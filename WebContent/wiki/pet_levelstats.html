@@ -1,0 +1,119 @@
+<html><head><title>pet_levelstats</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-pet_levelstats-table" class="anchor" href="#the-pet_levelstats-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `pet_levelstats` table</h2> 
+<p>This table holds information on individual pet base stats based on level.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pet_levelstats#creature_entry">creature_entry</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pet_levelstats#level">level</a></td> 
+   <td>tinyint(3) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pet_levelstats#hp">hp</a></td> 
+   <td>smallint(5) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pet_levelstats#mana">mana</a></td> 
+   <td>smallint(5) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pet_levelstats#armor">armor</a></td> 
+   <td>int(10) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pet_levelstats#str">str</a></td> 
+   <td>smallint(5) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pet_levelstats#agi">agi</a></td> 
+   <td>smallint(5) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pet_levelstats#sta">sta</a></td> 
+   <td>smallint(5) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pet_levelstats#inte">inte</a></td> 
+   <td>smallint(5) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Pet_levelstats#spi">spi</a></td> 
+   <td>smallint(5) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-creature_entry" class="anchor" href="#creature_entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>creature_entry</h4> 
+<p>The pet creature template ID. See <a href="creature_template#entry">creature_template.entry</a></p> 
+<h4> <a id="user-content-level" class="anchor" href="#level" aria-hidden="true"><span class="octicon octicon-link"></span></a>level</h4> 
+<p>The pet level.</p> 
+<h4> <a id="user-content-hp" class="anchor" href="#hp" aria-hidden="true"><span class="octicon octicon-link"></span></a>hp</h4> 
+<p>The base health of the pet at level = <a href="#level">level</a>.</p> 
+<h4> <a id="user-content-mana" class="anchor" href="#mana" aria-hidden="true"><span class="octicon octicon-link"></span></a>mana</h4> 
+<p>The base mana of the pet at level = <a href="#level">level</a>.</p> 
+<h4> <a id="user-content-armor" class="anchor" href="#armor" aria-hidden="true"><span class="octicon octicon-link"></span></a>armor</h4> 
+<p>The base armor of the pet at level = <a href="#level">level</a>.</p> 
+<h4> <a id="user-content-str" class="anchor" href="#str" aria-hidden="true"><span class="octicon octicon-link"></span></a>str</h4> 
+<p>The base strength of the pet at level = <a href="#level">level</a>.</p> 
+<h4> <a id="user-content-agi" class="anchor" href="#agi" aria-hidden="true"><span class="octicon octicon-link"></span></a>agi</h4> 
+<p>The base agility of the pet at level = <a href="#level">level</a>.</p> 
+<h4> <a id="user-content-sta" class="anchor" href="#sta" aria-hidden="true"><span class="octicon octicon-link"></span></a>sta</h4> 
+<p>The base stamina of the pet at level = <a href="#level">level</a>.</p> 
+<h4> <a id="user-content-inte" class="anchor" href="#inte" aria-hidden="true"><span class="octicon octicon-link"></span></a>inte</h4> 
+<p>The base intelligence of the pet at level = <a href="#level">level</a>.</p> 
+<h4> <a id="user-content-spi" class="anchor" href="#spi" aria-hidden="true"><span class="octicon octicon-link"></span></a>spi</h4> 
+<p>The base spirit of the pet at level = <a href="#level">level</a>.</p></div></div>
+</body></html>

@@ -1,0 +1,79 @@
+<html><head><title>spell_target_position</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-spell_teleport-table" class="anchor" href="#the-spell_teleport-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `spell_teleport` table</h2> 
+<p>This table holds coordinate information on where the player should be teleported to when a spell with effect <span>SPELL</span>_<span>EFFECT</span>_<span>TELEPORT</span>_<span>UNITS</span>.</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_target_position#id">id</a></td> 
+   <td>int(11) unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_target_position#target_map">target_map</a></td> 
+   <td>int(11) unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_target_position#target_position_x">target_position_x</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_target_position#target_position_y">target_position_y</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_target_position#target_position_z">target_position_z</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Spell_target_position#target_orientation">target_orientation</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-id" class="anchor" href="#id" aria-hidden="true"><span class="octicon octicon-link"></span></a>id</h4> 
+<p>The spell ID. See Spell.dbc</p> 
+<h4> <a id="user-content-target_map" class="anchor" href="#target_map" aria-hidden="true"><span class="octicon octicon-link"></span></a>target_map</h4> 
+<p>Map where the player should be teleported to. (See <a href="Map.dbc">Map.dbc</a>)</p> 
+<h4> <a id="user-content-target_position_x" class="anchor" href="#target_position_x" aria-hidden="true"><span class="octicon octicon-link"></span></a>target_position_x</h4> 
+<p>X coordinate for the target destination of the spell.</p> 
+<h4> <a id="user-content-target_position_y" class="anchor" href="#target_position_y" aria-hidden="true"><span class="octicon octicon-link"></span></a>target_position_y</h4> 
+<p>Y coordinate for the target destination of the spell.</p> 
+<h4> <a id="user-content-target_position_z" class="anchor" href="#target_position_z" aria-hidden="true"><span class="octicon octicon-link"></span></a>target_position_z</h4> 
+<p>Z coordinate for the target destination of the spell.</p> 
+<h4> <a id="user-content-target_orientation" class="anchor" href="#target_orientation" aria-hidden="true"><span class="octicon octicon-link"></span></a>target_orientation</h4> 
+<p>Orientation the player will get when appearing at this location</p></div></div>
+</body></html>

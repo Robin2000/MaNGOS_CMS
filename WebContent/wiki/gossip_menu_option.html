@@ -1,0 +1,317 @@
+<html><head><title>gossip_menu_option</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-gossip_menu_option-table" class="anchor" href="#the-gossip_menu_option-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `gossip_menu_option` table</h2> 
+<p>This table holds infos about menu options a gossip <span>NPC</span> can have. Examples of options : "Train me!", "I want to unlearn my talents", …</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Attributes</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Default</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gossip_menu_option#menu_id">menu_id</a></td> 
+   <td>smallint(6)</td> 
+   <td>unsigned</td> 
+   <td><span>PRI</span></td> 
+   <td>NO</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gossip_menu_option#id">id</a></td> 
+   <td>smallint(6)</td> 
+   <td>unsigned</td> 
+   <td><span>PRI</span></td> 
+   <td>NO</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gossip_menu_option#option_icon">option_icon</a></td> 
+   <td>smallint(6)</td> 
+   <td>unsigned</td> 
+   <td><span>PRI</span></td> 
+   <td>NO</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gossip_menu_option#option_text">option_text</a></td> 
+   <td>text</td> 
+   <td>signed</td> 
+   <td></td> 
+   <td><span>YES</span></td> 
+   <td><span>NULL</span></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gossip_menu_option#option_id">option_id</a></td> 
+   <td>tinyint(3)</td> 
+   <td>unsigned</td> 
+   <td></td> 
+   <td>NO</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gossip_menu_option#npc_option_npcflag">npc_option_npcflag</a></td> 
+   <td>int(10)</td> 
+   <td>unsigned</td> 
+   <td></td> 
+   <td>NO</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gossip_menu_option#action_menu_id">action_menu_id</a></td> 
+   <td>mediumint(8)</td> 
+   <td>unsigned</td> 
+   <td></td> 
+   <td>NO</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gossip_menu_option#action_poi_id">action_poi_id</a></td> 
+   <td>mediumint(8)</td> 
+   <td>unsigned</td> 
+   <td></td> 
+   <td>NO</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gossip_menu_option#action_script_id">action_script_id</a></td> 
+   <td>mediumint(8)</td> 
+   <td>unsigned</td> 
+   <td></td> 
+   <td>NO</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gossip_menu_option#box_coded">box_coded</a></td> 
+   <td>tinyint(3)</td> 
+   <td>unsigned</td> 
+   <td></td> 
+   <td>NO</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gossip_menu_option#box_money">box_money</a></td> 
+   <td>int(11)</td> 
+   <td>unsigned</td> 
+   <td></td> 
+   <td>NO</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gossip_menu_option#box_text">box_text</a></td> 
+   <td>text</td> 
+   <td>signed</td> 
+   <td></td> 
+   <td><span>YES</span></td> 
+   <td><span>NULL</span></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Gossip_menu_option#condition_id">condition_id</a></td> 
+   <td>mediumint(8)</td> 
+   <td>unsigned</td> 
+   <td></td> 
+   <td>NO</td> 
+   <td>0</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-menu_id" class="anchor" href="#menu_id" aria-hidden="true"><span class="octicon octicon-link"></span></a>menu_id</h4> 
+<p>Gossip entry from <a href="Gossip_menu#entry">Gossip_menu.entry</a> this option is associated with.</p> 
+<h4> <a id="user-content-id" class="anchor" href="#id" aria-hidden="true"><span class="octicon octicon-link"></span></a>id</h4> 
+<p>The id associated with this gossip_menu_option. Must be unique for a given menu_id</p> 
+<h4> <a id="user-content-option_icon" class="anchor" href="#option_icon" aria-hidden="true"><span class="octicon octicon-link"></span></a>option_icon</h4> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>Value</th> 
+   <th> <span>ICON</span> Name</th> 
+   <th>description</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td> <span>GOSSIP</span>_<span>ICON</span>_<span>CHAT</span> </td> 
+   <td>white chat bubble</td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td> <span>GOSSIP</span>_<span>ICON</span>_<span>VENDOR</span> </td> 
+   <td>brown bag</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td> <span>GOSSIP</span>_<span>ICON</span>_<span>TAXI</span> </td> 
+   <td>flight</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td> <span>GOSSIP</span>_<span>ICON</span>_<span>TRAINER</span> </td> 
+   <td>book</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td> <span>GOSSIP</span>_<span>ICON</span>_<span>INTERACT</span>_1</td> 
+   <td>interaction wheel</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td> <span>GOSSIP</span>_<span>ICON</span>_<span>INTERACT</span>_2</td> 
+   <td>interaction wheel</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td> <span>GOSSIP</span>_<span>ICON</span>_<span>MONEY</span>_<span>BAG</span> </td> 
+   <td>brown bag with yellow dot</td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td> <span>GOSSIP</span>_<span>ICON</span>_<span>TALK</span> </td> 
+   <td>white chat bubble with black dots</td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td> <span>GOSSIP</span>_<span>ICON</span>_<span>TABARD</span> </td> 
+   <td>tabard</td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td> <span>GOSSIP</span>_<span>ICON</span>_<span>BATTLE</span> </td> 
+   <td>two swords</td> 
+  </tr> 
+  <tr> 
+   <td>10</td> 
+   <td> <span>GOSSIP</span>_<span>ICON</span>_<span>DOT</span> </td> 
+   <td>yellow dot</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h4> <a id="user-content-option_text" class="anchor" href="#option_text" aria-hidden="true"><span class="octicon octicon-link"></span></a>option_text</h4> 
+<p>This is is the text that you want displayed for this option. Examples would be "Train Me!" "Get off my lawn", "Learn Dual Spec".</p> 
+<h4> <a id="user-content-option_id" class="anchor" href="#option_id" aria-hidden="true"><span class="octicon octicon-link"></span></a>option_id</h4> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>option_id</th> 
+   <th>Option name</th> 
+   <th>npc_option_npcflag</th> 
+  </tr> 
+  <tr> 
+   <td>0</td> 
+   <td> <span>GOSSIP</span>_<span>OPTION</span>_<span>NONE</span> </td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td>1</td> 
+   <td> <span>GOSSIP</span>_<span>OPTION</span>_<span>GOSSIP</span> </td> 
+   <td>1</td> 
+  </tr> 
+  <tr> 
+   <td>2</td> 
+   <td> <span>GOSSIP</span>_<span>OPTION</span>_<span>QUESTGIVER</span> </td> 
+   <td>2</td> 
+  </tr> 
+  <tr> 
+   <td>3</td> 
+   <td> <span>GOSSIP</span>_<span>OPTION</span>_<span>VENDOR</span> </td> 
+   <td>128</td> 
+  </tr> 
+  <tr> 
+   <td>4</td> 
+   <td> <span>GOSSIP</span>_<span>OPTION</span>_<span>TAXIVENDOR</span> </td> 
+   <td>8192</td> 
+  </tr> 
+  <tr> 
+   <td>5</td> 
+   <td> <span>GOSSIP</span>_<span>OPTION</span>_<span>TRAINER</span> </td> 
+   <td>16</td> 
+  </tr> 
+  <tr> 
+   <td>6</td> 
+   <td> <span>GOSSIP</span>_<span>OPTION</span>_<span>SPIRITHEALER</span> </td> 
+   <td>16384</td> 
+  </tr> 
+  <tr> 
+   <td>7</td> 
+   <td> <span>GOSSIP</span>_<span>OPTION</span>_<span>SPIRITGUIDE</span> </td> 
+   <td>32768</td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td> <span>GOSSIP</span>_<span>OPTION</span>_<span>INNKEEPER</span> </td> 
+   <td>65536</td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td> <span>GOSSIP</span>_<span>OPTION</span>_<span>BANKER</span> </td> 
+   <td>131072</td> 
+  </tr> 
+  <tr> 
+   <td>10</td> 
+   <td> <span>GOSSIP</span>_<span>OPTION</span>_<span>PETITIONER</span> </td> 
+   <td>262144</td> 
+  </tr> 
+  <tr> 
+   <td>11</td> 
+   <td> <span>GOSSIP</span>_<span>OPTION</span>_<span>TABARDDESIGNER</span> </td> 
+   <td>524288</td> 
+  </tr> 
+  <tr> 
+   <td>12</td> 
+   <td> <span>GOSSIP</span>_<span>OPTION</span>_<span>BATTLEFIELD</span> </td> 
+   <td>1048576</td> 
+  </tr> 
+  <tr> 
+   <td>13</td> 
+   <td> <span>GOSSIP</span>_<span>OPTION</span>_<span>AUCTIONEER</span> </td> 
+   <td>2097152</td> 
+  </tr> 
+  <tr> 
+   <td>14</td> 
+   <td> <span>GOSSIP</span>_<span>OPTION</span>_<span>STABLEPET</span> </td> 
+   <td>4194304</td> 
+  </tr> 
+  <tr> 
+   <td>15</td> 
+   <td> <span>GOSSIP</span>_<span>OPTION</span>_<span>ARMORER</span> </td> 
+   <td>4096</td> 
+  </tr> 
+  <tr> 
+   <td>16</td> 
+   <td> <span>GOSSIP</span>_<span>OPTION</span>_<span>UNLEARNTALENTS</span> </td> 
+   <td>16*</td> 
+  </tr> 
+  <tr> 
+   <td>17</td> 
+   <td> <span>GOSSIP</span>_<span>OPTION</span>_<span>UNLEARNPETTALENTS</span> </td> 
+   <td>16*</td> 
+  </tr> 
+  <tr> 
+   <td>18</td> 
+   <td> <span>GOSSIP</span>_<span>OPTION</span>_<span>LEARNDUALSPEC</span> </td> 
+   <td>16*</td> 
+  </tr> 
+ </tbody>
+</table> 
+<p><code>*&nbsp;&nbsp;&nbsp;bonus&nbsp;option&nbsp;for&nbsp;GOSSIP_OPTION_TRAINER</code> <code>NOTE:&nbsp;For&nbsp;NPC&nbsp;you&nbsp;must&nbsp;be&nbsp;combinate&nbsp;option_id&nbsp;and&nbsp;npc_option_npcflag,&nbsp;you&nbsp;also&nbsp;need&nbsp;the&nbsp;npc_flag&nbsp;in&nbsp;creature_template</code></p> 
+<h4> <a id="user-content-npc_option_npcflag" class="anchor" href="#npc_option_npcflag" aria-hidden="true"><span class="octicon octicon-link"></span></a>npc_option_npcflag</h4> 
+<p>This is the npcflag that the <span>NPC</span> must have to have this option display. See <a href="#option_id">option_id</a></p> 
+<h4> <a id="user-content-action_menu_id" class="anchor" href="#action_menu_id" aria-hidden="true"><span class="octicon octicon-link"></span></a>action_menu_id</h4> 
+<p>If you want to create a sub-menu, this is the ID to link to create that sub-menu.<br> This sub-menu will be displayed when you click on the current menu.</p> 
+<p><span>NOTE</span>: If you want gossip window to close when selecting this gossip option use -1 for this value.</p> 
+<h4> <a id="user-content-action_poi_id" class="anchor" href="#action_poi_id" aria-hidden="true"><span class="octicon octicon-link"></span></a>action_poi_id</h4> 
+<p>If you want a <span>POI</span> (point of interest) to display on the minimap, this is the `entry` from `points_of_interest`</p> 
+<h4> <a id="user-content-action_script_id" class="anchor" href="#action_script_id" aria-hidden="true"><span class="octicon octicon-link"></span></a>action_script_id</h4> 
+<p>The ID from the `gossip_scripts` table if this gossip option has a script.</p> 
+<h4> <a id="user-content-box_coded" class="anchor" href="#box_coded" aria-hidden="true"><span class="octicon octicon-link"></span></a>box_coded</h4> 
+<p>If you want a box to display where you have to enter a code, this is the field you use. I have no clue how it works, will have to look at the code…</p> 
+<h4> <a id="user-content-box_money" class="anchor" href="#box_money" aria-hidden="true"><span class="octicon octicon-link"></span></a>box_money</h4> 
+<p>Money asked (in copper).</p> 
+<h4> <a id="user-content-box_text" class="anchor" href="#box_text" aria-hidden="true"><span class="octicon octicon-link"></span></a>box_text</h4> 
+<p>Confirmation text before activating the gossip.</p> 
+<h4> <a id="user-content-condition_id" class="anchor" href="#condition_id" aria-hidden="true"><span class="octicon octicon-link"></span></a>condition_id</h4> 
+<p>If set the option will only be displayed if the condition linked to <a href="conditions">condition_id</a> fits</p></div></div>
+</body></html>
