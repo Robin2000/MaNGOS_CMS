@@ -16,6 +16,9 @@
   <!-- 指明满足“/demo/*”的页面，将被“/WEB-INF/views/decorators/decorator.html”所装饰 -->
   <mapping path="/demo/*" decorator="/WEB-INF/sitemesh/decorators/demo_template.html" />
 
+ <!--wiki not work  -->
+ <mapping path="/wiki/*" decorator="/page/template.jsp" />
+
  <!-- 对同一路径，启用多个装饰器 
   <mapping>
     <path>/articles/*</path>
