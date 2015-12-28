@@ -30,7 +30,7 @@
 	                        </div>
 	                        <div class="panel-body">
 	                      		<%for(TableInfo table:list){ %>
-	                            <h5><a href='<%=table.getName()%>'><%=table.getName() %></a>
+	                            <h5><a href='<%=basePath%>/table/index.jsp?t=<%=table.getName()%>'><%=table.getName() %></a>
 	                                <small>(<%=table.getCount() %>)</small>
 	                            </h5>
 	                            <%} %>
