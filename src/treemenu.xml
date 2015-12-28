@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <MenuFolder text="Item" isexpand="true" icon="item">
+        <MenuNode text="itemTemplate" url="/mangos/itemTemplate/List.xhtml"/>
+        <MenuNode text="itemConvert" url="/mangos/itemConvert/List.xhtml"/>
+        <MenuNode text="itemEnchantmentTemplate" url="/mangos/itemEnchantmentTemplate/List.xhtml"/>
+        <MenuNode text="itemExpireConvert" url="/mangos/itemExpireConvert/List.xhtml"/>
+        <MenuNode text="itemLootTemplate" url="/mangos/itemLootTemplate/List.xhtml"/>
+        <MenuNode text="itemRequiredTarget" url="/mangos/itemRequiredTarget/List.xhtml"/>
+    </MenuFolder>
+    <MenuFolder text="GameObject" icon="gameobject">
+        <MenuNode text="gameobject" url="/mangos/gameobject/List.xhtml"/>
+        <MenuNode text="gameobjectAddon" url="/mangos/gameobjectAddon/List.xhtml"/>
+        <MenuNode text="gameobjectBattleground" url="/mangos/gameobjectBattleground/List.xhtml"/>
+        <MenuNode text="gameobjectInvolvedrelation" url="/mangos/gameobjectInvolvedrelation/List.xhtml"/>
+        <MenuNode text="gameobjectLootTemplate" url="/mangos/gameobjectLootTemplate/List.xhtml"/>
+        <MenuNode text="gameobjectQuestrelation" url="/mangos/gameobjectQuestrelation/List.xhtml"/>
+        <MenuNode text="gameobjectTemplate" url="/mangos/gameobjectTemplate/List.xhtml"/>
+        <MenuFolder text="DBScriptGO">
+            <MenuNode text="dbscriptsOnGoTemplateUse" url="/mangos/dbscriptsOnGoTemplateUse/List.xhtml"/>
+            <MenuNode text="dbscriptsOnGoUse" url="/mangos/dbscriptsOnGoUse/List.xhtml"/>
+        </MenuFolder>  
+        <MenuFolder text="EventGO">
+            <MenuNode text="gameEventGameobject" url="/mangos/gameEventGameobject/List.xhtml"/>
+        </MenuFolder>          
+    </MenuFolder>
+    <MenuFolder text="Creature" icon="creature">
+        <MenuNode text="creature" url="/mangos/creature/List.xhtml"/>
+        <MenuNode text="creatureAddon" url="/mangos/creatureAddon/List.xhtml"/>
+        <MenuNode text="creatureAiScripts" url="/mangos/creatureAiScripts/List.xhtml"/>
+        <MenuNode text="creatureAiSummons" url="/mangos/creatureAiSummons/List.xhtml"/>
+        <MenuNode text="creatureAiTexts" url="/mangos/creatureAiTexts/List.xhtml"/>
+        <MenuNode text="creatureBattleground" url="/mangos/creatureBattleground/List.xhtml"/>
+        <MenuNode text="creatureEquipTemplate" url="/mangos/creatureEquipTemplate/List.xhtml"/>
+        <MenuNode text="creatureInvolvedrelation" url="/mangos/creatureInvolvedrelation/List.xhtml"/>
+        <MenuNode text="creatureLinking" url="/mangos/creatureLinking/List.xhtml"/>
+        <MenuNode text="creatureLinkingTemplate" url="/mangos/creatureLinkingTemplate/List.xhtml"/>
+        <MenuNode text="creatureLootTemplate" url="/mangos/creatureLootTemplate/List.xhtml"/>
+        <MenuNode text="creatureModelInfo" url="/mangos/creatureModelInfo/List.xhtml"/>
+        <MenuNode text="creatureModelRace" url="/mangos/creatureModelRace/List.xhtml"/>
+        <MenuNode text="creatureMovement" url="/mangos/creatureMovement/List.xhtml"/>
+        <MenuNode text="creatureMovementTemplate" url="/mangos/creatureMovementTemplate/List.xhtml"/>
+        <MenuNode text="creatureOnkillReputation" url="/mangos/creatureOnkillReputation/List.xhtml"/>
+        <MenuNode text="creatureQuestrelation" url="/mangos/creatureQuestrelation/List.xhtml"/>
+        <MenuNode text="creatureTemplate" url="/mangos/creatureTemplate/List.xhtml"/>
+        <MenuNode text="creatureTemplateAddon" url="/mangos/creatureTemplateAddon/List.xhtml"/>
+        <MenuNode text="creatureTemplateClasslevelstats" url="/mangos/creatureTemplateClasslevelstats/List.xhtml"/>
+        <MenuNode text="creatureTemplateSpells" url="/mangos/creatureTemplateSpells/List.xhtml"/>
+        <MenuFolder text="DBScriptCreature">
+            <MenuNode text="dbscriptsOnCreatureDeath" url="/mangos/dbscriptsOnCreatureDeath/List.xhtml"/>
+            <MenuNode text="dbscriptsOnCreatureMovement" url="/mangos/dbscriptsOnCreatureMovement/List.xhtml"/>
+        </MenuFolder> 
+        <MenuFolder text="EventCreature">
+            <MenuNode text="gameEventCreature" url="/mangos/gameEventCreature/List.xhtml"/>
+            <MenuNode text="gameEventCreatureData" url="/mangos/gameEventCreatureData/List.xhtml"/>
+        </MenuFolder> 
+    </MenuFolder>
+    <MenuFolder text="Loot" icon="loot">
+    		<MenuNode text="creatureLootTemplate" url="/mangos/creatureLootTemplate/List.xhtml"/>
+    		<MenuNode text="spellLootTemplate" url="/mangos/spellLootTemplate/List.xhtml"/>
+    		<MenuNode text="skinningLootTemplate" url="/mangos/skinningLootTemplate/List.xhtml"/>
+    		<MenuNode text="referenceLootTemplate" url="/mangos/referenceLootTemplate/List.xhtml"/>
+    		<MenuNode text="prospectingLootTemplate" url="/mangos/prospectingLootTemplate/List.xhtml"/>
+    		<MenuNode text="pickpocketingLootTemplate" url="/mangos/pickpocketingLootTemplate/List.xhtml"/>
+    		<MenuNode text="millingLootTemplate" url="/mangos/millingLootTemplate/List.xhtml"/>
+    		<MenuNode text="mailLootTemplate" url="/mangos/mailLootTemplate/List.xhtml"/>
+    		<MenuNode text="itemLootTemplate" url="/mangos/itemLootTemplate/List.xhtml"/>
+    		<MenuNode text="gameobjectLootTemplate" url="/mangos/gameobjectLootTemplate/List.xhtml"/>
+    		<MenuNode text="fishingLootTemplate" url="/mangos/fishingLootTemplatee/List.xhtml"/>
+    		<MenuNode text="disenchantLootTemplate" url="/mangos/disenchantLootTemplate/List.xhtml"/>
+    </MenuFolder>    
+    <MenuFolder text="NPC" icon="npc">
+         <MenuNode text="npcText" url="/mangos/npcText/List.xhtml"/>
+         <MenuNode text="npcTrainer" url="/mangos/npcTrainer/List.xhtml"/>
+         <MenuNode text="npcTrainerTemplate" url="/mangos/npcTrainerTemplate/List.xhtml"/>
+         <MenuNode text="npcVendor" url="/mangos/npcVendor/List.xhtml"/>
+         <MenuNode text="npcVendorTemplate" url="/mangos/npcVendorTemplate/List.xhtml"/>
+         <MenuNode text="pageText" url="/mangos/pageText/List.xhtml"/>
+         <MenuFolder text="NPCGossip">
+            <MenuNode text="npcGossip" url="/mangos/npcGossip/List.xhtml"/>
+            <MenuNode text="gossipMenu" url="/mangos/gossipMenu/List.xhtml"/>
+            <MenuNode text="gossipMenuOption" url="/mangos/gossipMenuOption/List.xhtml"/>
+            <MenuNode text="gossipTexts" url="/mangos/gossipTexts/List.xhtml"/>
+        </MenuFolder> 
+    </MenuFolder>    
+    <MenuFolder text="Quest" icon="quest">
+        <MenuNode text="questPoi" url="/mangos/questPoi/List.xhtml"/>
+        <MenuNode text="questPoiPoints" url="/mangos/questPoiPoints/List.xhtml"/>
+        <MenuNode text="questTemplate" url="/mangos/questTemplate/List.xhtml"/>
+        <MenuFolder text="DBScriptQuest">
+            <MenuNode text="dbscriptsOnQuestStart" url="/mangos/dbscriptsOnQuestStart/List.xhtml"/> 
+            <MenuNode text="dbscriptsOnQuestEnd" url="/mangos/dbscriptsOnQuestEnd/List.xhtml"/>  
+        </MenuFolder> 
+        <MenuFolder text="EventQuest">
+            <MenuNode text="gameEventQuest" url="/mangos/gameEventQuest/List.xhtml"/> 
+        </MenuFolder>  
+    </MenuFolder>
+    <MenuFolder text="DBScript"  icon="dbscript">
+        <MenuNode text="dbscriptsOnCreatureDeath" url="/mangos/dbscriptsOnCreatureDeath/List.xhtml"/>
+        <MenuNode text="dbscriptsOnCreatureMovement" url="/mangos/dbscriptsOnCreatureMovement/List.xhtml"/>
+        <MenuNode text="dbscriptsOnEvent" url="/mangos/dbscriptsOnEvent/List.xhtml"/>
+        <MenuNode text="dbscriptsOnGoTemplateUse" url="/mangos/dbscriptsOnGoTemplateUse/List.xhtml"/>
+        <MenuNode text="dbscriptsOnGoUse" url="/mangos/dbscriptsOnGoUse/List.xhtml"/>
+        <MenuNode text="dbscriptsOnGossip" url="/mangos/dbscriptsOnGossip/List.xhtml"/>   
+        <MenuNode text="dbscriptsOnQuestEnd" url="/mangos/dbscriptsOnQuestEnd/List.xhtml"/>              
+    </MenuFolder>
+    <MenuFolder text="GameEvent" icon="gameevent">
+        <MenuNode text="gameEvent" url="/mangos/gameEvent/List.xhtml"/>   
+        <MenuNode text="gameEventCreature" url="/mangos/gameEventCreature/List.xhtml"/> 
+        <MenuNode text="gameEventCreatureData" url="/mangos/gameEventCreatureData/List.xhtml"/> 
+        <MenuNode text="gameEventGameobject" url="/mangos/gameEventGameobject/List.xhtml"/> 
+        <MenuNode text="gameEventMail" url="/mangos/gameEventMail/List.xhtml"/> 
+        <MenuNode text="gameEventQuest" url="/mangos/gameEventQuest/List.xhtml"/> 
+        <MenuFolder text="DBScriptEvent">
+            <MenuNode text="dbscriptsOnEvent" url="/mangos/dbscriptsOnEvent/List.xhtml"/> 
+        </MenuFolder>        
+    </MenuFolder>
+    <MenuFolder text="Spell" icon="spell">
+         <MenuNode text="spellArea" url="/mangos/spellArea/List.xhtml"/>
+         <MenuNode text="spellBonusData" url="/mangos/spellBonusData/List.xhtml"/>
+         <MenuNode text="spellChain" url="/mangos/spellChain/List.xhtml"/>
+         <MenuNode text="spellElixir" url="/mangos/spellElixir/List.xhtml"/>
+         <MenuNode text="spellLearnSpell" url="/mangos/spellLearnSpell/List.xhtml"/>
+         <MenuNode text="spellLootTemplate" url="/mangos/spellLootTemplate/List.xhtml"/>
+         <MenuNode text="spellPetAuras" url="/mangos/spellPetAuras/List.xhtml"/>
+         <MenuNode text="spellProcEvent" url="/mangos/spellProcEvent/List.xhtml"/>
+         <MenuNode text="spellProcItemEnchant" url="/mangos/spellProcItemEnchant/List.xhtml"/>
+         <MenuNode text="spellScriptTarget" url="/mangos/spellScriptTarget/List.xhtml"/>
+         <MenuNode text="spellTargetPosition" url="/mangos/spellTargetPosition/List.xhtml"/>
+         <MenuNode text="spellTemplate" url="/mangos/spellTemplate/List.xhtml"/>
+         <MenuNode text="spellThreat" url="/mangos/spellThreat/List.xhtml"/>
+         <MenuFolder text="DBScriptSpell">
+            <MenuNode text="dbscriptsOnSpell" url="/mangos/dbscriptsOnSpell/List.xhtml"/> 
+        </MenuFolder> 
+    </MenuFolder>
+    <MenuFolder text="Player" icon="player">
+        <MenuNode text="playerClasslevelstats" url="/mangos/playerClasslevelstats/List.xhtml"/>
+        <MenuNode text="playerLevelstats" url="/mangos/playerLevelstats/List.xhtml"/>
+        <MenuNode text="playerXpForLevel" url="/mangos/playerXpForLevel/List.xhtml"/>
+        <MenuNode text="playercreateinfo" url="/mangos/playercreateinfo/List.xhtml"/>
+        <MenuNode text="playercreateinfoAction" url="/mangos/playercreateinfoAction/List.xhtml"/>
+        <MenuNode text="playercreateinfoItem" url="/mangos/playercreateinfoItem/List.xhtml"/>
+        <MenuNode text="playercreateinfoSpell" url="/mangos/playercreateinfoSpell/List.xhtml"/>
+    </MenuFolder>
+    <MenuNode text="Info" url="/info.xhtml"/>
+</root>

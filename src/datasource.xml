@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <ds name="mangos" driver="com.mysql.jdbc.Driver" user="root" passwd="java112233" url="jdbc:mysql://127.0.0.1:12340/mangos?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;failOverReadOnly=false"/>
+    <ds name="realmd" driver="com.mysql.jdbc.Driver" user="root" passwd="java112233" url="jdbc:mysql://127.0.0.1:12340/realmd?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;failOverReadOnly=false"/>
+    <ds name="characters" driver="com.mysql.jdbc.Driver" user="root" passwd="java112233" url="jdbc:mysql://127.0.0.1:12340/characters?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;failOverReadOnly=false"/>
+</root>

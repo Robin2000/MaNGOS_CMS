@@ -1,0 +1,330 @@
+
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+
+		<title>Server-side processing</title>
+		
+		<link rel="shortcut icon" type="image/png" href="/media/images/favicon.png">
+		<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.datatables.net/rss.xml">
+		
+		<link rel="stylesheet" type="text/css" href="/media/css/site.css?_=63e2c6d94b6d3d84d41a319bfecf7b5c">
+		
+		<style type="text/css">
+			
+		</style>
+
+		<script type="text/javascript" src="/media/js/site.js?_=fed4abc50aa232e9a6137f9ba4127b7b"></script>
+		<script type="text/javascript" src="/media/js/dynamic.php?comments-page=manual%2Fserver-side" async></script>
+		
+		<script type="text/javascript">
+			
+		</script>
+	</head>
+	<body class="comments">
+				
+
+				
+			
+
+			<div class="fw-body">
+				<div class="content">
+					
+					<h1 class="page_title">服务端处理</h1>
+
+					<p>从DOM读取数据太慢, 当数据量很大时。<a href="//datatables.net/reference/option/serverSide">参考</a>
+					<h2 data-anchor="Sent-parameters">发送参数</h2>
+
+
+<table class="basic markdown">
+<thead>
+<tr>
+  <th>参数名</th>
+  <th>类型</th>
+  <th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>draw</code></td>
+  <td><a href="//datatables.net/reference/type/integer"><code class="type" title="Javascript parameter type">integer</code></a></td>
+  <td>Draw 计数. 用于DataTables确保 Ajax返回服务端请求是有序的 (Ajax 请求是异步的). 用于返回参数 <code>draw</code> (参考后面).</td>
+</tr>
+<tr>
+  <td><code>start</code></td>
+  <td><a href="//datatables.net/reference/type/integer"><code class="type" title="Javascript parameter type">integer</code></a></td>
+  <td>第一条记录的位置. (0 开始).</td>
+</tr>
+<tr>
+  <td><code>length</code></td>
+  <td><a href="//datatables.net/reference/type/integer"><code class="type" title="Javascript parameter type">integer</code></a></td>
+  <td>当前显示的记录数. 返回数应该就是这么多, 除非服务端没有更多的记录. 注意使用 -1 表示全部数据 </td>
+</tr>
+<tr>
+  <td><code>search[value]</code></td>
+  <td><a href="//datatables.net/reference/type/string"><code class="type" title="Javascript parameter type">string</code></a></td>
+  <td>全局搜索值. 应用到全部列， <code>searchable</code> 为 <code>true</code>.</td>
+</tr>
+<tr>
+  <td><code>search[regex]</code></td>
+  <td><a href="//datatables.net/reference/type/boolean"><code class="type" title="Javascript parameter type">boolean</code></a></td>
+  <td><code>true</code> 是否全局filter可以是正则表达式做高级搜索, 注意服务端通常应为性能原因不执行正则表达式支持.</td>
+</tr>
+<tr>
+  <td><code>order[i][column]</code></td>
+  <td><a href="//datatables.net/reference/type/integer"><code class="type" title="Javascript parameter type">integer</code></a></td>
+  <td>Column to which ordering should be applied. This is an index reference to the <code>columns</code> array of information that is also submitted to the server.</td>
+</tr>
+<tr>
+  <td><code>order[i][dir]</code></td>
+  <td><a href="//datatables.net/reference/type/string"><code class="type" title="Javascript parameter type">string</code></a></td>
+  <td>Ordering direction for this column. It will be <code class="string" title="String">asc</code> or <code class="string" title="String">desc</code> to indicate ascending ordering or descending ordering, respectively.</td>
+</tr>
+<tr>
+  <td><code>columns[i][data]</code></td>
+  <td><a href="//datatables.net/reference/type/string"><code class="type" title="Javascript parameter type">string</code></a></td>
+  <td>Column's data source, as defined by <a href="//datatables.net/reference/option/columns.data"><code class="option" title="DataTables initialisation option">columns.data</code></a>.</td>
+</tr>
+<tr>
+  <td><code>columns[i][name]</code></td>
+  <td><a href="//datatables.net/reference/type/string"><code class="type" title="Javascript parameter type">string</code></a></td>
+  <td>Column's name, as defined by <a href="//datatables.net/reference/option/columns.name"><code class="option" title="DataTables initialisation option">columns.name</code></a>.</td>
+</tr>
+<tr>
+  <td><code>columns[i][searchable]</code></td>
+  <td><a href="//datatables.net/reference/type/boolean"><code class="type" title="Javascript parameter type">boolean</code></a></td>
+  <td>Flag to indicate if this column is searchable (<code>true</code>) or not (<code>false</code>). This is controlled by <a href="//datatables.net/reference/option/columns.searchable"><code class="option" title="DataTables initialisation option">columns.searchable</code></a>.</td>
+</tr>
+<tr>
+  <td><code>columns[i][orderable]</code></td>
+  <td><a href="//datatables.net/reference/type/boolean"><code class="type" title="Javascript parameter type">boolean</code></a></td>
+  <td>Flag to indicate if this column is orderable (<code>true</code>) or not (<code>false</code>). This is controlled by <a href="//datatables.net/reference/option/columns.orderable"><code class="option" title="DataTables initialisation option">columns.orderable</code></a>.</td>
+</tr>
+<tr>
+  <td><code>columns[i][search][value]</code></td>
+  <td><a href="//datatables.net/reference/type/string"><code class="type" title="Javascript parameter type">string</code></a></td>
+  <td>Search value to apply to this specific column.</td>
+</tr>
+<tr>
+  <td><code>columns[i][search][regex]</code></td>
+  <td><a href="//datatables.net/reference/type/boolean"><code class="type" title="Javascript parameter type">boolean</code></a></td>
+  <td>Flag to indicate if the search term for this column should be treated as regular expression (<code>true</code>) or not (<code>false</code>). As with global search, normally server-side processing scripts will not perform regular expression searching for performance reasons on large data sets, but it is technically possible and at the discretion of your script.</td>
+</tr>
+</tbody>
+</table>
+
+<p>The <code>order[i]</code> and <code>columns[i]</code> parameters that are sent to the server are arrays of information:</p>
+
+<ul class="markdown">
+<li><code>order[i]</code> - is an array defining how many columns are being ordered upon - i.e. if the array length is 1, then a single column sort is being performed, otherwise a multi-column sort is being performed.</li>
+<li><code>columns[i]</code> - an array defining all columns in the table.</li>
+</ul>
+
+<p>In both cases, <code>i</code> is an integer which will change to indicate the array value. In most modern server-side scripting environments this data will automatically be available to you as an array.</p>
+
+<a name="Returned-data"></a><h2 data-anchor="Returned-data">Returned data</h2>
+
+<p>Once DataTables has made a request for data, with the above parameters sent to the server, it expects JSON data to be returned to it, with the following parameters set:</p>
+
+<table class="basic markdown">
+<thead>
+<tr>
+  <th>Parameter name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>draw</code></td>
+  <td><a href="//datatables.net/reference/type/integer"><code class="type" title="Javascript parameter type">integer</code></a></td>
+  <td>The draw counter that this object is a response to - from the <code>draw</code> parameter sent as part of the data request. Note that it is <strong>strongly recommended for security reasons</strong> that you <em>cast</em> this parameter to an integer, rather than simply echoing back to the client what it sent in the <code>draw</code> parameter, in order to prevent Cross Site Scripting (XSS) attacks.</td>
+</tr>
+<tr>
+  <td><code>recordsTotal</code></td>
+  <td><a href="//datatables.net/reference/type/integer"><code class="type" title="Javascript parameter type">integer</code></a></td>
+  <td>Total records, before filtering (i.e. the total number of records in the database)</td>
+</tr>
+<tr>
+  <td><code>recordsFiltered</code></td>
+  <td><a href="//datatables.net/reference/type/integer"><code class="type" title="Javascript parameter type">integer</code></a></td>
+  <td>Total records, after filtering (i.e. the total number of records after filtering has been applied - not just the number of records being returned for this page of data).</td>
+</tr>
+<tr>
+  <td><code>data</code></td>
+  <td><a href="//datatables.net/reference/type/array"><code class="type" title="Javascript parameter type">array</code></a></td>
+  <td>The data to be displayed in the table. This is an array of data source objects, one for each row, which will be used by DataTables. Note that this parameter's name can be changed using the <a href="//datatables.net/reference/option/ajax"><code class="option" title="DataTables initialisation option">ajax</code></a> option's <code>dataSrc</code> property.</td>
+</tr>
+<tr>
+  <td><code>error</code></td>
+  <td><a href="//datatables.net/reference/type/string"><code class="type" title="Javascript parameter type">string</code></a></td>
+  <td><em>Optional</em>: If an error occurs during the running of the server-side processing script, you can inform the user of this error by passing back the error message to be displayed using this parameter. Do not include if there is no error.</td>
+</tr>
+</tbody>
+</table>
+
+<p>In addition to the above parameters which control the overall table, DataTables can use the following optional parameters on each individual row's data source object to perform automatic actions for you:</p>
+
+<table class="basic markdown">
+<thead>
+<tr>
+  <th>Parameter name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>DT_RowId</code></td>
+  <td><a href="//datatables.net/reference/type/string"><code class="type" title="Javascript parameter type">string</code></a></td>
+  <td>Set the ID property of the <code class="tag" title="HTML tag">tr</code> node to this value</td>
+</tr>
+<tr>
+  <td><code>DT_RowClass</code></td>
+  <td><a href="//datatables.net/reference/type/string"><code class="type" title="Javascript parameter type">string</code></a></td>
+  <td>Add this class to the <code class="tag" title="HTML tag">tr</code> node</td>
+</tr>
+<tr>
+  <td><code>DT_RowData</code></td>
+  <td><a href="//datatables.net/reference/type/object"><code class="type" title="Javascript parameter type">object</code></a></td>
+  <td>Add the data contained in the object to the row using the <a href="//api.jquery.com/data/">jQuery <code>data()</code></a> method to set the data, which can also then be used for later retrieval (for example on a click event).</td>
+</tr>
+<tr>
+  <td><code>DT_RowAttr</code></td>
+  <td><a href="//datatables.net/reference/type/object"><code class="type" title="Javascript parameter type">object</code></a></td>
+  <td>Add the data contained in the object to the row <code class="tag" title="HTML tag">tr</code> node as attributes. The object keys are used as the attribute keys and the values as the corresponding attribute values. This is performed using using the <a href="//api.jquery.com/param/">jQuery <code>param()</code></a> method. Please note that this option requires <span class="since">DataTables 1.10.5</span> or newer.</td>
+</tr>
+</tbody>
+</table>
+
+<p>An example of how a return looks using these options is shown below in the "Example data" section below.</p>
+
+<a name="Configuration"></a><h2 data-anchor="Configuration">Configuration</h2>
+
+<p>Server-side processing in DataTables is enable through use of the <a href="//datatables.net/reference/option/serverSide"><code class="option" title="DataTables initialisation option">serverSide</code></a> option. Simply set it to <code>true</code> and DataTabels will operate in server-side processing mode. You will also want to use the <a href="//datatables.net/reference/option/ajax"><code class="option" title="DataTables initialisation option">ajax</code></a> option to specify the URL where DataTables should get its Ajax data from. As such, the simplest server-side processing initialisation is:</p>
+
+<pre><code class="multiline language-js">$('#example').DataTable( {
+    serverSide: true,
+    ajax: '/data-source'
+} );
+</code></pre>
+
+<p>Configuration of how DataTables makes the Ajax request is configured through the <a href="//datatables.net/reference/option/ajax"><code class="option" title="DataTables initialisation option">ajax</code></a> option. In the above example we used it as a string, which instructs DataTables to use its default settings for making the Ajax request. However, you can customise these settings by passing <a href="//datatables.net/reference/option/ajax"><code class="option" title="DataTables initialisation option">ajax</code></a> in as an object. As an object, <a href="//datatables.net/reference/option/ajax"><code class="option" title="DataTables initialisation option">ajax</code></a> maps directly onto the <a href="//api.jquery.com/jQuery.ajax/">jQuery <code>ajax</code></a> configuration object, so any options you can use in a jQuery request, you can also use with DataTables! For example, to make a POST request:</p>
+
+<pre><code class="multiline language-js">$('#example').DataTable( {
+    serverSide: true,
+    ajax: {
+        url: '/data-source',
+        type: 'POST'
+    }
+} );
+</code></pre>
+
+<p>For further information about the Ajax options available in DataTables, please refer to the <a href="//datatables.net/reference/option/ajax"><code class="option" title="DataTables initialisation option">ajax</code></a> documentation.</p>
+
+<a name="Legacy"></a><h2 data-anchor="Legacy">Legacy</h2>
+
+<p>Older versions of DataTables (1.9-) used a different set of parameters to send and receive from the server. As such scripts which are written for DataTables 1.10+ will not be able to function with DataTables 1.9-. However, DataTables 1.10 does have a compatibility mode for scripts written for 1.9-. This compatibility mode is triggered by use of the old <code>sAjaxSource</code> parameter (rather than the new <a href="//datatables.net/reference/option/ajax"><code class="option" title="DataTables initialisation option">ajax</code></a> parameter) or by setting <code>$.fn.dataTable.ext.legacy.ajax = true;</code> .</p>
+
+<p>For documentation on the 1.9- method of performing server-side processing, please refer to the <a href="//legacy.datatables.net/usage/server-side">legacy documentation</a>.</p>
+
+<a name="Example-data"></a><h2 data-anchor="Example-data">Example data</h2>
+
+<p>Example of server-side processing return using arrays as the data source for the table (<a href="/examples/server_side/simple.html">full example</a>):</p>
+
+<pre><code class="multiline language-js">{
+    "draw": 1,
+    "recordsTotal": 57,
+    "recordsFiltered": 57,
+    "data": [
+        [
+            "Angelica",
+            "Ramos",
+            "System Architect",
+            "London",
+            "9th Oct 09",
+            "$2,875"
+        ],
+        [
+            "Ashton",
+            "Cox",
+            "Technical Author",
+            "San Francisco",
+            "12th Jan 09",
+            "$4,800"
+        ],
+        ...
+    ]
+}
+</code></pre>
+
+<p>Example of server-side processing return using objects, with <code>DT_RowId</code> and <code>DT_RowData</code> also included, as the data source for the table (<a href="/examples/server_side/object_data.html">full example</a>):</p>
+
+<pre><code class="multiline language-js">{
+    "draw": 1,
+    "recordsTotal": 57,
+    "recordsFiltered": 57,
+    "data": [
+        {
+            "DT_RowId": "row_3",
+            "DT_RowData": {
+                "pkey": 3
+            },
+            "first_name": "Angelica",
+            "last_name": "Ramos",
+            "position": "System Architect",
+            "office": "London",
+            "start_date": "9th Oct 09",
+            "salary": "$2,875"
+        },
+        {
+            "DT_RowId": "row_17",
+            "DT_RowData": {
+                "pkey": 17
+            },
+            "first_name": "Ashton",
+            "last_name": "Cox",
+            "position": "Technical Author",
+            "office": "San Francisco",
+            "start_date": "12th Jan 09",
+            "salary": "$4,800"
+        },
+        ...
+    ]
+}
+</code></pre>
+
+<p>A full set of examples, exploring the options available for server-side processing is available in the <a href="/examples/server_side/">examples section of this site</a>.</p>
+
+				</div>
+			</div>
+
+			<div class="fw-page-nav">
+				<div class="page-nav">
+					<div class="page-nav-title">Page navigation</div>
+				</div>
+			</div>
+
+			<div class="fw-footer">
+				<div class="copyright">
+					DataTables designed and created by <a href="//sprymedia.co.uk">SpryMedia Ltd</a> &copy; 2007-2015. <a href="/license/mit">MIT licensed</a>. Our <a href="/supporters">Supporters</a><br>
+					SpryMedia Ltd is registered in Scotland, company no. SC456502.
+				</div>
+			</div>
+		
+
+		<script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-365466-5']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
+	</body>
+</html>
