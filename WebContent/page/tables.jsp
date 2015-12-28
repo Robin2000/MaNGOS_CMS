@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<title>Table Info <%=world.getTables().size()%></title>
+<title>Table Info (<%=world.getTables().size()%>)</title>
 <script src="../dist/js/masonry.pkgd.3.3.2.min.js"></script>
 </head>
 <body>
