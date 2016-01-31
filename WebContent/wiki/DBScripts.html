@@ -1,6 +1,6 @@
 <html><head><title>DBScripts</title></head><body>
 <div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
-<h2> <a id="user-content-the-dbscripts_on_-tables" class="anchor" href="#the-dbscripts_on_-tables" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `dbscripts_on_*` tables</h2> 
+<h2> <a id="user-content-the-dbscripts_on_-tables" class="anchor" href="#the-dbscripts_on_-tables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The `dbscripts_on_*` tables</h2> 
 <p>The manual reference for these tables is located in the <a href="https://github.com/cmangos/mangos-wotlk/blob/master/doc/script_commands.txt">doc/script_commands.txt</a> file.</p> 
 <p><strong>The information below may be outdated, use with caution!</strong></p> 
 <p>This table format is used for different tables to control possible scripts activated by different actions:</p> 
@@ -54,7 +54,7 @@
   </ul> </li> 
 </ul> 
 <p><span>NOTE</span>: An entry in this table may have more than one row as a script may do more than just one action. Also each action the script may make can have a separate delay attached to it. In that case, the core will activate the appropriate action after the correct delay.</p> 
-<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Structure</h3> 
 <table> 
  <tbody>
   <tr> 
@@ -203,13 +203,13 @@
   </tr> 
  </tbody>
 </table> 
-<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
-<h4> <a id="user-content-id" class="anchor" href="#id" aria-hidden="true"><span class="octicon octicon-link"></span></a>id</h4> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description of the fields</h3> 
+<h4> <a id="user-content-id" class="anchor" href="#id" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>id</h4> 
 <p>For <strong>gameobject_scripts</strong>, it is the guid of the button/lever. See <a href="gameobject#guid">gameobject.guid</a>.<br> For <strong>gameobject_template_scripts</strong>, it is the entry of the button/lever. See <a href="gameobject_template#entry">gameobject_template.entry</a>.<br> For <strong>spell_scripts</strong>, it is the spell ID. See Spell.dbc<br> For <strong>quest_*_scripts</strong>, it is the ID that is used in <a href="quest_template#StartScript">StartScript</a> or <a href="quest_template#CompleteScript">CompleteScript</a> in the quest template definition.<br> For <strong>event_scripts</strong>, it is the event ID. There doesn’t exist currently a full list of events. In any case, the event IDs are taken directly from gameobject <span>WDB</span> data or spell effect data. If both a gameobject and a spell activate the same event, the IDs will match.<br> For <strong>creature_movement_scripts</strong>, it is the <a href="Creature_movement#script_id">script id</a> of the waypoint.The <span>PROPER</span> formatting for the ID field is as follows: Creature_entry + 2-Digit Script ID (Starting at 01). Example: c.2386 has few movement_scripts, so 2386+01 = 238601 … 23602 ..etc<br> For <strong>creature_death_scripts</strong>, it is the entry of the creature. See <a href="creature_template#entry">creature_template.entry</a>.<br> For <strong>gossip_scripts</strong>, it is the <a href="Gossip_menu_option#action_script_id">action script id</a> of the gossip option.</p> 
-<h4> <a id="user-content-delay" class="anchor" href="#delay" aria-hidden="true"><span class="octicon octicon-link"></span></a>delay</h4> 
+<h4> <a id="user-content-delay" class="anchor" href="#delay" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>delay</h4> 
 <p>Delay in seconds before this current step of the script activates. 0 = instant.</p> 
 <p><span>NOTE</span>: Delay is Cumulative From Script to Script with same ID.<br> Example: Script 1 Has 5 seconds delay and then if you want script 2 to trigger 3 seconds later you would use delay value 8 for script 2 in the sequence.</p> 
-<h4> <a id="user-content-command" class="anchor" href="#command" aria-hidden="true"><span class="octicon octicon-link"></span></a>command</h4> 
+<h4> <a id="user-content-command" class="anchor" href="#command" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>command</h4> 
 <p>The type of action performed by the script after <a href="#delay">delay</a> seconds have passed. The value of this field affects what other fields also need to be set.</p> 
 <p>The following commands can be used:</p> 
 <table> 
@@ -441,7 +441,7 @@
   </tr> 
  </tbody>
 </table> 
-<h4> <a id="user-content-buddy-concept" class="anchor" href="#buddy-concept" aria-hidden="true"><span class="octicon octicon-link"></span></a>Buddy Concept</h4> 
+<h4> <a id="user-content-buddy-concept" class="anchor" href="#buddy-concept" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Buddy Concept</h4> 
 <p>Commands except the ones requiring a player (like <span>KILL</span>_<span>CREDIT</span>) have support for the buddy concept. This means that if an entry for buddy_entry is provided, aside from source and target as listed above also a "buddy" is available.</p> 
 <p>Which one on the three (originalSource, originalTarget, buddy) will be used in the command, depends on the data_flags Note that some commands (like <span>EMOTE</span>) use only the resulting source for an action.</p> 
 <p>Possible combinations of the flags <span>SCRIPT</span>_<span>FLAG</span>_<span>BUDDY</span>_AS_<span>TARGET</span> = 0×01 <span>SCRIPT</span>_<span>FLAG</span>_<span>REVERSE</span>_<span>DIRECTION</span> = 0×02 <span>SCRIPT</span>_<span>FLAG</span>_<span>SOURCE</span>_<span>TARGETS</span>_<span>SELF</span> = 0×04 are:</p> 
@@ -454,9 +454,9 @@
 <p>6: originalTarget -&gt; originalTarget</p> 
 <p>7: buddy -&gt; buddy</p> 
 <p>Where "A -&gt; B" means that the command is executed from A with B as target.</p> 
-<h4> <a id="user-content-search-radius" class="anchor" href="#search-radius" aria-hidden="true"><span class="octicon octicon-link"></span></a>Search Radius</h4> 
+<h4> <a id="user-content-search-radius" class="anchor" href="#search-radius" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Search Radius</h4> 
 <p>Range in which the buddy defined in <a href="DBScripts#buddy_concept">buddy_entry</a> will be searched.<br> In case of SCRIPT_FLAG_BUDDY_BY_GUID this field is the buddy’s <span>GUID</span>.</p> 
-<h4> <a id="user-content-data-flags" class="anchor" href="#data-flags" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data flags</h4> 
+<h4> <a id="user-content-data-flags" class="anchor" href="#data-flags" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Data flags</h4> 
 <table> 
  <tbody>
   <tr> 
@@ -503,7 +503,7 @@
   </tr> 
  </tbody>
 </table> 
-<h4> <a id="user-content-otherfields" class="anchor" href="#otherfields" aria-hidden="true"><span class="octicon octicon-link"></span></a>OtherFields</h4> 
+<h4> <a id="user-content-otherfields" class="anchor" href="#otherfields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>OtherFields</h4> 
 <p>Depending on what command was used, the meaning and use for the following fields varies.</p> 
 <ul> 
  <li> <strong><span>SCRIPT</span>_<span>COMMAND</span>_<span>TALK</span> = 0</strong> 

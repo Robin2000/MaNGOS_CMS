@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include   file="/page/inc.jsp"%>
-<jsp:useBean id="tableDataBean" scope="application" class="com.ficus.table.TableDataBean"/>
+<jsp:useBean id="questBean" scope="application" class="com.ficus.quest.QuestBean"/>
 <%@ page import="com.ficus.db.TableBean" %>
 <%@ page import="com.ficus.db.Column" %>
 <%
@@ -26,9 +26,16 @@
                 responsive: true,
                 serverSide: true,
                 ajax: {
-			        url: '<%=basePath%>/tabledata?t=<%=table%>&bean=tableDataBean',
+			        url: '<%=basePath%>/tabledata?t=<%=table%>&bean=questBean',
 			        type: 'POST'
-			    }
+			    },
+			    "columnDefs": [
+            	{
+	                "render": function ( data, type, row ) {
+	                    return "<a href=chain.jsp?questid="+data+">"+data+"</a>";
+	                },
+	                "targets": 0
+            	}]
         });
     });
     </script>
@@ -47,7 +54,7 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                        <%for(Column col:tableDataBean.getCols(table)){ %>
+                                        <%for(Column col:questBean.getCols(table)){ %>
                                             <th><%=col.getName() %></th>
                                          <%}%>   
                                         </tr>

@@ -42,7 +42,6 @@
     <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
-
 	<sitemesh:write property='head' />
 
 
@@ -312,73 +311,83 @@
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Quest<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html">Panels and Wells</a>
+                                    <a href="<%=basePath%>/quest/index.jsp?t=basic">Basic</a>
                                 </li>
                                 <li>
-                                    <a href="buttons.html">Buttons</a>
+                                    <a href="<%=basePath%>/quest/index.jsp?t=accept">Accept</a>
                                 </li>
                                 <li>
-                                    <a href="notifications.html">Notifications</a>
+                                    <a href="<%=basePath%>/quest/index.jsp?t=complete">Complete</a>
                                 </li>
                                 <li>
-                                    <a href="typography.html">Typography</a>
+                                    <a href="<%=basePath%>/quest/index.jsp?t=reward">Reward</a>
                                 </li>
                                 <li>
-                                    <a href="icons.html"> Icons</a>
+                                    <a href="<%=basePath%>/quest/index.jsp?t=chain">Chain</a>
                                 </li>
                                 <li>
-                                    <a href="grid.html">Grid</a>
+                                    <a href="<%=basePath%>/quest/index.jsp?t=emote">Emote</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Translate<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
+                                <li><a href="<%=basePath%>/translate/index.jsp?t=all">All</a></li>
+                                <li><a href="<%=basePath%>/translate/index.jsp?t=quest_template">quest_template</a></li>
+                                <li><a href="<%=basePath%>/translate/index.jsp?t=gameobject_template">gameobject_template</a></li>
+                                <li><a href="<%=basePath%>/translate/index.jsp?t=creature_template">creature_template</a></li>
+                                <li><a href="<%=basePath%>/translate/index.jsp?t=item_template">item_template</a></li>
                                 <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
+                                    <a href="#">gossip<span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
+                                        <li><a href="<%=basePath%>/translate/index.jsp?t=gossip_menu">gossip_menu</a></li>
+                                        <li><a href="<%=basePath%>/translate/index.jsp?t=gossip_menu_option">gossip_menu_option</a></li>
+                                        <li><a href="<%=basePath%>/translate/index.jsp?t=gossip_texts">gossip_texts</a></li>
+                                        <li><a href="<%=basePath%>/translate/index.jsp?t=npc_text">npc_text</a></li>
+                                        <li><a href="<%=basePath%>/translate/index.jsp?t=page_text">page_text</a></li>
                                     </ul>
                                     <!-- /.nav-third-level -->
                                 </li>
+                                 <li>
+                                    <a href="#">script<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li><a href="<%=basePath%>/translate/index.jsp?t=script_texts">script_texts</a></li>
+                                        <li><a href="<%=basePath%>/translate/index.jsp?t=db_script_string">db_script_string</a></li>
+                                        <li><a href="<%=basePath%>/translate/index.jsp?t=creature_ai_texts">creature_ai_texts</a></li>
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                                <li><a href="<%=basePath%>/translate/index.jsp?t=achievement_reward">achievement_reward</a></li>
+                                <li><a href="<%=basePath%>/translate/index.jsp?t=game_tele">game_tele</a></li>
+                                <li><a href="<%=basePath%>/translate/index.jsp?t=points_of_interest">points_of_interest</a></li>
+                                <li><a href="<%=basePath%>/translate/index.jsp?t=mangos_string">mangos_string</a></li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li class="active">
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i> GM Command<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a class="active" href="blank.html">Blank Page</a>
+                                    <a class="active" href="<%=basePath%>/command/trinitygm.html">trinity GM</a>
                                 </li>
                                 <li>
-                                    <a href="login.html">Login Page</a>
+                                    <a class="active" href="<%=basePath%>/command/trinityadv.html">trinity Adv</a>
+                                </li>
+                                <li>
+                                    <a href="<%=basePath%>/table/index.jsp?t=command">cmangos GM</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                          <li>
                             <a href="<%=basePath%>/wiki/index"><i class="fa fa-th-list fa-fw"></i> DB Struct Wiki<span class="fa arrow"></span></a>
+                            <a href="https://trinitycore.atlassian.net/wiki/display/tc/TrinityCore+Home"><i class="fa fa-th-list fa-share-alt"></i> TrinityCore+Home<span class="fa arrow"></span></a>
+                             <a href="http://www.pxr.dk/wowdev/wiki/index.php?title=Category:DBC_WotLK"><i class="fa fa-th-list fa-book"></i> DBC_WotLK<span class="fa arrow"></span></a>
                             
                             <!-- /.nav-second-level -->
                         </li>

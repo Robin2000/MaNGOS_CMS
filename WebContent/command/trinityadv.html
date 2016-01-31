@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+            <title>GM Commands - TrinityCore - TrinityCore Collaboration Platform</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+
+</head>
+
+    
+<body         
+     id="com-atlassian-confluence" class="theme-documentation  aui-theme-default aui-layout">
+<pre>
+人物属性的修改：
+.learn 7600 提高致命一击 56
+.learn 7599 提高致命一击 42
+.learn 9405 提高致命一击 70
+.learn 17713 提高致命一击 100
+.learn 16906 +攻击
+.learn 35785 +980攻击强度
+.learn 35786 1296攻击强度
+.learn 35868 1164攻击强度
+.learn 39421 +500防御等级=神器戒指
+.learn 34772 ++400法伤
+.learn 24243 +840法伤
+.learn 35830 +642法伤
+.learn 35832 +683法伤
+.learn 35842 +700法伤
+.learn 35854 +698法伤
+
+.learn 14935-40 增加敏捷
+.learn 14941-46 增加智力
+.learn 14947-52 增加精神
+.learn 14953-58 增加耐力
+.learn 14959-64 增加力量
+.learn 14976 增加火焰抗性
+.learn 14970 增加秘法抗性
+.learn 14982 增加冰霜抗性
+.learn 14989 增加自然抗性
+.learn 14995 增加暗影抗性
+.learn 34182 神圣免疫
+.learn 34184 秘法免疫
+.learn 7940 冰霜免疫
+.learn 7941 自然免疫
+.learn 7942 火焰免疫
+.learn 7743 暗影免疫
+.learn 39811 伤害免疫:火焰、冰霜、暗影、自然、秘法
+.learn 39804 伤害免疫:魔法
+.learn 34310 物理免疫
+.learn 34311 伤害免疫:物理
+
+有一些任务完成不了，GM可以用这个方法完成
+.quest complete 任务名（可用SHIFT+鼠标右键获得名称）
+.learn 40733 神圣之盾 无敌蛋壳
+.learn 40810 军刀猛刺 上万的群体伤害
+.learn 31700 黑色其拉飞行座骑（内陆也可以飞的坐骑）
+
+非战斗宠物：
+49646 迷你熔火犬
+52253 召唤希尔瓦纳斯的悲歌？ 出来2个女妖，貌似会唱歌~？
+46544 小狼人 49663 双足飞龙宝宝
+49662 狮鹫宝宝 54847 迷你雷神~
+49693 迷你巫妖~ 49665 迷你功夫熊猫
+49343 迷你幽灵虎 50446 毒毒
+49912 溜溜 46831 死亡木偶
+46545 神谕者 48124 48122 暴龙幼崽
+46767 战斗机器人
+
+坐骑：
+54860 X-53火箭 52200 血色死亡战马
+54811 星穹战马 外观超炫~！！ 50818 无敌的缰绳（巫妖王掉落）
+
+好玩的箱子：
+46007 钓鱼宝藏 出变异鱼，各种钓鱼材料等
+46110 炼金师的宝箱 各种合剂
+52676 地脉宝箱 出蓝、紫石头
+
+.go 1574.86 -4418.80 7.54 1 部落传送员
+.go -8958.76 512.12 96.35 0 联盟传送员
+
+gm on 开启GM模式 .lookup item 查看东西
+.gm off 关闭GM模式
+.additem # 增加物品代码为#的物品到所选玩家背包
+.additemset # 增加套装代码为#的一些物品到所选玩家背包
+.bank # 打开仓库
+.maxskill 将已会技能学至Max/Max(单手剑熟练度..等)
+.levelup # 为目标(或自己) 增加#级
+.taxicheat on/off 开启/关闭所有飞行路线
+.explorecheat 1/0 开启/关闭所有探索地图
+.revive 复活当前目标（复活自己需/G启用工会频道后使用）
+.start 脱离卡死（回城）
+.dismount 下马
+.die 杀死目标
+.cooldown 重置目标所有技能冷却时间
+.guid 显示当前目标生物的 GUID
+.allowmove 允许或禁止你所选择的生物移动
+.gps 显示角色或生物的坐标(x,y,z) 地图标号和地区
+.go $x $y $z $mapid 转到对应map的指定坐标(x,y,z)处
+.goname * 传送自己到名为的人物处
+.namego * 传送名为的目标到自己所在处
+.commands 显示你的帐号可以使用的命令
+.cooldown 立即使目标的魔法冷却
+.respawn 立即刷新身边最近的生物或游戏目标
+.gm visible on/off 使GM是否对玩家可见
+.password $old_password $new_password $new_password 更改你账号的密码
+
+.modify命令：
+.modify money # 为目标(或自己) 增加#铜
+.modify hp # # 将目标的HP设置为#/#
+.modify mana # # 将目标的MP设置为#/#
+.modify rage # # 将目标的怒气值设置为#/#
+.modify energy # # 将目标的能量值设置为#/#
+.modify speed # 将目标移动速度设定为初始速度的#倍（#=0.1-10）
+.modify bwalk # 将目标移后退度设定为初始速度的#倍（#=0.1-10）
+.modify swim # 将目标游泳速度设定为初始速度的#倍（#=0.1-10）
+.modify fly # 将目标飞行速度设定为初始速度的#倍（#=0.1-10）
+.modify aspeed # 将目标所有速度设定为初始速度的#倍（#=0.1-10）
+.modify scale # 将目标体积设定为初始状态的#倍（#=0.00-3）
+.modify mount # 为目标召唤一种坐骑（#=1-69）
+.modify honor # 增加目标的荣誉点数#（#=1=2147483646）
+.modify arena # 增加目标的竞技场点数#（#=1=2147483646）
+.modify integral # 修改目标的积分为#（#=0-999999）
+.modify drunk # 修改目标的醉酒度为#（#=0-100）
+.modify faction # 修改你所选择生物的阵营为factionid,flagid为flagid.
+.modify spell # 修改spell
+
+.learn命令：
+.learn # 学习spell id为#的技能
+.unlearn # 忘记spell id为#的技能
+.learn all 学习所有GM默认的魔法
+.learn all_lang 学习所有语言
+.learn all_myclass 学习自己职业的全部可用魔法（仅限自己）
+.learn all_crafts 学习所有专业和卷轴配方
+.learn all_gm 学习GM的所有默认魔法技能
+.learn all_myspells 学习本职业的所有魔法和技能（天赋和天赋技能除外）
+.learn all_mytalents 学习本职业所有天赋和天赋技能
+.learn all_default $playername 让名为$playername 的玩家学会其职业和种族的全部魔法技能
+以及通过完成任务所学会的魔法技能
+.npc命令:
+.npc spawn #dist 添加NPC
+.npc delete 删除NPC
+.npc say $text 编辑NPC说话
+.npc yell $text 编辑NPC大喊
+.npc faction #factionid 调整NPC阵营
+.npc changelevel # 改变所选npc的等级 (#=1-73)
+.npc info 列出被选NPC的详细描述
+.npc spawndist #dist 调整所选生物的刷新距离为#dist
+.npc spawntime # 调整所选生物的刷新时间为#
+
+.reset命令：
+.reset stats 重置目标所有状态
+.reset honor 重置目标荣誉点数
+.reset level 重置目标等级
+.reset spells 重置目标所有技能
+.reset talents 重置目标所有天赋
+
+服务器管理命令：
+.saveall 保存在线玩家数据
+.info 显示服务器状态
+.kick 从世界中剔出去一个选定的玩家
+.announce * 广播给所有在线玩家
+.loadscripts * 重新加载脚本名字为的脚本
+.shutdown # 服务器将在#秒后关闭
+.shutdown cancel 取消关闭服务器
+.wchange $type $status 设置当前天气为 $type, 天气情况为 $status
+$type 的值 1=下雨, 2=下雪, 3=沙尘暴
+
+$status 的值 0=禁止, 1=允许
+
+.levelup 59 为目标(或自己) 增加59级，数字自己调，玩家最高等级不能超过255
+.additem 23162 大包包36格{弗洛尔的无尽抗性宝箱}
+.modify money 给自己加金钱，后面空一格加数字，数字是以铜为单位的，
+.gps 显示角色或生物的坐标(x,y,z) 地图标号和地区
+.explorecheat 1 地图全开
+.learn 39460 声望:+500点塞纳里奥远征队声望
+.maxskill 将当前目标所有技能熟练度满格
+
+-----------------------------------坐骑------------------------------- 骑乘术
+.learn 34091 提升骑乘到300
+.setskill 762 300 300 幽灵虎
+.additem 33225 迅捷虚空幼龙
+.learn 37015 凤凰.烈火
+.learn 32345 骑士60级任务马
+.learn 23214 炽热战马
+.learn 36702 德鲁伊乌鸦飞行型态
+.revive 复活 需要输入 /g 空格 后输入此命令
+.lookup item 查找物品代号，指令+空格+物品中文名
+.additem 得到物品代码 指令+空格+物品代号
+
+------------------------------高级装备代码-----------------------------------------
+
+猎人最强弓-箭-箭袋
+.additem 30318 灵弦长弓
+.additem 32760 53秒伤箭
+.additem 18714 18格 箭袋 龙筋箭袋
+
+风暴要塞橙色物品
+
+'30311' '迁跃切割者'
+
+'30312' '无尽之刃'
+
+'30313' '瓦解法杖'
+
+'30314' '相位壁垒'
+
+'30316' '毁灭'
+
+'30317' '宇宙灌注者'
+
+'30319' '虚空尖刺'
+
+套装（T装）
+
+法师 T1奥术师
+.additemset 201 T2灵风
+.additemset 210 T3霜火
+.additemset 526 T4占卜者
+.additemset 648 T5提里斯法
+.additemset 649 T6风暴
+.additemset 671 牧师 T1预言
+.additemset 202 T2卓越
+.additemset 211 T3信仰
+.additemset 525 T4化身（治疗）
+.additemset 663 T4化身（战斗）
+.additemset 664 T5幻身（治疗）
+.additemset 665 T5幻化（战斗）
+.additemset 666 T6赦免（战斗）
+.additemset 674 T7赦免（治疗）
+.additemset 675 术士 T1恶魔之心
+.additemset 203 T2复仇
+.additemset 212 T3瘟疫之心
+.additemset 529 T4虚空之心
+.additemset 645 T5堕落
+.additemset 646 T6凶星
+.additemset 670 盗贼 T1夜幕杀手
+.additemset 204 T2血牙
+.additemset 213 T3骨镰
+.additemset 524 T4虚空之刃
+.additemset 621 T5死神传承
+.additemset 622 T6刺杀者
+.additemset 668 德鲁伊 T1塞纳里奥
+.additemset 205 T2怒风
+.additemset 214 T3梦游者
+.additemset 521 T4玛洛尼(治疗)
+.additemset 638 T4玛洛尼(平衡)
+.additemset 639 T4玛洛尼(野性)
+.additemset 640 T5诺达希尔（野性）
+.additemset 641 T5诺达希尔（治疗）
+.additemset 642 T5诺达希尔（平衡）
+.additemset 643 T6雷霆之心（野性）
+.additemset 676 T6雷霆之心（平衡）
+.additemset 677 T6雷霆之心（治疗）
+.additemset 678 猎人 T1巨兽之王
+.additemset 206 T2驭龙者
+.additemset 215 T3地穴追猎者
+.additemset 530 T4恶魔追猎者
+.additemset 651 T5裂缝行者
+.additemset 652 T6戈隆追猎者
+.additemset 669 萨满 T1大地之怒
+.additemset 207 T2无尽风暴
+.additemset 216 T3碎地者
+.additemset 527 T4飓风（治疗）
+.additemset 631 T4飓风（法术）
+.additemset 632 T4飓风（战斗）
+.additemset 633 T4裂地（治疗）
+.additemset 634 T4裂地（法术）
+.additemset 635 T4裂地（战斗）
+.additemset 636 T6破天（战斗）
+.additemset 682 T6破天（治疗）
+.additemset 683 T6破天（法术）
+.additemset 684 骑士 T1秩序之源
+.additemset 208 T2审判
+.additemset 217 T3救赎
+.additemset 528 T4庇护（治疗）
+.additemset 624 T4庇护（防御）
+.additemset 625 T4庇护（惩戒）
+.additemset 626 T5晶铸（治疗）
+.additemset 627 T5晶铸（防御）
+.additemset 628 T5晶铸（惩戒）
+.additemset 629 T6光明使者（防御）
+.additemset 679 T6光明使者（惩戒）
+.additemset 680 T6光明使者（治疗）
+.additemset 681 战士 T1力量
+.additemset 209 T2愤怒
+.additemset 218 T3无畏
+.additemset 523 T4战神(防御)
+.additemset 654 T4战神(战斗)
+.additemset 655 T5摧毁者（防御）
+.additemset 656 T5摧毁者（战斗）
+.additemset 657 T6冲击（战斗）
+.additemset 672 T6冲击（防御）
+additemset 673
+无等级装备
+.additem 22002-9 T0.5强化版 DZ
+.additem 31859 武器
+.additem 30973 手指
+.additem 19879 亚历克斯测试用法杖 最强法杖
+.additem 19879 亚历克斯测试用法杖 +860治疗效果
+.additem 18970 致命测试戒指 2 魔法致命+50%
+-----------GM超级代码------------------------
+技能 .Learn 5 死亡之触 相当于
+. kill一点怪就死
+.Learn 11 原古寒冰箭 1000伤害 无CD 瞬发
+.learn 35874 使盟友目标的攻击强度提高525,所有属性提高14,和总属性提高10%
+.learn 38734 使你的远程攻击强度提高220点。所有属性提高18点。总属性提高10%
+.learn 36356 内部知识 让你能够控制……魔兽世界的力量。(不明白有什么效果) BT型 技能
+.learn 24646 天神下凡 体型加大.攻击增加 十分BT
+.Learn 30879 范围性伤害 50K 没错.名字就叫这个
+.Learn 31258 死亡凋零
+.learn 42005血沸 每秒600(24s)
+.learn 23537 激怒 提升物理伤害能力
+.learn 41431 符文护盾 吸收50000伤害，提高施法和攻击速度100%，免疫法术打断
+.learn 41426灵魂震击 远距离施法法术，近万伤害
+.learn 41364 沸腾 攻击速度提高100% .learn 40545 邪恶生长 体形增大，伤害提高100%，5min
+.learn 40239 烧尽 45码距离，正前火焰波，上万伤害
+.learn 41453 多彩抗性光环 抗性提高250点
+.Learn 23965 立刻治疗 恢复10000+的血 骑士技能
+        
+</pre>  
+</body>
+</html>
+    

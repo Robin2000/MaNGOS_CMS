@@ -1,18 +1,17 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include   file="/page/inc.jsp"%>
-<jsp:useBean id="tableDataBean" scope="application" class="com.ficus.table.TableDataBean"/>
+<jsp:useBean id="questChain" scope="session" class="com.ficus.quest.QuestChain"/>
 <%@ page import="com.ficus.db.TableBean" %>
 <%@ page import="com.ficus.db.Column" %>
 <%
-	String table=request.getParameter("t");
-	
+	String questid=request.getParameter("questid");
+	questChain.setQuestid(questid);
  %>
 <!DOCTYPE html>
 <html>
 <head>
 	<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
-    <title><%=table %> List</title>
-       
+    <title>Chain Of Quest: <%=questid %></title>
     <!-- DataTables JavaScript -->
     <script src="../bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="../bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
@@ -24,14 +23,22 @@
     $(document).ready(function() {
         $('#dataTables-example').DataTable({
                 responsive: true,
-                serverSide: true,
-                ajax: {
-			        url: '<%=basePath%>/tabledata?t=<%=table%>&bean=tableDataBean',
-			        type: 'POST'
-			    }
+                serverSide: false,
+ 			    "columnDefs": [
+            	{
+	                "render": function ( data, type, row ) {
+	                    return "<a href=chain.jsp?questid="+data+">"+data+"</a>";
+	                },
+	                "targets": 0
+            	}],
+            	"order": [[ 3, "asc" ]],
+            	 "lengthMenu": [[50,100, -1], [50,100, "All"]]
         });
     });
-    </script>
+    </script>      
+	
+
+
 </head>
 <body>
                <!-- /.row -->
@@ -39,7 +46,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <%=table %> List
+                            Chain Of Quest_<%=questid %> List
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -47,11 +54,20 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                        <%for(Column col:tableDataBean.getCols(table)){ %>
+                                        <%for(Column col:questChain.getCols()){ %>
                                             <th><%=col.getName() %></th>
                                          <%}%>   
                                         </tr>
                                     </thead>
+                                    <tbody>
+                                    <%for(Object[] row:questChain.getList()){ %>
+                                        <tr>
+                                        <%for(Object val:row){ %>
+                                            <td><%=val%></td>
+          								<%}%> 
+                                        </tr>
+                                   <%}%>        
+                                    </tbody>
                                 </table>
                             </div>
                             <!-- /.table-responsive -->
