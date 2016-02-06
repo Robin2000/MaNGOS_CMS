@@ -8,6 +8,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -15,7 +16,7 @@ import com.ficus.app.Container;
 import com.ficus.util.Util;
 
 public final class DBCon {
-	
+
 	public java.sql.Connection con = null;
 	public static boolean debug_sql = true;
 	private String sql = null;
@@ -24,12 +25,18 @@ public final class DBCon {
 	private ArrayList<SQLParameter> para_vec = new ArrayList<SQLParameter>();
 	private String schema = null;
 	boolean useStrPara = false;
+	private PreparedStatement psmt;
 
 	public DBCon(java.sql.Connection con) {
 		this.con = con;
 	}
 
 	public void close() {
+		try {
+			psmt.close();
+		} catch (Exception e) {
+
+		}
 		try {
 			if (con != null)
 				con.close();
@@ -87,15 +94,15 @@ public final class DBCon {
 		return query(0, 999999999);
 	}
 
-//	private String getKey(int begin, int end) {
-//		StringBuilder keyBuf = new StringBuilder(sql);
-//		for (int i = 0; i < para_vec.size(); i++) {
-//			keyBuf.append(':').append(((SQLParameter) para_vec.get(i)).toString());
-//		}
-//
-//		keyBuf.append(':').append(begin).append(':').append(end);
-//		return keyBuf.reverse().toString();
-//	}
+	// private String getKey(int begin, int end) {
+	// StringBuilder keyBuf = new StringBuilder(sql);
+	// for (int i = 0; i < para_vec.size(); i++) {
+	// keyBuf.append(':').append(((SQLParameter) para_vec.get(i)).toString());
+	// }
+	//
+	// keyBuf.append(':').append(begin).append(':').append(end);
+	// return keyBuf.reverse().toString();
+	// }
 
 	public QueryResult query(int begin, int size) throws SQLException {
 		commitParameter();
@@ -105,7 +112,7 @@ public final class DBCon {
 		for (int i = 0; i < para_vec.size(); i++)
 			setP1(i + 1, ((SQLParameter) para_vec.get(i)).value);
 
-		return makeResultMySql(psmt, begin, begin+size);
+		return makeResultMySql(psmt, begin, begin + size);
 	}
 
 	public void setSQL(String sql) {
@@ -117,12 +124,8 @@ public final class DBCon {
 
 		clearStatment();
 
-		this.psmt = null;
-
 		this.useStrPara = false;
 	}
-
-	PreparedStatement psmt;
 
 	public ResultSet getResultSet() throws Exception {
 		try {
@@ -155,34 +158,15 @@ public final class DBCon {
 			return;
 		}
 
-		ArrayList<SQLParameter> sort_vec = new ArrayList<SQLParameter>();
-		for (int i = 0; i < para_vec.size(); i++) {
-			SQLParameter sp1 = (SQLParameter) para_vec.get(i);
-			if (i == 0) {
-				sort_vec.add(sp1);
-				continue;
-			}
+		para_vec.sort(new Comparator<SQLParameter>(){
+			@Override
+			public int compare(SQLParameter o1, SQLParameter o2) {
+				return o1.pos-o2.pos;
+			}});
 
-			for (int j = 0; j < sort_vec.size(); j++) {
-				SQLParameter sp2 = (SQLParameter) sort_vec.get(j);
-
-				if (sp1.pos <= sp2.pos) {
-					sort_vec.add(j, sp1);
-					break;
-				}
-
-				if (j == sort_vec.size() - 1) {
-					sort_vec.add(sp1);
-					break; // sort_vec的size变化，必须跳出循环
-				}
-			}
-
-		}
-
-		para_vec = sort_vec;
 
 		for (int i = 0; i < para_vec.size(); i++)
-			sql = Util.replace(sql, new StringBuilder(':').append(((SQLParameter) para_vec.get(i)).name).toString(),
+			sql = Util.replace(sql, new StringBuilder(":").append(((SQLParameter) para_vec.get(i)).name).toString(),
 					"?");
 	}
 
@@ -292,14 +276,14 @@ public final class DBCon {
 	}
 
 	public ArrayList<TableInfo> getTables() throws Exception {
-		ArrayList<TableInfo> list=new ArrayList<TableInfo>();
+		ArrayList<TableInfo> list = new ArrayList<TableInfo>();
 		ResultSet rs = null;
 		try {
 			DatabaseMetaData dmd = con.getMetaData();
 			rs = dmd.getTables(null, schema, null, null);
 
 			while (rs.next()) {
-				TableInfo info=new TableInfo(DSN,rs.getString(3).trim().toLowerCase());
+				TableInfo info = new TableInfo(DSN, rs.getString(3).trim().toLowerCase());
 				list.add(info);
 			}
 
@@ -342,7 +326,7 @@ public final class DBCon {
 		setP1(this.psmt, index, value);
 	}
 
-	public void setParameter(String para_name, Object para_value) throws Exception {
+	public void setParameter(String para_name, Object para_value) throws SQLException {
 		if (debug_sql)
 			System.out.println(new StringBuilder(para_name).append('=').append(para_value));
 
@@ -367,20 +351,21 @@ public final class DBCon {
 			}
 
 		} catch (Exception e) {
-			throw new Exception(e.getMessage());
+			throw new SQLException(e.getMessage());
 		}
 	}
 
 	/*
 	 * 根据给定表名将缓冲数据置为dirty
 	 */
-	public Column[] getcolumns(String tableName) throws SQLException {
+	public ArrayList<Column> getColumns(String tableName) throws SQLException {
 
 		ArrayList<Column> v = new ArrayList<Column>();
 
 		DatabaseMetaData dmd = con.getMetaData();
 		ResultSet rs = dmd.getColumns(null, null, tableName, null);
-
+		if(rs==null)
+			throw new SQLException("table name now found!"+tableName);
 		while (rs.next()) {
 			String str = rs.getString("COLUMN_NAME").trim(); // 列名
 			Column c = new Column();
@@ -393,9 +378,45 @@ public final class DBCon {
 			v.add(c);
 		}
 
-		Column c[] = new Column[v.size()];
-		v.toArray(c);
-		return c;
+		return v;
+	}
+
+	public ArrayList<Column> getColumnsBySql(String sql) throws SQLException {
+		
+		String sqlDummy;
+		if(!sql.toLowerCase().contains(" limit "))
+			sqlDummy=new StringBuilder(sql).append(" limit 1").toString();
+		else
+			sqlDummy=sql;
+		
+		try (PreparedStatement ps = con.prepareStatement(sqlDummy); ResultSet rs = ps.executeQuery();) {
+
+			ArrayList<Column> v = new ArrayList<Column>();
+
+			ResultSetMetaData rmd = rs.getMetaData();
+			
+			int count = rmd.getColumnCount();
+
+			for (int i = 0; i < count; i++) {
+
+				Column c = new Column();
+				c.setName(rmd.getColumnName(i + 1).toLowerCase());
+				c.setTableName(rmd.getTableName(i + 1).toUpperCase());
+				c.setDataType(rmd.getColumnTypeName(i + 1).trim().toUpperCase());
+				c.setIsNullable(rmd.isNullable(i + 1) == 1);
+				c.setLength(rmd.getPrecision(i + 1));
+				c.setDispLength(rmd.getColumnDisplaySize(i + 1));
+				c.setScale(rmd.getScale(i + 1));
+				c.setAlias(rmd.getColumnLabel(i + 1).toLowerCase());
+				v.add(c);
+				
+			}
+			
+			return v;
+		} catch(Exception e){
+			throw new SQLException("sql error!"+sql,e);
+		}
+		
 	}
 
 	/**
@@ -436,7 +457,7 @@ public final class DBCon {
 	public List<String> getPkCol(String table) throws SQLException {
 		ArrayList<String> list = new ArrayList<String>();
 		DatabaseMetaData dm = con.getMetaData();
-		ResultSet rs=null;
+		ResultSet rs = null;
 		try {
 			rs = dm.getExportedKeys("", "", table);
 			while (rs.next())
@@ -457,22 +478,21 @@ public final class DBCon {
 			ResultSetMetaData rsm = rs.getMetaData();
 			qr.cols = new Column[rsm.getColumnCount()];
 
-
-			Column col=new Column();
+			Column col = new Column();
 			for (int i = 0; i < rsm.getColumnCount(); i++) {
 				col = new Column();
-				qr.cols[i]=col;
+				qr.cols[i] = col;
 				col.setDSN(DSN);
 				col.setTableName(rsm.getTableName(i + 1));
 				col.setName(rsm.getColumnName(i + 1));
 				col.setDataType(rsm.getColumnTypeName(i + 1).toUpperCase());
-				col.setLength(rsm.getPrecision(i+1));
+				col.setLength(rsm.getPrecision(i + 1));
 				col.setDispLength(rsm.getColumnDisplaySize(i + 1));
 				col.setScale(rsm.getScale(i + 1));
-				col.setComment(rsm.getColumnLabel(i + 1));
-				//col.setIsPk(rsm.); see getPkCol
-				col.setAutoIncrement(rsm.isAutoIncrement(i+1));
-				
+				col.setAlias(rsm.getColumnLabel(i + 1));
+				// col.setIsPk(rsm.); see getPkCol
+				col.setAutoIncrement(rsm.isAutoIncrement(i + 1));
+
 				col.setIsNullable((rsm.isNullable(i + 1) == 0) ? false : true);
 				// qr.cols[i].setIsReadOnly(rsm.isReadOnly(i + 1));
 				col.setScale(rsm.getScale(i + 1));
@@ -530,7 +550,7 @@ public final class DBCon {
 			}
 		}
 	}
-	
+
 	private void setP1(PreparedStatement psmt, int index, Object value) throws SQLException {
 
 		if (value == null) {
@@ -582,6 +602,7 @@ public final class DBCon {
 				this.psmt.clearParameters();
 			}
 		} catch (Exception err) {
+			err.printStackTrace();
 		}
 
 		try {
@@ -589,7 +610,7 @@ public final class DBCon {
 				this.psmt.close();
 			}
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 
 	}

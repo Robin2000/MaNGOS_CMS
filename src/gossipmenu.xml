@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+<gossip_menu>
+SELECT P.entry,P.text_id,P.script_id,P.condition_id,Q.UTYPE,Q.UNAME,C.text0_0_loc4,C.text0_1_loc4,C.text1_0_loc4,C.text1_1_loc4,C.text2_0_loc4,C.text2_1_loc4,C.text3_0_loc4,C.text3_1_loc4,C.text4_0_loc4,C.text4_1_loc4 
+FROM gossip_menu P 
+LEFT JOIN (
+SELECT distinct A.entry,'NPC' as UTYPE,C.name_loc4 AS UNAME 
+	FROM gossip_menu A 
+	INNER JOIN creature_template B ON A.entry=B.gossipmenuid 
+	INNER JOIN locales_creature C ON B.entry=C.entry 
+UNION
+SELECT distinct A.entry,'NPC' as UTYPE,D.name_loc4 AS UNAME 
+	FROM gossip_menu A INNER JOIN npc_gossip B on A.text_id=B.textid 
+	INNER JOIN creature C ON B.npc_guid=C.guid 
+	INNER JOIN locales_creature D ON C.id=D.entry 
+UNION
+SELECT distinct A.entry,'PMENU' as UTYPE,B.option_text AS UNAME 
+	FROM gossip_menu A
+	INNER JOIN gossip_menu_option B on A.entry=B.action_menu_id
+UNION
+SELECT distinct A.entry,'QUESTGIVER' as UTYPE,B.name AS UNAME 
+	FROM gossip_menu A 
+	INNER JOIN Gameobject_Template B on A.entry=B.data3 
+	WHERE B.type=2 
+UNION
+	SELECT distinct A.entry,'GOOBER' as UTYPE,C.name_loc4 AS UNAME 
+	FROM gossip_menu A 
+	INNER JOIN Gameobject_Template B on A.entry=B.data19 
+	LEFT JOIN locales_gameobject C ON B.entry=C.entry 
+	WHERE B.type=10
+) Q ON P.entry=Q.entry 
+LEFT JOIN locales_npc_text C ON P.text_id=C.entry
+</gossip_menu>
+</root>

@@ -45,7 +45,7 @@ public final class QueryResult implements java.io.Serializable {
 		for (int i = 0; i < cols.length; i++)
 			for (int j = 0; j < colname.length; j++) {
 				if (cols[i].getName().equalsIgnoreCase(colname[j])) {
-					cols[i].setComment(comment[j]);
+					cols[i].setAlias(comment[j]);
 				}
 			}
 	}

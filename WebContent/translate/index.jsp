@@ -14,19 +14,23 @@
     <title><%=table %> List</title>
        
     <!-- DataTables JavaScript -->
-    <script src="../bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="../bower_components/datatables-plugins/filtering/row-based/TableTools.ShowSelectedOnly.js"></script>
-    <script src="../bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+    <script src="<%=basePath%>/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="<%=basePath%>/bower_components/datatables-plugins/filtering/row-based/TableTools.ShowSelectedOnly.js"></script>
+    <script src="<%=basePath%>/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
 
 
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
+    /*遗留问题：每次刷新仅table刷新吗?如何同时刷新界面上其它元素？*/
     var table;
     $(document).ready(function() {
        table= $('#dataTables-example').DataTable({
                 responsive: true,
                 serverSide: true,
+                language: {
+                	url: "<%=basePath%>/bower_components/datatables/media/js/Chinese.json"
+                },
                 ajax: {
 			        url: '<%=basePath%>/tabledata?t=<%=table%>&bean=translateBean',
 			        type: 'POST',
@@ -36,7 +40,17 @@
                 	}
 			    }
         });
+        
+        $('#dataTables-example').on( 'draw.dt', function (e, settings) {
+        		
+		     $.each(settings.json.queryFilters, function(i, queryItem){ 
+		       $('#'+queryItem.id).prop('outerHTML', queryItem.html);
+		     });
+		} );        
+        
+        $("select").css("width","400px");
     });
+    
     function reload(){
     	table.draw();
     }

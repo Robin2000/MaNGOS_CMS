@@ -13,7 +13,7 @@ public final class Column implements java.io.Serializable {
 	private String name = null;
 
 	// 列的注释
-	private String comment = null;
+	private String alias = null;
 
 	// 列的数据类型
 	private String dataType = null;
@@ -48,7 +48,7 @@ public final class Column implements java.io.Serializable {
 		Column c = new Column();
 		c.setTableName(getTableName());
 		c.setName(getName());
-		c.setComment(getComment());
+		c.setAlias(getAlias());
 		c.setDataType(getDataType());
 		c.setIsNullable(isNullable());
 		c.setLength(getLength());
@@ -56,11 +56,13 @@ public final class Column implements java.io.Serializable {
 	}
 
 	/**
-	 * 得到列的注释(中文)
+	 * 得到列的别名
 	 */
 
-	public String getComment() {
-		return comment;
+	public String getAlias() {
+		if(alias==null)
+			return name;
+		return alias;
 	}
 
 	/**
@@ -131,11 +133,11 @@ public final class Column implements java.io.Serializable {
 	}
 
 	/**
-	 * 设置列的注释
+	 * 设置列的别名
 	 */
 
-	public void setComment(String n) {
-		comment = n;
+	public void setAlias(String n) {
+		alias = n;
 	}
 
 	/**

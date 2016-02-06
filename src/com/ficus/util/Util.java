@@ -6,23 +6,26 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.regex.Pattern;
+
+import org.apache.log4j.Logger;
 
 public final class Util {
 
 	public static long lastid = 0L;
-
+	private static final Logger log = Logger.getLogger(Util.class);
+	
 	public Util() {
 	}
 
 	public static boolean isNumeric(String str) {
-		for (int i = str.length(); --i >= 0;) {
+		for (int i = str.length(); --i >=((str.charAt(0)=='-')?1:0);) {
 			if (!Character.isDigit(str.charAt(i))) {
 				return false;
 			}
@@ -115,18 +118,30 @@ public final class Util {
 
 	public static void println(Object obj) {
 		if (obj == null) {
-			System.out.println();
+			log.error("null");
 			return;
 		}
 		if (obj instanceof Throwable) {
-			((Throwable) obj).printStackTrace();
+			log.error("",(Throwable)obj);
 			return;
 		} else {
-			System.out.println(obj);
+			log.info(obj);
 			return;
 		}
 	}
-
+	public static String loadConfig(ClassLoader loader,String configFile) {
+	       try(InputStream in=loader.getResourceAsStream(configFile);
+	            BufferedReader br = new BufferedReader(new InputStreamReader(in));   
+	               ){
+	            StringBuilder txt = new StringBuilder();
+	            for (String line = br.readLine(); line != null; line = br.readLine()) 
+	            	txt.append(line).append("\n");
+	            return txt.toString();
+	       }catch(Throwable e){
+	    	   log.error("config  error",e);
+	           return null;
+	       }
+	    }
 	public static String readFile(String file) throws Exception {
 		return readFile(file, "UTF-8");
 	}

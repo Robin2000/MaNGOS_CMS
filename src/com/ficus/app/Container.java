@@ -6,7 +6,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Properties;
 
 import javax.servlet.ServletContext;
 
@@ -43,7 +42,7 @@ public final class Container {
 			return ((HashMap<String, DruidDataSource>) sc.getAttribute("ficus_ds")).get(dsName).getConnection();
 		else {
 			log.info("ServletContext not found,for unit test.");
-			List<DBConItem> list = new DataSourceConfig().getDataSourceIni();
+			List<DBConItem> list = DataSourceConfig.me.getDataSourceIni();
 			for (DBConItem ini : list) {
 				if(!ini.ds.equals(dsName))
 					continue;

@@ -35,7 +35,7 @@ public final class FicusWebIni implements ServletContextListener {
 		DOMConfigurator.configure(FicusWebIni.class.getResource("/log4j.xml"));
 		
 		HashMap<String,DruidDataSource> map=new HashMap<String,DruidDataSource>();
-		ArrayList<DBConItem> list=new DataSourceConfig().getDataSourceIni();
+		ArrayList<DBConItem> list=DataSourceConfig.me.getDataSourceIni();
 		for(DBConItem ini:list)
 		{
 			DruidDataSource dds = new DruidDataSource();
@@ -50,6 +50,7 @@ public final class FicusWebIni implements ServletContextListener {
 		
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void contextDestroyed(ServletContextEvent e) {
 		HashMap<String,DruidDataSource> map=(HashMap<String,DruidDataSource>)e.getServletContext().getAttribute("ficus_ds");

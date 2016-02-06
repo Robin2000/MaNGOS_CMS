@@ -40,13 +40,13 @@ public final class DateTool
 
   public String getDay ()
   {
-	if (can.get (can.DAY_OF_MONTH) < 10)
+	if (can.get (Calendar.DAY_OF_MONTH) < 10)
 	{
-	  return new StringBuffer("0").append(can.get (can.DAY_OF_MONTH)).toString() ;
+	  return new StringBuffer("0").append(can.get (Calendar.DAY_OF_MONTH)).toString() ;
 	}
 	else
 	{
-	  return String.valueOf(can.get (can.DAY_OF_MONTH)) ;
+	  return String.valueOf(can.get (Calendar.DAY_OF_MONTH)) ;
 	}
   }
   /**
@@ -57,13 +57,13 @@ public final class DateTool
 
   public String getHour ()
   {
-	if (can.get (can.HOUR_OF_DAY) < 10)
+	if (can.get (Calendar.HOUR_OF_DAY) < 10)
 	{
-	  return new StringBuffer("0").append( can.get (can.HOUR_OF_DAY) ).toString();
+	  return new StringBuffer("0").append( can.get (Calendar.HOUR_OF_DAY) ).toString();
 	}
 	else
 	{
-	  return String.valueOf( can.get (can.HOUR_OF_DAY) );
+	  return String.valueOf( can.get (Calendar.HOUR_OF_DAY) );
 	}
   }
   /**
@@ -73,13 +73,13 @@ public final class DateTool
    */
   public String getMinute ()
   {
-	if (can.get (can.MINUTE) < 10)
+	if (can.get (Calendar.MINUTE) < 10)
 	{
-	  return new StringBuffer("0").append(can.get (can.MINUTE) ).toString();
+	  return new StringBuffer("0").append(can.get (Calendar.MINUTE) ).toString();
 	}
 	else
 	{
-	  return String.valueOf(can.get (can.MINUTE)) ;
+	  return String.valueOf(can.get (Calendar.MINUTE)) ;
 	}
   }
   /**
@@ -90,13 +90,13 @@ public final class DateTool
 
   public String getMonth ()
   {
-	if ( (can.get (can.MONTH) + 1) < 10)
+	if ( (can.get (Calendar.MONTH) + 1) < 10)
 	{
-	  return new StringBuffer("0").append((can.get (can.MONTH) + 1)).toString() ;
+	  return new StringBuffer("0").append((can.get (Calendar.MONTH) + 1)).toString() ;
 	}
 	else
 	{
-	  return String.valueOf(can.get(can.MONTH) + 1) ;
+	  return String.valueOf(can.get(Calendar.MONTH) + 1) ;
 	}
   }
   /**
@@ -107,13 +107,13 @@ public final class DateTool
 
   public String getSecond ()
   {
-	if (can.get (can.SECOND) < 10)
+	if (can.get (Calendar.SECOND) < 10)
 	{
-	  return new StringBuffer("0").append(can.get (can.SECOND)).toString() ;
+	  return new StringBuffer("0").append(can.get (Calendar.SECOND)).toString() ;
 	}
 	else
 	{
-	  return String.valueOf(can.get (can.SECOND)) ;
+	  return String.valueOf(can.get (Calendar.SECOND)) ;
 	}
   }
   /**
@@ -123,7 +123,7 @@ public final class DateTool
    */
   public String getYear ()
   {
-	return String.valueOf(can.get (can.YEAR)) ;
+	return String.valueOf(can.get (Calendar.YEAR)) ;
   }
   /**
    * 将日期型数据转化为字符串,格式为YYYY-MM-DD<br>
@@ -254,8 +254,5 @@ public String getYearStart ()
 
 	return can.getTime () ;
   }
-  public String toGMT()
-  {
-    return new Date(can.getTimeInMillis()).toGMTString();
-  }
+
 }

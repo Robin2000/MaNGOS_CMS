@@ -19,8 +19,6 @@ import com.alibaba.fastjson.JSONObject;
 public final class TableDataServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	ListBean listBean = new ListBean();
-
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -45,13 +43,8 @@ public final class TableDataServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		Enumeration<String> p = request.getParameterNames();
-		while (p.hasMoreElements()) {
-			String k = p.nextElement();
-			String v = request.getParameter(k);
-			System.out.println(k + "=" + v);
-		}
+		//printParameters(request);
+		//printAttributes();
 
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/json;charset=UTF-8");
@@ -81,21 +74,60 @@ public final class TableDataServlet extends HttpServlet {
 
 		}
 		
-		ResultBean rb = new ResultBean();
+		ResultBean rb = new ResultBean(); /*这是Jquery的DataTable要求的返回数据。draw是用于客户端区分不同的会话tokin*/
+		rb.setDraw(draw);
+		
+		QueryInterface listBean=null;
+		try{
+			listBean=(QueryInterface)getServletContext().getAttribute(request.getParameter("bean"));
+			if(listBean==null)
+			{
+				rb.setError("会话过期,请重新刷新页面!");
+			}
+		
+		}catch(Exception e){
+			rb.setError(e.getMessage());
+		}
 		try {
-			
-			rb = listBean.query(table, start, length, rb,keyword,orders);
+			if(listBean!=null)
+			{
+				String queryClause=listBean.parseQueryParameter(table, request);
+				rb = listBean.query(table, start, length, rb,keyword,orders,queryClause);
+			}
 		} catch (Exception e) {
 			rb.setError(e.getMessage());
 		}
 
-		rb.setDraw(draw);
+		
 		response.getWriter().write(JSONObject.toJSONString(rb));
 
 		// String search=request.getParameter("search");
 		// String order=request.getParameter("order");
 		// String columns=request.getParameter("columns");
 
+	}
+	
+	@SuppressWarnings("unused")
+	private void printAttributes(){
+		Enumeration<String> e=getServletContext().getAttributeNames();
+		while(e.hasMoreElements())
+		{
+			String key=e.nextElement();
+			System.out.println(key+"="+getServletContext().getAttribute(key).getClass());
+			
+		}
+		
+		System.out.println("-------------");
+	}
+	
+	@SuppressWarnings("unused")
+	private void printParameters(HttpServletRequest request){
+		Enumeration<String> p = request.getParameterNames();
+		while (p.hasMoreElements()) {
+			String k = p.nextElement();
+			String v = request.getParameter(k);
+			System.out.println(k + "=" + v);
+		}
 	}
 
 }

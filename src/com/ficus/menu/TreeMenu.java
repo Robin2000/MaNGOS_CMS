@@ -1,20 +1,17 @@
 package com.ficus.menu;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 
+import com.ficus.util.Util;
+
 public final class TreeMenu implements Serializable {
     private static final long serialVersionUID = 1L;
-    private static final Logger log = Logger.getLogger(TreeMenu.class);
 
     private MenuNode root=new MenuNode("Home", "Home");
 
@@ -22,7 +19,7 @@ public final class TreeMenu implements Serializable {
     	init();
     }
     private boolean init() {
-        String config=loadConfig();
+        String config=Util.loadConfig(this.getClass().getClassLoader(),"treemenu.xml");
         if(config==null)
             return false;
         
@@ -49,18 +46,6 @@ public final class TreeMenu implements Serializable {
             addChildren(curNode,elem);
         }
     }
-    private String loadConfig(){
-       try(InputStream in=this.getClass().getClassLoader().getResourceAsStream("treemenu.xml");
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));   
-               ){
-            StringBuilder txt = new StringBuilder();
-            for (String line = br.readLine(); line != null; line = br.readLine()) 
-            	txt.append(line).append("\n");
-            return txt.toString();
-       }catch(Throwable e){
-    	   log.error("config menu error",e);
-          return null;
-       }
-    }
+    
  
 }

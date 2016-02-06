@@ -1,11 +1,22 @@
 package com.ficus.table;
 
+import java.util.ArrayList;
+
 public class ResultBean {
 	private String draw;
 	private int recordsTotal;
 	private int recordsFiltered;
 	private Object data[][];
 	private String error;
+	private ArrayList<AjaxQuerFilterHtmlItem> queryFilters;
+	
+	
+	public ArrayList<AjaxQuerFilterHtmlItem> getQueryFilters() {
+		return queryFilters;
+	}
+	public void setQueryFilters(ArrayList<AjaxQuerFilterHtmlItem> queryFilters) {
+		this.queryFilters = queryFilters;
+	}
 	public String getDraw() {
 		return draw;
 	}
@@ -36,5 +47,4 @@ public class ResultBean {
 	public void setError(String error) {
 		this.error = error;
 	}
-	
 }

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+<basic>
+SELECT A.entry as entrya,A.name,B.name_loc4,
+
+FROM item_template A
+LEFT JOIN locales_item B ON A.entry=B.entry
+</basic>
+<requirements>
+SELECT A.entry as entrya,A.name,B.name_loc4,
+
+FROM item_template A
+LEFT JOIN locales_item B ON A.entry=B.entry
+</requirements>
+<weapons>
+SELECT A.entry as entrya,A.name,B.name_loc4,
+
+FROM item_template A
+LEFT JOIN locales_item B ON A.entry=B.entry
+</weapons>
+<resistance>
+SELECT A.entry as entrya,A.name,B.name_loc4,
+
+FROM item_template A
+LEFT JOIN locales_item B ON A.entry=B.entry
+</resistance>
+<socket>
+SELECT A.entry as entrya,A.name,B.name_loc4,
+
+FROM item_template A
+LEFT JOIN locales_item B ON A.entry=B.entry
+</socket>           
+<spell>
+SELECT A.entry as entrya,A.name,B.name_loc4,
+
+FROM item_template A
+LEFT JOIN locales_item B ON A.entry=B.entry
+</spell>
+<damage>
+SELECT A.entry as entrya,A.name,B.name_loc4,
+
+FROM item_template A
+LEFT JOIN locales_item B ON A.entry=B.entry
+</damage>
+<stats>
+SELECT A.entry as entrya,A.name,B.name_loc4,
+
+FROM item_template A
+LEFT JOIN locales_item B ON A.entry=B.entry
+</stats>
+<other>
+SELECT A.entry as entrya,A.name,B.name_loc4,
+
+FROM item_template A
+LEFT JOIN locales_item B ON A.entry=B.entry
+</other>
+ </root>

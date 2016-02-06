@@ -1,6 +1,7 @@
 package com.ficus.db;
 
-import com.ficus.util.*;
+import com.ficus.util.DateTool;
+import com.ficus.util.Util;
 
 public final class XMLCreator {
 	
@@ -122,7 +123,7 @@ public final class XMLCreator {
 			xml.append("</dispLength>");
 
 			xml.append("<comment>");
-			xml.append(rs.getCols()[i].getComment());
+			xml.append(rs.getCols()[i].getAlias());
 			xml.append("</comment>");
 
 			xml.append("<nullAble>");
