@@ -88,10 +88,12 @@ public final class DBCon {
 			}
 		}
 	}
-
 	public QueryResult query() throws SQLException {
+		return realQuery();
+	}
+	public QueryResult queryOLD() throws SQLException {
 
-		return query(0, 999999999);
+		return queryOLD(0, 999999999);
 	}
 
 	// private String getKey(int begin, int end) {
@@ -104,7 +106,17 @@ public final class DBCon {
 	// return keyBuf.reverse().toString();
 	// }
 
-	public QueryResult query(int begin, int size) throws SQLException {
+	public QueryResult realQuery() throws SQLException {
+		
+		commitParameter();
+		psmt = con.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY); // 只用于查询，提高next效率
+
+		for (int i = 0; i < para_vec.size(); i++)
+			setP1(i + 1, ((SQLParameter) para_vec.get(i)).value);
+
+		return makeResultMySql(psmt);
+	}
+	public QueryResult queryOLD(int begin, int size) throws SQLException {
 		commitParameter();
 		/* 至此，SQL为标准带占位符的SQL */
 		psmt = con.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY); // 只用于查询，提高next效率
@@ -112,7 +124,7 @@ public final class DBCon {
 		for (int i = 0; i < para_vec.size(); i++)
 			setP1(i + 1, ((SQLParameter) para_vec.get(i)).value);
 
-		return makeResultMySql(psmt, begin, begin + size);
+		return makeResultMySqlOld(psmt, begin, begin + size);
 	}
 
 	public void setSQL(String sql) {
@@ -312,8 +324,36 @@ public final class DBCon {
 
 		int begin = Integer.parseInt(recNumPerPage) * (Integer.parseInt(pageIdx) - 1);
 		int end = Integer.parseInt(recNumPerPage) + begin;
+		QueryResult rs=query( begin, end-begin);
+		rs.recNumPerPage = recNumPerPage;
+		rs.pageIdx = pageIdx;
+		rs.totalPageNum = String.valueOf((int) Math.ceil(.5 + rs.all_numrow / Integer.parseInt(recNumPerPage)));
+		return rs;
+	}
+	public QueryResult query(int begin, int size) throws SQLException {
 
-		QueryResult rs = query(begin, end);
+		String oldsql=sql;
+		
+		sql=new StringBuilder("select count(*) from(").append(sql).append(") T").toString();
+		QueryResult rsCount = query();
+		
+		sql=new StringBuilder(oldsql).append(" limit ").append(begin).append(",").append(size).toString();
+		QueryResult rs = query();
+		rs.all_numrow=Integer.parseInt(rsCount.getObject(0,0).toString());/*覆盖总记录数*/
+
+		rs.recNumPerPage = String.valueOf(size);
+		if(size>0)
+			rs.pageIdx = String.valueOf((int)(begin/size)+1);
+		else
+			rs.pageIdx="1";
+		return rs;
+	}
+	public QueryResult queryOLD(String recNumPerPage, String pageIdx) throws SQLException {
+
+		int begin = Integer.parseInt(recNumPerPage) * (Integer.parseInt(pageIdx) - 1);
+		int end = Integer.parseInt(recNumPerPage) + begin;
+
+		QueryResult rs = queryOLD(begin, end);
 		rs.recNumPerPage = recNumPerPage;
 		rs.pageIdx = pageIdx;
 
@@ -321,7 +361,6 @@ public final class DBCon {
 
 		return rs;
 	}
-
 	private void setP1(int index, Object value) throws SQLException {
 		setP1(this.psmt, index, value);
 	}
@@ -467,8 +506,54 @@ public final class DBCon {
 		}
 		return list;
 	}
+	private QueryResult makeResultMySql(PreparedStatement psmt) throws SQLException {
 
-	private QueryResult makeResultMySql(PreparedStatement psmt, int begin, int end) throws SQLException {
+		ResultSet rs = null;
+		try {
+			QueryResult qr = new QueryResult();
+
+			rs = psmt.executeQuery();
+			ResultSetMetaData rsm = rs.getMetaData();
+			qr.cols = new Column[rsm.getColumnCount()];
+
+			Column col = new Column();
+			for (int i = 0; i < rsm.getColumnCount(); i++) {
+				col = new Column();
+				qr.cols[i] = col;
+				col.setDSN(DSN);
+				col.setTableName(rsm.getTableName(i + 1));
+				col.setName(rsm.getColumnName(i + 1));
+				col.setDataType(rsm.getColumnTypeName(i + 1).toUpperCase());
+				col.setLength(rsm.getPrecision(i + 1));
+				col.setDispLength(rsm.getColumnDisplaySize(i + 1));
+				col.setScale(rsm.getScale(i + 1));
+				col.setAlias(rsm.getColumnLabel(i + 1));
+				col.setAutoIncrement(rsm.isAutoIncrement(i + 1));
+				col.setIsNullable((rsm.isNullable(i + 1) == 0) ? false : true);
+				col.setScale(rsm.getScale(i + 1));
+			}
+
+			int numrows=0;
+			while (rs.next()) {
+				numrows++;
+				for (int i = 0; i < qr.cols.length; i++) {
+					qr.cols[i].value_vec.add(rs.getObject(i + 1));
+				}
+			}
+			
+			qr.all_numrow=numrows;/*更改结果集记录数，若为分页查询，请在本方法返回后覆盖all_numrow*/
+			
+			return qr;
+
+		} catch (Exception e) {
+			throw new SQLException(e.getMessage());
+		} finally {
+			if (rs != null) {
+				rs.close();
+			}
+		}
+	}
+	private QueryResult makeResultMySqlOld(PreparedStatement psmt, int begin, int end) throws SQLException {
 
 		ResultSet rs = null;
 		try {
