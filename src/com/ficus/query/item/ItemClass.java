@@ -24,7 +24,7 @@ public class ItemClass extends ArrayList<KeyValue> implements QueryItemInterface
 		add(new KeyValue(11,"Quiver给予任务"));
 		add(new KeyValue(12,"Quest任务"));
 		add(new KeyValue(13,"Key钥匙"));
-		add(new KeyValue(14,"Permanent(OBSOLETE)永恒 (已过时)"));
+		add(new KeyValue(14,"Permanent(OBSOLETE)永久 (已过时)"));
 		add(new KeyValue(15,"Miscellaneous杂项"));
 		add(new KeyValue(16,"Glyph标志符号"));			   
 	}

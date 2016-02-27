@@ -8,6 +8,6 @@ public interface QueryFilter {
 	public ArrayList<QueryItemInterface> getFilterItems();
 	
 	/*提供过滤的表名*/
-	public String getFilterTable();
+	public boolean matchTable(String table);
 	
 }

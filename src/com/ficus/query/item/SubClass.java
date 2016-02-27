@@ -28,7 +28,8 @@ public class SubClass extends ArrayList<SubClassKeyValue> implements QueryItemIn
 		add(new SubClassKeyValue(1,4,"Engineering Bag工程包"));
 		add(new SubClassKeyValue(1,5,"Gem Bag宝石袋"));
 		add(new SubClassKeyValue(1,6,"Mining Bag挖矿包"));
-		add(new SubClassKeyValue(1,7,"Leatherworking Bag制皮包"));		
+		add(new SubClassKeyValue(1,7,"Leatherworking Bag制皮包"));
+		add(new SubClassKeyValue(1,8,"Inscription Bag铭文包"));
 		
 		add(new SubClassKeyValue(2,0,"Axe One handed单手斧"));
 		add(new SubClassKeyValue(2,1,"Axe Two handed双手斧"));
@@ -72,6 +73,7 @@ public class SubClass extends ArrayList<SubClassKeyValue> implements QueryItemIn
 		add(new SubClassKeyValue(4,7,"Libram圣契"));		
 		add(new SubClassKeyValue(4,8,"Idol幻象"));	
 		add(new SubClassKeyValue(4,9,"Totem图腾"));	
+		add(new SubClassKeyValue(4,10,"Sigil魔符"));	
 		
 		add(new SubClassKeyValue(5,0,"Reagent试剂"));
 		
@@ -94,6 +96,9 @@ public class SubClass extends ArrayList<SubClassKeyValue> implements QueryItemIn
 		add(new SubClassKeyValue(7,10,"Elemental元素"));	
 		add(new SubClassKeyValue(7,11,"Other"));	
 		add(new SubClassKeyValue(7,12,"Enchanting附魔"));	
+		add(new SubClassKeyValue(7,13,"Materials物料"));	
+		add(new SubClassKeyValue(7,14,"Armor Enchantment护甲附魔"));	
+		add(new SubClassKeyValue(7,15,"Weapon Enchantment武器附魔"));	
 		
 		add(new SubClassKeyValue(8,0,"Generic通用(OBSOLETE)"));
 		
@@ -150,13 +155,13 @@ public class SubClass extends ArrayList<SubClassKeyValue> implements QueryItemIn
 		
 		String type=request.getParameter("ItemClass");//提取上级大类的id
 		if(type==null||"-1".equals(type)||"".equals(type))
-			return "";
+			return "<nobr>子类别：<select ></select></nobr>";
 		String SubClass=request.getParameter("SubClass");
 		
 		StringBuilder sb=new StringBuilder("<nobr>子类别：<select onchange='reload()' id='SubClass'>");
 		
 		for(SubClassKeyValue kv:this){
-			if(kv.getParentClass().equals(Integer.parseInt(type)))
+			if(kv.getParentClass().equals(Integer.parseInt(type))||kv.key.toString().equals("-1"))
 			{
 				if(kv.key.toString().equals(SubClass))
 					sb.append("<option selected value='").append(kv.key).append("'>").append(kv.key).append(".").append(kv.value).append("</option>");

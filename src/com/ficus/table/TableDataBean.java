@@ -16,6 +16,7 @@ import com.ficus.query.QueryItemInterface;
 import com.ficus.query.creature.CreatureTemplateClause;
 import com.ficus.query.gameobject.GameObjectTemplateClause;
 import com.ficus.query.item.ItemTemplateClause;
+import com.ficus.query.quest.QuestTemplateClause;
 import com.ficus.util.Util;
 
 public class TableDataBean implements QueryInterface{
@@ -30,6 +31,7 @@ public class TableDataBean implements QueryInterface{
 		filters.add(new GameObjectTemplateClause());//这里扩展
 		filters.add(new CreatureTemplateClause());//这里扩展
 		filters.add(new ItemTemplateClause());//这里扩展
+		filters.add(new QuestTemplateClause());
 	}
 	
 	public ArrayList<Column> getCols(String table){
@@ -159,7 +161,7 @@ public class TableDataBean implements QueryInterface{
 		}
 		return sb.toString();
 	}
-	
+	/*这个方法非常特殊！！！TODO:改为通用*/
 	public String changeColName(String table,Column c){
 		//D.name_loc4 as itemname_loc4,D.name_loc4 as sender_loc4
 		if(table.equals("achievement_reward"))
@@ -175,6 +177,8 @@ public class TableDataBean implements QueryInterface{
 		}else if(c.getAlias().equals("entrya"))
 			return "A.entry";
 
+		else if(c.getAlias().equals("factiona"))
+			return "A.faction";
 		
 		return c.getName();
 	}
@@ -190,7 +194,7 @@ public class TableDataBean implements QueryInterface{
 		ArrayList<AjaxQuerFilterHtmlItem> arr=new ArrayList<AjaxQuerFilterHtmlItem>();
 		for(QueryFilter filter:filters)//遍历所有filters，找到表名相同的
 		{
-			if(filter.getFilterTable().equals(table)){
+			if(filter.matchTable(table)){
 				ArrayList<QueryItemInterface> items=filter.getFilterItems();
 				for(QueryItemInterface item:items)//遍历所有的过滤元素，生成过滤条件
 				{
@@ -210,7 +214,7 @@ public class TableDataBean implements QueryInterface{
 		String s;
 		for(QueryFilter filter:filters)//遍历所有filters，找到表名相同的
 		{
-			if(filter.getFilterTable().equals(table))
+			if(filter.matchTable(table))
 			{
 				ArrayList<QueryItemInterface> items=filter.getFilterItems();
 				
@@ -234,7 +238,7 @@ public class TableDataBean implements QueryInterface{
 		String s;
 		for(QueryFilter filter:filters)//遍历所有filters，找到表名相同的
 		{
-			if(filter.getFilterTable().equals(table))
+			if(filter.matchTable(table))
 			{
 				ArrayList<QueryItemInterface> items=filter.getFilterItems();
 				
@@ -259,7 +263,7 @@ public class TableDataBean implements QueryInterface{
 		
 		for(QueryFilter filter:filters)//遍历所有filters，找到表名相同的
 		{
-			if(filter.getFilterTable().equals(table))
+			if(filter.matchTable(table))
 			{
 				ArrayList<QueryItemInterface> items=filter.getFilterItems();
 				

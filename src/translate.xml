@@ -19,7 +19,7 @@ LEFT JOIN locales_quest B ON A.entry=B.entry
 </quest_template>
 <gameobject_template>
 SELECT A.entry as entrya,A.name,B.name_loc4,
-type,displayId,IconName,A.faction as afaction,D.cnname as FactionName,C.ourMask,C.friendlyMask,C.hostileMask,flags,size,mingold,maxgold,ScriptName,
+type,displayId,IconName,A.faction as factiona,D.cnname as FactionName,C.ourMask,C.friendlyMask,C.hostileMask,flags,size,mingold,maxgold,ScriptName,
 questItem1,questItem2,questItem3,questItem4,questItem5,questItem6,A.castBarCaption,B.castBarCaption_loc4,
 data0,data1,data2,data3,data4,data5,data6,data7,data8,data9,data10,data11,data12,data13,data14,data15,data16,data17,data18,data19,data20,data21,data22,data23,
 enemyFaction1,enemyFaction2,enemyFaction3,enemyFaction4,friendFaction1,friendFaction2,friendFaction3,friendFaction4

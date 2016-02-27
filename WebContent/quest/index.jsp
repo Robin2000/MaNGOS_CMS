@@ -21,13 +21,21 @@
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
+    var table;
     $(document).ready(function() {
-        $('#dataTables-example').DataTable({
+     	table=$('#dataTables-example').DataTable({
                 responsive: true,
                 serverSide: true,
+                language: {
+                	url: "<%=basePath%>/bower_components/datatables/media/js/Chinese.json"
+                },
                 ajax: {
 			        url: '<%=basePath%>/tabledata?t=<%=table%>&bean=questBean',
-			        type: 'POST'
+			        type: 'POST',
+			        data: function(d)
+			        {
+                		 <%=questBean.getJavaScript(table)%>
+                	}
 			    },
 			    "columnDefs": [
             	{
@@ -37,7 +45,18 @@
 	                "targets": 0
             	}]
         });
+         $('#dataTables-example').on( 'draw.dt', function (e, settings) {
+        		
+		     $.each(settings.json.queryFilters, function(i, queryItem){ 
+		       $('#'+queryItem.id).prop('outerHTML', queryItem.html);
+		     });
+		} );        
+        
+        $("select").css("width","400px");
     });
+    function reload(){
+    	table.draw();
+    }
     </script>
 </head>
 <body>
@@ -46,7 +65,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <%=table %> List
+                            <%=questBean.getQueryHtml(table)%>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">

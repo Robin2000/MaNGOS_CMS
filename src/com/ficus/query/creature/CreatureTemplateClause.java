@@ -32,13 +32,14 @@ public class CreatureTemplateClause implements QueryFilter {
 		
 		list.add(new CreatureTemplateFaction());
 	}
-	public String getFilterTable(){
-		return "creature_template";
-	}
 
 	@Override
 	public ArrayList<QueryItemInterface> getFilterItems() {
 		return list;
+	}
+	@Override
+	public boolean matchTable(String table) {
+		return "creature_template".equals(table);
 	}
 	
 }

@@ -14,13 +14,16 @@ public class GameObjectTemplateClause implements QueryFilter {
 		itemlist.add(new GameObjectFaction());
 		itemlist.add(new IconName());
 	}
-	public String getFilterTable(){
-		return "gameobject_template";
-	}
+
 
 	@Override
 	public ArrayList<QueryItemInterface> getFilterItems() {
 		return itemlist;
+	}
+	@Override
+	public boolean matchTable(String table) {
+		return table.equals("gameobject_template");
+		
 	}
 	
 }
