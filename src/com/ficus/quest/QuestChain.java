@@ -2,18 +2,23 @@ package com.ficus.quest;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 
 import org.apache.log4j.Logger;
 
 import com.ficus.db.Column;
 import com.ficus.db.DB;
+import com.ficus.db.DBCon;
+import com.ficus.db.DBI;
 import com.ficus.db.QueryResult;
 
 public class QuestChain {
 
 	private static final Logger log = Logger.getLogger(QuestChain.class);
 	private ArrayList<Object[]> list ;
+	private HashMap<String,Integer> entry2pos;/*每个任务id对应list的下标位置*/
+	
 	private Column[] cols;
 	private QueryResult rs;
 	
@@ -40,24 +45,39 @@ public class QuestChain {
 	}
 
 	private void refresh() {
+		//0        1         2          3           4              5            6
+		//entrya,A.title,B.title_loc4,PrevQuestId,NextQuestId,ExclusiveGroup,NextQuestInChain
 		sql = QuestQueryXmlConfig.me.getSql("chain")
 				+ " WHERE A.entry=:ID OR PrevQuestId=:PREVID OR NextQuestId=:NEXTID OR NextQuestInChain=:NEXTCHAIN";
 		list=new ArrayList<Object[]>();
 		hashset=new HashSet<Object>();
 		query(questid);
-
+		entry2pos=new HashMap<String,Integer>();
+		for(int i=0;i<list.size();i++)
+			entry2pos.put(list.get(i)[0].toString(), i);
 	}
-
-	private void query(Object curid) {
+	/*根据任务id取得其在list中位置*/
+	public int getQuestPos(String questid){
+		Integer pos=entry2pos.get(questid);
+		if(pos==null)
+			setQuestid(questid);
+		return entry2pos.get(questid);
+	}
+	private void query(final Object curid) {
 		try {
-				DB.me.execute(con -> {
-						con.setSQL(sql);
-						con.setParameter("PREVID", curid);
-						con.setParameter("NEXTID", curid);
-						con.setParameter("NEXTCHAIN", curid);
-						con.setParameter("ID", curid);
-						rs = con.query();
-				});
+			DB.me.execute(new DBI(){
+
+				@Override
+				public void onConnection(DBCon con) throws SQLException {
+					con.setSQL(sql);
+					con.setParameter("PREVID", curid);
+					con.setParameter("NEXTID", curid);
+					con.setParameter("NEXTCHAIN", curid);
+					con.setParameter("ID", curid);
+					rs = con.query();
+					
+				}});
+
 		} catch (SQLException e) {
 			log.error("查询失败!");
 		}

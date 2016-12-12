@@ -2,9 +2,12 @@ package com.ficus.query.gameobject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.ficus.dbc.DBCStore;
+import com.ficus.dbc.FactionTemplate;
 import com.ficus.query.KeyValue;
 import com.ficus.query.QueryItemInterface;
 import com.ficus.util.Util;
@@ -89,6 +92,12 @@ public class GameObjectFaction extends ArrayList<KeyValue> implements QueryItemI
 	}
 	private void initAllFaction(){
 		allFaction=new HashMap<Integer,FactionKV>();
+		List<FactionTemplate> list=DBCStore.me.getFactionTemplateList();
+		for(FactionTemplate f:list)
+		allFaction.put(f.id, new FactionKV(f.id,"",f.ourMask,f.friendlyMask,f.hostileMask));
+	}
+	private void initAllFactionOld(){
+		allFaction=new HashMap<Integer,FactionKV>();
 		
 		String s=Util.loadConfig(GameObjectFaction.class.getClassLoader(), "ExportFactionTemplate.txt");
 		for(String line:s.split("@@@")){
@@ -98,8 +107,6 @@ public class GameObjectFaction extends ArrayList<KeyValue> implements QueryItemI
 			String cols[]=line.trim().split(" \\| ");
 			allFaction.put(Integer.parseInt(cols[0]), new FactionKV(Integer.parseInt(cols[0]),"",Integer.parseInt(cols[3]),Integer.parseInt(cols[4]),Integer.parseInt(cols[5])));
 		}
-		
-
 	}
 
 	@Override

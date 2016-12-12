@@ -1,12 +1,21 @@
 <html><head><title>creature_ai_scripts</title></head><body>
-<div class='row'><div class='col-lg-12'><h3> <a id="user-content-event-ai-tables" class="anchor" href="#event-ai-tables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Event AI Tables</h3> 
+<div class='row'><div class='col-lg-12'><h3> <a id="user-content-event-ai-tables" class="anchor" href="#event-ai-tables" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Event AI Tables</h3> 
 <p><a href="creature_ai_scripts">Creature_ai_scripts</a></p> 
 <p><a href="creature_ai_summons">creature_ai_summons</a></p> 
 <p><a href="creature_ai_texts">creature_ai_texts</a></p> 
-<h2> <a id="user-content-event-ai-documentation" class="anchor" href="#event-ai-documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Event AI Documentation</h2> 
+<h2> <a id="user-content-event-ai-documentation" class="anchor" href="#event-ai-documentation" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Event AI Documentation</h2> 
 <p>The Manual-like and most-recent documentation for EventAI can be found in <a href="https://github.com/cmangos/mangos-wotlk/blob/master/doc/EventAI.txt">doc/EventAI.txt</a></p> 
 <p>Also you will find resources at <a href="http://www.scriptdev2.com">SD2’s forums</a></p> 
-<h2> <a id="user-content-event-ai-guide" class="anchor" href="#event-ai-guide" aria-hidden="true"><span class="octicon octicon-link"></span></a>Event AI Guide</h2> 
+<h2> <a id="user-content-event-ai-guide" class="anchor" href="#event-ai-guide" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Event AI Guide</h2> 
 <p><strong><span><span>NOTICE</span>: This guide will assume that you have ScriptDev2 Rev 220+ successfully and completely installed. It is in no way designed to help in the installation procedures of ScriptDev2.</span></strong></p> 
 <p><strong>SD2 Revision when this guide was last updated: 838 (could be incomplete)</strong></p> 
 <p>Now on to the fun stuff…</p> 
@@ -15,7 +24,10 @@
 <p>One more thing: event AI can support phases. A "phase" is just a way to group certain events + actions together so that the creature will perform certain actions based on what event it is currently on. The way the phase system works in event AI is that for every event added, it needs to be specified under which phases the event <span>SHOULD</span> <span>NOT</span> occur. This is a bit confusing at first, so let’s look at it more closely. A creature can have more than one phase, up to a max of 32 different phases (with the first one being phase 0, and last one being phase 31). How the phase selection field works is that it contains a 32bit number. Each bit in the number represents a possible phase, with the bit in the least significant position signifying phase 0 and the most significant bit signifying phase 31. The default value of zero in this field has no bits set and since the field controls when the event should <span>NOT</span> trigger, it would then mean that the event will always be triggered independent of the current phase the creature is in. Therefore, if you want to specify what phases the event should occur in, you need to add up all of the corresponding bits for all the other phases where the event shouldn’t trigger in (confusing…yes).</p> 
 <p>For example, let’s say that a certain creature using event AI will have a max of four phases. We are then dealing with a 4 bit number in this field. Let’s further say that that certain creature has an event that will only trigger in its phase 2 (a timed spell cast for instance). Then the field should contain all of the phases the event SHOULDN’T be triggered in…then out of the four bits, we leave the <strong>third</strong> bit alone (off) and turn on all of the other bits so we get 1011 which is equal to 11, so we put in 11 as the inverse phase mask for the event entry. As another example, let’s say that the same creature previously mentioned has another event that is only triggered in the phase 0 and phase 3. This would mean that we need to ignore phase 1 and 2, so our bitmask would be 0110 which is equal to 6 so we put in 6 for this event’s inverse phase mask field. Please note that both examples were tailored for a creature with four and only four phases. If you decide to add more phases later on, you will have to redefine all of the nonzero bitmasks for all of the mob’s events.</p> 
 <p>Every event also has a chance field that controls the chance of that event actually occurring. Using a value of 0 in this field will make the event never occur. Values are from 0 to 100.</p> 
-<h3> <a id="user-content-event-explanations" class="anchor" href="#event-explanations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Event Explanations</h3> 
+<h3> <a id="user-content-event-explanations" class="anchor" href="#event-explanations" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Event Explanations</h3> 
 <hr> 
 <ul> 
  <li> <strong>0 = <span>EVENT</span>_T_<span>TIMER</span></strong>: <span>COMBAT</span> <span>ONLY</span>! – Expires first between (Param1) and (Param2) and then between every (Param3) and (Param4). 
@@ -208,7 +220,10 @@
 <p>Now that all of the supported events have been listed and described, we shall now move on to the actions that can be performed. Each event can take up to three actions. The actions will all be performed when the event is triggered and they will be performed in the order that they have been defined. This means that, for a certain event, action 1 will be performed first, followed by action 2, then lastly by action 3. Just like event definitions, each action can use up to three different parameters but not all actions will use all three parameters. If a parameter isn’t mentioned for an action, then that action does not need that parameter.</p> 
 <p>Before we start to list and explain the different actions that can be taken, we must first look at how the eventAI targeting system works. Due to technical reasons in how targetting is handled, the eventAI script cannot target anything or anyone that is not in its threat list or is not the scripted creature itself. It also can’t currently target anyone specific in its threat list except by their position in the threat list. However, even then it can only target specifically the current victim, the second unit in its threat list, and the last unit in its threat list. It can also target units in its threat list at random and has two options for that: anyone in its threat list at random, or anyone in its threat list excluding the unit with the most threat. Aside from all of those external targets, the script can always target itself. More information on the target types can be found in the reference tables at the end of this guide.</p> 
 <p>One last note before we start looking at individual actions is about the texts. The eventAI script has support for localized text entries. Therefore, you can define what the mob will say in more than one language all in another table and the script will show the corresponding localized text to the corresponding client (english text to enUS/enGB clients, german text to deDE clients, etc). All of the localized text entries will have a unique text ID assigned to them and it is that text ID that will be used by any actions that require textual input.</p> 
-<h3> <a id="user-content-action-explanations" class="anchor" href="#action-explanations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Action Explanations</h3> 
+<h3> <a id="user-content-action-explanations" class="anchor" href="#action-explanations" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Action Explanations</h3> 
 <hr> 
 <ul> 
  <li> <strong>0 = <span>ACTION</span>_T_<span>NONE</span></strong>: Does nothing!</li> 
@@ -463,10 +478,16 @@
   </ul> </li> 
 </ul> 
 <p>(1) = Use -1 to specify that if this param is picked to do nothing. Random is constant between actions within an event. So if you have a random Yell and a random Sound they will match up (ex: param2 with param2)</p> 
-<h3> <a id="user-content-reference-tables" class="anchor" href="#reference-tables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reference Tables</h3> 
+<h3> <a id="user-content-reference-tables" class="anchor" href="#reference-tables" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Reference Tables</h3> 
 <hr> 
 <p>All of the events, actions, and target types are summarized in tabular format for convenience purposes and fast lookup. NU = Not Used; * – optional</p> 
-<h4> <a id="user-content-events" class="anchor" href="#events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Events</h4> 
+<h4> <a id="user-content-events" class="anchor" href="#events" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Events</h4> 
 <table> 
  <tbody>
   <tr> 
@@ -705,7 +726,10 @@
   </tr> 
  </tbody>
 </table> 
-<h4> <a id="user-content-actions" class="anchor" href="#actions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Actions</h4> 
+<h4> <a id="user-content-actions" class="anchor" href="#actions" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Actions</h4> 
 <table> 
  <tbody>
   <tr> 
@@ -1046,7 +1070,10 @@
   </tr> 
  </tbody>
 </table> 
-<h4> <a id="user-content-target-types" class="anchor" href="#target-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Target Types</h4> 
+<h4> <a id="user-content-target-types" class="anchor" href="#target-types" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Target Types</h4> 
 <p>(T-Type)</p> 
 <table> 
  <tbody>
@@ -1090,9 +1117,32 @@
    <td> <span>TARGET</span>_T_<span>ACTION</span>_<span>INVOKER</span> </td> 
    <td>Targets the unit that caused the event; only for certain events only.</td> 
   </tr> 
+  <tr> 
+   <td>7</td> 
+   <td> <span>TARGET</span>_T_<span>ACTION</span>_<span>INVOKER</span>_<span>OWNER</span> </td> 
+   <td>Unit who is responsible for Event to occur (only works for EVENT_T_AGGRO, EVENT_T_KILL, EVENT_T_DEATH, EVENT_T_SPELLHIT, EVENT_T_OOC_LOS, EVENT_T_FRIENDLY_HP, EVENT_T_FRIENDLY_IS_CC, EVENT_T_FRIENDLY_MISSING_BUFF, EVENT_T_RECEIVE_EMOTE, EVENT_T_RECEIVE_AI_EVENT)</td> 
+  </tr> 
+  <tr> 
+   <td>8</td> 
+   <td> <span>TARGET</span>_T_<span>HOSTILE</span>_<span>RANDOM</span>_<span>PLAYER</span> </td> 
+   <td>Random Player on The Threat List</td> 
+  </tr> 
+  <tr> 
+   <td>9</td> 
+   <td> <span>TARGET</span>_T_<span>HOSTILE</span>_<span>RANDOM</span>_<span>NOT</span>_<span>TOP</span>_<span>PLAYER</span> </td> 
+   <td>Any Random Player Except Top Threat</td> 
+  </tr> 
+  <tr> 
+   <td>10</td> 
+   <td> <span>TARGET</span>_T_<span>EVENT</span>_<span>SENDER</span> </td> 
+   <td>Creature who sent a received AIEvent – only triggered by EVENT_T_RECEIVE_AI_EVENT</td> 
+  </tr> 
  </tbody>
 </table> 
-<h4> <a id="user-content-cast-flags" class="anchor" href="#cast-flags" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cast Flags</h4> 
+<h4> <a id="user-content-cast-flags" class="anchor" href="#cast-flags" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Cast Flags</h4> 
 <table> 
  <tbody>
   <tr> 
@@ -1132,7 +1182,10 @@
   </tr> 
  </tbody>
 </table> 
-<h4> <a id="user-content-condition-type" class="anchor" href="#condition-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Condition Type</h4> 
+<h4> <a id="user-content-condition-type" class="anchor" href="#condition-type" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Condition Type</h4> 
 <p>(For Event_type 22)</p> 
 <table> 
  <tbody>
@@ -1211,7 +1264,10 @@
  </tbody>
 </table> 
 <p>* – If the value is listed as 0, then leave it as 0.</p> 
-<h4> <a id="user-content-event-flags" class="anchor" href="#event-flags" aria-hidden="true"><span class="octicon octicon-link"></span></a>Event Flags</h4> 
+<h4> <a id="user-content-event-flags" class="anchor" href="#event-flags" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Event Flags</h4> 
 <table> 
  <tbody>
   <tr> 
@@ -1246,7 +1302,10 @@
   </tr> 
  </tbody>
 </table> 
-<h4> <a id="user-content-instance_data_flags" class="anchor" href="#instance_data_flags" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instance_Data_Flags</h4> 
+<h4> <a id="user-content-instance_data_flags" class="anchor" href="#instance_data_flags" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Instance_Data_Flags</h4> 
 <table> 
  <tbody>
   <tr> 

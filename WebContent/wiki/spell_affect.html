@@ -1,8 +1,14 @@
 <html><head><title>spell_affect</title></head><body>
 <div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
-<h2> <a id="user-content-the-spell_affect-table" class="anchor" href="#the-spell_affect-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `spell_affect` table</h2> 
-<p>This table holds information on what spells are affected by what spell mods. All spells in this table need to apply an aura that either adds a flat modifier to other spells or adds a percent modifier to other spells. Also, a single row in this table only holds information on a single spell effect that applies the aura. Therefore since a spell may have up to three effects, a maximum of 3 rows per spell is allowed. However, only the spell effects that apply the flat or percent auras will be used.</p> 
-<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<h2> <a id="user-content-the-spell_affect-table" class="anchor" href="#the-spell_affect-table" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>The `spell_affect` table【已经废弃】</h2> 
+<p>This table holds information on what spells are affected by what spell mods. All spells in this table need to apply an aura that either adds a flat modifier to other spells or adds a percent modifier to other spells. Also, a single row in this table only holds information on a single spell effect that applies the aura. Therefore since a spell may have up to three effects, a maximum of 3 rows per spell is allowed. However, only the spell effects that apply the flat or percent auras will be used.<br>这个表信息关于什么技能，通过Effect修改其它技能的效果。这个表中所有的技能，通过光环直接添加修改值，或者添加百分比修改其它技能。一行只包含单个技能的effect应用效果。因此，既然每个spell有三个effect，相同的entry最多允许三行。</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Structure</h3> 
 <table> 
  <tbody>
   <tr> 
@@ -55,11 +61,23 @@
   </tr> 
  </tbody>
 </table> 
-<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
-<h4> <a id="user-content-entry" class="anchor" href="#entry" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry</h4> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Description of the fields字段描述</h3> 
+<h4> <a id="user-content-entry" class="anchor" href="#entry" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>entry</h4> 
 <p>The modifying spell entry ID. See Spell.dbc</p> 
-<h4> <a id="user-content-effectid" class="anchor" href="#effectid" aria-hidden="true"><span class="octicon octicon-link"></span></a>effectId</h4> 
-<p>The effect index of the effect that applies the aura with the flat or percent modifier. This field along with <a href="#entry">entry</a> defines a single modifying entry. The effect IDs are numbered starting with 0, so the first effect is 0, the next is 1, and finally the last is 2.</p> 
-<h4> <a id="user-content-spellclassmask" class="anchor" href="#spellclassmask" aria-hidden="true"><span class="octicon octicon-link"></span></a>SpellClassMask</h4> 
-<p>This field controls what class a spell needs to have to be affected by the modifier. This is the main field that defines which spells are affected by modifiers. For SpellClass see spell.dbc (in WoW-3.0.3 column 211)</p></div></div>
+<h4> <a id="user-content-effectid" class="anchor" href="#effectid" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>effectId</h4> 
+<p>The effect index of the effect that applies the aura with the flat or percent modifier. This field along with <a href="#entry">entry</a> defines a single modifying entry. The effect IDs are numbered starting with 0, so the first effect is 0, the next is 1, and finally the last is 2.<br><br>这是应用效果的effindex。这个字段和entry一起，定义了单个效果修改。取值0 , 1 ,2。</p> 
+<h4> <a id="user-content-spellclassmask" class="anchor" href="#spellclassmask" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>SpellClassMask</h4> 
+<p>This field controls what class a spell needs to have to be affected by the modifier. This is the main field that defines which spells are affected by modifiers. For SpellClass see spell.dbc (in WoW-3.0.3 column 211)<br>这个字段控制什么类型的spell会被该效果影响。</p></div></div>
 </body></html>

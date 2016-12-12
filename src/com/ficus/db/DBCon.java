@@ -8,6 +8,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -91,6 +92,7 @@ public final class DBCon {
 	public QueryResult query() throws SQLException {
 		return realQuery();
 	}
+
 	public QueryResult queryOLD() throws SQLException {
 
 		return queryOLD(0, 999999999);
@@ -105,6 +107,7 @@ public final class DBCon {
 	// keyBuf.append(':').append(begin).append(':').append(end);
 	// return keyBuf.reverse().toString();
 	// }
+
 
 	public QueryResult realQuery() throws SQLException {
 		
@@ -169,13 +172,11 @@ public final class DBCon {
 		if (this.useStrPara == false) {
 			return;
 		}
-
-		para_vec.sort(new Comparator<SQLParameter>(){
-			@Override
-			public int compare(SQLParameter o1, SQLParameter o2) {
-				return o1.pos-o2.pos;
-			}});
-
+		Collections.sort(para_vec,new Comparator<SQLParameter>(){
+				@Override
+				public int compare(SQLParameter o1, SQLParameter o2) {
+					return o1.pos-o2.pos;
+				}});
 
 		for (int i = 0; i < para_vec.size(); i++)
 			sql = Util.replace(sql, new StringBuilder(":").append(((SQLParameter) para_vec.get(i)).name).toString(),
@@ -505,6 +506,32 @@ public final class DBCon {
 			rs.close();
 		}
 		return list;
+	}
+
+	public void Query(RecodDealer recodDealer) throws SQLException {
+		commitParameter();
+		psmt = con.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY); // 只用于查询，提高next效率
+
+		for (int i = 0; i < para_vec.size(); i++)
+			setP1(i + 1, ((SQLParameter) para_vec.get(i)).value);
+
+		makeResultMySql(recodDealer,psmt);
+	}
+	private void makeResultMySql(RecodDealer recodDealer,PreparedStatement psmt) throws SQLException {
+		ResultSet rs = null;
+		try {
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				if(!recodDealer.deal(rs))
+					return;
+			}
+		} catch (Exception e) {
+			throw new SQLException(e.getMessage());
+		} finally {
+			if (rs != null) {
+				rs.close();
+			}
+		}
 	}
 	private QueryResult makeResultMySql(PreparedStatement psmt) throws SQLException {
 

@@ -53,9 +53,6 @@ public class RequiredClasses extends ArrayList<KeyValue> implements QueryItemInt
 		else 
 			return "RequiredClasses&"+Math.pow(2,Integer.parseInt(RequiredClasses)-1);
 	}
-	public String getFilterTable(){
-		return "creature_template";
-	}
 
 	@Override
 	public boolean useAjaxRetriveHtml() {

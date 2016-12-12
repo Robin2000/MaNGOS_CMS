@@ -1,9 +1,12 @@
 <html><head><title>DBScripts</title></head><body>
 <div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
-<h2> <a id="user-content-the-dbscripts_on_-tables" class="anchor" href="#the-dbscripts_on_-tables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The `dbscripts_on_*` tables</h2> 
+<h2> <a id="user-content-the-dbscripts_on_-tables" class="anchor" href="#the-dbscripts_on_-tables" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>The `dbscripts_on_*` tables</h2> 
 <p>The manual reference for these tables is located in the <a href="https://github.com/cmangos/mangos-wotlk/blob/master/doc/script_commands.txt">doc/script_commands.txt</a> file.</p> 
-<p><strong>The information below may be outdated, use with caution!</strong></p> 
-<p>This table format is used for different tables to control possible scripts activated by different actions:</p> 
+<p><strong>The information below may be outdated, use with caution!</strong><br>下面的信息可能过期，使用时小心，应以程序代码为准!</p> 
+<p>This table format is used for different tables to control possible scripts activated by different actions:<br>不同的表控制不同的脚本激活信息。</p> 
 <ul> 
  <li> <strong>`dbscripts_on_go_[template]_use:</strong> Holds possible scripts activated by gameobjects.<br> Source: object user (unit); Target: gameobject. 
   <ul> 
@@ -13,10 +16,10 @@
 </ul> 
 <ul> 
  <li> <strong>`dbscripts_on_spell:</strong> Holds scripts that can be activated by spells with the following spell effects: 
-  <ul> 
-   <li> <span>SPELL</span>_<span>EFFECT</span>_<span>DUMMY</span> (3)</li> 
-   <li> <span>SPELL</span>_<span>EFFECT</span>_TRIGGER_SPELL (64) – only for missing triggered spells</li> 
-   <li> <span>SPELL</span>_<span>EFFECT</span>_<span>SCRIPT</span>_<span>EFFECT</span> (77)<br> Source: caster; Target: target.</li> 
+  脚本通过spell激活。<br><ul> 
+   <li> <span>SPELL</span>_<span>EFFECT</span>_<span>DUMMY</span> (3)  应用虚拟光环</li> 
+   <li> <span>SPELL</span>_<span>EFFECT</span>_TRIGGER_SPELL (64) – only for missing triggered spells  仅用于缺失触发技能的时候，使用脚本触发</li> 
+   <li> <span>SPELL</span>_<span>EFFECT</span>_<span>SCRIPT</span>_<span>EFFECT</span> (77)        影响效果<br> Source: caster; Target: target.</li> 
   </ul> </li> 
 </ul> 
 <ul> 
@@ -53,8 +56,11 @@
    <li>For gossip_menu_option when gossip holder is gameobject – Source: player; Target: gossip holder (gameobject); Script execution unique by target.</li> 
   </ul> </li> 
 </ul> 
-<p><span>NOTE</span>: An entry in this table may have more than one row as a script may do more than just one action. Also each action the script may make can have a separate delay attached to it. In that case, the core will activate the appropriate action after the correct delay.</p> 
-<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Structure</h3> 
+<p><span>NOTE</span>: An entry in this table may have more than one row as a script may do more than just one action. Also each action the script may make can have a separate delay attached to it. In that case, the core will activate the appropriate action after the correct delay.<br>注意：entry可以有多条记录，可以做多个动作。每个动作脚本可以有不同的延迟时间。内核会延迟相应时间后自动激活。</p> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Structure</h3> 
 <table> 
  <tbody>
   <tr> 
@@ -203,14 +209,26 @@
   </tr> 
  </tbody>
 </table> 
-<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description of the fields</h3> 
-<h4> <a id="user-content-id" class="anchor" href="#id" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>id</h4> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Description of the fields</h3> 
+<h4> <a id="user-content-id" class="anchor" href="#id" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>id</h4> 
 <p>For <strong>gameobject_scripts</strong>, it is the guid of the button/lever. See <a href="gameobject#guid">gameobject.guid</a>.<br> For <strong>gameobject_template_scripts</strong>, it is the entry of the button/lever. See <a href="gameobject_template#entry">gameobject_template.entry</a>.<br> For <strong>spell_scripts</strong>, it is the spell ID. See Spell.dbc<br> For <strong>quest_*_scripts</strong>, it is the ID that is used in <a href="quest_template#StartScript">StartScript</a> or <a href="quest_template#CompleteScript">CompleteScript</a> in the quest template definition.<br> For <strong>event_scripts</strong>, it is the event ID. There doesn’t exist currently a full list of events. In any case, the event IDs are taken directly from gameobject <span>WDB</span> data or spell effect data. If both a gameobject and a spell activate the same event, the IDs will match.<br> For <strong>creature_movement_scripts</strong>, it is the <a href="Creature_movement#script_id">script id</a> of the waypoint.The <span>PROPER</span> formatting for the ID field is as follows: Creature_entry + 2-Digit Script ID (Starting at 01). Example: c.2386 has few movement_scripts, so 2386+01 = 238601 … 23602 ..etc<br> For <strong>creature_death_scripts</strong>, it is the entry of the creature. See <a href="creature_template#entry">creature_template.entry</a>.<br> For <strong>gossip_scripts</strong>, it is the <a href="Gossip_menu_option#action_script_id">action script id</a> of the gossip option.</p> 
-<h4> <a id="user-content-delay" class="anchor" href="#delay" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>delay</h4> 
-<p>Delay in seconds before this current step of the script activates. 0 = instant.</p> 
-<p><span>NOTE</span>: Delay is Cumulative From Script to Script with same ID.<br> Example: Script 1 Has 5 seconds delay and then if you want script 2 to trigger 3 seconds later you would use delay value 8 for script 2 in the sequence.</p> 
-<h4> <a id="user-content-command" class="anchor" href="#command" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>command</h4> 
-<p>The type of action performed by the script after <a href="#delay">delay</a> seconds have passed. The value of this field affects what other fields also need to be set.</p> 
+<h4> <a id="user-content-delay" class="anchor" href="#delay" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>delay</h4> 
+<p>Delay in seconds before this current step of the script activates. 0 = instant. 以秒为单位表示延迟，0表示立刻</p> 
+<p><span>NOTE</span>: Delay is Cumulative From Script to Script with same ID. 注意：相同id的延迟是累积的<br> Example: Script 1 Has 5 seconds delay and then if you want script 2 to trigger 3 seconds later you would use delay value 8 for script 2 in the sequence.<br>例如：脚本1有5秒延迟，那么如果脚本2触发3秒延迟，实际效果会是8秒后触发脚本2.</p> 
+<h4> <a id="user-content-command" class="anchor" href="#command" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>command</h4> 
+<p>The type of action performed by the script after <a href="#delay">delay</a> seconds have passed. The value of this field affects what other fields also need to be set.<br>延迟delay后，脚本执行的动作类型，这个字段决定了后面其它字段的含义。</p> 
 <p>The following commands can be used:</p> 
 <table> 
  <tbody>
@@ -439,9 +457,17 @@
    <td> <span>RESET</span>_<span>OBJECT</span> </td> 
    <td>Reset a gameobject.</td> 
   </tr> 
+  <tr> 
+   <td>44</td> 
+   <td> <span>UPDATE</span>_<span>TEMPLATE</span> </td> 
+   <td>Update creature entry.</td> 
+  </tr> 
  </tbody>
 </table> 
-<h4> <a id="user-content-buddy-concept" class="anchor" href="#buddy-concept" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Buddy Concept</h4> 
+<h4> <a id="user-content-buddy-concept" class="anchor" href="#buddy-concept" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Buddy Concept</h4> 
 <p>Commands except the ones requiring a player (like <span>KILL</span>_<span>CREDIT</span>) have support for the buddy concept. This means that if an entry for buddy_entry is provided, aside from source and target as listed above also a "buddy" is available.</p> 
 <p>Which one on the three (originalSource, originalTarget, buddy) will be used in the command, depends on the data_flags Note that some commands (like <span>EMOTE</span>) use only the resulting source for an action.</p> 
 <p>Possible combinations of the flags <span>SCRIPT</span>_<span>FLAG</span>_<span>BUDDY</span>_AS_<span>TARGET</span> = 0×01 <span>SCRIPT</span>_<span>FLAG</span>_<span>REVERSE</span>_<span>DIRECTION</span> = 0×02 <span>SCRIPT</span>_<span>FLAG</span>_<span>SOURCE</span>_<span>TARGETS</span>_<span>SELF</span> = 0×04 are:</p> 
@@ -454,9 +480,15 @@
 <p>6: originalTarget -&gt; originalTarget</p> 
 <p>7: buddy -&gt; buddy</p> 
 <p>Where "A -&gt; B" means that the command is executed from A with B as target.</p> 
-<h4> <a id="user-content-search-radius" class="anchor" href="#search-radius" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Search Radius</h4> 
+<h4> <a id="user-content-search-radius" class="anchor" href="#search-radius" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Search Radius</h4> 
 <p>Range in which the buddy defined in <a href="DBScripts#buddy_concept">buddy_entry</a> will be searched.<br> In case of SCRIPT_FLAG_BUDDY_BY_GUID this field is the buddy’s <span>GUID</span>.</p> 
-<h4> <a id="user-content-data-flags" class="anchor" href="#data-flags" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Data flags</h4> 
+<h4> <a id="user-content-data-flags" class="anchor" href="#data-flags" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Data flags</h4> 
 <table> 
  <tbody>
   <tr> 
@@ -469,13 +501,13 @@
    <td>SCRIPT_FLAG_REVERSE_DIRECTION</td> 
    <td>0×02</td> 
    <td>2</td> 
-   <td></td> 
+   <td>脚本交换方向</td> 
   </tr> 
   <tr> 
    <td>SCRIPT_FLAG_SOURCE_TARGETS_SELF</td> 
    <td>0×04</td> 
    <td>4</td> 
-   <td></td> 
+   <td>脚本源和目标都是自己</td> 
   </tr> 
   <tr> 
    <td>SCRIPT_FLAG_COMMAND_ADDITIONAL</td> 
@@ -503,7 +535,10 @@
   </tr> 
  </tbody>
 </table> 
-<h4> <a id="user-content-otherfields" class="anchor" href="#otherfields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>OtherFields</h4> 
+<h4> <a id="user-content-otherfields" class="anchor" href="#otherfields" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>OtherFields</h4> 
 <p>Depending on what command was used, the meaning and use for the following fields varies.</p> 
 <ul> 
  <li> <strong><span>SCRIPT</span>_<span>COMMAND</span>_<span>TALK</span> = 0</strong> 
@@ -545,6 +580,35 @@
    <li>datalong2: Flag bit(s) to set.</li> 
   </ul> </li> 
 </ul> 
+<table> 
+ <tbody>
+  <tr> 
+   <td> <span>FIELD</span> TO <span>MODIFY</span> </td> 
+   <td> <span>HEX</span> <span>VALUES</span> </td> 
+   <td> <span>DECIMAL</span> <span>INDEX</span> <span>VALUE</span> </td> 
+   <td><span>COMMENTS</span></td> 
+  </tr> 
+  <tr> 
+   <td> <span>UNIT</span>_<span>FIELD</span>_<span>FLAGS</span> </td> 
+   <td>0×0006 + 0×0028</td> 
+   <td>46</td> 
+   <td>Modify UnitFlags for <span>NPC</span> (Source Must Be Unit)</td> 
+  </tr> 
+  <tr> 
+   <td> <span>UNIT</span>_<span>DYNAMIC</span>_<span>FLAGS</span> </td> 
+   <td>0×0006 + 0×009E</td> 
+   <td>164</td> 
+   <td>Modify DynamicFlags for <span>NPC</span> (Source Must Be Unit)</td> 
+  </tr> 
+  <tr> 
+   <td> <span>UNIT</span>_<span>NPC</span>_<span>FLAGS</span> </td> 
+   <td>0×0006 + 0×00A2</td> 
+   <td>168</td> 
+   <td>Modify NPCFlags for <span>NPC</span> (Source Must Be Unit)</td> 
+  </tr> 
+ </tbody>
+</table> 
+<p>More Examples Can Be Found At: UpdateFields.h In Core</p> 
 <ul> 
  <li> <strong><span>SCRIPT</span>_<span>COMMAND</span>_<span>FLAG</span>_<span>REMOVE</span> = 5</strong> 
   <ul> 
@@ -592,6 +656,7 @@
    <li>datalong: Entry of the summoned creature from <a href="creature_template#entry">creature_template.entry</a>.</li> 
    <li>datalong2: Despawn time (<span>MILLIESECONDS</span>). If set to 0 then the creature will be despawned only when killed.</li> 
    <li>data_flags &amp; <span>SCRIPT</span>_<span>FLAG</span>_<span>COMMAND</span>_<span>ADDITIONAL</span> will summon the creature as active object.</li> 
+   <li>dataint: SetRun (bool). 0 = off (default), 1 = on</li> 
    <li>x: Summon target x coordinate.</li> 
    <li>y: Summon target y coordinate.</li> 
    <li>z: Summon target z coordinate.</li> 
@@ -650,7 +715,7 @@
 <ul> 
  <li> <strong><span>SCRIPT</span>_<span>COMMAND</span>_<span>DESPAWN</span>_<span>SELF</span> = 18</strong> 
   <ul> 
-   <li>datalong: Despawn delay (<span>MILLIESECONDS</span>).</li> 
+   <li>datalong: Despawn delay (<span>MILLIESECONDS</span>).  延迟毫秒为30000</li> 
    <li>Resulting source must be a creature.</li> 
    <li>Despawns the target.</li> 
   </ul> </li> 
@@ -942,6 +1007,14 @@
  <li> <strong>SCRIPT_COMMAND_RESET_GO = 43</strong> 
   <ul> 
    <li>Resulting target must be a Gameobject. Only works for Gameobject which are doors or buttons (GO type 0 and 1)</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li> <strong>SCRIPT_COMMAND_UPDATE_TEMPLATE = 44</strong> 
+  <ul> 
+   <li>Resulting source must be a Creature.</li> 
+   <li>datalong = new creature entry. Must be different than the current one</li> 
+   <li>datalong2 = faction for which the entry is updated. 0 = Alliance, 1 = Horde. No other values are allowed</li> 
   </ul> </li> 
 </ul></div></div>
 </body></html>

@@ -4,10 +4,10 @@
 <html>
 <head>
 	<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
-    <title>Welcome to MaNGOS CMS</title>
+    <title>欢迎使用GCMS</title>
     
 </head>
 <body>
-    Welcome to MaNGOS CMS!
+    
 </body>
 </html>

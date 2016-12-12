@@ -1,10 +1,16 @@
 <html><head><title>creature_template_addon</title></head><body>
 <div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
-<h2> <a id="user-content-the-creature_template_addon-tables" class="anchor" href="#the-creature_template_addon-tables" aria-hidden="true"><span class="octicon octicon-link"></span></a>The `creature_(template)_addon` tables</h2> 
+<h2> <a id="user-content-the-creature_template_addon-tables" class="anchor" href="#the-creature_template_addon-tables" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>The `creature_(template)_addon` tables</h2> 
 <p>The creature_addon and creature_template_addon tables define different things that are applied on creatures when they are loaded. These "different things" can be for example to have the creature be mounted, to have it emote something, to have it display an aura effect, etc. Through the use of the fields in this table, many things can be changed about the outward visual appearance of the creature. The creature_template_addon table affects all creatures with that creature template ID while the creature_addon table affects individually spawned creatures (so that two creatures using the same template can look different).</p> 
 <p><span>NOTE</span>: A creature_addon record will override a creature_template_addon record should they overlap on the same creature.</p> 
 <p><span>NOTICE</span>: The data for this table is largely incomplete and is mostly just a regurgitation of what the client receives from the server. This article is a <span>WIP</span> as to what all the possible values are.</p> 
-<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure</h3> 
+<h3> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Structure</h3> 
 <table> 
  <tbody>
   <tr> 
@@ -81,22 +87,46 @@
   </tr> 
  </tbody>
 </table> 
-<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of the fields</h3> 
-<h4> <a id="user-content-entryguid" class="anchor" href="#entryguid" aria-hidden="true"><span class="octicon octicon-link"></span></a>entry/guid</h4> 
+<h3> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Description of the fields</h3> 
+<h4> <a id="user-content-entryguid" class="anchor" href="#entryguid" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>entry/guid</h4> 
 <p>For creature_template_addon, this field signifies the creature template ID. It will affect all spawned creatures using that template ID. For creature_addon, this field signifies a unique creature guid. It will affect just that creature whose <span>GUID</span> matches the one specified here.</p> 
-<h4> <a id="user-content-mount" class="anchor" href="#mount" aria-hidden="true"><span class="octicon octicon-link"></span></a>mount</h4> 
+<h4> <a id="user-content-mount" class="anchor" href="#mount" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>mount</h4> 
 <p>The model ID of the mount to be used to make the creature appear mounted. The value here overrides the value for the creature’s unit field <span>UNIT</span>_<span>FIELD</span>_<span>MOUNTDISPLAYID</span>. List of known values and what their visual effects on the creature</p> 
-<h4> <a id="user-content-bytes1" class="anchor" href="#bytes1" aria-hidden="true"><span class="octicon octicon-link"></span></a>bytes1</h4> 
+<h4> <a id="user-content-bytes1" class="anchor" href="#bytes1" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>bytes1</h4> 
 <p>UNIT_BYTE1_FLAG_ALWAYS_STAND = 0×01,<br> UNIT_BYTE1_FLAG_UNK_2 = 0×02, // Creature that can fly and are not on the ground appear to have this flag. If they are on the ground, flag is not present.<br> UNIT_BYTE1_FLAG_UNTRACKABLE = 0×04,<br> UNIT_BYTE1_UNK = 0×1 // Makes <span>NPC</span> Kneel<br> UNIT_BYTE1_UNK = 0×3 // Makes <span>NPC</span> Laydown<br> UNIT_BYTE1_FLAG_ALL = 0xFF</p> 
-<h4> <a id="user-content-b2_0_sheath" class="anchor" href="#b2_0_sheath" aria-hidden="true"><span class="octicon octicon-link"></span></a>b2_0_sheath</h4> 
+<h4> <a id="user-content-b2_0_sheath" class="anchor" href="#b2_0_sheath" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>b2_0_sheath</h4> 
 <p>SheathState.<br> 0 = All Weapons Sheathed by Default<br> 1 = Melee Weapon <span>NOT</span> Sheathed by Default (Melee Weapon In Hand)<br> 2 = Ranged Weapon <span>NOT</span> Sheathed by Default (Ranged Weapon In Hand)</p> 
-<h4> <a id="user-content-b2_1_pvp_state" class="anchor" href="#b2_1_pvp_state" aria-hidden="true"><span class="octicon octicon-link"></span></a>b2_1_pvp_state</h4> 
+<h4> <a id="user-content-b2_1_pvp_state" class="anchor" href="#b2_1_pvp_state" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>b2_1_pvp_state</h4> 
 <p>UnitPVPStateFlags</p> 
 <p>UNIT_BYTE2_FLAG_PVP = 0×01,<br> UNIT_BYTE2_FLAG_UNK1 = 0×02,<br> UNIT_BYTE2_FLAG_FFA_PVP = 0×04,<br> UNIT_BYTE2_FLAG_SANCTUARY = 0×08,<br> UNIT_BYTE2_FLAG_UNK4 = 0×10,<br> UNIT_BYTE2_FLAG_UNK5 = 0×20,<br> UNIT_BYTE2_FLAG_UNK6 = 0×40,<br> UNIT_BYTE2_FLAG_UNK7 = 0×80</p> 
-<h4> <a id="user-content-emote" class="anchor" href="#emote" aria-hidden="true"><span class="octicon octicon-link"></span></a>emote</h4> 
+<h4> <a id="user-content-emote" class="anchor" href="#emote" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>emote</h4> 
 <p>Emote ID that the creature should continually perform.</p> 
 <p><span>COMPLETE</span> <span>LIST</span> OF <span>EMOTES</span> <span>CAN</span> BE <span>FOUND</span> IN: Emotes.dbc<br> (They Are Different Between Client Versions)</p> 
-<h4> <a id="user-content-moveflags" class="anchor" href="#moveflags" aria-hidden="true"><span class="octicon octicon-link"></span></a>moveflags</h4> 
+<h4> <a id="user-content-moveflags" class="anchor" href="#moveflags" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>moveflags</h4> 
 <p>Flags controlling how the creature will behave animation-wise while moving. <span>This table is 100% wrong as of 3.1. It is still here for a period of time for reference and to convert values in DB.</span></p> 
 <p>See the proper table under this one</p> 
 <table> 
@@ -444,7 +474,10 @@
  </tbody>
 </table> 
 <p>Note: <span>MONSTER</span>_<span>MOVE</span>_<span>SPLINE</span>_<span>FLY</span> = <span>MONSTER</span>_<span>MOVE</span>_<span>WALK</span> + <span>MONSTER</span>_<span>MOVE</span>_<span>SPLINE</span> and makes creature fly by points. Note2: Copy from Mangos</p> 
-<h4> <a id="user-content-auras" class="anchor" href="#auras" aria-hidden="true"><span class="octicon octicon-link"></span></a>auras</h4> 
+<h4> <a id="user-content-auras" class="anchor" href="#auras" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>auras</h4> 
 <p>This field controls any auras to be applied on the creature (both in effect and visually). The syntax for for an individual aura entry is " ". An aura is defined not just by the spell that applies it but also by the individual spell affect that applies it. Therefore, the effect index must be specified along with the spell ID. Each spell can have a maximum of three spell effects, so the effect index can only be 0, 1, or 2. To apply multiple auras, you can add more aura entries, separating each entry by a space. Remember that if a spell applies multiple auras, you need to specify an aura entry for each effect index if you want to apply more than one aura from the same spell.</p> 
 <p><span><span>NOTE</span>: Currently (Rev 5067) auras defined in creature_template_addon are not being properly added. Only add auras for creatures in creature_addon.</span></p> 
 <p>List of useful aura entries:</p> 

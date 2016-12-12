@@ -1,0 +1,887 @@
+<html><head><title>loot_template</title></head><body>
+<div class='row'><div class='col-lg-12'><p>Back to <a href="mangosdb_struct">world database</a> list of tables.</p> 
+<h2> <a id="user-content-the-_loot_template-tables" class="anchor" href="#the-_loot_template-tables" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>The `*_loot_template` tables</h2> 
+<h2> <a id="user-content-general" class="anchor" href="#general" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>General</h2> 
+<p>Well, according to vocabulary the meaning of the word "loot" is good for corpse loot and may be for some gameobjects like chests but quite unfit for fishing "loot". Nevermind. We will use term "loot" here as "a set of items generated on an event for a player" and "loot definition" as "a set of rules for loot generation". And forget about vocabulary for a while.</p> 
+<p>This table format is used for 11 different tables to generate different loot items for different things. The 11 tables are creature_loot_template, disenchant_loot_template, fishing_loot_template, gameobject_loot_template, item_loot_template, pickpocketing_loot_template, prospecting_loot_template, skinning_loot_template, quest_mail_loot_template, reference_loot_template, milling_loot_template. The general description here is valid for all 11 because the loot system is the same for all eleven.</p> 
+<p>Loot templates define only items in the loot. See comments about money drop in corpse, pickpocketing and luggage loot in <a href="creature_template">creature_template</a> and <a href="item_template">item_template.</a>.</p> 
+<h2> <a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Structure</h2> 
+<table> 
+ <tbody>
+  <tr> 
+   <td><strong>Field</strong></td> 
+   <td><strong>Type</strong></td> 
+   <td><strong>Null</strong></td> 
+   <td><strong>Key</strong></td> 
+   <td><strong>Default</strong></td> 
+   <td><strong>Extra</strong></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Loot_template#entry">entry</a></td> 
+   <td>mediumint unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Loot_template#item">item</a></td> 
+   <td>mediumint unsigned</td> 
+   <td>NO</td> 
+   <td><span>PRI</span></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Loot_template#chanceorquestchance">ChanceOrQuestChance</a></td> 
+   <td>float</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>100</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Loot_template#groupid">groupid</a></td> 
+   <td>tinyint</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>0</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Loot_template#mincountorref">mincountOrRef</a></td> 
+   <td>mediumint</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Loot_template#maxcount">maxcount</a></td> 
+   <td>tinyint unsigned</td> 
+   <td>NO</td> 
+   <td></td> 
+   <td>1</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td><a href="Loot_template#condition_id">condition_id</a></td> 
+   <td>mediumint(8)</td> 
+   <td>unsigned</td> 
+   <td></td> 
+   <td>NO</td> 
+   <td>0</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h2> <a id="user-content-relations" class="anchor" href="#relations" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Relations</h2> 
+<p>The 11 tables have different relations with other DB tables.</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>Loot table</th> 
+   <th>Field</th> 
+   <th>Relation</th> 
+   <th>Related table</th> 
+   <th>Field</th> 
+   <th>Comment</th> 
+  </tr> 
+  <tr> 
+   <td>fishing_loot_template</td> 
+   <td>no relation</td> 
+   <td> <a href="Loot_template#entry">entry</a> is linked with ID of the fishing zone or area</td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>spell_loot_template</td> 
+   <td>no relation</td> 
+   <td> <a href="Loot_template#entry">entry</a> is linked with ID of the Spell.</td> 
+   <td></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>creature_loot_template</td> 
+   <td><a href="Loot_template#entry">entry</a></td> 
+   <td>many &lt;- many</td> 
+   <td><a href="Creature_template">creature_template</a></td> 
+   <td><a href="Creature_template#lootid">lootid</a></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>gameobject_loot_template</td> 
+   <td><a href="Loot_template#entry">entry</a></td> 
+   <td>many &lt;- many</td> 
+   <td><a href="Gameobject_template">gameobject_template</a></td> 
+   <td><a href="Gameobject_template#data0-23">data1</a></td> 
+   <td>Only GAMEOBJECT_TYPE_CHEST (3) or GAMEOBJECT_TYPE_FISHINGHOLE (25) use data1 as loot ID, for other types data1 is used in other ways</td> 
+  </tr> 
+  <tr> 
+   <td>item_loot_template</td> 
+   <td><a href="Loot_template#entry">entry</a></td> 
+   <td>many &lt;- one</td> 
+   <td><a href="Item_template">item_template</a></td> 
+   <td><a href="Item_template#entry">entry</a></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>disenchant_loot_template</td> 
+   <td><a href="Loot_template#entry">entry</a></td> 
+   <td>many &lt;- many</td> 
+   <td><a href="Item_template">item_template</a></td> 
+   <td><a href="Item_template#disenchantid">disenchantid</a></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>prospecting_loot_template</td> 
+   <td><a href="Loot_template#entry">entry</a></td> 
+   <td>many &lt;- one</td> 
+   <td><a href="Item_template">item_template</a></td> 
+   <td><a href="Item_template#entry">entry</a></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>milling_loot_template</td> 
+   <td><a href="Loot_template#entry">entry</a></td> 
+   <td>many &lt;- one</td> 
+   <td><a href="Item_template">item_template</a></td> 
+   <td><a href="Item_template#entry">entry</a></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>pickpocketing_loot_template</td> 
+   <td><a href="Loot_template#entry">entry</a></td> 
+   <td>many &lt;- many</td> 
+   <td><a href="Creature_template">creature_template</a></td> 
+   <td><a href="Creature_template#pickpocketloot">pickpocketloot</a></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>skinning_loot_template</td> 
+   <td><a href="Loot_template#entry">entry</a></td> 
+   <td>many &lt;- many</td> 
+   <td><a href="Creature_template">creature_template</a></td> 
+   <td><a href="Creature_template#skinloot">skinloot</a></td> 
+   <td>Can also store minable/herbable items gathered from creatures</td> 
+  </tr> 
+  <tr> 
+   <td>quest_mail_loot_template</td> 
+   <td><a href="Loot_template#entry">entry</a></td> 
+   <td></td> 
+   <td><a href="Quest_template">quest_template</a></td> 
+   <td><a href="Quest_template#rewmailtemplateid">RewMailTemplateId</a></td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>reference_loot_template</td> 
+   <td><a href="Loot_template#entry">entry</a></td> 
+   <td>many &lt;- many</td> 
+   <td>* _loot_template</td> 
+   <td><a href="Loot_template#mincountorref">-mincountOrRef</a></td> 
+   <td>In case of negative mincountOrRef</td> 
+  </tr> 
+ </tbody>
+</table> 
+<h2> <a id="user-content-description-of-the-fields" class="anchor" href="#description-of-the-fields" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Description of the fields</h2> 
+<h3> <a id="user-content-entry" class="anchor" href="#entry" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>entry</h3> 
+<p>The ID of the loot definition (loot template). The rows with the same ID defines a single loot.<br> It is often the same ID as the loot source (item, creature, etc) but when the <a href="#Relations">link</a> is made not on <strong>entry</strong> field of the Related table then ID can be different. For example, when several loot sources should provide the same loot, single loot definition can be used. In this case the loot sources have the same value in the link field.</p> 
+<p>It is possible also to set up <strong>artificial loot templates</strong> which are not used directly at all as they have ID which are not referenced from the related source. Such "support templates" can be <a href="#Template_reference">referenced</a> from "normal" loot templates.</p> 
+<p>When a common or artificial loot template is used a problem arises: what ID to use for that template? Depending on the loot table, different rules can be agreed on to simplify maintenance for the table. Moreover, such rules would be very handy but it seems at the moment there are very few rules explicitly defined.</p> 
+<p>Agreements on <strong>entry</strong> field values are described <a href="#Agreements">there</a>.</p> 
+<h3> <a id="user-content-item" class="anchor" href="#item" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>item</h3> 
+<p><a href="item_template#entry">Template ID</a> of the item which can be included into the loot.</p> 
+<p><span>NOTE</span>: For <a href="#mincountOrRef">reference entries</a> this field has no meaning and not used by the core in any way. Yet because of the <span>PRIMARY</span> <span>KEY</span> on the entry + item combination, this field will nonetheless need to be a unique number for each reference entry so that no indexing conflicts arise.</p> 
+<h3> <a id="user-content-chanceorquestchance" class="anchor" href="#chanceorquestchance" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>ChanceOrQuestChance</h3> 
+<p>Meaning of that field is a bit different depending on its sign and the sign of <a href="#mincountOrRef">mincountOrRef</a>:</p> 
+<h4> <a id="user-content-plain-entry" class="anchor" href="#plain-entry" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Plain entry</h4> 
+<p><strong>ChanceOrQuestChance</strong> &gt; 0, <a href="#mincountOrRef">mincountOrRef</a> &gt; 0</p> 
+<p>Absolute value of <strong>ChanceOrQuestChance</strong> (actuallu just the value as it’s positive in this case) signifies the percent chance that the item has to drop. Any floating point number is allowed but indeed any value larger that 100 will make the same result as 100.</p> 
+<h4> <a id="user-content-quest-drop" class="anchor" href="#quest-drop" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Quest drop</h4> 
+<p><strong>ChanceOrQuestChance</strong> &lt; 0, <a href="#mincountOrRef">mincountOrRef</a> &gt; 0</p> 
+<p>Just as for <a href="#Plain_entry">plain entries</a> absolute value of <strong>ChanceOrQuestChance</strong> signifies the percent chance that the item has to drop. But in addition negative <strong>ChanceOrQuestChance</strong> informs the core that the item should be shown only to characters having appropriate quest. This means that even if item is dropped, in order to see it in the loot the player must have at least one <a href="quest_template">quest</a> that has the <a href="#item">item ID</a> in its <a href="quest_template#ReqItemId">ReqItemIdN</a> fields or in its <a href="quest_template#ReqSourceId">ReqSourceIdN</a> fields. The player must also have less copies of the item than <a href="quest_template#ReqItemCount">ReqItemCountN</a> or <a href="quest_template#ReqSourceCount">ReqSourceCountN</a>.</p> 
+<h4> <a id="user-content-chanced-references" class="anchor" href="#chanced-references" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Chanced references</h4> 
+<p><a href="#mincountOrRef">mincountOrRef</a> &lt; 0</p> 
+<p>For negative <a href="#mincountOrRef">mincountOrRef</a> (<em>reference entries_) <strong>ChanceOrQuestChance</strong> signifies the percent chance that the reference has to be used. So it is very similar to <a href="#Plain">plain entries</a></em>entry meaning, just note that entire reference is skipped if the chance is missed.</p> 
+<p>Negative and zero values of <strong>ChanceOrQuestChance</strong> make no sense for that case and cannot be used.</p> 
+<h4> <a id="user-content-common-remarks" class="anchor" href="#common-remarks" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Common remarks</h4> 
+<p>Zero value of <strong>ChanceOrQuestChance</strong> is allowed for <a href="#groupid">grouped entries</a> only.</p> 
+<p>(Non-zero) values of <strong>ChanceOrQuestChance</strong> in loot definition are multiplied by RATE_DROP_ITEMS (mangos config setting) during loot generation for references and non-reference entries, but not for grouped entries.</p> 
+<h3> <a id="user-content-groupid" class="anchor" href="#groupid" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>groupid</h3> 
+<p>A group is a set of loot definitions processed in such a way that at any given looting event the loot generated can receive only 1 (or none) <a href="#item">item</a> from the items declared in the loot definitions of the group. Groups are formed by loot definitions having the same values of <a href="#entry">entry</a> and <strong>groupid</strong> fields <span>AND</span> have <strong>MinCountOrRef &gt; 0</strong>.</p> 
+<p>A group may consists of <strong>explicitly-chanced</strong> (having non-zero <a href="#ChanceOrQuestChance">ChanceOrQuestChance</a>) and <strong>equal-chanced</strong> (<a href="#ChanceOrQuestChance">ChanceOrQuestChance</a> = 0) entries. Every <em>equal-chanced</em> entry of a group is considered having such a chance that:</p> 
+<ul> 
+ <li>all equal-chanced entries have the same chance</li> 
+ <li> <strong>group chance</strong> (sum of chances of all entries) is 100%</li> 
+</ul> 
+<p>Of course group may consist of</p> 
+<ul> 
+ <li>only explicitly-chanced entries or</li> 
+ <li>only equal-chanced entries or</li> 
+ <li>entries of both type.</li> 
+</ul> 
+<p>The easies way to understand what are groups is to understand how core processes grouped entries:</p> 
+<p>At loading time:</p> 
+<ul> 
+ <li>groups are formed – all grouped entries with the same values of <strong>groupid</strong> and <strong>entry</strong> fields are gathered into two sets – one for explicitly-chanced entries and one for equal-chanced. Note that order of entries in the sets can not be defined by DB – you should assume that the entries are in an unknown order. But indeed every time core processes a group the entries are in some order, constant during processing.</li> 
+</ul> 
+<p>During loot generation:</p> 
+<ul> 
+ <li>core rolls for explicitly-chanced entries (if any): 
+  <ul> 
+   <li>a random number <strong>R</strong> is rolled in range 0 to 100 (floating point value).</li> 
+   <li>chance to drop is checked for every (explicitly-chanced) entry in the group: 
+    <ul> 
+     <li>if <strong>R</strong> is less than absolute value of <a href="#ChanceOrQuestChance">ChanceOrQuestChance</a> of the entry then the entry ‘wins’: the <a href="#item">item</a> is included in the loot. Group processing stops, the rest of group entries are just skipped.</li> 
+     <li>otherwise the entry ‘looses’: the <a href="#item">item</a> misses its chance to get into the loot. <strong>R</strong> is decreased by the absolute value of <a href="#ChanceOrQuestChance">ChanceOrQuestChance</a> and next explicitly-chanced entry is checked.</li> 
+    </ul> </li> 
+  </ul> </li> 
+ <li>if none of explicitly-chanced entries got its chance then equal-chanced part (if any) is processed: 
+  <ul> 
+   <li>a random entry is selected from the set of equal-chanced entries and corresponding <a href="#item">item</a> is included in the loot.</li> 
+  </ul> </li> 
+ <li>If nothing selected yet (this never happens if the group has some equal-chanced entries) – no item from the group is included into the loot.</li> 
+</ul> 
+<p>Let us use term <strong>group chance</strong> as the sum of <a href="#ChanceOrQuestChance">ChanceOrQuestChance</a> (absolute) values for the group. Please note that even one equal-chanced entry makes group chance to be 100% (provided that sum of explicit chances does not exceed 100%).</p> 
+<p>If you understand the process you can understand the results:</p> 
+<ul> 
+ <li>Not more than one item from a group may drop at any given time.</li> 
+ <li>If <strong>group chance</strong> is at least 100 then one item will be dropped for sure.</li> 
+ <li>If <em>group chance</em> does not exceed 100 then every item defined in group entries has <em>exactly</em> that chance to drop as set in <a href="#ChanceOrQuestChance">ChanceOrQuestChance</a>.</li> 
+ <li>If <em>group chance</em> is greater than 100 then some entries will lost a part of their chance (or even not be checked at all – that will be the case for all equal-chanced entries) whatever value takes the roll <strong>R</strong>. So for some items chance to drop will be less than their <a href="#ChanceOrQuestChance">ChanceOrQuestChance</a>. That is <em>very</em> bad and that is why having <em>group chance</em> &gt; 100 is strictly prohibited.</li> 
+ <li>Processing of <em>equal-chanced</em> part takes much less time then of <em>explicitly-chanced</em> one. So usage of equal-chanced groups is recommended when possible.</li> 
+</ul> 
+<p>So now basic applications of the groups are clear:</p> 
+<ul> 
+ <li>Groups with <em>group chance</em> of 100% generate <strong>exactly one</strong> <a href="#item">item</a> every time. This is needed quite often, for example such behavior is needed to define a loot template for tier item drop from a boss.</li> 
+ <li>Groups with <em>group chance</em> &lt; 100 generate <strong>one or zero</strong> <a href="#item">items</a> every time keeping <a href="#ChanceOrRef">chances</a> of every item unchanged. Such behavior is useful to limit maximum number of items in the loot.</li> 
+ <li>A single group may be defined for a set of items common for several loot sources. This could be very useful for decreasing DB size without any loss of data. See <a href="#Group_reference">References</a> for more details.</li> 
+</ul> 
+<p>There is no way to have a <a href="#mincountOrRef">reference</a> as a part of a group.</p> 
+<p>Note: A group may contain definitions of non-quest drop, quest drop or both, but mixing non-quest and quest drop in a single group is not recommended.</p> 
+<p>Note: The core has a limitation – only 16 non-quest items (money and items added into the loot for quests are not counted for this "16") may come into the loot. And this is not a caprice of core devs – the client has some constraints. As most of loots have much more than 16 possible items (sometimes several hundreds) so without groups there is a (little) chance that more than 16 items will be rolled for a given loot but player will be able to see (and take) only first 16 of them. With groups you can ensure that more than 16 items will <em>never</em> drop. If DB pretends to be a quality software it must have loot template definitions which ensure that not more than 16 plain entries and groups are defined for any loot template. This is just a note – such declaration is not issued by <span>UDB</span> developers yet.</p> 
+<p>Note: The core has no limitation for number of groups (except 255 by DB field size), but according to the previous note there is no need to use values greater than 16.</p> 
+<h3> <a id="user-content-mincountorref" class="anchor" href="#mincountorref" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>mincountOrRef</h3> 
+<p>This field defines</p> 
+<ul> 
+ <li>when positive: the minimum number of copies of the item that can drop in a single loot</li> 
+ <li>when negative: a <em>reference</em> to another template.</li> 
+</ul> 
+<p>Zero value makes no sense and should not be used.</p> 
+<p>Meaning of positive values is quite clear and requires no additional comments. <em>References</em> can point to either a whole template or to single group of a template and decribed below.</p> 
+<h4> <a id="user-content-template-reference" class="anchor" href="#template-reference" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Template reference</h4> 
+<p><a href="#mincountOrRef">mincountOrRef</a> &lt; 0, <a href="#groupid">group</a> = 0</p> 
+<p>Template reference asks core to process another loot template (having <a href="#entry">entry</a> equal to "-mincountOrRef") and to include all items dropped for that template into current loot. Simple idea.</p> 
+<p>Value of <a href="#maxcount">maxcount</a> field is used as a repetition factor for references – the reference will be processed not just once but exactly <strong>maxcount</strong> times. So if the referenced template can produce 3 to 10 items (depending on luck) and value of <strong>maxcount</strong> is ‘5’ then after processing of that reference 15 to 50 items will be added to the loot. An awful example, isn’t it? Actually no good example for whole template reference repetition is known, but it is quite useful for <a href="#Group_reference">group references</a> sometimes.</p> 
+<p>Be careful. Self references (loot template includes reference to itself) and loop references (loot template A includes reference to entire template B, loot template B includes reference to entire template A) are <em>completely</em> different from <a href="#Group_reference">internal references</a>. If you make a self-reference like</p> 
+<p>@INSERT <span>INTO</span> `creature_loot_template` (`entry`,`item`,`mincountOrRef`) <span>VALUES</span> (‘21215’,‘0’,‘-21215’); @</p> 
+<p>then the core will crash due to stack overflow at first attempt of loot 21215 processing. That is why <strong>self references and loop references are strictly forbidden</strong>.</p> 
+<h4> <a id="user-content-filtered-references" class="anchor" href="#filtered-references" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Filtered references</h4> 
+<p><a href="#mincountOrRef">mincountOrRef</a> &lt; 0, <a href="#groupid">group</a> &gt; 0</p> 
+<p>Group reference asks core to process another loot template (having <a href="#entry">entry</a> equal to "-mincountOrRef") only in the part of one <a href="#groupid">group</a> – with id equal to value of `groupid` field of the reference entry. So this reference may add only none or 1 item into the loot (provided <a href="#maxcount">maxcount</a> is equal to 1).</p> 
+<p>Meaning of <a href="#maxcount">maxcount</a> field value is the same as described in <a href="#Template_reference">Template reference</a>.</p> 
+<p>Note that there is no way to have a <a href="#mincountOrRef">reference</a> as a part of a group as such <em>grouped reference</em> would have the same format as <em>reference to group</em> described here.</p> 
+<p>There are two types of group references:</p> 
+<ul> 
+ <li> <em>external reference</em> when group reference row has <strong>entry</strong> different from <strong>entry</strong> of the referenced group</li> 
+ <li> <em>internal reference</em> when group reference row has the same <strong>entry</strong> as the referenced group.</li> 
+</ul> 
+<p>Basic usage of group references is to avoid repetition of group definitions when several loot sources have common parts of the loot. In this case it is possible:</p> 
+<ul> 
+ <li>to define groups with the same contents (items/drop chances) again and again. The simpliest way, but very <span>RAM</span> consumable.</li> 
+ <li>to define the group once as a part of one of loot source loot definition and to include group references in loot definitions of the other loot sources instead of repeating group definition.</li> 
+ <li>to define the group once as a part of an artificial loot definition (having <strong>entry</strong> not corresponding to any source) and to include group references in loot definitions for every related loot source.</li> 
+</ul> 
+<p>The first way is deprecated, both second and third use <em>external references</em>. <span>UDB</span> recommends to use the third way.</p> 
+<p>As references have <a href="#ChanceOrQuestChance">chance</a> to be processed it is possible to use them effiently for <em>zone</em> or <em>world</em> drop definitions. Those drops often have different chances for different loot sources (low/high skill gameobjects, non-elite/elite creatures etc) while having the same contents of the loot. The recommended way to define such drops is as following:</p> 
+<ul> 
+ <li>to set up a group with 100% <a href="#groupid">group chance</a> in an artificial loot template (using <a href="#groupid">equal-chanced entries</a> when possible)</li> 
+ <li>to include references to that group into loot definition of every related loot source setting the drop chance for the reference.</li> 
+</ul> 
+<p>Some bosses drop more than one tier item (two or three). Loot statistics looks like the same group is rolled 2 or 3 times and every time an item (possible the same) is chosen. It is simple to define a <a href="#Grouped_entry">group</a> for single item, but how to define drop for the second and the third? We can:</p> 
+<ul> 
+ <li>repeat group definition 2 (or 3) times with change of group id</li> 
+ <li>define the group once and include 1 (or 2) <em>internal references</em>.</li> 
+ <li>define the group once as a part of an artificial loot definition and include 2 (or 3) <em>external</em> group references.</li> 
+ <li>define the group once as a part of an artificial loot definition and include an <em>external</em> group reference with <a href="#maxcount">repetition factor</a> of 2 (or 3).</li> 
+</ul> 
+<p>The in-game results will be the same. But again – the first way is very inefficient and then deprecated. <span>UDB</span> recommends to use the forth way.</p> 
+<h3> <a id="user-content-maxcount" class="anchor" href="#maxcount" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>maxcount</h3> 
+<p>For non-reference entries – the maximum number of copies of the item that can drop in a single loot.</p> 
+<p>For <a href="#Template_reference">references</a> value of <strong>maxcount</strong> field is used as a repetition factor for references – the reference will be processed not just once but exactly <strong>maxcount</strong> times. This is designed to serve a single purpose: to make definition of tier token drops a bit simplier (tokens of a tier are defined as a 100%-chance group of an artificial template and bosses’ loot templates include 100%-chanced reference to that group with repetition factor of 2 or 3 depending on the case). Using non-1 repetition factor for other things (references to a group with <em>group chance</em> less than 100% or <a href="#Chanced_references">chanced references</a> with chance less than 100%) must be agreed with <span>UDB</span> devs first (and described here).</p> 
+<p>Note: core rolls chance for any loot definition entry just one time – so if a references looses its chance it is skipped for the current loot completely whatever is <strong>maxcount</strong> value.</p> 
+<h3> <a id="user-content-condition_id" class="anchor" href="#condition_id" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>condition_id</h3> 
+<p>Value that represents a <a href="Conditions#condition_entry">condition</a> that must be met in order for the item to drop.<br> See <a href="Conditions">Conditions table</a> for detailed description.</p> 
+<p>Note: For <a href="loot_template#mincountOrRef">reference entries</a> only some conditions can be used</p> 
+<h2> <a id="user-content-agreements" class="anchor" href="#agreements" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Agreements</h2> 
+<p>These agreements are different for different loot tables. Mainly agreements defines rules for loot template IDs (<a href="#entry">entry</a>) and groups</p> 
+<h3> <a id="user-content-fishing-haul" class="anchor" href="#fishing-haul" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Fishing haul</h3> 
+<p>For fishing_loot_template, ID is the zone or area ID from <a href="AreaTable.dbc">AreaTable.dbc</a> (Note: Area IDs are not included in the link)</p> 
+<p>Also an extra note on fishing_loot_template: if just one area ID is defined for a zone, then that whole zone ID is skipped and therefore all areas in that zone need to have entries in the table. Only when there doesn’t exist any area entries for a zone does the core use the zone ID directly. Zone = Wetlands, Elwynn, etc; Area = Northshire, Lakeshire, etc.</p> 
+<p>When several zones uses the same loot definition then</p> 
+<ul> 
+ <li>the loot template of the zone with minimal ID (minID) should be defined without references</li> 
+ <li>the other zone with the same loot should have loot definition as a single <a href="#mincountOrRef">reference</a> to the minID loot definition</li> 
+</ul> 
+<p>Note: To be confirmed by <span>UDB</span> developers</p> 
+<p>As successful fishing should give exactly 1 fish (with an exception for quest fishes) so non-quest part of every loot template should be</p> 
+<ul> 
+ <li>or single <a href="#Plain_entry">plain entry</a> with 100% drop chance</li> 
+ <li>or a single group with <a href="#groupid"><em>group chance</em></a> equal to 100%</li> 
+ <li>or a reference to a template made according to previous two variants. It is recommended to use <a href="#Group_reference">group references</a>.</li> 
+</ul> 
+<p>When a fish is catched for a quest it becoms the <em>second</em> fish on the hook. Many people rolled on floor laughing but this is blizzlike and fortunately easy to implement. Just add necessary <a href="#Quest_drop">quest drop</a> definition(s).</p> 
+<h3> <a id="user-content-corpse-loot" class="anchor" href="#corpse-loot" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Corpse loot</h3> 
+<p>For creature_loot_template basic approach is to use <a href="creature_template#lootid"> creature_template.lootid</a> equal to <a href="creature_template#entry">creature_template.entry</a>. But this results in great overhead in the loot table as</p> 
+<ul> 
+ <li>many creatures use the same loot definition (well, stats on sites are <em>similar</em> due to the nature of random roll)</li> 
+ <li>even more creatures use same parts of loot definition</li> 
+</ul> 
+<p>That is why it is recommended to use <a href="#groupid">grouping</a>, <a href="#Group_reference">group references</a> and <a href="#Template_reference">template references</a>.</p> 
+<h3> <a id="user-content-disenchant-outcome" class="anchor" href="#disenchant-outcome" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Disenchant outcome</h3> 
+<p>Agreements for disenchant loot templates numbering is <strong><a href="item_template#level&amp;#42;100">item.level</a> + <a href="item_template#quality">item.quality</a></strong> where <strong>item</strong> is disenchanting target.</p> 
+<p>As disenchanting should give exactly 1 type of shard/essence/dust/etc so every loot template should be</p> 
+<ul> 
+ <li>or single <a href="#Plain_entry">plain entry</a> with 100% drop chance</li> 
+ <li>or a single group with <a href="#groupid"><em>group chance</em></a> equal to 100%</li> 
+</ul> 
+<p>There is no use for references here as the reference is done with the relation field. No quest drop at all.</p> 
+<h3> <a id="user-content-gameobject-harvest" class="anchor" href="#gameobject-harvest" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Gameobject harvest</h3> 
+<p><strong><em><span>TBD</span></em></strong></p> 
+<h3> <a id="user-content-luggage-contents" class="anchor" href="#luggage-contents" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Luggage contents</h3> 
+<p><strong><em><span>TBD</span></em></strong></p> 
+<h3> <a id="user-content-pocket-pick-ups" class="anchor" href="#pocket-pick-ups" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Pocket pick-ups</h3> 
+<p>Agreements for pickpocketing loot templates numbering is not known.</p> 
+<p><strong><em><span>TBD</span></em></strong></p> 
+<h3> <a id="user-content-prospecting-outcome" class="anchor" href="#prospecting-outcome" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Prospecting outcome</h3> 
+<p>Agreements for prospecting loot templates numbering is not known.</p> 
+<p><strong><em><span>TBD</span></em></strong></p> 
+<h3> <a id="user-content-skinning-pulls" class="anchor" href="#skinning-pulls" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Skinning pulls</h3> 
+<p>Agreements for skinning loot templates numbering is not known. It’s a real pity as many creatures should use the same templates. In most cases mobs with the same family and level have <em>very</em> similar skinning statistics.</p> 
+<p>As skinning should give exactly 1 type of skin/hide/etc so every loot template should be</p> 
+<ul> 
+ <li>or single <a href="#Plain_entry">plain entry</a> with 100% drop chance</li> 
+ <li>or single group with <a href="#groupid"><em>group chance</em></a> equal to 100%</li> 
+</ul> 
+<p>There is no use for references here as the reference is done with the relation field.</p> 
+<p>When a skin is pulled for a quest it becoms the <em>second</em> skin from the mob. Yes, funny. This is blizzlike and fortunately easy to implement. Just add necessary <a href="#Quest_drop">quest drop</a> definition(s).</p> 
+<h2> <a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Examples</h2> 
+<p>The example here mainly taken from current <span>UDB</span> (339) or from <span>UDB</span> forum. Often examples have several authors and it is uneasy to credit right people so: many thanks to <span>ALL</span> <span>UDB</span> devs and conributors.</p> 
+<p>But please note that some (or even all) example may contain incorrect data and are shown just for demostration of different loot data organisation.</p> 
+<h3> <a id="user-content-simple-examples" class="anchor" href="#simple-examples" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Simple examples</h3> 
+<h4> <a id="user-content-gameobject-dropping-a-single-non-quest-item" class="anchor" href="#gameobject-dropping-a-single-non-quest-item" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Gameobject dropping a single non-quest item</h4> 
+<pre>
+# gameobject_template: entry=1622 name='Bruiseweed' type=3 data1=1419
+
+DELETE gameobject_loot_template WHERE entry=1419;
+INSERT INTO gameobject_loot_template
+  (entry, item, ChanceOrRef, QuestChanceOrGroup, mincount, maxcount, freeforall, lootcondition, condition_value1, condition_value2)
+VALUES
+  (1419, 2453, 100, 0, 1, 3, 0, 0, 0, 0);  # 100% drop a pile of 1 to 3 items [2453] 'Bruiseweed'
+</pre> 
+<p>Taking into account default values of the table the second query could be simplified with no change of data (`mincount` is left on cosmetic reasons as `maxcount` has a non-default value):</p> 
+<pre>
+gameobject_template: entry=1622 name='Bruiseweed' type=3 data1=1419
+
+INSERT INTO gameobject_loot_template
+  (entry, item, ChanceOrRef, mincount, maxcount)
+VALUES
+  (1419, 2453, 100, 1, 3);  # 100% drop a pile of 1 to 3 items [2453] 'Bruiseweed'
+</pre> 
+<h4> <a id="user-content-creature-having-in-the-pocket-single-quest-item" class="anchor" href="#creature-having-in-the-pocket-single-quest-item" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Creature having in the pocket single quest item</h4> 
+<pre>
+# creature_template: entry=6846, name='Defias Dockmaster', pickpocketloot=6846
+# Note: link with pickpocketing_loot_template is on `pickpocketloot` field (which is equal to `entry` field in this case)
+
+DELETE pickpocketing_loot_template WHERE entry=6846;
+
+INSERT INTO pickpocketing_loot_template
+  (entry, item, ChanceOrRef, QuestChanceOrGroup, mincount, maxcount, freeforall, lootcondition, condition_value1, condition_value2)
+VALUES
+  (6846, 7675, 0, 100, 1, 1, 0, 0, 0, 0);
+</pre> 
+<p>Again, taking into account default values of the table the second query could be simplified with no change of data:</p> 
+<pre><code>INSERT INTO pickpocketing_loot_template
+  (entry, item, ChanceOrRef, QuestChanceOrGroup)
+VALUES
+  (6846, 7675, 0, 100);</code></pre> 
+<p>Note that ChanceOrRef can not be skipped as it has default value of 100.</p> 
+<h4> <a id="user-content-wrong-definition-combined-quest-and-non-quest-chances" class="anchor" href="#wrong-definition-combined-quest-and-non-quest-chances" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Wrong definition: combined quest and non-quest chances</h4> 
+<pre><code>SELECT * FROM `pickpocketing_loot_template` WHERE `entry` = '20424';</code></pre> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>entry</th> 
+   <th>item</th> 
+   <th>ChanceOrRef</th> 
+   <th>QuestChanceOrGroup</th> 
+   <th>mincount</th> 
+   <th>maxcount</th> 
+   <th>freeforall</th> 
+   <th>lootcondition</th> 
+   <th>condition_value1</th> 
+   <th>condition_value2</th> 
+  </tr> 
+  <tr> 
+   <td>20424</td> 
+   <td>422</td> 
+   <td>0.1</td> 
+   <td>100</td> 
+   <td>1</td> 
+   <td>1</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td>20424</td> 
+   <td>929</td> 
+   <td>0.1</td> 
+   <td>100</td> 
+   <td>1</td> 
+   <td>1</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td>20424</td> 
+   <td>4538</td> 
+   <td>0.1</td> 
+   <td>100</td> 
+   <td>1</td> 
+   <td>1</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td>20424</td> 
+   <td>4542</td> 
+   <td>0.1</td> 
+   <td>100</td> 
+   <td>1</td> 
+   <td>1</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td>20424</td> 
+   <td>5374</td> 
+   <td>0.1</td> 
+   <td>100</td> 
+   <td>1</td> 
+   <td>1</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td>20424</td> 
+   <td>16882</td> 
+   <td>22.2222</td> 
+   <td>0</td> 
+   <td>1</td> 
+   <td>1</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+ </tbody>
+</table> 
+<p>First 5 rows in the result are incorrect, ChanceOrRef and QuestChanceOrGroup should not be positive simultanously. See <a href="#ChanceOrRef">allowed combinations</a>. The core does not crash encounering that, but non-quest chances are ignored.</p> 
+<h3> <a id="user-content-groups" class="anchor" href="#groups" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Groups</h3> 
+<h4> <a id="user-content-simple-skinning-group" class="anchor" href="#simple-skinning-group" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Simple skinning group</h4> 
+<pre><code>SELECT * FROM `skinning_loot_template` WHERE `entry` = '100003';</code></pre> 
+<p>gives</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>entry</th> 
+   <th>item</th> 
+   <th>ChanceOrRef</th> 
+   <th>QuestChanceOrGroup</th> 
+   <th>mincount</th> 
+   <th>maxcount</th> 
+   <th>freeforall</th> 
+   <th>lootcondition</th> 
+   <th>condition_value1</th> 
+   <th>condition_value2</th> 
+  </tr> 
+  <tr> 
+   <td>100003</td> 
+   <td>8170</td> 
+   <td>80</td> 
+   <td>-1</td> 
+   <td>1</td> 
+   <td>1</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td>100003</td> 
+   <td>8171</td> 
+   <td>20</td> 
+   <td>-1</td> 
+   <td>1</td> 
+   <td>1</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+ </tbody>
+</table> 
+<p>Quite correct. Used quite widely:</p> 
+<pre><code>SELECT entry FROM `creature_template` WHERE `skinloot` = '100003';</code></pre> 
+<p>gives</p> 
+<pre><code>659 2707 4242 4243 5347 5440 6582 6583 6648 7376 8024 8025 8204 8302 8303 8925 8932 9032 9297
+9521 9526 9527 10177 10204 10376 10596 10619 10717 10942 10979 10988 11181 11374 11671 11672
+11710 11740 11741 11885 11896 11897 11956 12124 12125 12803 13160 13178 13221 13618 13676 13916
+14283 14344 14476 14477 14566 14568 14732 14884 14943 14944 14945 14946 14947 14948 14965 14986
+14988 15041 15114 15172 15204 15220 15316 15338 15718</code></pre> 
+<h4> <a id="user-content-almost-correct-skinning-loot" class="anchor" href="#almost-correct-skinning-loot" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Almost correct skinning loot</h4> 
+<pre><code>SELECT * FROM `skinning_loot_template` WHERE `entry` = '5292';</code></pre> 
+<p>gives</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>entry</th> 
+   <th>item</th> 
+   <th>ChanceOrRef</th> 
+   <th>QuestChanceOrGroup</th> 
+   <th>mincount</th> 
+   <th>maxcount</th> 
+   <th>freeforall</th> 
+   <th>lootcondition</th> 
+   <th>condition_value1</th> 
+   <th>condition_value2</th> 
+  </tr> 
+  <tr> 
+   <td>5292</td> 
+   <td>4304</td> 
+   <td>49.655</td> 
+   <td>-1</td> 
+   <td>1</td> 
+   <td>1</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td>5292</td> 
+   <td>4234</td> 
+   <td>43.1624</td> 
+   <td>-1</td> 
+   <td>1</td> 
+   <td>1</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td>5292</td> 
+   <td>8169</td> 
+   <td>4.0984</td> 
+   <td>-1</td> 
+   <td>1</td> 
+   <td>1</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td>5292</td> 
+   <td>4235</td> 
+   <td>3.0676</td> 
+   <td>-1</td> 
+   <td>1</td> 
+   <td>1</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td>5292</td> 
+   <td>8973</td> 
+   <td>0</td> 
+   <td>80</td> 
+   <td>1</td> 
+   <td>1</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+ </tbody>
+</table> 
+<p>Quest entry and a group. Would be good if <a href="#groupid">group chance</a> was 100, but it is only 99.9834. So on average at 166 skinning attempts over 1000 000 player will get an empty loot window (withuot considering quest skins which are very rare).</p> 
+<p>Used for creadure with entry=5292 only.</p> 
+<h4> <a id="user-content-damnly-wrong-skinning-loot" class="anchor" href="#damnly-wrong-skinning-loot" aria-hidden="true">
+  <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+   <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </svg></a>Damnly wrong skinning loot</h4> 
+<pre><code>SELECT * FROM `skinning_loot_template` WHERE `entry` = '10151';</code></pre> 
+<p>gives</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>entry</th> 
+   <th>item</th> 
+   <th>ChanceOrRef</th> 
+   <th>QuestChanceOrGroup</th> 
+   <th>mincount</th> 
+   <th>maxcount</th> 
+   <th>freeforall</th> 
+   <th>lootcondition</th> 
+   <th>condition_value1</th> 
+   <th>condition_value2</th> 
+  </tr> 
+  <tr> 
+   <td>10151</td> 
+   <td>8154</td> 
+   <td>60</td> 
+   <td>-1</td> 
+   <td>1</td> 
+   <td>1</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td>10151</td> 
+   <td>8170</td> 
+   <td>48</td> 
+   <td>-1</td> 
+   <td>1</td> 
+   <td>2</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td>10151</td> 
+   <td>4304</td> 
+   <td>40</td> 
+   <td>-1</td> 
+   <td>1</td> 
+   <td>2</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td>10151</td> 
+   <td>8368</td> 
+   <td>5</td> 
+   <td>-1</td> 
+   <td>1</td> 
+   <td>1</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td>10151</td> 
+   <td>8171</td> 
+   <td>4</td> 
+   <td>-1</td> 
+   <td>1</td> 
+   <td>1</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td>10151</td> 
+   <td>8169</td> 
+   <td>3</td> 
+   <td>-1</td> 
+   <td>1</td> 
+   <td>1</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+ </tbody>
+</table> 
+<pre><code>SELECT entry, name FROM `creature_template` WHERE `skinloot` = '10151';</code></pre> 
+<p>gives</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>entry</th> 
+   <th>name</th> 
+  </tr> 
+  <tr> 
+   <td>11614</td> 
+   <td>Bloodshot</td> 
+  </tr> 
+ </tbody>
+</table> 
+<p>First problem the <a href="#groupid">group chance</a> is 160 that is much higher than 100. If by a case order of records in core (actually it is unknown) is such that chances of 60 and 40 are in the beginning then the rest of the group will never be processed. The result will be exacly the same is if the loot template was</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>entry</th> 
+   <th>item</th> 
+   <th>ChanceOrRef</th> 
+   <th>QuestChanceOrGroup</th> 
+   <th>mincount</th> 
+   <th>maxcount</th> 
+   <th>freeforall</th> 
+   <th>lootcondition</th> 
+   <th>condition_value1</th> 
+   <th>condition_value2</th> 
+  </tr> 
+  <tr> 
+   <td>10151</td> 
+   <td>8154</td> 
+   <td>60</td> 
+   <td>-1</td> 
+   <td>1</td> 
+   <td>1</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+  <tr> 
+   <td>10151</td> 
+   <td>4304</td> 
+   <td>40</td> 
+   <td>-1</td> 
+   <td>1</td> 
+   <td>2</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+   <td>0</td> 
+  </tr> 
+ </tbody>
+</table> 
+<p>Moreover, skinloot in not equal to creature_template.entry and this is <span>NOT</span> a reference to the same loot – 10151 is used <span>ONLY</span> by creature 11614. And the last problem – wowhead has no data about this skinning loot of this pet at all…</p></div></div>
+</body></html>

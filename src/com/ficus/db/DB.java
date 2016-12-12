@@ -20,7 +20,7 @@ public final class DB {
 	}
 
 
-	private  void executeTransaction(String DSN, DBI action) throws SQLException {
+	public   void executeTransaction(String DSN, DBI action) throws SQLException {
 		DBCon con=null;
 		try {
 			con=DBCon.getConnection(DSN);
@@ -37,7 +37,7 @@ public final class DB {
 		}
 	}
 
-	private void execute(String DSN, DBI action) throws SQLException {
+	public  void execute(String DSN, DBI action) throws SQLException {
 		DBCon con=null;
 		try {
 			con=DBCon.getConnection(DSN);

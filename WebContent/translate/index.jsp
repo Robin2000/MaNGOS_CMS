@@ -11,7 +11,7 @@
 <html>
 <head>
 	<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
-    <title><%=table %> List</title>
+    <title><%=table %> 列表</title>
        
     <!-- DataTables JavaScript -->
     <script src="<%=basePath%>/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
@@ -49,6 +49,7 @@
 		} );        
         
         $("select").css("width","400px");
+        $(".panel-heading").css("line-height","40px");
     });
     
     function reload(){

@@ -1,6 +1,7 @@
 package com.ficus.tables;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -10,6 +11,7 @@ import org.apache.log4j.Logger;
 import com.ficus.app.Container;
 import com.ficus.db.DBCon;
 import com.ficus.db.QueryResult;
+import com.ficus.db.SQLParameter;
 import com.ficus.db.TableInfo;
 
 public final class WorldInfo {
@@ -94,7 +96,7 @@ public final class WorldInfo {
 		while(it.hasNext())
 			cl.add(it.next());
 		
-		cl.sort(new Comparator<String>(){  /*key sort*/
+		Collections.sort(cl,new Comparator<String>(){  /*key sort*/
 			@Override
 			public int compare(String o1, String o2) {
 				return o1.compareTo(o2);
@@ -107,11 +109,13 @@ public final class WorldInfo {
 		for(String c:cl)
 		{
 			gl=map.get(c);
-			gl.sort(new Comparator<TableInfo>(){  /*value sort*/
+			
+			Collections.sort(gl,new Comparator<TableInfo>(){  /*value sort*/
 				@Override
 				public int compare(TableInfo o1, TableInfo o2) {
 					return o1.getName().compareTo(o2.getName());
 				}});
+			
 			result.add(gl);
 		}
 		

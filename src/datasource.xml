@@ -4,5 +4,7 @@
     <!-- ds name="mangos" driver="com.mysql.jdbc.Driver" user="root" passwd="java112233" url="jdbc:mysql://127.0.0.1:33560/world?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;failOverReadOnly=false"/-->
     <ds name="realmd" driver="com.mysql.jdbc.Driver" user="root" passwd="java112233" url="jdbc:mysql://127.0.0.1:12340/realmd?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;failOverReadOnly=false"/>
     <ds name="characters" driver="com.mysql.jdbc.Driver" user="root" passwd="java112233" url="jdbc:mysql://127.0.0.1:12340/characters?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;failOverReadOnly=false"/>
+	<ds name="dbc" driver="com.mysql.jdbc.Driver" user="root" passwd="java112233" url="jdbc:mysql://127.0.0.1:12340/dbc?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;failOverReadOnly=false"/>
+	<ds name="hh" driver="com.mysql.jdbc.Driver" user="root" passwd="java112233" url="jdbc:mysql://127.0.0.1:33560/hh?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;failOverReadOnly=false"/>
 	<defaultDSN>mangos</defaultDSN>
 </root>

@@ -11,7 +11,7 @@
     <meta name="description" content="MaNGOS CMS">
     <meta name="author" content="435217451@qq.com">
 
-    <title>MaNGOS CMS - <sitemesh:write property='title' /></title>
+    <title>游戏内容管理GCMS - <sitemesh:write property='title' /></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -44,11 +44,9 @@
     <script src="../dist/js/sb-admin-2.js"></script>
 	<sitemesh:write property='head' />
 
-
-
 </head>
 
-<body>
+<body style="font-family:微软雅黑">
 
     <div id="wrapper">
 
@@ -61,7 +59,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">MaNAGOS CMS 1.0</a>
+                <a class="navbar-brand" href="#">游戏内容管理GCMS 1.0</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -290,104 +288,104 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="#"><i class="fa fa-dashboard fa-fw"></i> 仪表盘</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                            <a href="#" style="#c0c0c0"><i class="fa fa-bar-chart-o fa-fw"></i> 统计图<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html">Flot Charts</a>
+                                    <a href="#">Flot Charts</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Morris.js Charts</a>
+                                    <a href="#">Area Charts</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="<%=basePath%>/page/tables.jsp"><i class="fa fa-table fa-fw"></i> Tables</a>
+                            <a href="<%=basePath%>/page/tables.jsp"><i class="fa fa-table fa-fw"></i> 数据库原始表</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                            <a href="#" style="#c0c0c0"><i class="fa fa-edit fa-fw"></i>表单</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Quest<span class="fa arrow"></span></a>
+                        <li class="active">
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i>任务<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<%=basePath%>/quest/index.jsp?t=basic">Basic</a>
+                                    <a href="<%=basePath%>/quest/index.jsp?t=basic">基础</a>
                                 </li>
                                 <li>
-                                    <a href="<%=basePath%>/quest/index.jsp?t=accept">Accept</a>
+                                    <a href="<%=basePath%>/quest/index.jsp?t=accept">接受任务</a>
                                 </li>
                                 <li>
-                                    <a href="<%=basePath%>/quest/index.jsp?t=complete">Complete</a>
+                                    <a href="<%=basePath%>/quest/index.jsp?t=complete">完成任务</a>
                                 </li>
                                 <li>
-                                    <a href="<%=basePath%>/quest/index.jsp?t=reward">Reward</a>
+                                    <a href="<%=basePath%>/quest/index.jsp?t=reward">任务奖励</a>
                                 </li>
                                 <li>
-                                    <a href="<%=basePath%>/quest/index.jsp?t=chain">Chain</a>
+                                    <a href="<%=basePath%>/quest/index.jsp?t=chain">任务链</a>
                                 </li>
                                 <li>
-                                    <a href="<%=basePath%>/quest/index.jsp?t=emote">Emote</a>
+                                    <a href="<%=basePath%>/quest/index.jsp?t=emote">任务表情</a>
                                 </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Translate<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="<%=basePath%>/translate/index.jsp?t=all">All</a></li>
-                                <li><a href="<%=basePath%>/translate/index.jsp?t=quest_template">quest_template</a></li>
-                                <li><a href="<%=basePath%>/translate/index.jsp?t=gameobject_template">gameobject_template</a></li>
-                                <li><a href="<%=basePath%>/translate/index.jsp?t=creature_template">creature_template</a></li>
-                                <li><a href="<%=basePath%>/translate/index.jsp?t=item_template">item_template</a></li>
-                                <li>
-                                    <a href="#">gossip<span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li><a href="<%=basePath%>/translate/index.jsp?t=gossip_menu">gossip_menu</a></li>
-                                        <li><a href="<%=basePath%>/translate/index.jsp?t=gossip_menu_option">gossip_menu_option</a></li>
-                                        <li><a href="<%=basePath%>/translate/index.jsp?t=gossip_texts">gossip_texts</a></li>
-                                        <li><a href="<%=basePath%>/translate/index.jsp?t=npc_text">npc_text</a></li>
-                                        <li><a href="<%=basePath%>/translate/index.jsp?t=page_text">page_text</a></li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                                 <li>
-                                    <a href="#">script<span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li><a href="<%=basePath%>/translate/index.jsp?t=script_texts">script_texts</a></li>
-                                        <li><a href="<%=basePath%>/translate/index.jsp?t=db_script_string">db_script_string</a></li>
-                                        <li><a href="<%=basePath%>/translate/index.jsp?t=creature_ai_texts">creature_ai_texts</a></li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                                <li><a href="<%=basePath%>/translate/index.jsp?t=achievement_reward">achievement_reward</a></li>
-                                <li><a href="<%=basePath%>/translate/index.jsp?t=game_tele">game_tele</a></li>
-                                <li><a href="<%=basePath%>/translate/index.jsp?t=points_of_interest">points_of_interest</a></li>
-                                <li><a href="<%=basePath%>/translate/index.jsp?t=mangos_string">mangos_string</a></li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li class="active">
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> GM Command<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> 综合查询<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="<%=basePath%>/translate/index.jsp?t=all">全部对象</a></li>
+                                <li><a href="<%=basePath%>/translate/index.jsp?t=quest_template">任务模板</a></li>
+                                <li><a href="<%=basePath%>/translate/index.jsp?t=gameobject_template">游戏对象模板</a></li>
+                                <li><a href="<%=basePath%>/translate/index.jsp?t=creature_template">生物模板</a></li>
+                                <li><a href="<%=basePath%>/translate/index.jsp?t=item_template">物品道具模板</a></li>
+                                <li>
+                                    <a href="#">NPC对话<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li><a href="<%=basePath%>/translate/index.jsp?t=gossip_menu">对话菜单</a></li>
+                                        <li><a href="<%=basePath%>/translate/index.jsp?t=gossip_menu_option">菜单选项</a></li>
+                                        <li><a href="<%=basePath%>/translate/index.jsp?t=gossip_texts">对话文本</a></li>
+                                        <li><a href="<%=basePath%>/translate/index.jsp?t=npc_text">npc文本</a></li>
+                                        <li><a href="<%=basePath%>/translate/index.jsp?t=page_text">翻页文本</a></li>
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                                 <li>
+                                    <a href="#">游戏脚本<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li><a href="<%=basePath%>/translate/index.jsp?t=script_texts">程序脚本文本</a></li>
+                                        <li><a href="<%=basePath%>/translate/index.jsp?t=db_script_string">数据库脚本</a></li>
+                                        <li><a href="<%=basePath%>/translate/index.jsp?t=creature_ai_texts">脚本智能文本</a></li>
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                                <li><a href="<%=basePath%>/translate/index.jsp?t=achievement_reward">成就奖励</a></li>
+                                <li><a href="<%=basePath%>/translate/index.jsp?t=game_tele">游戏传送</a></li>
+                                <li><a href="<%=basePath%>/translate/index.jsp?t=points_of_interest">关注坐标点</a></li>
+                                <li><a href="<%=basePath%>/translate/index.jsp?t=mangos_string">其它字符串</a></li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i> GM 命令<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a class="active" href="<%=basePath%>/command/trinitygm.html">trinity GM</a>
+                                    <a class="active" href="<%=basePath%>/command/trinitygm.html">trinity 命令</a>
                                 </li>
                                 <li>
-                                    <a class="active" href="<%=basePath%>/command/trinityadv.html">trinity Adv</a>
+                                    <a class="active" href="<%=basePath%>/command/trinityadv.html">trinity 高级命令</a>
                                 </li>
                                 <li>
-                                    <a href="<%=basePath%>/table/index.jsp?t=command">cmangos GM</a>
+                                    <a href="<%=basePath%>/table/index.jsp?t=command">cmangos 命令</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                         <li>
-                            <a href="<%=basePath%>/wiki/index"><i class="fa fa-th-list fa-fw"></i> DB Struct Wiki<span class="fa arrow"></span></a>
-                            <a href="https://trinitycore.atlassian.net/wiki/display/tc/TrinityCore+Home"><i class="fa fa-th-list fa-share-alt"></i> TrinityCore+Home<span class="fa arrow"></span></a>
-                             <a href="http://www.pxr.dk/wowdev/wiki/index.php?title=Category:DBC_WotLK"><i class="fa fa-th-list fa-book"></i> DBC_WotLK<span class="fa arrow"></span></a>
+                         <li >
+                            <a href="<%=basePath%>/wiki/index"><i class="fa fa-th-list fa-fw"></i> 数据库结构百科<span class="fa arrow"></span></a>
+                            <a href="https://trinitycore.atlassian.net/wiki/display/tc/TrinityCore+Home"><i class="fa fa-th-list fa-share-alt"></i> TrinityCore资源<span class="fa arrow"></span></a>
+                             <a href="https://wowdev.wiki/DB/Spell"><i class="fa fa-th-list fa-book"></i> DBC_WotLK资源<span class="fa arrow"></span></a>
                             
                             <!-- /.nav-second-level -->
                         </li>

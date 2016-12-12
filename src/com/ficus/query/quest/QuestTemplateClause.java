@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import com.ficus.query.QueryFilter;
 import com.ficus.query.QueryItemInterface;
-import com.ficus.query.gameobject.GameObjectFaction;
 
 public class QuestTemplateClause implements QueryFilter {
 	private String tables[]="quest_template,basic,accept,complete,reward,chain,emote".split(",");
@@ -12,7 +11,23 @@ public class QuestTemplateClause implements QueryFilter {
 	public QuestTemplateClause(){
 		list.clear();
 		list.add(new RequiredClasses());
-
+		list.add(new RequiredRaces());
+		list.add(new Method());
+		list.add(new RequiredSkill());
+		list.add(new Zone());
+		list.add(new Sort());
+		list.add(new Type());
+		list.add(new RepObjectiveFaction());
+		list.add(new RequiredMaxRepFaction());
+		list.add(new RequiredMinRepFaction());
+		list.add(new QuestFlags());
+		list.add(new SpecialFlags());
+		list.add(new CharTitlesFilter());
+		list.add(new PrevQuestId());
+		list.add(new NextQuestId());
+		list.add(new ExclusiveGroup());
+		list.add(new NextQuestInChain());
+		list.add(new RewRepFaction());
 	}
 
 	@Override

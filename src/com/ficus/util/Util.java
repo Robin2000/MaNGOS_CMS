@@ -11,8 +11,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.log4j.Logger;
 
@@ -38,8 +38,8 @@ public final class Util {
 	}
 
 	public static String curDate(String dormat) {
-		LocalDateTime dateTime = LocalDateTime.now();
-		return dateTime.format(DateTimeFormatter.ofPattern(dormat));
+
+		return new SimpleDateFormat(dormat).format(new Date());
 	}
 
 	public static boolean isEmpty(String s) {

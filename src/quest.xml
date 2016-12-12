@@ -16,7 +16,7 @@ LEFT JOIN locales_quest B ON A.entry=B.entry
 </accept>
 <complete>
 SELECT A.entry as entrya,A.title,B.title_loc4,
-Method,RepObjectiveFaction,RepObjectiveValue,QuestFlags,SpecialFlags,PlayersSlain,
+Method,RepObjectiveFaction,RepObjectiveValue,QuestFlags,SpecialFlags,PlayersSlain,ReqSourceId1,ReqSourceCount1,ReqSourceId2,ReqSourceCount2,ReqSourceId3,ReqSourceCount3,ReqSourceId4,ReqSourceCount4,
 ReqItemId1,ReqItemId2,ReqItemId3,ReqItemId4,ReqItemId5,ReqItemId6,ReqItemCount1,ReqItemCount2,ReqItemCount3,ReqItemCount4,ReqItemCount5,ReqItemCount6,
 ReqCreatureOrGOId1,ReqCreatureOrGOId2,ReqCreatureOrGOId3,ReqCreatureOrGOId4,ReqCreatureOrGOCount1,ReqCreatureOrGOCount2,ReqCreatureOrGOCount3,ReqCreatureOrGOCount4,
 ReqSpellCast1,ReqSpellCast2,ReqSpellCast3,ReqSpellCast4

@@ -39,7 +39,7 @@ public class SocketColor extends ArrayList<KeyValue> implements QueryItemInterfa
 
 		String type=request.getParameter("SocketColor");
 		if(type!=null&&!"-1".equals(type))
-			return "SocketColor="+type;
+			return "(SocketColor_1="+type+" or SocketColor_2="+type+" or SocketColor_3="+type+")";
 		else
 			return "";
 	}

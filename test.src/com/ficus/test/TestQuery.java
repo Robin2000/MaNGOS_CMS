@@ -1,9 +1,11 @@
 package com.ficus.test;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.ficus.db.DBCon;
 import com.ficus.db.QueryResult;
+import com.ficus.db.RecodDealer;
 
 public class TestQuery {
 
@@ -12,9 +14,16 @@ public class TestQuery {
 		try{
 			con=DBCon.getConnection("mangos");
 			con.setSQL("select * from creature_template");
-			QueryResult rs=con.query(1000,12);
-			for(int i=0;i<rs.size();i++)
-				System.out.println(rs.getObject(i,1));
+			con.Query(new RecodDealer(){
+
+				@Override
+				public boolean deal(ResultSet rs) {
+					
+					
+					
+					
+					return true;
+				}});
 		}finally{
 			con.close();
 		}
